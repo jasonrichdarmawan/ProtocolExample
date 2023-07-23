@@ -349,7 +349,7 @@
 		960A874C2A6DA673006874E5 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				960A874D2A6DA677006874E5 /* Components */,
+				960A87502A6DAED0006874E5 /* Presentation */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -360,6 +360,14 @@
 				960A874E2A6DA67E006874E5 /* AlarmView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		960A87502A6DAED0006874E5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				960A874D2A6DA677006874E5 /* Components */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		9691D43D2A6D77E800EE843C = {
