@@ -25,7 +25,7 @@ struct DepartureArrivalView: View {
 }
 
 #if DEBUG
-final class DepartureArrivalViewModel_Example: ObservableObject {
+private final class DepartureArrivalViewModel_Example: ObservableObject {
     @Published var departure = "Departure"
     @Published var arrival = "Arrival"
     @Published var departureSelected = false
@@ -39,7 +39,7 @@ final class DepartureArrivalViewModel_Example: ObservableObject {
     }
 }
 
-struct DepartureArrivalView_Example: View {
+private struct DepartureArrivalView_Example: View {
     @StateObject private var viewModel = DepartureArrivalViewModel_Example()
     
     var body: some View {
@@ -72,7 +72,7 @@ struct DepartureArrivalView_Example: View {
     }
 }
 
-struct DepartureArrivalViewExample_Previews: PreviewProvider {
+private struct DepartureArrivalViewExample_Previews: PreviewProvider {
     static var previews: some View {
         DepartureArrivalView_Example()
     }

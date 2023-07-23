@@ -35,7 +35,7 @@ struct AlarmView: View {
 }
 
 #if DEBUG
-struct AlarmView_Previews: PreviewProvider {
+private struct AlarmView_Previews: PreviewProvider {
     static var previews: some View {
         AlarmView(isSoundOn: true)
     }
