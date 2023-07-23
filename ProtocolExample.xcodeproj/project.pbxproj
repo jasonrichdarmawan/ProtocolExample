@@ -33,6 +33,7 @@
 		960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87432A6D9F2A006874E5 /* MRTTrainSchedule.swift */; };
 		960A87462A6D9F7A006874E5 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87452A6D9F7A006874E5 /* Train.swift */; };
 		960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */; };
+		960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A874E2A6DA67E006874E5 /* AlarmView.swift */; };
 		9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */; };
 		9691D44C2A6D77E800EE843C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D44B2A6D77E800EE843C /* ContentView.swift */; };
 		9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D44D2A6D77E900EE843C /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		960A87432A6D9F2A006874E5 /* MRTTrainSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainSchedule.swift; sourceTree = "<group>"; };
 		960A87452A6D9F7A006874E5 /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainScheduleImpl.swift; sourceTree = "<group>"; };
+		960A874E2A6DA67E006874E5 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		9691D4462A6D77E800EE843C /* ProtocolExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtocolExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExampleApp.swift; sourceTree = "<group>"; };
 		9691D44B2A6D77E800EE843C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		960A874A2A6DA129006874E5 /* MRTNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				960A874C2A6DA673006874E5 /* Alarm */,
 				960A87402A6D9EFE006874E5 /* MRTTrainSchedule */,
 				960A87152A6D93F5006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce */,
 				960A87102A6D912B006874E5 /* NotifyWhenNearMRTStationOnce */,
@@ -341,6 +344,22 @@
 				960A87052A6D8E81006874E5 /* MRT */,
 			);
 			path = MRTNavigation;
+			sourceTree = "<group>";
+		};
+		960A874C2A6DA673006874E5 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				960A874D2A6DA677006874E5 /* Components */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		960A874D2A6DA677006874E5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				960A874E2A6DA67E006874E5 /* AlarmView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9691D43D2A6D77E800EE843C = {
@@ -491,6 +510,7 @@
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
 				960A873D2A6D9E97006874E5 /* AlarmManager.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
+				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
 				960A873A2A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift in Sources */,
 				960A87192A6D9463006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift in Sources */,
 				960A872D2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift in Sources */,
