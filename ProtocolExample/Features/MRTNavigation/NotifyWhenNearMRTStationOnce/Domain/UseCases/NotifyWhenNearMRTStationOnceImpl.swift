@@ -25,10 +25,14 @@ final class NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationOnce {
     }
     
     func start() -> NotifyWhenNearMRTStationOnceStartEvent {
+        DispatchQueue.global().async {
+            _ = self.stop()
+        }
         return .IS_STARTING
     }
     
     func stop() -> NotifyWhenNearMRTStationOnceStopEvent {
+        delegate?.notifyManager(self, didEvent: .TIME_OUT)
         return .IS_STOPPING
     }
 }
@@ -36,13 +40,13 @@ final class NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationOnce {
 extension NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationWithBluetoothDelegate {
     func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind station: Station) {
         _ = stop()
-        delegate?.notifyManager(self, didFind: station)
+        delegate?.notifyManager(self, didFind: station, didEvent: .FOUND)
     }
 }
 
 extension NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationWithGPSDelegate {
     func notifyManager(_ manager: NotifyWhenNearMRTStationWithGPS, didFind station: Station) {
         _ = stop()
-        delegate?.notifyManager(self, didFind: station)
+        delegate?.notifyManager(self, didFind: station, didEvent: .FOUND)
     }
 }

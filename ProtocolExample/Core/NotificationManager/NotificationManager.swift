@@ -9,6 +9,7 @@ import Foundation
 import UserNotifications
 
 protocol NotificationManager {
+    /// please show alert in view if return false
     func isAuthorizedOrRequestAuthorization(completionHandler: (Bool) -> Void)
     
     func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: (Bool) -> Void)

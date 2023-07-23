@@ -15,6 +15,7 @@ protocol NotifyWhenNearMRTStationWithGPS {
 }
 
 protocol NotifyWhenNearMRTStationWithGPSDelegate {
+    /// will notify once per station.
     func notifyManager(_ manager: NotifyWhenNearMRTStationWithGPS, didFind: Station)
 }
 

@@ -15,6 +15,7 @@ protocol NotifyWhenNearMRTStationWithBluetooth {
 }
 
 protocol NotifyWhenNearMRTStationWithBluetoothDelegate {
+    // will update once per station
     func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind: Station)
 }
 

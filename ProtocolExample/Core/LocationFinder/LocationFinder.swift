@@ -11,6 +11,7 @@ import CoreLocation
 protocol LocationFinder {
     var delegate: LocationFinderDelegate? { get set }
     
+    /// please show alert in view if return false
     func isAuthorizedAlwaysOrRequestAuthorization() -> Bool
     func start() -> LocationFinderStartEvent
     func stop() -> LocationFinderStopEvent

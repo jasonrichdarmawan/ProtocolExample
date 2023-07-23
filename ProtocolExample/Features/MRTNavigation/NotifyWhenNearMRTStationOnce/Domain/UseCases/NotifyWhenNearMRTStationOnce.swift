@@ -10,13 +10,17 @@ import Foundation
 protocol NotifyWhenNearMRTStationOnce {
     var delegate: NotifyWhenNearMRTStationOnceDelegate? { get set }
     
+    /// will stop after found any MRT station or after 3 seconds.
     func start() -> NotifyWhenNearMRTStationOnceStartEvent
+    /// for abrupt stop.
     func stop() -> NotifyWhenNearMRTStationOnceStopEvent
 }
 
+enum NotifyWhenNearMRTStationOnceDelegateEvent { case TIME_OUT, FOUND }
 
 protocol NotifyWhenNearMRTStationOnceDelegate {
-    func notifyManager(_ manager: NotifyWhenNearMRTStationOnce, didFind station: Station)
+    func notifyManager(_ manager: NotifyWhenNearMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationOnceDelegateEvent)
+    func notifyManager(_ manager: NotifyWhenNearMRTStationOnce, didEvent event: NotifyWhenNearMRTStationOnceDelegateEvent)
 }
 
 protocol NotifyWhenNearMRTStationOnceEvent {}

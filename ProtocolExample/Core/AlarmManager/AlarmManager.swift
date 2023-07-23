@@ -8,6 +8,8 @@
 import Foundation
 
 protocol AlarmManager {
+    /// will play haptic and audio feedback continuously
     func play() -> Bool
+    /// for abrupt stop.
     func stop() -> Bool
 }

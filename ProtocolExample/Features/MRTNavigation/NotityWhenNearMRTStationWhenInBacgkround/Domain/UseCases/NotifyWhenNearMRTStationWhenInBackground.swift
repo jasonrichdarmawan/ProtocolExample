@@ -8,7 +8,10 @@
 import Foundation
 
 protocol NotifyWhenNearMRTStationWhenInBackground {
+    /// start finding when in background
+    /// please handle applicationState in view, call stop() when enter foreground.
     func start() -> NotifyWhenNearMRTStationWhenInBackgroundStartEvent
+    /// for abrupt stop
     func stop() -> NotifyWhenNearMRTStationWhenInBackgroundStopEvent
 }
 

@@ -10,7 +10,7 @@ import CoreLocation
 final class BeaconFinderImpl: BeaconFinder {
     var delegate: BeaconFinderDelegate?
     
-    func isAuthorized() -> Bool {
+    func isAuthorizedOrRequestAuthorization() -> Bool {
         return true
     }
     

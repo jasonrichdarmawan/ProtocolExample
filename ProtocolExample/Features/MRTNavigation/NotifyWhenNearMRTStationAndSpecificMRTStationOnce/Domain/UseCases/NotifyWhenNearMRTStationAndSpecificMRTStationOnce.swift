@@ -10,14 +10,13 @@ import Foundation
 protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
     var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate? { get set }
     
+    /// will stop when found specific MRT station
     func start(arrival: Station) -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent
+    /// for abrupt stop.
     func stop() -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent
 }
 
-enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent {
-    case FOUND
-    case ARRIVED
-}
+enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent { case FOUND, ARRIVED }
 
 protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate {
     func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent)

@@ -8,8 +8,10 @@
 import Foundation
 
 protocol BeaconBroadcaster {
+    /// please show alert if return false
     func isAuthorizedOrRequestAuthorization() -> Bool
     func start(uuid: UUID, major: UInt16, minor: UInt16) -> BeaconBroadcasterStartEvent
+    /// for abrupt stop
     func stop() -> BeaconBroadcasterStopEvent
 }
 

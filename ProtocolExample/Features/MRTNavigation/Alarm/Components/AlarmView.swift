@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// will play alarm for 1 second
 struct AlarmView: View {
     @State private var isSoundOn: Bool {
         didSet {

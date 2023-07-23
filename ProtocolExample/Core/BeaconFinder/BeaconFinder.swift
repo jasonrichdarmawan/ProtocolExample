@@ -10,8 +10,11 @@ import CoreLocation
 protocol BeaconFinder {
     var delegate: BeaconFinderDelegate? { get set }
     
-    func isAuthorized() -> Bool
+    /// please show alert if return false
+    func isAuthorizedOrRequestAuthorization() -> Bool
+    /// will not stop even after found beacon
     func start(constraint: CLBeaconIdentityConstraint) -> BeaconFinderStartEvent
+    /// for abrupt stop
     func stop() -> BeaconFinderStopEvent
 }
 
