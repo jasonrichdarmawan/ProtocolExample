@@ -8,5 +8,7 @@
 import Foundation
 
 struct Station: Equatable {
+    let name, acronym: String
+    
     struct Platform: Hashable {}
 }

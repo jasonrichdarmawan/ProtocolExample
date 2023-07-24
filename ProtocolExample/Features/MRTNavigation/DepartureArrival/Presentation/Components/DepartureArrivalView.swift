@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct DepartureArrivalView: View {
-    @Binding var value: String
+    @Binding var value: Station
     @Binding var selected: Bool
     
     var body: some View {
         Button {
             selected = true
         } label: {
-            Text(value)
+            Text("\(value.name) Station")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.title2)
         }
@@ -26,8 +26,8 @@ struct DepartureArrivalView: View {
 
 #if DEBUG
 private final class DepartureArrivalViewModel_Example: ObservableObject {
-    @Published var departure: String
-    @Published var arrival: String
+    @Published var departure: Station
+    @Published var arrival: Station
     
     @Published var departureSelected: Bool
     var arrivalSelected: Bool {
@@ -39,13 +39,13 @@ private final class DepartureArrivalViewModel_Example: ObservableObject {
         }
     }
     
-    init(departure: String = "Departure", arrival: String = "Arrival", departureSelected: Bool = false) {
+    init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station = MRT.DukuhAtasBNI.station, departureSelected: Bool = false) {
         self.departure = departure
         self.arrival = arrival
         self.departureSelected = departureSelected
     }
     
-    func updateDepartureArrival(value: String) {
+    func updateDepartureArrival(value: Station) {
         if departureSelected {
             departure = value
         } else {
@@ -63,15 +63,15 @@ private struct DepartureArrivalViewExample: View {
             DepartureArrivalView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
             
             VStack(alignment: .leading, spacing: 0) {
-                Button("Stasiun Lebak Bulus Grab") {
-                    viewModel.updateDepartureArrival(value: "Stasiun Lebak Bulus Grab")
+                Button("\(MRT.LebakBulusGrab.station.name) Station") {
+                    viewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical, 16)
                 
-                Button("Stasiun Fatmawati Indomaret") {
-                    viewModel.updateDepartureArrival(value: "Stasiun Fatmawati Indomaret")
+                Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
+                    viewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
@@ -86,6 +86,7 @@ private struct DepartureArrivalViewExample: View {
 struct DepartureArrivalViewExample_Previews: PreviewProvider {
     static var previews: some View {
         DepartureArrivalViewExample()
+            .environment(\.locale, .init(identifier: "id-ID"))
     }
 }
 #endif
