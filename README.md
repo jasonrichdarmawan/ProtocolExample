@@ -330,7 +330,7 @@ The Entities layer is used by the Components and the ViewModel layer. i.e. `stru
 The UseCases layer is used by the ViewModel layer.
 The Repositories layer is used by the UseCases layer and the DataSource layer. The purpose it to convert Data layer's model to Domain layer's entity.
 ```
-4. The Data layer splitted into 2 layers: the Models layer and the DataSource layer.
+5. The Data layer splitted into 2 layers: the Models layer and the DataSource layer.
 ```
 The Models layer is used by the Repositories layer and the DataSource layer. The purpose is to define what is expected result from the DataSource layer. i.e. a API response.
 The DataSource layer is used by the Repositories layer. The purpose it to get data from somewhere. i.e. from local storage or from an API.
