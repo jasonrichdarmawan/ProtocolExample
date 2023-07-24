@@ -46,15 +46,16 @@ private final class DepartureArrivalViewModel_Example: ObservableObject {
     }
     
     func updateDepartureArrival(value: Station) {
-        if departureSelected {
-            // switch
+        switch departureSelected {
+        case true:
+            // swap
             if arrival == value {
                 arrival = departure
             }
             
             departure = value
-        } else {
-            // switch
+        case false:
+            // swap
             if departure == value {
                 departure = arrival
             }
