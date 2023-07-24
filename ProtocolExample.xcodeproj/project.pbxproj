@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		960A59082A6ED155000BE611 /* MRT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59072A6ED155000BE611 /* MRT.swift */; };
-		960A59102A6ED706000BE611 /* DepartureArrival+Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960A59122A6ED706000BE611 /* DepartureArrival+Localizable.strings */; };
+		960A59102A6ED706000BE611 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960A59122A6ED706000BE611 /* Localizable.strings */; };
+		960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59142A6EDCE2000BE611 /* ScheduleView.swift */; };
 		960A86FD2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */; };
 		960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */; };
 		960A87042A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */; };
@@ -47,7 +48,8 @@
 /* Begin PBXFileReference section */
 		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960A59072A6ED155000BE611 /* MRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRT.swift; sourceTree = "<group>"; };
-		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = "id.lproj/DepartureArrival+Localizable.strings"; sourceTree = "<group>"; };
+		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		960A59142A6EDCE2000BE611 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+SelectedButtonStyle.swift"; sourceTree = "<group>"; };
 		960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWhenInBackground.swift; sourceTree = "<group>"; };
 		960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWithBluetooth.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		960A59092A6ED691000BE611 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				960A59122A6ED706000BE611 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -443,9 +446,9 @@
 		9691D45A2A6D780400EE843C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				960A59122A6ED706000BE611 /* DepartureArrival+Localizable.strings */,
 				9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */,
 				960A87552A6E4D89006874E5 /* ChevronView.swift */,
+				960A59142A6EDCE2000BE611 /* ScheduleView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -510,7 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */,
-				960A59102A6ED706000BE611 /* DepartureArrival+Localizable.strings in Resources */,
+				960A59102A6ED706000BE611 /* Localizable.strings in Resources */,
 				9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +545,7 @@
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
 				960A873A2A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift in Sources */,
+				960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */,
 				960A87192A6D9463006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift in Sources */,
 				960A872D2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift in Sources */,
 				9691D44C2A6D77E800EE843C /* ContentView.swift in Sources */,
@@ -560,12 +564,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		960A59122A6ED706000BE611 /* DepartureArrival+Localizable.strings */ = {
+		960A59122A6ED706000BE611 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				960A59132A6ED731000BE611 /* id */,
 			);
-			name = "DepartureArrival+Localizable.strings";
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
