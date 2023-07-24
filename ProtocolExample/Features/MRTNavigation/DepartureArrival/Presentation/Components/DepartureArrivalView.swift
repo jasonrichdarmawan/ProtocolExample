@@ -29,6 +29,14 @@ private final class DepartureArrivalViewModel_Example: ObservableObject {
     @Published var departure = "Departure"
     @Published var arrival = "Arrival"
     @Published var departureSelected = false
+    var arrivalSelected: Bool {
+        get {
+            return !departureSelected
+        }
+        set {
+            departureSelected = !newValue
+        }
+    }
     
     func updateDepartureArrival(value: String) {
         if departureSelected {
@@ -45,11 +53,7 @@ private struct DepartureArrivalViewExample: View {
     var body: some View {
         VStack(spacing: 0) {
             DepartureArrivalView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-            DepartureArrivalView(
-                value: $viewModel.arrival,
-                selected: Binding(
-                    get: { return !viewModel.departureSelected },
-                    set: { newValue in viewModel.departureSelected = !newValue }))
+            DepartureArrivalView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
             
             VStack(alignment: .leading, spacing: 0) {
                 Button("Stasiun Lebak Bulus Grab") {
