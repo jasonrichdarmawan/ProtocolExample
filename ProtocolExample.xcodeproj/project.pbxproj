@@ -43,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+SelectedButtonStyle.swift"; sourceTree = "<group>"; };
 		960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWhenInBackground.swift; sourceTree = "<group>"; };
 		960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWithBluetooth.swift; sourceTree = "<group>"; };
@@ -375,6 +376,7 @@
 		9691D43D2A6D77E800EE843C = {
 			isa = PBXGroup;
 			children = (
+				960A59062A6EA9FD000BE611 /* README.md */,
 				9691D4482A6D77E800EE843C /* ProtocolExample */,
 				9691D4472A6D77E800EE843C /* Products */,
 			);

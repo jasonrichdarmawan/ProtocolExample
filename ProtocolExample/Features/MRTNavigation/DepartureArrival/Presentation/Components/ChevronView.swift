@@ -25,7 +25,7 @@ struct ChevronView: View {
 
 #if DEBUG
 private struct ChevronViewExample: View {
-    @State private var isUp = "Up"
+    @State private var isUp = "isUp"
     
     var body: some View {
         // simulate what if the parent variable is not Bool. i.e. PresentationDetent

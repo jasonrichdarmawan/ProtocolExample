@@ -10,9 +10,9 @@ import UserNotifications
 
 protocol NotificationManager {
     /// please show alert in view if return false
-    func isAuthorizedOrRequestAuthorization(completionHandler: (Bool) -> Void)
+    func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void)
     
-    func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: (Bool) -> Void)
+    func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: @escaping (Bool) -> Void)
     func reset() -> NotificationManagerResetEvent
 }
 

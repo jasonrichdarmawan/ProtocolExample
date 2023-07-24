@@ -8,7 +8,7 @@
 import Foundation
 
 extension NotificationManager {
-    private func isAuthorized(completionHandler: (Bool) -> Void) {}
+    private func isAuthorized(completionHandler: @escaping (Bool) -> Void) {}
     
-    private func requestAuthorization(completionHandler: (Bool) -> Void) {}
+    private func requestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
 }
