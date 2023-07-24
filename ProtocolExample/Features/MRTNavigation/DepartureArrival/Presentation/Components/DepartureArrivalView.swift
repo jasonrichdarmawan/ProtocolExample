@@ -39,7 +39,7 @@ private final class DepartureArrivalViewModel_Example: ObservableObject {
     }
 }
 
-private struct DepartureArrivalView_Example: View {
+private struct DepartureArrivalViewExample: View {
     @StateObject private var viewModel = DepartureArrivalViewModel_Example()
     
     var body: some View {
@@ -72,9 +72,9 @@ private struct DepartureArrivalView_Example: View {
     }
 }
 
-private struct DepartureArrivalViewExample_Previews: PreviewProvider {
+struct DepartureArrivalViewExample_Previews: PreviewProvider {
     static var previews: some View {
-        DepartureArrivalView_Example()
+        DepartureArrivalViewExample()
     }
 }
 #endif
