@@ -26,9 +26,10 @@ struct DepartureArrivalView: View {
 
 #if DEBUG
 private final class DepartureArrivalViewModel_Example: ObservableObject {
-    @Published var departure = "Departure"
-    @Published var arrival = "Arrival"
-    @Published var departureSelected = false
+    @Published var departure: String
+    @Published var arrival: String
+    
+    @Published var departureSelected: Bool
     var arrivalSelected: Bool {
         get {
             return !departureSelected
@@ -36,6 +37,12 @@ private final class DepartureArrivalViewModel_Example: ObservableObject {
         set {
             departureSelected = !newValue
         }
+    }
+    
+    init(departure: String = "Departure", arrival: String = "Arrival", departureSelected: Bool = false) {
+        self.departure = departure
+        self.arrival = arrival
+        self.departureSelected = departureSelected
     }
     
     func updateDepartureArrival(value: String) {
