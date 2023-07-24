@@ -1,4 +1,9 @@
-[LoFi, HiFi, Prototype](https://www.figma.com/file/YYsNa16jRdHbOHHMoPREeP/MRT-Jakarta-Navigation?type=design&node-id=0%3A1&mode=design&t=mVYUCc8HBF6CJfJz-1)
+# Contents
+
+1. [Component Oriented Design](#component-oriented-design)
+2. [LoFi, HiFi, Prototype](https://www.figma.com/file/YYsNa16jRdHbOHHMoPREeP/MRT-Jakarta-Navigation?type=design&node-id=0%3A1&mode=design&t=mVYUCc8HBF6CJfJz-1)
+3. [Protocol Orineted Programming](#protocol-oriented-programming)
+4. [Clean Architecture](#clean-architecture-programming)
 
 # Component Oriented Design
 
@@ -174,7 +179,8 @@ a. LocationFinder
 
 5. NotifyWhenMRTStationWithBluetooth, requires:
 a. BeaconFinder
-b. BeaconBroadcaster (to simulate)
+
+6. BeaconBroadcaster (to simulate)
 ```
 
 Use Case protocol's coding style guide:
