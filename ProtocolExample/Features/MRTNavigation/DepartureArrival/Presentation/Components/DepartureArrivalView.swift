@@ -47,8 +47,18 @@ private final class DepartureArrivalViewModel_Example: ObservableObject {
     
     func updateDepartureArrival(value: Station) {
         if departureSelected {
+            // switch
+            if arrival == value {
+                arrival = departure
+            }
+            
             departure = value
         } else {
+            // switch
+            if departure == value {
+                departure = arrival
+            }
+            
             arrival = value
         }
     }
@@ -72,6 +82,13 @@ private struct DepartureArrivalViewExample: View {
                 
                 Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
                     viewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                }
+                .font(.title2)
+                .buttonStyle(.borderedProminent)
+                .padding(.vertical, 16)
+                
+                Button("\(MRT.CipeteRaya.station.name) Station") {
+                    viewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
