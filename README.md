@@ -3,7 +3,8 @@
 1. [Component Oriented Design](#component-oriented-design)
 2. [LoFi, HiFi, Prototype](https://www.figma.com/file/YYsNa16jRdHbOHHMoPREeP/MRT-Jakarta-Navigation?type=design&node-id=0%3A1&mode=design&t=mVYUCc8HBF6CJfJz-1)
 3. [Protocol Orineted Programming](#protocol-oriented-programming)
-4. [Clean Architecture](#clean-architecture-programming)
+4. [Use Case Oriented Programming](#use-case-oriented-programming)
+5. [Clean Architecture](#clean-architecture-programming)
 
 # Component Oriented Design
 
@@ -325,9 +326,9 @@ enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent: NotifyWhenNear
 enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent: NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent { case IS_STOPPING }
 ```
 
-## Protocol Oriented Programming + Use Case Oriented Programming
+# Use Case Oriented Programming
 
-Use case Oriented Programming enables you to focus on 1 specific business logic (i.e. `NotifyWhenNearMRTStationWithGPS.swift` and `NotifyWhenNearMRTStationWithBluetooth.swift`). Then, you can write a business logic to do "if Bluetooth is not available, use GPS" in a dedicated use case `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
+Use Case Oriented Programming enables you to focus on 1 specific business logic (i.e. `NotifyWhenNearMRTStationWithGPS.swift` and `NotifyWhenNearMRTStationWithBluetooth.swift`). Then, you can write a business logic to do "if Bluetooth is not available, use GPS" in a dedicated use case `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
 
 Protocol implementation's coding style guide:
 1. `init` function should have default value.
