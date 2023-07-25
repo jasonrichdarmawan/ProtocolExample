@@ -235,10 +235,6 @@ a. BeaconFinder
 
 Use Case protocol's coding style guide:
 1. use delegate pattern if you wish to return a result asynchronously.
-2. a function should return an actionable result i.e. `Bool` or `enum`.
-3. If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
-4. a function should have documentation comments if the behavior is peculiar i.e. `the finder stop after finding any station once`. 
-5. a function should use delegate pattern if the behavior is peculiar to return actionable result i.e. `.FINDER_GRACEFULLY_STOP` event.
 
 NotifyWhenNearMRTStationWithGPS.swift
 ```swift
@@ -261,6 +257,27 @@ enum NotifyWhenNearMRTStationWithGPSStartEvent: NotifyWhenNearMRTStationWithGPSE
 enum NotifyWhenNearMRTStationWithGPSStopEvent: NotifyWhenNearMRTStationWithGPSEvent { case IS_STOPPING }
 ```
 
+2. a function should return an actionable result i.e. `Bool` or `enum`.
+3. If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
+
+NotificationManager.swift
+```swift
+protocol NotificationManager {
+    /// please show alert in view if return false
+    func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void)
+    
+    func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: @escaping (Bool) -> Void)
+    func reset() -> NotificationManagerResetEvent
+}
+
+protocol NotificationManagerEvent {}
+
+enum NotificationManagerPushEvent: NotificationManagerEvent { case IS_PUSHING, NOT_AUTHORIZED }
+
+enum NotificationManagerResetEvent: NotificationManagerEvent { case IS_RESETTING }
+```
+4. a function should have documentation comments if the behavior is peculiar i.e. `the finder stop after finding any station once`. 
+
 NotifyWhenNearMRTStationWithBluetooth.swift
 ```swift
 protocol NotifyWhenNearMRTStationWithBluetooth {
@@ -281,6 +298,8 @@ enum NotifyWhenNearMRTStationWithBluetoothStartEvent: NotifyWhenNearMRTStationWi
 
 enum NotifyWhenNearMRTStationWithBluetoothStopEvent: NotifyWhenNearMRTStationWhenInBackgroundEvent { case IS_STOPPING }
 ```
+
+5. a function should use delegate pattern if the behavior is peculiar to return actionable result i.e. `.FINDER_GRACEFULLY_STOP` event.
 
 NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift
 ```swift
@@ -306,14 +325,15 @@ enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent: NotifyWhenNear
 enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent: NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent { case IS_STOPPING }
 ```
 
-How to use `NotifyWhenNearMRTStationWithGPS` and `NotifyWhenNearMRTStationWithBluetooth` in `NotifyWhenNearMRTStationAndSpecificMRTStationOnce`?
+## Protocol Oriented Programming + Use Case Oriented Programming
 
-NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift
+Use case Oriented Programming enables you to focus on 1 specific business logic (i.e. `NotifyWhenNearMRTStationWithGPS.swift` and `NotifyWhenNearMRTStationWithBluetooth.swift`). Then, you can write a business logic to do "if Bluetooth is not available, use GPS" in a dedicated use case `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
 
 Protocol implementation's coding style guide:
 1. `init` function should have default value.
 2. if `init` use static default value, the implementation should have `deinit` closure.
 
+NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift
 ```swift
 final class NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
     var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate?
@@ -380,6 +400,73 @@ The Components layer is used by the Pages layer.
 The ViewModel layer is used by the Pages layer. The purpose is to provide data to the Pages layer.
 The Pages layer should be as simple as it can.
 ```
+
+DepartureArrivalPage.swift
+```swift
+struct DepartureArrivalPage: View {
+    @StateObject private var viewModel: DepartureArrivalV2ViewModel
+    
+    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            DepartureArrivalV2View(viewModel: viewModel)
+            Spacer()
+        }
+        .padding(.horizontal, 32)
+    }
+}
+```
+
+DepartureArrivalV2ViewModel.swift
+```swift
+final class DepartureArrivalV2ViewModel: ObservableObject {
+    @Published var departure: Station
+    @Published var arrival: Station?
+    
+    @Published var departureSelected: Bool
+    var arrivalSelected: Bool {
+        get {
+            return !departureSelected
+        }
+        set {
+            departureSelected = !newValue
+        }
+    }
+    
+    init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station? = nil, departureSelected: Bool = false) {
+        self.departure = departure
+        self.arrival = arrival
+        self.departureSelected = departureSelected
+    }
+    
+    func updateDepartureArrival(value: Station) {
+        switch departureSelected {
+        case true:
+            // swap
+            if arrival == value {
+                arrival = departure
+            }
+            
+            departure = value
+        case false:
+            // swap
+            if departure == value {
+                if let arrival {
+                    departure = arrival
+                }
+            }
+            
+            arrival = value
+        }
+    }
+}
+```
+
+check the github's repository for the Components layer code.
+
 4. The Domain layer splitted into 3 layers: the Entities layer, the Repositories layer the UseCases layer.
 ```
 The Entities layer is used by the Components and the ViewModel layer. i.e. `struct Station {}`
