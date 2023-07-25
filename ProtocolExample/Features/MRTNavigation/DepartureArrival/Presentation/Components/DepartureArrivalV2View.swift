@@ -1,38 +1,47 @@
 //
-//  DepartureArrivalView.swift
+//  DepartureArrivalV2View.swift
 //  ProtocolExample
 //
-//  Created by Jason Rich Darmawan Onggo Putra on 23/07/23.
+//  Created by Jason Rich Darmawan Onggo Putra on 25/07/23.
 //
 
 import SwiftUI
 
-struct DepartureArrivalView: View {
-    @ObservedObject private var viewModel: DepartureArrivalViewModel
+struct DepartureArrivalV2View: View {
+    @ObservedObject private var viewModel: DepartureArrivalV2ViewModel
     
-    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
-        self.viewModel = viewModel
+    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+        self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
     
     var body: some View {
-        Group {
-            DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-            DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                Spacer()
+                    .frame(width: 24, height: 24)
+                    .padding(.leading, 16)
+            }
+            HStack(spacing: 0) {
+                ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                PlusCircleView()
+                    .padding(.leading, 16)
+            }
         }
     }
 }
 
 #if DEBUG
-private struct DepartureArrivalViewExample: View {
-    @StateObject private var viewModel: DepartureArrivalViewModel
+private struct DepartureArrivalV2ViewExample: View {
+    @StateObject private var viewModel: DepartureArrivalV2ViewModel
     
-    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            DepartureArrivalView(viewModel: viewModel)
+            DepartureArrivalV2View(viewModel: viewModel)
             
             VStack(alignment: .leading, spacing: 0) {
                 Button("\(MRT.LebakBulusGrab.station.name) Station") {
@@ -59,12 +68,13 @@ private struct DepartureArrivalViewExample: View {
             
             Spacer()
         }
+        .padding(.horizontal, 32)
     }
 }
 
-struct DepartureArrivalViewExample_Previews: PreviewProvider {
+struct DepartureArrivalV2View_Previews: PreviewProvider {
     static var previews: some View {
-        DepartureArrivalViewExample()
+        DepartureArrivalV2ViewExample()
             .environment(\.locale, .init(identifier: "id-ID"))
     }
 }

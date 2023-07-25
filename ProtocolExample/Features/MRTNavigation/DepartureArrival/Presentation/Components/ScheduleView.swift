@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-struct Line: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: rect.midX, y: 0))
-        path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
-        return path
-    }
-}
-
 struct ScheduleView: View {
     @Binding var nearestSchedule: String?
     @Binding var estimatedTimeArrival: String?
@@ -64,7 +55,7 @@ struct ScheduleView: View {
 }
 
 #if DEBUG
-struct ScheduleViewExample: View {
+private struct ScheduleViewExample: View {
     @State private var nearestSchedule: String?
     @State private var estimatedTimeArrival: String?
     

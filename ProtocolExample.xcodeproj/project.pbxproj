@@ -10,6 +10,8 @@
 		960A59082A6ED155000BE611 /* MRT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59072A6ED155000BE611 /* MRT.swift */; };
 		960A59102A6ED706000BE611 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960A59122A6ED706000BE611 /* Localizable.strings */; };
 		960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59142A6EDCE2000BE611 /* ScheduleView.swift */; };
+		960A59202A6FA82B000BE611 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A591F2A6FA82B000BE611 /* Line.swift */; };
+		960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59212A6FD7CB000BE611 /* DepartureArrivalV2View.swift */; };
 		960A86FD2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */; };
 		960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */; };
 		960A87042A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */; };
@@ -43,6 +45,12 @@
 		9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D44D2A6D77E900EE843C /* Assets.xcassets */; };
 		9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D4502A6D77E900EE843C /* Preview Assets.xcassets */; };
 		9691D45C2A6D781200EE843C /* DepartureArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */; };
+		96AACDE92A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */; };
+		96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */; };
+		96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */; };
+		96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */; };
+		96AACDF22A6FEA3E00534E72 /* DepartureArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF12A6FEA3E00534E72 /* DepartureArrivalViewModel.swift */; };
+		96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +58,8 @@
 		960A59072A6ED155000BE611 /* MRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRT.swift; sourceTree = "<group>"; };
 		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		960A59142A6EDCE2000BE611 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		960A591F2A6FA82B000BE611 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		960A59212A6FD7CB000BE611 /* DepartureArrivalV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV2View.swift; sourceTree = "<group>"; };
 		960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+SelectedButtonStyle.swift"; sourceTree = "<group>"; };
 		960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWhenInBackground.swift; sourceTree = "<group>"; };
 		960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWithBluetooth.swift; sourceTree = "<group>"; };
@@ -84,6 +94,12 @@
 		9691D44D2A6D77E900EE843C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9691D4502A6D77E900EE843C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalView.swift; sourceTree = "<group>"; };
+		96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+DepartureV2View.swift"; sourceTree = "<group>"; };
+		96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+ArrivalV2View.swift"; sourceTree = "<group>"; };
+		96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+PlusCircleView.swift"; sourceTree = "<group>"; };
+		96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV2ViewModel.swift; sourceTree = "<group>"; };
+		96AACDF12A6FEA3E00534E72 /* DepartureArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModel.swift; sourceTree = "<group>"; };
+		96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalView+DepartureArrivalButtonView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +121,26 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		960A591D2A6FA81F000BE611 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				960A591E2A6FA823000BE611 /* Components */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		960A591E2A6FA823000BE611 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				960A591F2A6FA82B000BE611 /* Line.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		960A86FA2A6D8B2E006874E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				960A591D2A6FA81F000BE611 /* Presentation */,
 				960A871A2A6D9676006874E5 /* BeaconFinder */,
 				960A871F2A6D972D006874E5 /* BeaconBroadcaster */,
 				960A87202A6D981F006874E5 /* LocationFinder */,
@@ -336,6 +369,7 @@
 		960A87492A6DA0BE006874E5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				96AACDEE2A6FE9C300534E72 /* ViewModels */,
 				9691D45A2A6D780400EE843C /* Components */,
 			);
 			path = Presentation;
@@ -447,10 +481,24 @@
 			isa = PBXGroup;
 			children = (
 				9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */,
+				96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */,
 				960A87552A6E4D89006874E5 /* ChevronView.swift */,
 				960A59142A6EDCE2000BE611 /* ScheduleView.swift */,
+				960A59212A6FD7CB000BE611 /* DepartureArrivalV2View.swift */,
+				96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */,
+				96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */,
+				96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		96AACDEE2A6FE9C300534E72 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */,
+				96AACDF12A6FEA3E00534E72 /* DepartureArrivalViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,19 +582,26 @@
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationManagerImpl+Authorization.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
+				96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */,
+				96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */,
 				960A87342A6D9DB6006874E5 /* NotifyWhenNearMRTStationWithBluetoothImpl.swift in Sources */,
 				960A87092A6D8F0A006874E5 /* NotifyWhenNearMRTStationWithGPS.swift in Sources */,
+				96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */,
 				960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */,
 				960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */,
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
+				96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
 				960A873D2A6D9E97006874E5 /* AlarmManager.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
+				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
+				960A59202A6FA82B000BE611 /* Line.swift in Sources */,
 				960A873A2A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift in Sources */,
 				960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */,
 				960A87192A6D9463006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift in Sources */,
+				96AACDF22A6FEA3E00534E72 /* DepartureArrivalViewModel.swift in Sources */,
 				960A872D2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift in Sources */,
 				9691D44C2A6D77E800EE843C /* ContentView.swift in Sources */,
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
@@ -554,6 +609,7 @@
 				960A87222A6D9838006874E5 /* LocationFinder.swift in Sources */,
 				960A873F2A6D9EB5006874E5 /* AlarmManagerImpl.swift in Sources */,
 				960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */,
+				96AACDE92A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift in Sources */,
 				960A87142A6D9147006874E5 /* NotifyWhenNearMRTStationOnce.swift in Sources */,
 				9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */,
 				960A87272A6D9C70006874E5 /* NotificationManagerImpl.swift in Sources */,

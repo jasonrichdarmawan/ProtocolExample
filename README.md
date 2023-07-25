@@ -69,35 +69,55 @@ What departure and arrival button looks like in clickable and focused mode.
 6. Software Engineer creates the component's code.
 
 Component's coding style guide:
-1. Use Binding.
+1. Use `@Binding` / `@ObservedObject`
 2. Use `#if DEBUG #endif` for the preview.
 3. The preview is not just to preview the component. But to preview how to use the component in a screen.
 
 DepartureArrivalView.swift
 ```swift
 struct DepartureArrivalView: View {
-    @Binding var value: String
-    @Binding var selected: Bool
+    @ObservedObject private var viewModel: DepartureArrivalViewModel
+    
+    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
-        Button {
-            selected = true
-        } label: {
-            Text(value)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.title2)
+        Group {
+            DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
+            DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
         }
-        .selectedButtonStyle(selected)
-        .padding(16)
     }
 }
 ```
 
-The screen's view model example
+DepartureArrivalView+DepartureArrivalButtonView.swift
 ```swift
-private final class DepartureArrivalViewModel_Example: ObservableObject {
-    @Published var departure: String
-    @Published var arrival: String
+extension DepartureArrivalView {
+    struct DepartureOrArrivalButtonView: View {
+        @Binding var value: Station
+        @Binding var selected: Bool
+        
+        var body: some View {
+            Button {
+                selected = true
+            } label: {
+                Text("\(value.name) Station")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.title2)
+            }
+            .selectedButtonStyle(selected)
+            .padding(16)
+        }
+    }
+}
+```
+
+The ViewModel if use `@ObservedObject`
+```swift
+final class DepartureArrivalViewModel: ObservableObject {
+    @Published var departure: Station
+    @Published var arrival: Station
     
     @Published var departureSelected: Bool
     var arrivalSelected: Bool {
@@ -109,42 +129,63 @@ private final class DepartureArrivalViewModel_Example: ObservableObject {
         }
     }
     
-    init(departure: String = "Departure", arrival: String = "Arrival", departureSelected: Bool = false) {
+    init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station = MRT.DukuhAtasBNI.station, departureSelected: Bool = false) {
         self.departure = departure
         self.arrival = arrival
         self.departureSelected = departureSelected
     }
     
-    func updateDepartureArrival(value: String) {
-        if departureSelected {
+    func updateDepartureArrival(value: Station) {
+        switch departureSelected {
+        case true:
+            // swap
+            if arrival == value {
+                arrival = departure
+            }
+            
             departure = value
-        } else {
+        case false:
+            // swap
+            if departure == value {
+                departure = arrival
+            }
+            
             arrival = value
         }
     }
 }
 ```
 
-The screen's view example
+The preview
 ```swift
 private struct DepartureArrivalViewExample: View {
-    @StateObject private var viewModel = DepartureArrivalViewModel_Example()
+    @StateObject private var viewModel: DepartureArrivalViewModel
+    
+    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         VStack(spacing: 0) {
-            DepartureArrivalView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-            DepartureArrivalView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+            DepartureArrivalView(viewModel: viewModel)
             
             VStack(alignment: .leading, spacing: 0) {
-                Button("Stasiun Lebak Bulus Grab") {
-                    viewModel.updateDepartureArrival(value: "Stasiun Lebak Bulus Grab")
+                Button("\(MRT.LebakBulusGrab.station.name) Station") {
+                    viewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical, 16)
                 
-                Button("Stasiun Fatmawati Indomaret") {
-                    viewModel.updateDepartureArrival(value: "Stasiun Fatmawati Indomaret")
+                Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
+                    viewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                }
+                .font(.title2)
+                .buttonStyle(.borderedProminent)
+                .padding(.vertical, 16)
+                
+                Button("\(MRT.CipeteRaya.station.name) Station") {
+                    viewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
@@ -155,13 +196,11 @@ private struct DepartureArrivalViewExample: View {
         }
     }
 }
-```
 
-The preview
-```swift
 struct DepartureArrivalViewExample_Previews: PreviewProvider {
     static var previews: some View {
         DepartureArrivalViewExample()
+            .environment(\.locale, .init(identifier: "id-ID"))
     }
 }
 ```
