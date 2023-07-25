@@ -11,7 +11,13 @@ import SwiftUI
 struct ProtocolExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                NavigationLink("DepartureArrivalPage", destination: {
+                    NavigationLazyView {
+                        DepartureArrivalPage()
+                    }
+                })
+            }
         }
     }
 }
