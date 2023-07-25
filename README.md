@@ -332,7 +332,15 @@ Use Case Oriented Programming enables you to focus on 1 specific business logic 
 
 Protocol implementation's coding style guide:
 1. `init` function should have default value.
-2. if `init` use static default value, the implementation should have `deinit` closure.
+2. if `init` use static variable as default value, the implementation should have `deinit` closure.
+3. the static variable should live in a final class Manager.
+
+NotificationManager
+```swift
+final class NotificationManager {
+    static var shared: Notification = NotificationImpl()
+}
+```
 
 NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift
 ```swift

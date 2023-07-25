@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AlarmManager {
+protocol Alarm {
     /// will play haptic and audio feedback continuously
     func play() -> Bool
     /// for abrupt stop.

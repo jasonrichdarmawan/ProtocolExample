@@ -8,16 +8,16 @@
 import Foundation
 import UserNotifications
 
-protocol NotificationManager {
+protocol Notification {
     /// please show alert in view if return false
     func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void)
     
     func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: @escaping (Bool) -> Void)
-    func reset() -> NotificationManagerResetEvent
+    func reset() -> NotificationResetEvent
 }
 
-protocol NotificationManagerEvent {}
+protocol NotificationEvent {}
 
-enum NotificationManagerPushEvent: NotificationManagerEvent { case IS_PUSHING, NOT_AUTHORIZED }
+enum NotificationPushEvent: NotificationEvent { case IS_PUSHING, NOT_AUTHORIZED }
 
-enum NotificationManagerResetEvent: NotificationManagerEvent { case IS_RESETTING }
+enum NotificationResetEvent: NotificationEvent { case IS_RESETTING }

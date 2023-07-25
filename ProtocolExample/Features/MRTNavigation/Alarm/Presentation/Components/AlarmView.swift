@@ -18,9 +18,9 @@ struct AlarmView: View {
         }
     }
     
-    private let useCase: AlarmManager
+    private let useCase: Alarm
     
-    init(isSoundOn: Binding<Bool>, useCase: AlarmManager = AlarmManagerImpl()) {
+    init(isSoundOn: Binding<Bool>, useCase: Alarm = AlarmImpl()) {
         self._isSoundOn = isSoundOn
         self.useCase = useCase
     }

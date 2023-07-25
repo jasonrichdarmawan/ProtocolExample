@@ -12,14 +12,14 @@ final class NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStati
     
     private var notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
     private var notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS
-    private var notificationManager: NotificationManager
+    private var notificationManager: Notification
     
     private var currentStation: Station?
     
     init(
         notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
         notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl(),
-        notificationManager: NotificationManager = NotificationManagerImpl()
+        notificationManager: Notification = NotificationImpl()
     ) {
         self.notifyWhenNearMRTStationWithBluetooth = notifyWhenNearMRTStationWithBluetooth
         self.notifyWhenNearMRTStationWithGPS = notifyWhenNearMRTStationWithGPS

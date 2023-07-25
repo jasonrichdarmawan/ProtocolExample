@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AlarmManagerImpl: AlarmManager {
+final class AlarmImpl: Alarm {
     func play() -> Bool {
         return true
     }

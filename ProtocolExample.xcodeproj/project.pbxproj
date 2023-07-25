@@ -22,9 +22,9 @@
 		960A871C2A6D967E006874E5 /* BeaconFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A871B2A6D967E006874E5 /* BeaconFinder.swift */; };
 		960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A871D2A6D972A006874E5 /* BeaconBroadcaster.swift */; };
 		960A87222A6D9838006874E5 /* LocationFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87212A6D9838006874E5 /* LocationFinder.swift */; };
-		960A87252A6D9959006874E5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87242A6D9959006874E5 /* NotificationManager.swift */; };
-		960A87272A6D9C70006874E5 /* NotificationManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87262A6D9C70006874E5 /* NotificationManagerImpl.swift */; };
-		960A87292A6D9C7A006874E5 /* NotificationManagerImpl+Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87282A6D9C7A006874E5 /* NotificationManagerImpl+Authorization.swift */; };
+		960A87252A6D9959006874E5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87242A6D9959006874E5 /* Notification.swift */; };
+		960A87272A6D9C70006874E5 /* NotificatinImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87262A6D9C70006874E5 /* NotificatinImpl.swift */; };
+		960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87282A6D9C7A006874E5 /* NotificationImpl+Authorization.swift */; };
 		960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A872A2A6D9CAE006874E5 /* LocationFinderImpl.swift */; };
 		960A872D2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A872C2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift */; };
 		960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A872E2A6D9CFB006874E5 /* BeaconFinderImpl.swift */; };
@@ -33,8 +33,8 @@
 		960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87352A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift */; };
 		960A87382A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87372A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift */; };
 		960A873A2A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87392A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift */; };
-		960A873D2A6D9E97006874E5 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A873C2A6D9E97006874E5 /* AlarmManager.swift */; };
-		960A873F2A6D9EB5006874E5 /* AlarmManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A873E2A6D9EB5006874E5 /* AlarmManagerImpl.swift */; };
+		960A873D2A6D9E97006874E5 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A873C2A6D9E97006874E5 /* Alarm.swift */; };
+		960A873F2A6D9EB5006874E5 /* AlarmImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A873E2A6D9EB5006874E5 /* AlarmImpl.swift */; };
 		960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87432A6D9F2A006874E5 /* MRTTrainSchedule.swift */; };
 		960A87462A6D9F7A006874E5 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87452A6D9F7A006874E5 /* Train.swift */; };
 		960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */; };
@@ -71,9 +71,9 @@
 		960A871B2A6D967E006874E5 /* BeaconFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconFinder.swift; sourceTree = "<group>"; };
 		960A871D2A6D972A006874E5 /* BeaconBroadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconBroadcaster.swift; sourceTree = "<group>"; };
 		960A87212A6D9838006874E5 /* LocationFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinder.swift; sourceTree = "<group>"; };
-		960A87242A6D9959006874E5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		960A87262A6D9C70006874E5 /* NotificationManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerImpl.swift; sourceTree = "<group>"; };
-		960A87282A6D9C7A006874E5 /* NotificationManagerImpl+Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationManagerImpl+Authorization.swift"; sourceTree = "<group>"; };
+		960A87242A6D9959006874E5 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		960A87262A6D9C70006874E5 /* NotificatinImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatinImpl.swift; sourceTree = "<group>"; };
+		960A87282A6D9C7A006874E5 /* NotificationImpl+Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationImpl+Authorization.swift"; sourceTree = "<group>"; };
 		960A872A2A6D9CAE006874E5 /* LocationFinderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderImpl.swift; sourceTree = "<group>"; };
 		960A872C2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconBroadcasterImpl.swift; sourceTree = "<group>"; };
 		960A872E2A6D9CFB006874E5 /* BeaconFinderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconFinderImpl.swift; sourceTree = "<group>"; };
@@ -82,8 +82,8 @@
 		960A87352A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift; sourceTree = "<group>"; };
 		960A87372A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationOnceImpl.swift; sourceTree = "<group>"; };
 		960A87392A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWhenInBackgroundImpl.swift; sourceTree = "<group>"; };
-		960A873C2A6D9E97006874E5 /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
-		960A873E2A6D9EB5006874E5 /* AlarmManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManagerImpl.swift; sourceTree = "<group>"; };
+		960A873C2A6D9E97006874E5 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		960A873E2A6D9EB5006874E5 /* AlarmImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmImpl.swift; sourceTree = "<group>"; };
 		960A87432A6D9F2A006874E5 /* MRTTrainSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainSchedule.swift; sourceTree = "<group>"; };
 		960A87452A6D9F7A006874E5 /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
 		960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainScheduleImpl.swift; sourceTree = "<group>"; };
@@ -330,9 +330,9 @@
 		960A87232A6D994D006874E5 /* NotificationManager */ = {
 			isa = PBXGroup;
 			children = (
-				960A87242A6D9959006874E5 /* NotificationManager.swift */,
-				960A87262A6D9C70006874E5 /* NotificationManagerImpl.swift */,
-				960A87282A6D9C7A006874E5 /* NotificationManagerImpl+Authorization.swift */,
+				960A87242A6D9959006874E5 /* Notification.swift */,
+				960A87262A6D9C70006874E5 /* NotificatinImpl.swift */,
+				960A87282A6D9C7A006874E5 /* NotificationImpl+Authorization.swift */,
 			);
 			path = NotificationManager;
 			sourceTree = "<group>";
@@ -340,8 +340,8 @@
 		960A873B2A6D9E8E006874E5 /* AlarmManager */ = {
 			isa = PBXGroup;
 			children = (
-				960A873C2A6D9E97006874E5 /* AlarmManager.swift */,
-				960A873E2A6D9EB5006874E5 /* AlarmManagerImpl.swift */,
+				960A873C2A6D9E97006874E5 /* Alarm.swift */,
+				960A873E2A6D9EB5006874E5 /* AlarmImpl.swift */,
 			);
 			path = AlarmManager;
 			sourceTree = "<group>";
@@ -613,9 +613,9 @@
 				960A86FD2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift in Sources */,
 				960A87382A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift in Sources */,
 				9691D45C2A6D781200EE843C /* DepartureArrivalView.swift in Sources */,
-				960A87252A6D9959006874E5 /* NotificationManager.swift in Sources */,
+				960A87252A6D9959006874E5 /* Notification.swift in Sources */,
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
-				960A87292A6D9C7A006874E5 /* NotificationManagerImpl+Authorization.swift in Sources */,
+				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
 				96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */,
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */,
@@ -629,7 +629,7 @@
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
-				960A873D2A6D9E97006874E5 /* AlarmManager.swift in Sources */,
+				960A873D2A6D9E97006874E5 /* Alarm.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
 				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
@@ -642,13 +642,13 @@
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
 				960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */,
 				960A87222A6D9838006874E5 /* LocationFinder.swift in Sources */,
-				960A873F2A6D9EB5006874E5 /* AlarmManagerImpl.swift in Sources */,
+				960A873F2A6D9EB5006874E5 /* AlarmImpl.swift in Sources */,
 				960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */,
 				96AACDE92A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift in Sources */,
 				960A87142A6D9147006874E5 /* NotifyWhenNearMRTStationOnce.swift in Sources */,
 				96AACDF92A6FEDC900534E72 /* NavigationLazyView.swift in Sources */,
 				9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */,
-				960A87272A6D9C70006874E5 /* NotificationManagerImpl.swift in Sources */,
+				960A87272A6D9C70006874E5 /* NotificatinImpl.swift in Sources */,
 				960A87072A6D8E88006874E5 /* Station.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

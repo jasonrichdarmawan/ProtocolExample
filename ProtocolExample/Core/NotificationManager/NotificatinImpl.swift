@@ -7,13 +7,13 @@
 
 import UserNotifications
 
-final class NotificationManagerImpl: NotificationManager {
+final class NotificationImpl: Notification {
     func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
     
     func push(title: String, subtitle: String, sound: UNNotificationSound? = nil, completionHandler: @escaping (Bool) -> Void) {
     }
     
-    func reset() -> NotificationManagerResetEvent {
+    func reset() -> NotificationResetEvent {
         return .IS_RESETTING
     }
 }

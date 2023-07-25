@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension NotificationManager {
+extension NotificationImpl {
     private func isAuthorized(completionHandler: @escaping (Bool) -> Void) {}
     
     private func requestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
