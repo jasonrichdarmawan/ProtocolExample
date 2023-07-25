@@ -132,6 +132,8 @@
 		960A591E2A6FA823000BE611 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				960A87552A6E4D89006874E5 /* ChevronView.swift */,
+				960A59142A6EDCE2000BE611 /* ScheduleView.swift */,
 				960A591F2A6FA82B000BE611 /* Line.swift */,
 			);
 			path = Components;
@@ -480,14 +482,8 @@
 		9691D45A2A6D780400EE843C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */,
-				96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */,
-				960A87552A6E4D89006874E5 /* ChevronView.swift */,
-				960A59142A6EDCE2000BE611 /* ScheduleView.swift */,
-				960A59212A6FD7CB000BE611 /* DepartureArrivalV2View.swift */,
-				96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */,
-				96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */,
-				96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */,
+				96AACDF62A6FECEF00534E72 /* V1 */,
+				96AACDF52A6FECE800534E72 /* V2 */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -499,6 +495,26 @@
 				96AACDF12A6FEA3E00534E72 /* DepartureArrivalViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		96AACDF52A6FECE800534E72 /* V2 */ = {
+			isa = PBXGroup;
+			children = (
+				960A59212A6FD7CB000BE611 /* DepartureArrivalV2View.swift */,
+				96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */,
+				96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */,
+				96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */,
+			);
+			path = V2;
+			sourceTree = "<group>";
+		};
+		96AACDF62A6FECEF00534E72 /* V1 */ = {
+			isa = PBXGroup;
+			children = (
+				9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */,
+				96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */,
+			);
+			path = V1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
