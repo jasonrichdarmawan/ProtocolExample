@@ -152,7 +152,7 @@ final class DepartureArrivalViewModel: ObservableObject {
         case true:
             // arrival value: Lebak Bulus Grab Station
             // use case: user want to go from Lebak Bulus Grab Station
-            if departure == nil && arrival == value {
+            if arrival == value {
                 departure = value
                 arrival = nil
                 return
@@ -162,7 +162,7 @@ final class DepartureArrivalViewModel: ObservableObject {
         case false:
             // departure value: Lebak Bulus Grab Station
             // use case: user want to go from Dukuh Atas BNI Station to Lebak Bulus Grab
-            if arrival == nil && departure == value {
+            if departure == value {
                 departure = nil
                 arrival = value
                 return
