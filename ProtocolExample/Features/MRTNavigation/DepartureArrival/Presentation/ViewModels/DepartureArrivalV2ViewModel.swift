@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class DepartureArrivalV2ViewModel: ObservableObject {
-    @Published var departure: Station
+    @Published var departure: Station?
     @Published var arrival: Station?
     
     @Published var departureSelected: Bool
@@ -30,18 +30,22 @@ final class DepartureArrivalV2ViewModel: ObservableObject {
     func updateDepartureArrival(value: Station) {
         switch departureSelected {
         case true:
-            // swap
-            if arrival == value {
-                arrival = departure
+            // arrival value: Lebak Bulus Grab Station
+            // use case: user want to go from Lebak Bulus Grab Station
+            if departure == nil && arrival == value {
+                departure = value
+                arrival = nil
+                return
             }
             
             departure = value
         case false:
-            // swap
-            if departure == value {
-                if let arrival {
-                    departure = arrival
-                }
+            // departure value: Lebak Bulus Grab Station
+            // use case: user want to go from Dukuh Atas BNI Station to Lebak Bulus Grab
+            if arrival == nil && departure == value {
+                departure = nil
+                arrival = value
+                return
             }
             
             arrival = value

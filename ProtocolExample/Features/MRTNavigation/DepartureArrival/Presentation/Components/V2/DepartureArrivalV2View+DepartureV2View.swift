@@ -9,7 +9,7 @@ import SwiftUI
 
 extension DepartureArrivalV2View {
     struct DepartureV2View: View {
-        @Binding var value: Station
+        @Binding var value: Station?
         @Binding var selected: Bool
         
         var body: some View {
@@ -18,7 +18,7 @@ extension DepartureArrivalV2View {
             } label: {
                 HStack(spacing: 0) {
                     CircleView()
-                    Text("\(value.name) Station")
+                    Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
                         .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
                         .font(.body)
                         .fontWeight(selected ? .bold : .regular)

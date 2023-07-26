@@ -123,6 +123,7 @@ Use ViewModel if you have more than 1 variable to observe.
 Important: 1 ViewModel per responsibility i.e. a View used 2 ViewModels:
 1. a ViewModel `to handle the departure, arrival variables`
 2. a ViewModel `to handle the nearest schedule at departure and estimated time arrival at destination variables`
+3. if there is quirk use case i.e. `departure current value: Lebak Bulus Grab Station. User want to go FROM Lebak Bulus Grab Station`, use the guard clause pattern. And, add the explanation on top of that guard clause pattern.
 
 DepartureArrivalViewModel.swift
 ```swift
@@ -149,16 +150,22 @@ final class DepartureArrivalViewModel: ObservableObject {
     func updateDepartureArrival(value: Station) {
         switch departureSelected {
         case true:
-            // swap
-            if arrival == value {
-                arrival = departure
+            // arrival value: Lebak Bulus Grab Station
+            // use case: user want to go from Lebak Bulus Grab Station
+            if departure == nil && arrival == value {
+                departure = value
+                arrival = nil
+                return
             }
             
             departure = value
         case false:
-            // swap
-            if departure == value {
-                departure = arrival
+            // departure value: Lebak Bulus Grab Station
+            // use case: user want to go from Dukuh Atas BNI Station to Lebak Bulus Grab
+            if arrival == nil && departure == value {
+                departure = nil
+                arrival = value
+                return
             }
             
             arrival = value
