@@ -491,19 +491,28 @@ final class DepartureArrivalV2ViewModel: ObservableObject {
 
 c. The Components layer
 
-DepartureArrivalView.swift
+DepartureArrivalV2View.swift
 ```swift
-struct DepartureArrivalView: View {
-    @ObservedObject private var viewModel: DepartureArrivalViewModel
+struct DepartureArrivalV2View: View {
+    @ObservedObject private var viewModel: DepartureArrivalV2ViewModel
     
-    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
-        self.viewModel = viewModel
+    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+        self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
     
     var body: some View {
-        Group {
-            DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-            DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                Spacer()
+                    .frame(width: 24, height: 24)
+                    .padding(.leading, 16)
+            }
+            HStack(spacing: 0) {
+                ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                PlusCircleView()
+                    .padding(.leading, 16)
+            }
         }
     }
 }
@@ -511,10 +520,12 @@ struct DepartureArrivalView: View {
 
 use `+` to indicate the use of the extension keyword. In this case, a subcomponent of a component.
 
-DepartureArrivalView+DepartureArrivalButtonView.swift
+Important: Do not complicate things with the `if else` logic. i.e. `DepartureArrivalV2View+DepartureV2View.swift` and `DepartureArrivalV2View+ArrivalV2View.swift` have similar View, but diverge at some point.
+
+DepartureArrivalView+DepartureV2View.swift
 ```swift
-extension DepartureArrivalView {
-    struct DepartureOrArrivalButtonView: View {
+extension DepartureArrivalV2View {
+    struct DepartureV2View: View {
         @Binding var value: Station
         @Binding var selected: Bool
         
@@ -522,12 +533,67 @@ extension DepartureArrivalView {
             Button {
                 selected = true
             } label: {
-                Text("\(value.name) Station")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title2)
+                HStack(spacing: 0) {
+                    CircleView()
+                    Text("\(value.name) Station")
+                        .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
+                        .font(.body)
+                        .fontWeight(selected ? .bold : .regular)
+                    Spacer()
+                }
+                .padding(8)
+                .background(selected ? Color("departureArrival_background_selectedv2") : nil)
+                .cornerRadius(4)
             }
-            .selectedButtonStyle(selected)
-            .padding(16)
+        }
+    }
+    
+    struct CircleView: View {
+        var body: some View {
+            Image(systemName: "circle")
+                .resizable()
+                .frame(width: 16, height: 16)
+                .foregroundColor(Color("icon_circle"))
+                .padding(.trailing, 8)
+        }
+    }
+}
+```
+
+DepartureArrivalV2View+ArrivalV2View.swift
+```swift
+extension DepartureArrivalV2View {
+    struct ArrivalV2View: View {
+        @Binding var value: Station?
+        @Binding var selected: Bool
+        
+        var body: some View {
+            Button {
+                selected = true
+            } label: {
+                HStack(spacing: 0) {
+                    LocationFillView()
+                    Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
+                        .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
+                        .font(.body)
+                        .fontWeight(selected ? .bold : .regular)
+                    Spacer()
+                }
+                .padding(8)
+                .background(selected ? Color("departureArrival_background_selectedv2") : nil)
+                .cornerRadius(4)
+            }
+
+        }
+    }
+
+    struct LocationFillView: View {
+        var body: some View {
+            Image(systemName: "location.fill")
+                .resizable()
+                .frame(width: 16, height: 16)
+                .foregroundColor(Color("icon_location fill"))
+                .padding(.trailing, 8)
         }
     }
 }
