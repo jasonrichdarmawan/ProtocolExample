@@ -1,7 +1,7 @@
 # Contents
 
 1. [Component Oriented Design](#component-oriented-design)
-2. [LoFi, HiFi, Prototype](https://www.figma.com/file/YYsNa16jRdHbOHHMoPREeP/MRT-Jakarta-Navigation?type=design&node-id=0%3A1&mode=design&t=mVYUCc8HBF6CJfJz-1)
+2. [LoFi, HiFi, Prototype in Figma](https://www.figma.com/file/YYsNa16jRdHbOHHMoPREeP/MRT-Jakarta-Navigation?type=design&node-id=0%3A1&mode=design&t=mVYUCc8HBF6CJfJz-1)
 3. [Protocol Orineted Programming](#protocol-oriented-programming)
 4. [Use Case Oriented Programming](#use-case-oriented-programming)
 5. [Clean Architecture](#clean-architecture-programming)
@@ -10,21 +10,25 @@
 
 User Stories:
 ```
-1. User gets vibration and/or sound notification when arrive in destiantion.
+1. User gets vibration and/or sound notification when arrive in destination.
 2. User gets vibration and/or sound notification when near any station when in initial mode and app in background mode (Have not started navigation).
 3. User gets vibration and/or sound notification when a train arrive in departure station when in commuting mode (Have started navigation)
 4. User gets vibration and/or sound notification when arrive in a transit station when in commuting mode.
 ```
 
 Workflow:
-1. Project Manager do vertical slicing by selecting the 1st user story.
+1. Project Manager do vertical development by slicing the 1st user story into 3 use cases.
 ```
+User Story:
+1. User gets vibration and/or sound notification when arrive in destination.
+
+Use Cases:
 1. User able to start navigation by selecting departure station and destination (High priority).
 2. Notify user when arrived in destination when app in background mode (High priority).
 3. Notify user when arrived in destination when app in foreground mode (High priority).
 ```
 
-2. UI/UX Designer creates LoFi by defining what user can do and what user can see in a specific Screen. Use Shape and Text tools in Figma. No local variables, no local styles, no components.
+2. UI/UX Designer creates the LoFi by defining what user can do and what user can see in a specific Screen. Use Shape and Text tools in Figma. No local variables, no local styles, no components.
 ```
 What user can see:
 1. Departure station and destination.
@@ -33,7 +37,7 @@ What user can do:
 1. Change the departure station and destination by clicking the buttton.
 ```
 
-3. UI/UX Designer creates design style guide.
+3. UI/UX Designer creates the design style guide.
 
 Primitives Color
 ```
@@ -62,7 +66,7 @@ focusedButtonText: Any = #0000FF, Dark = #0000FF
 focusedButtonStroke: Any = #000000, Dark = #000000
 ```
 
-5. UI/UX Designer creates HiFi component for the departure and arrival button using components.
+5. UI/UX Designer creates the HiFi component for the departure and arrival button using components.
 ```
 What departure and arrival button looks like in clickable and focused mode.
 ```
@@ -114,7 +118,13 @@ extension DepartureArrivalView {
 }
 ```
 
-The ViewModel if use `@ObservedObject`
+Use ViewModel if you have more than 1 variable to observe.
+
+Important: 1 ViewModel per responsibility i.e. a View used 2 ViewModels:
+1. a ViewModel `to handle the departure, arrival variables`
+2. a ViewModel `to handle the nearest schedule at departure and estimated time arrival at destination variables`
+
+DepartureArrivalViewModel.swift
 ```swift
 final class DepartureArrivalViewModel: ObservableObject {
     @Published var departure: Station
@@ -259,6 +269,7 @@ enum NotifyWhenNearMRTStationWithGPSStopEvent: NotifyWhenNearMRTStationWithGPSEv
 ```
 
 2. a function should return an actionable result i.e. `Bool` or `enum`.
+
 3. If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
 
 NotificationManager.swift
@@ -333,9 +344,9 @@ Use Case Oriented Programming enables you to focus on 1 specific business logic 
 Protocol implementation's coding style guide:
 1. `init` function should have default value.
 2. if `init` use static variable as default value, the implementation should have `deinit` closure.
-3. the static variable should live in a final class Manager.
+3. the static variable should live in a final class Manager. By doing so, when you want to change the implementation logic, you can replace the shared variable's value.
 
-NotificationManager
+NotificationManager.swift
 ```swift
 final class NotificationManager {
     static var shared: Notification = NotificationImpl()
@@ -410,6 +421,8 @@ The ViewModel layer is used by the Pages layer. The purpose is to provide data t
 The Pages layer should be as simple as it can.
 ```
 
+a. The Pages layer
+
 DepartureArrivalPage.swift
 ```swift
 struct DepartureArrivalPage: View {
@@ -428,6 +441,8 @@ struct DepartureArrivalPage: View {
     }
 }
 ```
+
+b. The ViewModels layer
 
 DepartureArrivalV2ViewModel.swift
 ```swift
@@ -474,7 +489,49 @@ final class DepartureArrivalV2ViewModel: ObservableObject {
 }
 ```
 
-check the github's repository for the Components layer code.
+c. The Components layer
+
+DepartureArrivalView.swift
+```swift
+struct DepartureArrivalView: View {
+    @ObservedObject private var viewModel: DepartureArrivalViewModel
+    
+    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+        self.viewModel = viewModel
+    }
+    
+    var body: some View {
+        Group {
+            DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
+            DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+        }
+    }
+}
+```
+
+use `+` to indicate the use of the extension keyword. In this case, a subcomponent of a component.
+
+DepartureArrivalView+DepartureArrivalButtonView.swift
+```swift
+extension DepartureArrivalView {
+    struct DepartureOrArrivalButtonView: View {
+        @Binding var value: Station
+        @Binding var selected: Bool
+        
+        var body: some View {
+            Button {
+                selected = true
+            } label: {
+                Text("\(value.name) Station")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.title2)
+            }
+            .selectedButtonStyle(selected)
+            .padding(16)
+        }
+    }
+}
+```
 
 4. The Domain layer splitted into 3 layers: the Entities layer, the Repositories layer the UseCases layer.
 ```
@@ -482,6 +539,7 @@ The Entities layer is used by the Components and the ViewModel layer. i.e. `stru
 The UseCases layer is used by the ViewModel layer.
 The Repositories layer is used by the UseCases layer and the DataSource layer. The purpose it to convert Data layer's model to Domain layer's entity.
 ```
+
 5. The Data layer splitted into 2 layers: the Models layer and the DataSource layer.
 ```
 The Models layer is used by the Repositories layer and the DataSource layer. The purpose is to define what is expected result from the DataSource layer. i.e. a API response.
