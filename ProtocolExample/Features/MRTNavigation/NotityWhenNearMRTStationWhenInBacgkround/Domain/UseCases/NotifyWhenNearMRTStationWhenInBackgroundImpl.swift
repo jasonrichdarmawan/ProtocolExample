@@ -19,7 +19,7 @@ final class NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStati
     init(
         notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
         notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl(),
-        notificationManager: Notification = NotificationImpl()
+        notificationManager: Notification = NotificationManager.shared
     ) {
         self.notifyWhenNearMRTStationWithBluetooth = notifyWhenNearMRTStationWithBluetooth
         self.notifyWhenNearMRTStationWithGPS = notifyWhenNearMRTStationWithGPS

@@ -20,7 +20,7 @@ struct AlarmView: View {
     
     private let useCase: Alarm
     
-    init(isSoundOn: Binding<Bool>, useCase: Alarm = AlarmImpl()) {
+    init(isSoundOn: Binding<Bool>, useCase: Alarm = AlarmManager.shared) {
         self._isSoundOn = isSoundOn
         self.useCase = useCase
     }

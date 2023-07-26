@@ -219,7 +219,7 @@ struct DepartureArrivalViewExample_Previews: PreviewProvider {
 # Protocol Oriented Programming
 
 Workflow:
-1. Software Engineer creates protocol for every use cases of the 1st story.
+1. Software Engineer creates protocol for every use cases of the 1st user story.
 ```
 1. NotifyWhenNearMRTStationAndSpecificMRTStationOnce, requires:
 a. NotifyWhenNearMRTStationWithGPS
@@ -272,22 +272,23 @@ enum NotifyWhenNearMRTStationWithGPSStopEvent: NotifyWhenNearMRTStationWithGPSEv
 
 3. If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
 
-NotificationManager.swift
+Notification.swift
 ```swift
-protocol NotificationManager {
+protocol Notification {
     /// please show alert in view if return false
     func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void)
     
     func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: @escaping (Bool) -> Void)
-    func reset() -> NotificationManagerResetEvent
+    func reset() -> NotificationResetEvent
 }
 
-protocol NotificationManagerEvent {}
+protocol NotificationEvent {}
 
-enum NotificationManagerPushEvent: NotificationManagerEvent { case IS_PUSHING, NOT_AUTHORIZED }
+enum NotificationPushEvent: NotificationEvent { case IS_PUSHING, NOT_AUTHORIZED }
 
-enum NotificationManagerResetEvent: NotificationManagerEvent { case IS_RESETTING }
+enum NotificationResetEvent: NotificationEvent { case IS_RESETTING }
 ```
+
 4. a function should have documentation comments if the behavior is peculiar i.e. `the finder stop after finding any station once`. 
 
 NotifyWhenNearMRTStationWithBluetooth.swift
@@ -349,7 +350,55 @@ Protocol implementation's coding style guide:
 NotificationManager.swift
 ```swift
 final class NotificationManager {
-    static var shared: Notification = NotificationImpl()
+    static var shared: Notification! {
+        get {
+            if sharedClosure == nil {
+                sharedClosure = NotificationImpl.shared
+            }
+            
+            return sharedClosure
+        }
+        set {
+            sharedClosure = newValue
+        }
+    }
+    
+    private static var sharedClosure: Notification!
+}
+```
+
+since Notification should not have more than 2 instance, you should private the constructor.
+
+NotificationImpl.swift
+```swift
+final class NotificationImpl: Notification {
+    fileprivate init() {}
+    
+    func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
+    
+    func push(title: String, subtitle: String, sound: UNNotificationSound? = nil, completionHandler: @escaping (Bool) -> Void) {
+    }
+    
+    func reset() -> NotificationResetEvent {
+        return .IS_RESETTING
+    }
+}
+
+extension NotificationImpl {
+    static var shared: Notification! {
+        get {
+            if sharedClosure == nil {
+                sharedClosure = NotificationImpl()
+            }
+            
+            return sharedClosure
+        }
+        set {
+            sharedClosure = newValue
+        }
+    }
+    
+    private static var sharedClosure: Notification!
 }
 ```
 

@@ -8,6 +8,8 @@
 import UserNotifications
 
 final class NotificationImpl: Notification {
+    fileprivate init() {}
+    
     func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
     
     func push(title: String, subtitle: String, sound: UNNotificationSound? = nil, completionHandler: @escaping (Bool) -> Void) {
@@ -16,4 +18,21 @@ final class NotificationImpl: Notification {
     func reset() -> NotificationResetEvent {
         return .IS_RESETTING
     }
+}
+
+extension NotificationImpl {
+    static var shared: Notification! {
+        get {
+            if sharedClosure == nil {
+                sharedClosure = NotificationImpl()
+            }
+            
+            return sharedClosure
+        }
+        set {
+            sharedClosure = newValue
+        }
+    }
+    
+    private static var sharedClosure: Notification!
 }
