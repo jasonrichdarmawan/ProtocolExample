@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55122A70EF1F00F8E9FC /* AlarmManager.swift */; };
 		960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55152A70EFA800F8E9FC /* NotificationManager.swift */; };
+		960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */; };
+		960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551C2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift */; };
+		960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551F2A7157B000F8E9FC /* IsMutedMode.swift */; };
+		960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */; };
+		960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */; };
 		960A59082A6ED155000BE611 /* MRT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59072A6ED155000BE611 /* MRT.swift */; };
 		960A59102A6ED706000BE611 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960A59122A6ED706000BE611 /* Localizable.strings */; };
 		960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59142A6EDCE2000BE611 /* ScheduleView.swift */; };
@@ -59,6 +64,11 @@
 /* Begin PBXFileReference section */
 		960A55122A70EF1F00F8E9FC /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		960A55152A70EFA800F8E9FC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphone.swift; sourceTree = "<group>"; };
+		960A551C2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphoneImpl.swift; sourceTree = "<group>"; };
+		960A551F2A7157B000F8E9FC /* IsMutedMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedMode.swift; sourceTree = "<group>"; };
+		960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedModeImpl.swift; sourceTree = "<group>"; };
+		960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960A59072A6ED155000BE611 /* MRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRT.swift; sourceTree = "<group>"; };
 		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -119,6 +129,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		960A55172A71468100F8E9FC /* PlayStopVibrationAudioInSmartphone */ = {
+			isa = PBXGroup;
+			children = (
+				960A55182A71469F00F8E9FC /* Domain */,
+			);
+			path = PlayStopVibrationAudioInSmartphone;
+			sourceTree = "<group>";
+		};
+		960A55182A71469F00F8E9FC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				960A55192A7146A500F8E9FC /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		960A55192A7146A500F8E9FC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */,
+				960A551C2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		960A551E2A7157A100F8E9FC /* UserSettings */ = {
+			isa = PBXGroup;
+			children = (
+				960A55242A71660700F8E9FC /* Domain */,
+			);
+			path = UserSettings;
+			sourceTree = "<group>";
+		};
+		960A55232A71660100F8E9FC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				960A551F2A7157B000F8E9FC /* IsMutedMode.swift */,
+				960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		960A55242A71660700F8E9FC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				960A55232A71660100F8E9FC /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		960A55252A716A1600F8E9FC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		960A59092A6ED691000BE611 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +216,7 @@
 		960A86FA2A6D8B2E006874E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				960A551E2A7157A100F8E9FC /* UserSettings */,
 				96AACDF72A6FEDC200534E72 /* Navigation */,
 				960A591D2A6FA81F000BE611 /* Presentation */,
 				960A871A2A6D9676006874E5 /* BeaconFinder */,
@@ -403,6 +472,7 @@
 		960A874B2A6DA133006874E5 /* MRTNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				960A55172A71468100F8E9FC /* PlayStopVibrationAudioInSmartphone */,
 				960A870D2A6D90EF006874E5 /* NotifyWhenNearMRTStationWithGPS */,
 				960A870A2A6D90D4006874E5 /* NotifyWhenNearMRTStationWithBluetooth */,
 				960A87052A6D8E81006874E5 /* MRT */,
@@ -429,6 +499,7 @@
 		960A87502A6DAED0006874E5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				960A55252A716A1600F8E9FC /* ViewModels */,
 				960A874D2A6DA677006874E5 /* Components */,
 			);
 			path = Presentation;
@@ -622,6 +693,7 @@
 				960A87252A6D9959006874E5 /* Notification.swift in Sources */,
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
+				960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
 				96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */,
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */,
@@ -635,13 +707,16 @@
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
+				960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */,
 				960A873D2A6D9E97006874E5 /* Alarm.swift in Sources */,
+				960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
 				960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */,
 				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
 				960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */,
 				960A59202A6FA82B000BE611 /* Line.swift in Sources */,
+				960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */,
 				960A873A2A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift in Sources */,
 				960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */,
 				960A87192A6D9463006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift in Sources */,
@@ -649,6 +724,7 @@
 				960A872D2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift in Sources */,
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
 				960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */,
+				960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */,
 				960A87222A6D9838006874E5 /* LocationFinder.swift in Sources */,
 				960A873F2A6D9EB5006874E5 /* AlarmImpl.swift in Sources */,
 				960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */,

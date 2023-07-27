@@ -17,6 +17,10 @@ final class NotificationManager {
             return sharedClosure
         }
         set {
+            if newValue == nil {
+                sharedClosure = nil
+            }
+            
             sharedClosure = newValue
         }
     }

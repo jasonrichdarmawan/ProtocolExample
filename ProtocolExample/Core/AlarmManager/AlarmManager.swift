@@ -8,6 +8,8 @@
 import Foundation
 
 final class AlarmManager {
+    static var isPlaying = false
+    
     static var shared: Alarm! {
         get {
             if sharedClosure == nil {
@@ -17,6 +19,10 @@ final class AlarmManager {
             return sharedClosure
         }
         set {
+            if newValue == nil {
+                AlarmImpl.shared = nil
+            }
+            
             sharedClosure = newValue
         }
     }

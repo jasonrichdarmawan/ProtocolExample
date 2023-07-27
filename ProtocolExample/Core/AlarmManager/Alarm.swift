@@ -8,8 +8,12 @@
 import Foundation
 
 protocol Alarm {
-    /// will play haptic and audio feedback continuously
-    func play() -> Bool
+    /// will play vibration only continuosuly
+    func playVibrationOnly() -> Bool
+    
+    /// will play vibration and audio continuously
+    func playVibrationAndAudio() -> Bool
+    
     /// for abrupt stop.
     func stop() -> Bool
 }

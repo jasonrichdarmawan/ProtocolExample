@@ -9,27 +9,17 @@ import SwiftUI
 
 /// will play alarm for 1 second
 struct AlarmView: View {
-    @Binding private var isSoundOn: Bool {
-        didSet {
-            _ = useCase.play()
-            DispatchQueue.global().asyncAfter(deadline: .now() + 1.0, execute: {
-                _ = useCase.stop()
-            })
-        }
-    }
+    @ObservedObject private var viewModel: AlarmViewModel
     
-    private let useCase: Alarm
-    
-    init(isSoundOn: Binding<Bool>, useCase: Alarm = AlarmManager.shared) {
-        self._isSoundOn = isSoundOn
-        self.useCase = useCase
+    init(viewModel: AlarmViewModel = AlarmViewModel()) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
         Button {
-            isSoundOn.toggle()
+            viewModel.value.toggle()
         } label: {
-            Image(isSoundOn ? "SoundOn" : "SoundOff")
+            Image(viewModel.value ? "SoundOff" : "SoundOn")
         }
     }
 }
@@ -39,7 +29,7 @@ private struct AlarmViewExample: View {
     @State private var isSoundOn = true
     
     var body: some View {
-        AlarmView(isSoundOn: $isSoundOn)
+        AlarmView()
     }
 }
 

@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct ProtocolExampleApp: App {
+    @State private var isSoundOn = true
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
+                NavigationLink("AlarmView", destination: {
+                    NavigationLazyView {
+                        AlarmView()
+                    }
+                })
                 NavigationLink("DepartureArrivalPage", destination: {
                     NavigationLazyView {
                         DepartureArrivalPage()
