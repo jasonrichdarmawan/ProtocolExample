@@ -15,10 +15,53 @@ struct DepartureArrivalView: View {
     }
     
     var body: some View {
-        Group {
-            DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-            DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+        Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+            GridRow {
+                Circle()
+                    .stroke(.blue, lineWidth: 4)
+                    .frame(width: 16, height: 16)
+                    .padding(.trailing, 16)
+                
+                DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
+            }
+            
+            GridRow {
+                Line()
+                    .stroke(style: StrokeStyle(lineWidth: 2, dash: [8,8]))
+                    .frame(width: 1, height: 24)
+                    .padding(.trailing, 16)
+                
+                
+            }
+            
+            GridRow {
+                Circle()
+                    .stroke(.blue, lineWidth: 4)
+                    .frame(width: 16, height: 16)
+                    .padding(.trailing, 16)
+                
+                DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+            }
         }
+//        VStack(spacing: 0) {
+//            HStack(spacing: 0) {
+//                Circle()
+//                    .stroke(.blue, lineWidth: 4)
+//                    .frame(width: 16, height: 16)
+//                    .padding(.trailing, 16)
+//                DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
+//            }
+//            Line()
+//                .stroke(style: StrokeStyle(lineWidth: 2, dash: [8,8]))
+//                .frame(height: 24)
+//            HStack(spacing: 0) {
+//                Circle()
+//                    .stroke(.blue, lineWidth: 4)
+//                    .frame(width: 16, height: 16)
+//                    .padding(.trailing, 16)
+//                DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+//            }
+//        }
     }
 }
 

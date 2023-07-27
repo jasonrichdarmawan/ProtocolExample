@@ -16,7 +16,7 @@ struct DepartureArrivalPage: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            DepartureArrivalView(viewModel: viewModel)
+            DepartureArrivalView(viewModel: viewModel).padding(.top, 25)
             Spacer()
         }
         .padding(.horizontal, 32)

@@ -18,10 +18,9 @@ extension DepartureArrivalView {
             } label: {
                 Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title2)
+                    .font(.headline)
             }
             .selectedButtonStyle(selected)
-            .padding(16)
         }
     }
 }
