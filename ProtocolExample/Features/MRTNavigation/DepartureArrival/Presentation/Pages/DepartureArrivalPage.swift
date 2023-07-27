@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct DepartureArrivalPage: View {
-    @StateObject private var viewModel: DepartureArrivalViewModel
+    @StateObject private var departureArrivalViewModel: DepartureArrivalViewModel
+    @StateObject private var nextScheduleEstimatedTimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel
     
-    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(
+        departureArrivalViewModel: DepartureArrivalViewModel = DepartureArrivalViewModel(),
+        nextScheduleEstimatedtimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()
+    ) {
+        self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)
+        self._nextScheduleEstimatedTimeArrivalViewModel = StateObject(wrappedValue: nextScheduleEstimatedtimeArrivalViewModel)
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            DepartureArrivalView(viewModel: viewModel).padding(.top, 25)
+        VStack(spacing: 32) {
+            DepartureArrivalView(viewModel: departureArrivalViewModel)
+            
+            NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
+            
             Spacer()
         }
+        .padding(.top, 25)
         .padding(.horizontal, 32)
     }
 }

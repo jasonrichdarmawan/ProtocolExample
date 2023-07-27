@@ -14,6 +14,7 @@
 		960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551F2A7157B000F8E9FC /* IsMutedMode.swift */; };
 		960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */; };
 		960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */; };
+		960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */; };
 		960A59082A6ED155000BE611 /* MRT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59072A6ED155000BE611 /* MRT.swift */; };
 		960A59102A6ED706000BE611 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960A59122A6ED706000BE611 /* Localizable.strings */; };
 		960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59142A6EDCE2000BE611 /* ScheduleView.swift */; };
@@ -70,6 +71,7 @@
 		960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedModeImpl.swift; sourceTree = "<group>"; };
 		960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MRT Jakarta Navigation Use Cases.drawio.png"; sourceTree = "<group>"; };
+		960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrival.swift; sourceTree = "<group>"; };
 		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960A59072A6ED155000BE611 /* MRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRT.swift; sourceTree = "<group>"; };
 		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 			children = (
 				96AACDF62A6FECEF00534E72 /* V1 */,
 				96AACDF52A6FECE800534E72 /* V2 */,
+				960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
 				960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */,
+				960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift in Sources */,
 				960A873D2A6D9E97006874E5 /* Alarm.swift in Sources */,
 				960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,

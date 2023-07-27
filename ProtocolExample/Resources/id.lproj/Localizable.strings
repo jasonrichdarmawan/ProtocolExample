@@ -7,6 +7,6 @@
 */
 
 "%@ Station" = "Stasiun %@";
-"Nearest Schedule" = "Jadwal Terdekat";
-"Estimated Time Arrival" = "Estimasi Sampai";
+"Nearest\nSchedule" = "Jadwal\nTerdekat";
+"Estimated\nTime of Arrival" = "Estimasi\nSampai";
 "Where to?" = "Kemana?";
