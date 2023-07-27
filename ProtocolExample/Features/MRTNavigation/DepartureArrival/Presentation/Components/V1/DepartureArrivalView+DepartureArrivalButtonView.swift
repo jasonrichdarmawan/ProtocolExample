@@ -14,7 +14,9 @@ extension DepartureArrivalView {
         
         var body: some View {
             Button {
-                selected = true
+                withAnimation {
+                    selected = true
+                }
             } label: {
                 Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
                     .frame(maxWidth: .infinity, alignment: .leading)

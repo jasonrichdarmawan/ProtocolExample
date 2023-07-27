@@ -44,25 +44,6 @@ struct DepartureArrivalView: View {
                 DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
             }
         }
-//        VStack(spacing: 0) {
-//            HStack(spacing: 0) {
-//                Circle()
-//                    .stroke(.blue, lineWidth: 4)
-//                    .frame(width: 16, height: 16)
-//                    .padding(.trailing, 16)
-//                DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-//            }
-//            Line()
-//                .stroke(style: StrokeStyle(lineWidth: 2, dash: [8,8]))
-//                .frame(height: 24)
-//            HStack(spacing: 0) {
-//                Circle()
-//                    .stroke(.blue, lineWidth: 4)
-//                    .frame(width: 16, height: 16)
-//                    .padding(.trailing, 16)
-//                DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
-//            }
-//        }
     }
 }
 
@@ -75,34 +56,48 @@ private struct DepartureArrivalViewExample: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 32) {
             DepartureArrivalView(viewModel: departureArrivalViewModel)
             
-            VStack(alignment: .leading, spacing: 0) {
-                Button("\(MRT.LebakBulusGrab.station.name) Station") {
-                    departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+            VStack(spacing: 20) {
+                Button {
+                    withAnimation {
+                        departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                    }
+                } label: {
+                    Text("\(MRT.LebakBulusGrab.station.name) Station")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .font(.title2)
+                .font(.headline)
                 .buttonStyle(.borderedProminent)
-                .padding(.vertical, 16)
                 
-                Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
-                    departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                Button {
+                    withAnimation {
+                        departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                    }
+                } label: {
+                    Text("\(MRT.FatmawatiIndomaret.station.name) Station")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .font(.title2)
+                .font(.headline)
                 .buttonStyle(.borderedProminent)
-                .padding(.vertical, 16)
                 
-                Button("\(MRT.CipeteRaya.station.name) Station") {
-                    departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                Button {
+                    withAnimation {
+                        departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                    }
+                } label: {
+                    Text("\(MRT.CipeteRaya.station.name) Station")
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .font(.title2)
+                .font(.headline)
                 .buttonStyle(.borderedProminent)
-                .padding(.vertical, 16)
             }
             
             Spacer()
         }
+        .padding(.top, 32)
+        .padding(.horizontal, 32)
     }
 }
 
