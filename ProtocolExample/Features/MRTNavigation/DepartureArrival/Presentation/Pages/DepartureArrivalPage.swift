@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct DepartureArrivalPage: View {
-    @StateObject private var departureArrivalViewModel: DepartureArrivalViewModel
+    @StateObject private var departureArrivalViewModel: DepartureArrivalV1ViewModel
     @StateObject private var nextScheduleEstimatedTimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel
     
     init(
-        departureArrivalViewModel: DepartureArrivalViewModel = DepartureArrivalViewModel(),
+        departureArrivalViewModel: DepartureArrivalV1ViewModel = DepartureArrivalV1ViewModel(),
         nextScheduleEstimatedtimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()
     ) {
         self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)

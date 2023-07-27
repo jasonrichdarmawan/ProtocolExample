@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct DepartureArrivalView: View {
-    @ObservedObject private var viewModel: DepartureArrivalViewModel
+    @ObservedObject private var viewModel: DepartureArrivalViewModelImpl
     
-    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+    init(viewModel: DepartureArrivalViewModelImpl = DepartureArrivalV1ViewModel()) {
         self.viewModel = viewModel
     }
     
@@ -49,9 +49,9 @@ struct DepartureArrivalView: View {
 
 #if DEBUG
 private struct DepartureArrivalViewExample: View {
-    @StateObject private var departureArrivalViewModel: DepartureArrivalViewModel
+    @StateObject private var departureArrivalViewModel: DepartureArrivalViewModelImpl
     
-    init(departureArrivalViewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+    init(departureArrivalViewModel: DepartureArrivalViewModelImpl = DepartureArrivalV1ViewModel()) {
         self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)
     }
     
@@ -62,7 +62,7 @@ private struct DepartureArrivalViewExample: View {
             VStack(spacing: 20) {
                 Button {
                     withAnimation {
-                        departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                        _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
                     }
                 } label: {
                     Text("\(MRT.LebakBulusGrab.station.name) Station")
@@ -73,7 +73,7 @@ private struct DepartureArrivalViewExample: View {
                 
                 Button {
                     withAnimation {
-                        departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                        _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
                     }
                 } label: {
                     Text("\(MRT.FatmawatiIndomaret.station.name) Station")
@@ -84,7 +84,7 @@ private struct DepartureArrivalViewExample: View {
                 
                 Button {
                     withAnimation {
-                        departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                        _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
                     }
                 } label: {
                     Text("\(MRT.CipeteRaya.station.name) Station")

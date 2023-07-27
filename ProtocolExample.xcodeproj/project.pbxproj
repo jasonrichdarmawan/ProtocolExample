@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		96050EBA2A72B28B0011DE7E /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EB92A72B28B0011DE7E /* Either.swift */; };
 		96050EBC2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */; };
+		96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */; };
+		96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */; };
 		960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55122A70EF1F00F8E9FC /* AlarmManager.swift */; };
 		960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55152A70EFA800F8E9FC /* NotificationManager.swift */; };
 		960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */; };
@@ -58,7 +60,7 @@
 		96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */; };
 		96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */; };
 		96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */; };
-		96AACDF22A6FEA3E00534E72 /* DepartureArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF12A6FEA3E00534E72 /* DepartureArrivalViewModel.swift */; };
+		96AACDF22A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */; };
 		96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */; };
 		96AACDF92A6FEDC900534E72 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF82A6FEDC900534E72 /* NavigationLazyView.swift */; };
 		96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDFB2A6FEE6800534E72 /* DepartureArrivalPage.swift */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		96050EB92A72B28B0011DE7E /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+PrimitiveButtonStyle.swift"; sourceTree = "<group>"; };
+		96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModel.swift; sourceTree = "<group>"; };
+		96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModelImpl.swift; sourceTree = "<group>"; };
 		960A55122A70EF1F00F8E9FC /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		960A55152A70EFA800F8E9FC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphone.swift; sourceTree = "<group>"; };
@@ -119,7 +123,7 @@
 		96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+ArrivalV2View.swift"; sourceTree = "<group>"; };
 		96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+PlusCircleView.swift"; sourceTree = "<group>"; };
 		96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV2ViewModel.swift; sourceTree = "<group>"; };
-		96AACDF12A6FEA3E00534E72 /* DepartureArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModel.swift; sourceTree = "<group>"; };
+		96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV1ViewModel.swift; sourceTree = "<group>"; };
 		96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalView+DepartureArrivalButtonView.swift"; sourceTree = "<group>"; };
 		96AACDF82A6FEDC900534E72 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		96AACDFB2A6FEE6800534E72 /* DepartureArrivalPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPage.swift; sourceTree = "<group>"; };
@@ -582,8 +586,10 @@
 		96AACDEE2A6FE9C300534E72 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */,
+				96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */,
+				96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */,
 				96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */,
-				96AACDF12A6FEA3E00534E72 /* DepartureArrivalViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */,
 				96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */,
 				960A87342A6D9DB6006874E5 /* NotifyWhenNearMRTStationWithBluetoothImpl.swift in Sources */,
+				96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */,
 				960A87092A6D8F0A006874E5 /* NotifyWhenNearMRTStationWithGPS.swift in Sources */,
 				96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */,
 				960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */,
@@ -718,6 +725,7 @@
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
+				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
 				960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */,
 				960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift in Sources */,
@@ -733,7 +741,7 @@
 				960A873A2A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift in Sources */,
 				960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */,
 				960A87192A6D9463006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift in Sources */,
-				96AACDF22A6FEA3E00534E72 /* DepartureArrivalViewModel.swift in Sources */,
+				96AACDF22A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift in Sources */,
 				960A872D2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift in Sources */,
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
 				960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */,
