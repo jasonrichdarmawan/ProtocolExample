@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct DepartureArrivalView: View {
-    @ObservedObject private var viewModel: DepartureArrivalViewModelImpl
+struct DepartureArrivalView<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
+    @ObservedObject private var viewModel: ViewModel
     
-    init(viewModel: DepartureArrivalViewModelImpl = DepartureArrivalV1ViewModel()) {
+    init(viewModel: ViewModel = DepartureArrivalV1ViewModel()) {
         self.viewModel = viewModel
     }
     

@@ -14,16 +14,18 @@ struct ProtocolExampleApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                NavigationLink("AlarmView", destination: {
-                    NavigationLazyView {
-                        AlarmView()
-                    }
-                })
-                NavigationLink("DepartureArrivalPage", destination: {
-                    NavigationLazyView {
-                        DepartureArrivalPage()
-                    }
-                })
+                List {
+                    NavigationLink("AlarmView", destination: {
+                        NavigationLazyView {
+                            AlarmView()
+                        }
+                    })
+                    NavigationLink("DepartureArrivalPage", destination: {
+                        NavigationLazyView {
+                            DepartureArrivalPage()
+                        }
+                    })
+                }
             }
         }
     }

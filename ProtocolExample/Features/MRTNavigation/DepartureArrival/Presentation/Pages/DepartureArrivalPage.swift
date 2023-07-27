@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct DepartureArrivalPage: View {
-    @StateObject private var departureArrivalViewModel: DepartureArrivalV1ViewModel
+struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
+    @StateObject private var departureArrivalViewModel: DepartureArrivalVM
     @StateObject private var nextScheduleEstimatedTimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel
     
     init(
-        departureArrivalViewModel: DepartureArrivalV1ViewModel = DepartureArrivalV1ViewModel(),
+        departureArrivalViewModel: DepartureArrivalVM = DepartureArrivalV1ViewModel(),
         nextScheduleEstimatedtimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()
     ) {
         self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)

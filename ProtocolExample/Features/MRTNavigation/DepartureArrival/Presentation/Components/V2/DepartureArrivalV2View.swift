@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct DepartureArrivalV2View: View {
-    @ObservedObject private var viewModel: DepartureArrivalV2ViewModel
+struct DepartureArrivalV2View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
+    @ObservedObject private var viewModel: ViewModel
     
-    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+    init(viewModel: ViewModel = DepartureArrivalV2ViewModel()) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
     }
     
@@ -32,10 +32,10 @@ struct DepartureArrivalV2View: View {
 }
 
 #if DEBUG
-private struct DepartureArrivalV2ViewExample: View {
-    @StateObject private var departureArrivalViewModel: DepartureArrivalV2ViewModel
+private struct DepartureArrivalV2ViewExample<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
+    @StateObject private var departureArrivalViewModel: ViewModel
     
-    init(departureArrivalViewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+    init(departureArrivalViewModel: ViewModel = DepartureArrivalV2ViewModel()) {
         self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)
     }
     
@@ -45,21 +45,21 @@ private struct DepartureArrivalV2ViewExample: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Button("\(MRT.LebakBulusGrab.station.name) Station") {
-                    departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                    _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical, 16)
                 
                 Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
-                    departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                    _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical, 16)
                 
                 Button("\(MRT.CipeteRaya.station.name) Station") {
-                    departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                    _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
