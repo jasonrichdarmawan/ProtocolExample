@@ -51,4 +51,11 @@ final class DepartureArrivalViewModel: ObservableObject {
             arrival = value
         }
     }
+    
+    func isDepartureArrivalNotNil() -> Bool {
+        if departure == nil { return false }
+        if arrival == nil { return false }
+        
+        return true
+    }
 }

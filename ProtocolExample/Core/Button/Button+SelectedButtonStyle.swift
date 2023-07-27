@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension Button {
+    @available(*, deprecated, message: "Use ternary operator i.e. `.buttonStyle(selected ? Either.left(.bordered) : .right(.borderedProminent))")
     @ViewBuilder
     func selectedButtonStyle(_ selected: Bool) -> some View {
         switch selected {

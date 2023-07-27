@@ -26,6 +26,16 @@ struct DepartureArrivalPage: View {
             NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
             
             Spacer()
+            
+            Button {
+                
+            } label: {
+                Text("Start")
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .disabled(departureArrivalViewModel.isDepartureArrivalNotNil() ? false : true)
         }
         .padding(.top, 25)
         .padding(.horizontal, 32)

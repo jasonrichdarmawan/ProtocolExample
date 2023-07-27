@@ -22,7 +22,7 @@ extension DepartureArrivalView {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.headline)
             }
-            .selectedButtonStyle(selected)
+            .buttonStyle(selected ? Either.left(.bordered) : .right(.borderedProminent))
         }
     }
 }

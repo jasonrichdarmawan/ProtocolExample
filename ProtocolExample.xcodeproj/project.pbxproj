@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96050EBA2A72B28B0011DE7E /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EB92A72B28B0011DE7E /* Either.swift */; };
+		96050EBC2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */; };
 		960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55122A70EF1F00F8E9FC /* AlarmManager.swift */; };
 		960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55152A70EFA800F8E9FC /* NotificationManager.swift */; };
 		960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96050EB92A72B28B0011DE7E /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+PrimitiveButtonStyle.swift"; sourceTree = "<group>"; };
 		960A55122A70EF1F00F8E9FC /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		960A55152A70EFA800F8E9FC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphone.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */,
+				96050EB92A72B28B0011DE7E /* Either.swift */,
+				96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
 				960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
+				96050EBA2A72B28B0011DE7E /* Either.swift in Sources */,
 				96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */,
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */,
 				96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */,
@@ -739,6 +746,7 @@
 				96AACDF92A6FEDC900534E72 /* NavigationLazyView.swift in Sources */,
 				9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */,
 				960A87272A6D9C70006874E5 /* NotificatinImpl.swift in Sources */,
+				96050EBC2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift in Sources */,
 				960A87072A6D8E88006874E5 /* Station.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
