@@ -251,6 +251,8 @@ a. BeaconFinder
 6. BeaconBroadcaster (to simulate)
 ```
 
+![MRT Jakarta Navigation Use Cases](MRT Jakarta Navigation Use Cases.drawio.png)
+
 Use Case protocol's coding style guide:
 1. use delegate pattern if you wish to return a result asynchronously.
 

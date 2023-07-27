@@ -69,6 +69,7 @@
 		960A551F2A7157B000F8E9FC /* IsMutedMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedMode.swift; sourceTree = "<group>"; };
 		960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedModeImpl.swift; sourceTree = "<group>"; };
 		960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MRT Jakarta Navigation Use Cases.drawio.png"; sourceTree = "<group>"; };
 		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		960A59072A6ED155000BE611 /* MRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRT.swift; sourceTree = "<group>"; };
 		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -509,6 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				960A59062A6EA9FD000BE611 /* README.md */,
+				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
 				9691D4482A6D77E800EE843C /* ProtocolExample */,
 				9691D4472A6D77E800EE843C /* Products */,
 			);
