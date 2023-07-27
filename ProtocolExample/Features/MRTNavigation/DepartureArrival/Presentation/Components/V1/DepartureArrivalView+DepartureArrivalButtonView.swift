@@ -9,14 +9,14 @@ import SwiftUI
 
 extension DepartureArrivalView {
     struct DepartureOrArrivalButtonView: View {
-        @Binding var value: Station
+        @Binding var value: Station?
         @Binding var selected: Bool
         
         var body: some View {
             Button {
                 selected = true
             } label: {
-                Text("\(value.name) Station")
+                Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.title2)
             }

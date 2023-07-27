@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct DepartureArrivalPage: View {
-    @StateObject private var viewModel: DepartureArrivalV2ViewModel
+    @StateObject private var viewModel: DepartureArrivalViewModel
     
-    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            DepartureArrivalV2View(viewModel: viewModel)
+            DepartureArrivalView(viewModel: viewModel)
             Spacer()
         }
         .padding(.horizontal, 32)
