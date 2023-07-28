@@ -35,6 +35,8 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(32)
         .background(.blue)
+        // TODO: use custom sheet
+        // sheet prevent swipe back gesture
         .sheet(isPresented: $departureArrivalPageViewModel.isPresented) {
             VStack(spacing: 32) {
                 DepartureArrivalV1View(viewModel: departureArrivalViewModel, selectedDetent: $departureArrivalPageViewModel.selection)
@@ -65,6 +67,7 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
             .presentationDetents([.header, .large], selection: $departureArrivalPageViewModel.selection)
             .interactiveDismissDisabled(true)
             .presentationDragIndicator(.hidden)
+            .presentationBackgroundInteraction(.enabled)
         }
         .navigationDestination(
             isPresented: $departureArrivalPageViewModel.presentCommutingView,
@@ -72,6 +75,7 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
                 NavigationLazyView {
                     Text("CommutingView")
                 }
+                .navigationBarBackButtonHidden(true)
             }
         )
     }

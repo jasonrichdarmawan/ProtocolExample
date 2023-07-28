@@ -57,6 +57,7 @@
 		960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */; };
 		960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A874E2A6DA67E006874E5 /* AlarmView.swift */; };
 		960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87552A6E4D89006874E5 /* ChevronView.swift */; };
+		96234BB32A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96234BB22A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift */; };
 		9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */; };
 		9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D44D2A6D77E900EE843C /* Assets.xcassets */; };
 		9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D4502A6D77E900EE843C /* Preview Assets.xcassets */; };
@@ -128,6 +129,7 @@
 		960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainScheduleImpl.swift; sourceTree = "<group>"; };
 		960A874E2A6DA67E006874E5 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		960A87552A6E4D89006874E5 /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
+		96234BB22A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+viewDidLoad.swift"; sourceTree = "<group>"; };
 		9691D4462A6D77E800EE843C /* ProtocolExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtocolExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExampleApp.swift; sourceTree = "<group>"; };
 		9691D44D2A6D77E900EE843C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -641,6 +643,7 @@
 			isa = PBXGroup;
 			children = (
 				96AACDF82A6FEDC900534E72 /* NavigationLazyView.swift */,
+				96234BB22A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */,
 				96050ED32A73E12D0011DE7E /* SelectMRTStationView.swift in Sources */,
 				960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */,
+				96234BB32A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift in Sources */,
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,

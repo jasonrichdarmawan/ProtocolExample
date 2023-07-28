@@ -13,7 +13,7 @@ struct ProtocolExampleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationStack {
                 List {
                     NavigationLink("AlarmView", destination: {
                         NavigationLazyView {
@@ -24,6 +24,7 @@ struct ProtocolExampleApp: App {
                         NavigationLazyView {
                             DepartureArrivalPage()
                         }
+                        .navigationBarBackButtonHidden(true)
                     })
                 }
             }

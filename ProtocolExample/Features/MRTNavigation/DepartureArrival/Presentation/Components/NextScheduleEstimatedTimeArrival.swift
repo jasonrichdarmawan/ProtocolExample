@@ -28,9 +28,11 @@ struct NextScheduleEstimatedTimeArrivalView: View {
         HStack(spacing: 40) {
             VStack(spacing: 8) {
                 Text("Nearest\nSchedule")
+                    .foregroundColor(Color("schedule_text"))
                     .font(.caption)
                     .multilineTextAlignment(.center)
                 Text((viewModel.nearestSchedule != nil) ? "\(viewModel.nearestSchedule!)" : "-")
+                    .foregroundColor(Color("schedule_text"))
                     .font(.headline)
             }
             .frame(maxWidth: 83)
@@ -42,9 +44,11 @@ struct NextScheduleEstimatedTimeArrivalView: View {
             
             VStack(spacing: 8) {
                 Text("Estimated\nTime of Arrival")
+                    .foregroundColor(Color("schedule_text"))
                     .font(.caption)
                     .multilineTextAlignment(.center)
                 Text((viewModel.estimatedTimeArrival != nil) ? "\(viewModel.estimatedTimeArrival!)" : "-")
+                    .foregroundColor(Color("schedule_text"))
                     .font(.headline)
             }
             .frame(maxWidth: 83)
