@@ -37,16 +37,16 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
         .background(.blue)
         .sheet(isPresented: $departureArrivalPageViewModel.isPresented) {
             VStack(spacing: 32) {
-                DepartureArrivalV1View(viewModel: departureArrivalViewModel, selectedDetent: $departureArrivalPageViewModel.selectedDetent)
+                DepartureArrivalV1View(viewModel: departureArrivalViewModel, selectedDetent: $departureArrivalPageViewModel.selection)
 
-                switch departureArrivalPageViewModel.selectedDetent {
+                switch departureArrivalPageViewModel.selection {
                 case .header:
                     NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
 
                     Spacer()
 
                     Button {
-
+                        departureArrivalPageViewModel.isPresented = false
                     } label: {
                         Text("Start")
                             .padding(.vertical, 8)
@@ -55,25 +55,35 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
                     .buttonStyle(.borderedProminent)
                     .disabled(departureArrivalViewModel.isDepartureArrivalNotNil() ? false : true)
                 case .large:
-                    SelectMRTStationView(value: departureArrivalViewModel.currentSelected, selectedDetent: $departureArrivalPageViewModel.selectedDetent)
+                    SelectMRTStationView(value: departureArrivalViewModel.currentSelected, selectedDetent: $departureArrivalPageViewModel.selection)
                 default:
                     EmptyView()
                 }
             }
             .padding(.top, 32)
             .padding(.horizontal, 32)
-            .presentationDetents([.header, .large], selection: $departureArrivalPageViewModel.selectedDetent)
+            .presentationDetents([.header, .large], selection: $departureArrivalPageViewModel.selection)
             .interactiveDismissDisabled(true)
             .presentationDragIndicator(.hidden)
         }
+        .navigationDestination(
+            isPresented: $departureArrivalPageViewModel.presentCommutingView,
+            destination: {
+                NavigationLazyView {
+                    Text("CommutingView")
+                }
+            }
+        )
     }
 }
 
 #if DEBUG
 struct DepartureArrivalPage_Preview: PreviewProvider {
     static var previews: some View {
-        DepartureArrivalPage()
-            .environment(\.locale, .init(identifier: "id-ID"))
+        NavigationStack {
+            DepartureArrivalPage()
+                .environment(\.locale, .init(identifier: "id-ID"))
+        }
     }
 }
 #endif

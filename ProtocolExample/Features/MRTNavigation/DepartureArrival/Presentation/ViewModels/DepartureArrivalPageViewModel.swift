@@ -9,10 +9,19 @@ import SwiftUI
 
 final class DepartureArrivalPageViewModel: ObservableObject {
     @Published var isPresented: Bool
-    @Published var selectedDetent: PresentationDetent
+    var presentCommutingView: Bool {
+        get {
+            !isPresented
+        }
+        set {
+            isPresented = !newValue
+        }
+    }
+    
+    @Published var selection: PresentationDetent
     
     init(isPresented: Bool = true, selectedDetent: PresentationDetent = .header) {
         self.isPresented = isPresented
-        self.selectedDetent = selectedDetent
+        self.selection = selectedDetent
     }
 }
