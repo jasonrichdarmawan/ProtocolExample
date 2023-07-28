@@ -37,7 +37,7 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
         .background(.blue)
         .sheet(isPresented: $departureArrivalPageViewModel.isPresented) {
             VStack(spacing: 32) {
-                DepartureArrivalView(viewModel: departureArrivalViewModel)
+                DepartureArrivalV1View(viewModel: departureArrivalViewModel)
 
                 NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
 

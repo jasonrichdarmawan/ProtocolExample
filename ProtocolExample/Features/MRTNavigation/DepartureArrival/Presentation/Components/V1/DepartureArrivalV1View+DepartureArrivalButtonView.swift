@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension DepartureArrivalView {
+extension DepartureArrivalV1View {
     struct DepartureOrArrivalButtonView: View {
         @Binding var value: Station?
         @Binding var selected: Bool

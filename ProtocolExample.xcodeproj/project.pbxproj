@@ -57,13 +57,13 @@
 		9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */; };
 		9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D44D2A6D77E900EE843C /* Assets.xcassets */; };
 		9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D4502A6D77E900EE843C /* Preview Assets.xcassets */; };
-		9691D45C2A6D781200EE843C /* DepartureArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */; };
+		9691D45C2A6D781200EE843C /* DepartureArrivalV1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D45B2A6D781200EE843C /* DepartureArrivalV1View.swift */; };
 		96AACDE92A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */; };
 		96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */; };
 		96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */; };
 		96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */; };
 		96AACDF22A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */; };
-		96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */; };
+		96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF32A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift */; };
 		96AACDF92A6FEDC900534E72 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF82A6FEDC900534E72 /* NavigationLazyView.swift */; };
 		96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDFB2A6FEE6800534E72 /* DepartureArrivalPage.swift */; };
 /* End PBXBuildFile section */
@@ -124,13 +124,13 @@
 		9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExampleApp.swift; sourceTree = "<group>"; };
 		9691D44D2A6D77E900EE843C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9691D4502A6D77E900EE843C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalView.swift; sourceTree = "<group>"; };
+		9691D45B2A6D781200EE843C /* DepartureArrivalV1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV1View.swift; sourceTree = "<group>"; };
 		96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+DepartureV2View.swift"; sourceTree = "<group>"; };
 		96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+ArrivalV2View.swift"; sourceTree = "<group>"; };
 		96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+PlusCircleView.swift"; sourceTree = "<group>"; };
 		96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV2ViewModel.swift; sourceTree = "<group>"; };
 		96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV1ViewModel.swift; sourceTree = "<group>"; };
-		96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalView+DepartureArrivalButtonView.swift"; sourceTree = "<group>"; };
+		96AACDF32A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV1View+DepartureArrivalButtonView.swift"; sourceTree = "<group>"; };
 		96AACDF82A6FEDC900534E72 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		96AACDFB2A6FEE6800534E72 /* DepartureArrivalPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -618,8 +618,8 @@
 		96AACDF62A6FECEF00534E72 /* V1 */ = {
 			isa = PBXGroup;
 			children = (
-				9691D45B2A6D781200EE843C /* DepartureArrivalView.swift */,
-				96AACDF32A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift */,
+				9691D45B2A6D781200EE843C /* DepartureArrivalV1View.swift */,
+				96AACDF32A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift */,
 			);
 			path = V1;
 			sourceTree = "<group>";
@@ -716,7 +716,7 @@
 				960A871C2A6D967E006874E5 /* BeaconFinder.swift in Sources */,
 				960A86FD2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift in Sources */,
 				960A87382A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift in Sources */,
-				9691D45C2A6D781200EE843C /* DepartureArrivalView.swift in Sources */,
+				9691D45C2A6D781200EE843C /* DepartureArrivalV1View.swift in Sources */,
 				960A87252A6D9959006874E5 /* Notification.swift in Sources */,
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
@@ -735,7 +735,7 @@
 				960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */,
 				960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */,
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
-				96AACDF42A6FEAFF00534E72 /* DepartureArrivalView+DepartureArrivalButtonView.swift in Sources */,
+				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,

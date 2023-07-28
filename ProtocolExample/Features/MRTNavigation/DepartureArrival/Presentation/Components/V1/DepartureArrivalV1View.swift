@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DepartureArrivalView<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
+struct DepartureArrivalV1View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
     @ObservedObject private var viewModel: ViewModel
     
     init(viewModel: ViewModel = DepartureArrivalV1ViewModel()) {
@@ -57,7 +57,7 @@ private struct DepartureArrivalViewExample<DepartureArrivalVM>: View where Depar
     
     var body: some View {
         VStack(spacing: 32) {
-            DepartureArrivalView(viewModel: departureArrivalViewModel)
+            DepartureArrivalV1View(viewModel: departureArrivalViewModel)
             
             VStack(spacing: 20) {
                 Button {
