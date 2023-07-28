@@ -323,21 +323,21 @@ For example, a project have 4 user stories.
 
 8. UI/UX Designer creates component's iteration.
 
-Departure Iteration 1
+    Departure Iteration 1
 
-![Departure Iteration 1](Departure.svg)
+    ![Departure Iteration 1](Departure.svg)
 
-Departure Iteration 2
+    Departure Iteration 2
 
-![Departure Iteration 2](Departure-Iteration2.svg)
+    ![Departure Iteration 2](Departure-iteration2.svg)
 
-Arrival Iteration 1
+    Arrival Iteration 1
 
-![Arrival Iteration 1](Arrival.svg)
+    ![Arrival Iteration 1](Arrival.svg)
 
-Arrival Iteration 2
+    Arrival Iteration 2
 
-![Arrival Iteration 2](Arrival-Iteration2.svg)
+    ![Arrival Iteration 2](Arrival-iteration2.svg)
 
 9. Software Engineer creates component's iteration.
 
