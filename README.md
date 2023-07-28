@@ -109,15 +109,15 @@ For example, a project have 4 user stories.
 
     * Imagine you prefer to use `Primitive color to Hex color` directly.
 
-        Imagine you have Light and Dark Mode. You also have button hierarchy: `primary`, `secondary`, and `tertiary`.
+        Imagine you have primary button and the screen support Light Mode and Dark Mode.
+        
+        Consequently, you have 2 components for primary button: i.e.
+        * Primary button background which use White color in Light Mode.
+        * Primary button background which use Black color in Dark Mode.
 
-        Now, imagine you want to change the primary button's background color.
+        Now, imagine you want to change the primary button's background color. You will have to change the primary button's background color in each component, 2 times.
 
-        You will have to change the primary button's background color each in Light and Dark Mode, 2 times.
-
-        Now, imagine if you use Tokenized color, `primary_button_background`. 
-
-        You only need to change the Tokenized color.
+        Now, imagine if you use Tokenized color, `primary_button_background`. You only need to change the Tokenized color. Also, you only have 1 primary button component.
 
     * Imagine you prefer to use `Tokenized color to Hex color` directly and not to Primitive color.
 
@@ -125,7 +125,7 @@ For example, a project have 4 user stories.
 
         Now, imagine you want to change every #000000 to slightly brighter black Hex color #000011. 
 
-        You will have to change each shape's tokenized color, 3 times.
+        You will have to change each tokenized color, 3 times.
 
 4. Software Engineer register the tokenized colors
 
