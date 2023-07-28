@@ -37,21 +37,28 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
         .background(.blue)
         .sheet(isPresented: $departureArrivalPageViewModel.isPresented) {
             VStack(spacing: 32) {
-                DepartureArrivalV1View(viewModel: departureArrivalViewModel)
+                DepartureArrivalV1View(viewModel: departureArrivalViewModel, selectedDetent: $departureArrivalPageViewModel.selectedDetent)
 
-                NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
+                switch departureArrivalPageViewModel.selectedDetent {
+                case .header:
+                    NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
 
-                Spacer()
+                    Spacer()
 
-                Button {
+                    Button {
 
-                } label: {
-                    Text("Start")
-                        .padding(.vertical, 8)
-                        .frame(maxWidth: .infinity)
+                    } label: {
+                        Text("Start")
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(departureArrivalViewModel.isDepartureArrivalNotNil() ? false : true)
+                case .large:
+                    SelectMRTStationView(value: departureArrivalViewModel.currentSelected, selectedDetent: $departureArrivalPageViewModel.selectedDetent)
+                default:
+                    EmptyView()
                 }
-                .buttonStyle(.borderedProminent)
-                .disabled(departureArrivalViewModel.isDepartureArrivalNotNil() ? false : true)
             }
             .padding(.top, 32)
             .padding(.horizontal, 32)

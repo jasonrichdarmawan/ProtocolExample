@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MRTTrainSchedule {
-    func get(departure: Station, arrival: Station, departAt: Date) -> [Station.Platform: Train.Schedule]
+    func get(departure: Station, arrival: Station, departAt: Date) -> [Platform: Schedule]
 }

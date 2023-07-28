@@ -8,6 +8,22 @@
 import Foundation
 
 struct MRT {
+    static let stations = [
+        MRT.LebakBulusGrab.station,
+        MRT.FatmawatiIndomaret.station,
+        MRT.CipeteRaya.station,
+        MRT.HajiNawi.station,
+        MRT.BlokA.station,
+        MRT.BlokMBCA.station,
+        MRT.ASEAN.station,
+        MRT.Senayan.station,
+        MRT.IstoraMandiri.station,
+        MRT.BendunganHilir.station,
+        MRT.SetiabudiAstra.station,
+        MRT.DukuhAtasBNI.station,
+        MRT.BundaranHI.station
+    ]
+    
     struct LebakBulusGrab {
         static let station = Station(name: "Lebak Bulus Grab", acronym: "LBB")
     }
@@ -20,16 +36,16 @@ struct MRT {
         static let station = Station(name: "Cipete Raya", acronym: "CPR")
     }
     
-    struct Hajinawi {
+    struct HajiNawi {
         static let station = Station(name: "Haji Nawi", acronym: "HJN")
     }
     
     struct BlokA {
-        static let station = Station(name: "Blok A", acronym: "Blok A")
+        static let station = Station(name: "Blok A", acronym: "BLA")
     }
     
     struct BlokMBCA {
-        static let station = Station(name: "Blok M BCA", acronym: "Blok M BCA")
+        static let station = Station(name: "Blok M BCA", acronym: "BLM")
     }
     
     struct ASEAN {

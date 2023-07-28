@@ -15,7 +15,6 @@ final class NextScheduleEstimatedTimeArrivalViewModel: ObservableObject {
         self.nearestSchedule = nearestSchedule
         self.estimatedTimeArrival = estimatedTimeArrival
     }
-    
 }
 
 struct NextScheduleEstimatedTimeArrivalView: View {

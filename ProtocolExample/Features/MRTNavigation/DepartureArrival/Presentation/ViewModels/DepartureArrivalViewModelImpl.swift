@@ -5,7 +5,7 @@
 //  Created by Jason Rich Darmawan Onggo Putra on 27/07/23.
 //
 
-import Foundation
+import SwiftUI
 
 class DepartureArrivalViewModelImpl: DepartureArrivalViewModel {
     @Published var departure: Station?
@@ -18,6 +18,25 @@ class DepartureArrivalViewModelImpl: DepartureArrivalViewModel {
         }
         set {
             departureSelected = !newValue
+        }
+    }
+    
+    var currentSelected: Binding<Station?> {
+        get {
+            return Binding<Station?>(
+                get: {
+                    if self.departureSelected {
+                        return self.departure
+                    } else {
+                        return self.arrival
+                    }
+                },
+                set: { newValue in
+                    guard let newValue else { return }
+                    
+                    _ = self.updateDepartureArrival(value: newValue)
+                }
+            )
         }
     }
     

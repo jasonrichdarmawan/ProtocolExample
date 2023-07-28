@@ -7,6 +7,4 @@
 
 import Foundation
 
-struct Train {
-    struct Schedule {}
-}
+struct Train {}

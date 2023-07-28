@@ -7,8 +7,14 @@
 
 import Foundation
 
-struct Station: Equatable {
+struct Station {
     let name, acronym: String
-    
-    struct Platform: Hashable {}
 }
+
+// ForEach
+extension Station: Identifiable {
+    var id: String { name }
+}
+
+// Comparison
+extension Station: Equatable {}

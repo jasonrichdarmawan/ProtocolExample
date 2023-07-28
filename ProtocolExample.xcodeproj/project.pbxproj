@@ -13,6 +13,9 @@
 		96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */; };
 		96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */; };
 		96050ECD2A7384090011DE7E /* PresentationDetent+header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */; };
+		96050ED32A73E12D0011DE7E /* SelectMRTStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ED22A73E12D0011DE7E /* SelectMRTStationView.swift */; };
+		96050ED52A73E2900011DE7E /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ED42A73E2900011DE7E /* Platform.swift */; };
+		96050ED72A73E2A10011DE7E /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ED62A73E2A10011DE7E /* Schedule.swift */; };
 		960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55122A70EF1F00F8E9FC /* AlarmManager.swift */; };
 		960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55152A70EFA800F8E9FC /* NotificationManager.swift */; };
 		960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */; };
@@ -79,6 +82,9 @@
 		96050ECF2A73BD6F0011DE7E /* Departure.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Departure.svg; sourceTree = "<group>"; };
 		96050ED02A73C4B00011DE7E /* Arrival-iteration2.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Arrival-iteration2.svg"; sourceTree = "<group>"; };
 		96050ED12A73C4B00011DE7E /* Departure-iteration2.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Departure-iteration2.svg"; sourceTree = "<group>"; };
+		96050ED22A73E12D0011DE7E /* SelectMRTStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMRTStationView.swift; sourceTree = "<group>"; };
+		96050ED42A73E2900011DE7E /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		96050ED62A73E2A10011DE7E /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		960A55122A70EF1F00F8E9FC /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		960A55152A70EFA800F8E9FC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphone.swift; sourceTree = "<group>"; };
@@ -289,7 +295,9 @@
 			isa = PBXGroup;
 			children = (
 				960A87062A6D8E88006874E5 /* Station.swift */,
+				96050ED42A73E2900011DE7E /* Platform.swift */,
 				960A87452A6D9F7A006874E5 /* Train.swift */,
+				96050ED62A73E2A10011DE7E /* Schedule.swift */,
 				960A59072A6ED155000BE611 /* MRT.swift */,
 			);
 			path = MRT;
@@ -592,6 +600,7 @@
 				96AACDF62A6FECEF00534E72 /* V1 */,
 				96AACDF52A6FECE800534E72 /* V2 */,
 				960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */,
+				96050ED22A73E12D0011DE7E /* SelectMRTStationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -725,6 +734,7 @@
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
 				960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */,
+				96050ED72A73E2A10011DE7E /* Schedule.swift in Sources */,
 				96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
 				96050ECD2A7384090011DE7E /* PresentationDetent+header.swift in Sources */,
@@ -737,6 +747,7 @@
 				960A87092A6D8F0A006874E5 /* NotifyWhenNearMRTStationWithGPS.swift in Sources */,
 				96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */,
 				960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */,
+				96050ED32A73E12D0011DE7E /* SelectMRTStationView.swift in Sources */,
 				960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */,
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
@@ -751,6 +762,7 @@
 				960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */,
 				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
+				96050ED52A73E2900011DE7E /* Platform.swift in Sources */,
 				960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */,
 				960A59202A6FA82B000BE611 /* Line.swift in Sources */,
 				960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 final class MRTTrainScheduleImpl: MRTTrainSchedule {
-    func get(departure: Station, arrival: Station, departAt: Date = .now) -> [Station.Platform : Train.Schedule] {
+    func get(departure: Station, arrival: Station, departAt: Date = .now) -> [Platform : Schedule] {
         return [:]
     }
 }
