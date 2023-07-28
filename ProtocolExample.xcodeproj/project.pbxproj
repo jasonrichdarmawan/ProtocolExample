@@ -11,6 +11,8 @@
 		96050EBC2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */; };
 		96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */; };
 		96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */; };
+		96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */; };
+		96050ECD2A7384090011DE7E /* PresentationDetent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ECC2A7384090011DE7E /* PresentationDetent.swift */; };
 		960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55122A70EF1F00F8E9FC /* AlarmManager.swift */; };
 		960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55152A70EFA800F8E9FC /* NotificationManager.swift */; };
 		960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */; };
@@ -71,6 +73,8 @@
 		96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+PrimitiveButtonStyle.swift"; sourceTree = "<group>"; };
 		96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModel.swift; sourceTree = "<group>"; };
 		96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModelImpl.swift; sourceTree = "<group>"; };
+		96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageViewModel.swift; sourceTree = "<group>"; };
+		96050ECC2A7384090011DE7E /* PresentationDetent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDetent.swift; sourceTree = "<group>"; };
 		960A55122A70EF1F00F8E9FC /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		960A55152A70EFA800F8E9FC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphone.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				960A591E2A6FA823000BE611 /* Components */,
+				96050ECC2A7384090011DE7E /* PresentationDetent.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */,
 				96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */,
 				96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */,
+				96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -711,7 +717,9 @@
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
 				960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */,
+				96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
+				96050ECD2A7384090011DE7E /* PresentationDetent.swift in Sources */,
 				96050EBA2A72B28B0011DE7E /* Either.swift in Sources */,
 				96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */,
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */,

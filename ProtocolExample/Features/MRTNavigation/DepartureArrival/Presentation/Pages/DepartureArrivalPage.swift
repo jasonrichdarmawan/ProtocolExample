@@ -8,37 +8,57 @@
 import SwiftUI
 
 struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
+    @StateObject private var departureArrivalPageViewModel: DepartureArrivalPageViewModel
+    
     @StateObject private var departureArrivalViewModel: DepartureArrivalVM
     @StateObject private var nextScheduleEstimatedTimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel
-    
+
     init(
+        departureArrivalPageViewModel: DepartureArrivalPageViewModel = DepartureArrivalPageViewModel(),
         departureArrivalViewModel: DepartureArrivalVM = DepartureArrivalV1ViewModel(),
         nextScheduleEstimatedtimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()
     ) {
+        self._departureArrivalPageViewModel = StateObject(wrappedValue: departureArrivalPageViewModel)
         self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)
         self._nextScheduleEstimatedTimeArrivalViewModel = StateObject(wrappedValue: nextScheduleEstimatedtimeArrivalViewModel)
     }
     
     var body: some View {
-        VStack(spacing: 32) {
-            DepartureArrivalView(viewModel: departureArrivalViewModel)
-            
-            NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
+        VStack(spacing: 0) {
+            Text("Where to go today?")
+                .font(.largeTitle)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color("departureArrival_text_active"))
             
             Spacer()
-            
-            Button {
-                
-            } label: {
-                Text("Start")
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .disabled(departureArrivalViewModel.isDepartureArrivalNotNil() ? false : true)
         }
-        .padding(.top, 25)
-        .padding(.horizontal, 32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(32)
+        .background(.blue)
+        .sheet(isPresented: $departureArrivalPageViewModel.isPresented) {
+            VStack(spacing: 32) {
+                DepartureArrivalView(viewModel: departureArrivalViewModel)
+
+                NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
+
+                Spacer()
+
+                Button {
+
+                } label: {
+                    Text("Start")
+                        .padding(.vertical, 8)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .disabled(departureArrivalViewModel.isDepartureArrivalNotNil() ? false : true)
+            }
+            .padding(.top, 32)
+            .padding(.horizontal, 32)
+            .presentationDetents([.header, .large], selection: $departureArrivalPageViewModel.selectedDetent)
+            .interactiveDismissDisabled(true)
+            .presentationDragIndicator(.hidden)
+        }
     }
 }
 
