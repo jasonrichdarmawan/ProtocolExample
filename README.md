@@ -321,6 +321,195 @@ For example, a project have 4 user stories.
         }
         ```
 
+8. UI/UX Designer creates component's iteration.
+
+Departure Iteration 1
+
+![Departure Iteration 1](Departure.svg)
+
+Departure Iteration 2
+
+![Departure Iteration 2](Departure-Iteration2.svg)
+
+Arrival Iteration 1
+
+![Arrival Iteration 1](Arrival.svg)
+
+Arrival Iteration 2
+
+![Arrival Iteration 2](Arrival-Iteration2.svg)
+
+9. Software Engineer creates component's iteration.
+
+    **Component's iteration principles:**
+    * If 1st iteration and 2nd iteration have different behavior. i.e.
+        * 1st iteration auto swap between departure and arrival station.
+        * 2nd iteration do not auto swap between departure and arrival station.
+    
+        Then, use protocol oriented programming.
+
+        DepartureArrivalViewModel.swift
+        ```swift
+        protocol DepartureArrivalViewModel: ObservableObject {
+            var departure: Station? { get set }
+            var arrival: Station? { get set }
+            var departureSelected: Bool { get set }
+            var arrivalSelected: Bool { get set }
+            
+            func updateDepartureArrival(value: Station) -> Bool
+            func isDepartureArrivalNotNil() -> Bool
+        }
+        ```
+
+        DepartureArrivalViewModelImpl.swift
+        ```swift
+        class DepartureArrivalViewModelImpl: DepartureArrivalViewModel {
+            @Published var departure: Station?
+            @Published var arrival: Station?
+            
+            @Published var departureSelected: Bool
+            var arrivalSelected: Bool {
+                get {
+                    return !departureSelected
+                }
+                set {
+                    departureSelected = !newValue
+                }
+            }
+            
+            init(departure: Station? = MRT.LebakBulusGrab.station, arrival: Station? = nil, departureSelected: Bool = false) {
+                self.departure = departure
+                self.arrival = arrival
+                self.departureSelected = departureSelected
+            }
+            
+            func updateDepartureArrival(value: Station) -> Bool {
+                switch departureSelected {
+                case true:
+                    // arrival value: Lebak Bulus Grab Station
+                    // use case: user want to go from Lebak Bulus Grab Station
+                    if arrival == value {
+                        departure = value
+                        arrival = nil
+                        return true
+                    }
+                    
+                    departure = value
+                case false:
+                    // departure value: Lebak Bulus Grab Station
+                    // use case: user want to go from Dukuh Atas BNI Station to Lebak Bulus Grab
+                    if departure == value {
+                        departure = nil
+                        arrival = value
+                        return true
+                    }
+                    
+                    arrival = value
+                }
+                
+                return true
+            }
+            
+            func isDepartureArrivalNotNil() -> Bool {
+                if departure == nil { return false }
+                if arrival == nil { return false }
+                
+                return true
+            }
+        }
+        ```
+
+        DepartureArrivalV1ViewModel.swift
+        ```swift
+        final class DepartureArrivalV1ViewModel: DepartureArrivalViewModelImpl {}
+        ```
+
+        DepartureArrivalV1View.swift
+        ```swift
+        struct DepartureArrivalV1View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
+            @ObservedObject private var viewModel: ViewModel
+            
+            init(viewModel: ViewModel = DepartureArrivalV1ViewModel()) {
+                self.viewModel = viewModel
+            }
+            
+            var body: some View {
+                Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+                    GridRow {
+                        Circle()
+                            .stroke(.blue, lineWidth: 4)
+                            .frame(width: 16, height: 16)
+                            .padding(.trailing, 16)
+                        
+                        DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                    }
+                    
+                    GridRow {
+                        Line()
+                            .stroke(style: StrokeStyle(lineWidth: 2, dash: [8,8]))
+                            .foregroundColor(Color("departureArrival_line"))
+                            .frame(width: 1, height: 24)
+                            .padding(.trailing, 16)
+                        
+                        
+                    }
+                    
+                    GridRow {
+                        Circle()
+                            .stroke(.blue, lineWidth: 4)
+                            .frame(width: 16, height: 16)
+                            .padding(.trailing, 16)
+                        
+                        DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                    }
+                }
+            }
+        }
+        ```
+
+        DepartureArrivalV2ViewModel.swift
+        ```
+        final class DepartureArrivalV2ViewModel: DepartureArrivalViewModelImpl {
+            override func updateDepartureArrival(value: Station) -> Bool {
+                switch departureSelected {
+                case true:
+                    departure = value
+                case false:
+                    arrival = value
+                }
+                
+                return true
+            }
+        }
+        ```
+
+        DepartureArrivalV2View.swift
+        ```
+        struct DepartureArrivalV2View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
+            @ObservedObject private var viewModel: ViewModel
+            
+            init(viewModel: ViewModel = DepartureArrivalV2ViewModel()) {
+                self._viewModel = ObservedObject(wrappedValue: viewModel)
+            }
+            
+            var body: some View {
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
+                        DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                        Spacer()
+                            .frame(width: 24, height: 24)
+                            .padding(.leading, 16)
+                    }
+                    HStack(spacing: 0) {
+                        ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                        PlusCircleView()
+                            .padding(.leading, 16)
+                    }
+                }
+            }
+        }
+        ```
+
 # Protocol Oriented Programming
 
 Software Engineer creates protocol for every use cases of the 1st user story.
