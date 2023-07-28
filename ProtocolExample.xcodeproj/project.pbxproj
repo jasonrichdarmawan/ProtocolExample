@@ -12,7 +12,7 @@
 		96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */; };
 		96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */; };
 		96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */; };
-		96050ECD2A7384090011DE7E /* PresentationDetent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ECC2A7384090011DE7E /* PresentationDetent.swift */; };
+		96050ECD2A7384090011DE7E /* PresentationDetent+header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */; };
 		960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55122A70EF1F00F8E9FC /* AlarmManager.swift */; };
 		960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55152A70EFA800F8E9FC /* NotificationManager.swift */; };
 		960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */; };
@@ -74,7 +74,9 @@
 		96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModel.swift; sourceTree = "<group>"; };
 		96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModelImpl.swift; sourceTree = "<group>"; };
 		96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageViewModel.swift; sourceTree = "<group>"; };
-		96050ECC2A7384090011DE7E /* PresentationDetent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDetent.swift; sourceTree = "<group>"; };
+		96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentationDetent+header.swift"; sourceTree = "<group>"; };
+		96050ECE2A73BD6F0011DE7E /* Arrival.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Arrival.svg; sourceTree = "<group>"; };
+		96050ECF2A73BD6F0011DE7E /* Departure.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Departure.svg; sourceTree = "<group>"; };
 		960A55122A70EF1F00F8E9FC /* AlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
 		960A55152A70EFA800F8E9FC /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphone.swift; sourceTree = "<group>"; };
@@ -84,7 +86,7 @@
 		960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MRT Jakarta Navigation Use Cases.drawio.png"; sourceTree = "<group>"; };
 		960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrival.swift; sourceTree = "<group>"; };
-		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		960A59072A6ED155000BE611 /* MRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRT.swift; sourceTree = "<group>"; };
 		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		960A59142A6EDCE2000BE611 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -214,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				960A591E2A6FA823000BE611 /* Components */,
-				96050ECC2A7384090011DE7E /* PresentationDetent.swift */,
+				96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -526,6 +528,8 @@
 		9691D43D2A6D77E800EE843C = {
 			isa = PBXGroup;
 			children = (
+				96050ECE2A73BD6F0011DE7E /* Arrival.svg */,
+				96050ECF2A73BD6F0011DE7E /* Departure.svg */,
 				960A59062A6EA9FD000BE611 /* README.md */,
 				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
 				9691D4482A6D77E800EE843C /* ProtocolExample */,
@@ -719,7 +723,7 @@
 				960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */,
 				96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
-				96050ECD2A7384090011DE7E /* PresentationDetent.swift in Sources */,
+				96050ECD2A7384090011DE7E /* PresentationDetent+header.swift in Sources */,
 				96050EBA2A72B28B0011DE7E /* Either.swift in Sources */,
 				96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */,
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift in Sources */,

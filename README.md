@@ -8,670 +8,780 @@
 
 # Component Oriented Design
 
-User Stories:
-```
-1. User gets vibration and/or sound notification when arrive in destination.
-2. User gets vibration and/or sound notification when near any station when in initial mode and app in background mode (Have not started navigation).
-3. User gets vibration and/or sound notification when a train arrive in departure station when in commuting mode (Have started navigation)
-4. User gets vibration and/or sound notification when arrive in a transit station when in commuting mode.
-```
+For example, a project have 4 user stories.
 
-Workflow:
+**User Stories**
+* User gets vibration and/or sound notification when arrive at their destination.
+* User gets vibration and/or sound notification when the user near any station when in initial mode (Have not started navigation) and app in background mode.
+* User gets vibration and/or sound notification when a train arrive in the departure station when in commuting mode (Have started navigation).
+* User gets vibration and/or sound notification when the user arrive in a transit station when in commuting mode.
+
+**Workflow**
+
 1. Project Manager do vertical development by slicing the 1st user story into 3 use cases.
-```
-User Story:
-1. User gets vibration and/or sound notification when arrive in destination.
 
-Use Cases:
-1. User able to start navigation by selecting departure station and destination (High priority).
-2. Notify user when arrived in destination when app in background mode (High priority).
-3. Notify user when arrived in destination when app in foreground mode (High priority).
-```
+    * User Story:
+        * User gets vibration and/or sound notification when arrive at their destination.
 
-2. UI/UX Designer creates the LoFi by defining what user can do and what user can see in a specific Screen. Use Shape and Text tools in Figma. No local variables, no local styles, no components.
-```
-What user can see:
-1. Departure station and destination.
+    * Use Cases:
+        * User able to start navigation by selecting departure station and destination (High priority).
+        * Notify user when arrived in destination when app in background mode (High priority).
+        * Notify user when arrived in destination when app in foreground mode (High priority).
 
-What user can do:
-1. Change the departure station and destination by clicking the buttton.
-```
+2. UI/UX Designer creates the LoFi by defining `what user can do` and `what user can see` in a Page.
+
+    **LoFi Principles:**
+    * Only use the Shape and the Text tools in Figma.
+    * Use button hierarchy (primary, secondary, tertiary).
+    * No local variables, no local styles, no components.
+
+    What user can see:
+    * Departure station and destination.
+
+    What user can do:
+    * Change the departure station and destination by clicking the buttton.
 
 3. UI/UX Designer creates the design style guide.
 
-Primitives Color
-```
-red/0 = #FF000000, red/10 = #8B0000, red/20 = #800000
-blue/0 = #0000FF, blue/10 = #0000CD, blue/20 = #00008B
-green/0 = #008000, green/10 = #006400, green/20 = #ADFF2F.
-white/0 = #FFFFFF
-black/0 = #000000
-```
+    **Design style guide principles:**
+    * Shape and text tools always use the tokenized colors.  
 
-Tokenized Color
-```
-clickableButtonBackground: Any = blue/0, Dark = blue/0
-clickableButtonText: Any = white/0, Dark = white/0
+        Do not use the primitive colors directly.
 
-focusedButtonText: Any = blue/0, Dark = blue/0
-focusedButtonStroke: Any = black/0, Dark = black/0
-```
+        **Primitives Color**
+
+        * red
+            * red/0 = #FF000000
+            * red/10 = #8B0000
+            * red/20 = #800000
+
+        * blue
+            * blue/0 = #0000FF
+            * blue/10 = #0000CD
+            * blue/20 = #00008B
+
+        * green
+            * green/0 = #008000
+            * green/10 = #006400
+            * green/20 = #ADFF2F
+
+        * white
+            * white/0 = #FFFFFF
+            * black/0 = #000000
+
+        **Tokenized Color**
+
+        * clickableButtonBackground
+            * Any = blue/0
+            * Dark = blue/0
+
+        * clickableButtonText
+            * Any = white/0
+            * Dark = white/0
+
+        * focusedButtonText
+            * Any = blue/0
+            * Dark = blue/0
+
+        * focusedButtonStroke
+            * Any = black/0
+            * Dark = black/0
+
+    * Tokenized colors uses the primitive colors. 
+
+        Do not use the Color hex directly. 
+
+        Tokenized colors have Light and Dark Mode.
+
+    * It is advisable to use [Apple's Typography](https://developer.apple.com/design/human-interface-guidelines/typography) and [Apple's Color](https://developer.apple.com/design/human-interface-guidelines/color).
+
+    **Why use tokenized color?**
+
+    * Imagine you prefer to use `Hex color` directly.
+
+        Imagine you have 3 identical shapes used in 3 Screens that use Hex color directly. 
+
+        Now, imagine you want to change the shape's color. 
+
+        You will have to change each Shape in each Screen, 3 times.
+
+        Important: If you use Component in Figma, you only need to change the shape's color 1 time.
+
+    * Imagine you prefer to use `Primitive color to Hex color` directly.
+
+        Imagine you have Light and Dark Mode. You also have button hierarchy: `primary`, `secondary`, and `tertiary`.
+
+        Now, imagine you want to change the primary button's background color.
+
+        You will have to change the primary button's background color each in Light and Dark Mode, 2 times.
+
+        Now, imagine if you use Tokenized color, `primary_button_background`. 
+
+        You only need to change the Tokenized color.
+
+    * Imagine you prefer to use `Tokenized color to Hex color` directly and not to Primitive color.
+
+        Imagine you have a 3 tokenized colors with Hex color #000000. #000000 is black in terms of primitive color.
+
+        Now, imagine you want to change every #000000 to slightly brighter black Hex color #000011. 
+
+        You will have to change each shape's tokenized color, 3 times.
 
 4. Software Engineer register the tokenized colors
-```
-clickableButtonBackground: Any = #0000FF, Dark = #0000FF
-clickableButtonText: Any = #FFFFFF, Dark = #FFFFFF
 
-focusedButtonText: Any = #0000FF, Dark = #0000FF
-focusedButtonStroke: Any = #000000, Dark = #000000
-```
+    * clickableButtonBackground
+        * Any = #0000FF
+        * Dark = #0000FF
+
+    * clickableButtonText
+        * Any = #FFFFFF
+        * Dark = #FFFFFF
+
+    * focusedButtonText
+        * Any = #0000FF
+        * Dark = #0000FF
+
+    * focusedButtonStroke
+        * Any = #000000
+        * Dark = #000000
 
 5. UI/UX Designer creates the HiFi component for the departure and arrival button using components.
-```
-What departure and arrival button looks like in clickable and focused mode.
-```
+
+    Departure's component
+
+    ![Departure](Departure.svg)
+
+    Arrival's component
+
+    ![Arrival](Arrival.svg)
 
 6. Software Engineer creates the component's code.
 
-Component's coding style guide:
-1. Use `@Binding` / `@ObservedObject`
-2. Use `#if DEBUG #endif` for the preview.
-3. The preview is not just to preview the component. But to preview how to use the component in a screen.
+    **Component's coding style guide:**
 
-DepartureArrivalView.swift
-```swift
-struct DepartureArrivalView: View {
-    @ObservedObject private var viewModel: DepartureArrivalViewModel
-    
-    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
-        self.viewModel = viewModel
-    }
-    
-    var body: some View {
-        Group {
-            DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-            DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+    * Use `@Binding` / `@ObservedObject`
+
+        DepartureArrivalView.swift
+        ```swift
+        struct DepartureArrivalView: View {
+            @ObservedObject private var viewModel: DepartureArrivalViewModel
+            
+            init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+                self.viewModel = viewModel
+            }
+            
+            var body: some View {
+                Group {
+                    DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                    DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                }
+            }
         }
-    }
-}
-```
+        ```
 
-DepartureArrivalView+DepartureArrivalButtonView.swift
-```swift
-extension DepartureArrivalView {
-    struct DepartureOrArrivalButtonView: View {
-        @Binding var value: Station
-        @Binding var selected: Bool
+        DepartureArrivalView+DepartureArrivalButtonView.swift
+        ```swift
+        extension DepartureArrivalView {
+            struct DepartureOrArrivalButtonView: View {
+                @Binding var value: Station
+                @Binding var selected: Bool
+                
+                var body: some View {
+                    Button {
+                        selected = true
+                    } label: {
+                        Text("\(value.name) Station")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.title2)
+                    }
+                    .selectedButtonStyle(selected)
+                    .padding(16)
+                }
+            }
+        }
+        ```
+
+    * The purpose of a preview is to show how to use the component in a screen.
+
+        The example to show how to use the component
+        ```swift
+        private struct DepartureArrivalViewExample: View {
+            @StateObject private var viewModel: DepartureArrivalViewModel
+            
+            init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
+                self._viewModel = StateObject(wrappedValue: viewModel)
+            }
+            
+            var body: some View {
+                VStack(spacing: 0) {
+                    DepartureArrivalView(viewModel: viewModel)
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        Button("\(MRT.LebakBulusGrab.station.name) Station") {
+                            viewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                        }
+                        .font(.title2)
+                        .buttonStyle(.borderedProminent)
+                        .padding(.vertical, 16)
+                        
+                        Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
+                            viewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                        }
+                        .font(.title2)
+                        .buttonStyle(.borderedProminent)
+                        .padding(.vertical, 16)
+                        
+                        Button("\(MRT.CipeteRaya.station.name) Station") {
+                            viewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                        }
+                        .font(.title2)
+                        .buttonStyle(.borderedProminent)
+                        .padding(.vertical, 16)
+                    }
+                    
+                    Spacer()
+                }
+            }
+        }
+        ```
         
-        var body: some View {
-            Button {
-                selected = true
-            } label: {
-                Text("\(value.name) Station")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title2)
+        The preview
+        ```swift
+        struct DepartureArrivalViewExample_Previews: PreviewProvider {
+            static var previews: some View {
+                DepartureArrivalViewExample()
+                    .environment(\.locale, .init(identifier: "id-ID"))
             }
-            .selectedButtonStyle(selected)
-            .padding(16)
         }
-    }
-}
-```
+        ```
 
-Use ViewModel if you have more than 1 variable to observe.
+    * Use ViewModel if you have more than 1 variable to observe.
 
-Important: 1 ViewModel per responsibility i.e. a View used 2 ViewModels:
-1. a ViewModel `to handle the departure, arrival variables`
-2. a ViewModel `to handle the nearest schedule at departure and estimated time arrival at destination variables`
-3. if there is quirk use case i.e. `departure current value: Lebak Bulus Grab Station. User want to go FROM Lebak Bulus Grab Station`, use the guard clause pattern. And, add the explanation on top of that guard clause pattern.
+        Important: 1 ViewModel per responsibility i.e. a View used 2 ViewModels:
 
-DepartureArrivalViewModel.swift
-```swift
-final class DepartureArrivalViewModel: ObservableObject {
-    @Published var departure: Station
-    @Published var arrival: Station
+        * a ViewModel to handle the departure, arrival variables.
+        * a ViewModel to handle the nearest schedule at departure and estimated time arrival at destination variables.
     
-    @Published var departureSelected: Bool
-    var arrivalSelected: Bool {
-        get {
-            return !departureSelected
-        }
-        set {
-            departureSelected = !newValue
-        }
-    }
+    * In a ViewModel, use guard clause to handle unique use case. 
     
-    init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station = MRT.DukuhAtasBNI.station, departureSelected: Bool = false) {
-        self.departure = departure
-        self.arrival = arrival
-        self.departureSelected = departureSelected
-    }
-    
-    func updateDepartureArrival(value: Station) {
-        switch departureSelected {
-        case true:
-            // arrival value: Lebak Bulus Grab Station
-            // use case: user want to go from Lebak Bulus Grab Station
-            if arrival == value {
-                departure = value
-                arrival = nil
-                return
-            }
+        Important: Add the explanation on top of that guard clause pattern.
+
+        Use case:
+        ```
+        arrival value: Lebak Bulus Grab Station
+        use case: user want to go from Lebak Bulus Grab Station
+        ```
+
+        DepartureArrivalViewModel.swift
+        ```swift
+        final class DepartureArrivalViewModel: ObservableObject {
+            @Published var departure: Station
+            @Published var arrival: Station
             
-            departure = value
-        case false:
-            // departure value: Lebak Bulus Grab Station
-            // use case: user want to go from Dukuh Atas BNI Station to Lebak Bulus Grab
-            if departure == value {
-                departure = nil
-                arrival = value
-                return
-            }
-            
-            arrival = value
-        }
-    }
-}
-```
-
-The preview
-```swift
-private struct DepartureArrivalViewExample: View {
-    @StateObject private var viewModel: DepartureArrivalViewModel
-    
-    init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            DepartureArrivalView(viewModel: viewModel)
-            
-            VStack(alignment: .leading, spacing: 0) {
-                Button("\(MRT.LebakBulusGrab.station.name) Station") {
-                    viewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+            @Published var departureSelected: Bool
+            var arrivalSelected: Bool {
+                get {
+                    return !departureSelected
                 }
-                .font(.title2)
-                .buttonStyle(.borderedProminent)
-                .padding(.vertical, 16)
-                
-                Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
-                    viewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                set {
+                    departureSelected = !newValue
                 }
-                .font(.title2)
-                .buttonStyle(.borderedProminent)
-                .padding(.vertical, 16)
-                
-                Button("\(MRT.CipeteRaya.station.name) Station") {
-                    viewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
-                }
-                .font(.title2)
-                .buttonStyle(.borderedProminent)
-                .padding(.vertical, 16)
             }
             
-            Spacer()
+            init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station = MRT.DukuhAtasBNI.station, departureSelected: Bool = false) {
+                self.departure = departure
+                self.arrival = arrival
+                self.departureSelected = departureSelected
+            }
+            
+            func updateDepartureArrival(value: Station) {
+                switch departureSelected {
+                case true:
+                    // arrival value: Lebak Bulus Grab Station
+                    // use case: user want to go from Lebak Bulus Grab Station
+                    if arrival == value {
+                        departure = value
+                        arrival = nil
+                        return
+                    }
+                    
+                    departure = value
+                case false:
+                    // departure value: Lebak Bulus Grab Station
+                    // use case: user want to go from Dukuh Atas BNI Station to Lebak Bulus Grab
+                    if departure == value {
+                        departure = nil
+                        arrival = value
+                        return
+                    }
+                    
+                    arrival = value
+                }
+            }
         }
-    }
-}
-
-struct DepartureArrivalViewExample_Previews: PreviewProvider {
-    static var previews: some View {
-        DepartureArrivalViewExample()
-            .environment(\.locale, .init(identifier: "id-ID"))
-    }
-}
-```
+        ```
 
 # Protocol Oriented Programming
 
-Workflow:
-1. Software Engineer creates protocol for every use cases of the 1st user story.
-```
-1. NotifyWhenNearMRTStationAndSpecificMRTStationOnce, requires:
-a. NotifyWhenNearMRTStationWithGPS
-b. NotifyWhenNearMRTstationWithBluetooth
-c. AlarmManager (able to vibrate and/or play audio in background and foreground mode)
+Software Engineer creates protocol for every use cases of the 1st user story.
 
-2. NotifyWhenNearMRTStationOnce, requires:
-a. NotifyWhenNearMRTStationWithGPS
-b. NotifyWhenNearMRTStationWithBluetooth
+* NotifyWhenNearMRTStationAndSpecificMRTStationOnce, requires:
+    * NotifyWhenNearMRTStationWithGPS
+    * NotifyWhenNearMRTstationWithBluetooth
+    * AlarmManager (able to vibrate and/or play audio in background and foreground mode)
 
-3. NotifyWhenNearMRTStationWhenInBackground, requires:
-a. NotifyWhenNearMRTStationWithGPS
-b. NotifyWhenNearMRTStationWithBluetooth
-c. NotificationManager
+* NotifyWhenNearMRTStationOnce, requires:
+    * NotifyWhenNearMRTStationWithGPS
+    * NotifyWhenNearMRTStationWithBluetooth
 
-4. NotifyWhenNearMRTStationWithGPS, requires:
-a. LocationFinder
+* NotifyWhenNearMRTStationWhenInBackground, requires:
+    * NotifyWhenNearMRTStationWithGPS
+    * NotifyWhenNearMRTStationWithBluetooth
+    * NotificationManager
 
-5. NotifyWhenMRTStationWithBluetooth, requires:
-a. BeaconFinder
+* NotifyWhenNearMRTStationWithGPS, requires:
+    * LocationFinder
 
-6. BeaconBroadcaster (to simulate)
-```
+* NotifyWhenMRTStationWithBluetooth, requires:
+    * BeaconFinder
+
+* BeaconBroadcaster (to simulate)
 
 ![MRT Jakarta Navigation Use Cases](MRT%20Jakarta%20Navigation%20Use%20Cases.drawio.png)
 
-Use Case protocol's coding style guide:
-1. use delegate pattern if you wish to return a result asynchronously.
+**Use Case protocol's coding style guide:**
+* use delegate pattern if you wish to return a result asynchronously.
 
-NotifyWhenNearMRTStationWithGPS.swift
-```swift
-protocol NotifyWhenNearMRTStationWithGPS {
-    var delegate: NotifyWhenNearMRTStationWithGPSDelegate? { get set }
-    
-    func start() -> NotifyWhenNearMRTStationWithGPSStartEvent
-    func stop() -> NotifyWhenNearMRTStationWithGPSStopEvent
-}
+    NotifyWhenNearMRTStationWithGPS.swift
+    ```swift
+    protocol NotifyWhenNearMRTStationWithGPS {
+        var delegate: NotifyWhenNearMRTStationWithGPSDelegate? { get set }
+        
+        func start() -> NotifyWhenNearMRTStationWithGPSStartEvent
+        func stop() -> NotifyWhenNearMRTStationWithGPSStopEvent
+    }
 
-protocol NotifyWhenNearMRTStationWithGPSDelegate {
-    /// will notify once per station.
-    func notifyManager(_ manager: NotifyWhenNearMRTStationWithGPS, didFind: Station)
-}
+    protocol NotifyWhenNearMRTStationWithGPSDelegate {
+        /// will notify once per station.
+        func notifyManager(_ manager: NotifyWhenNearMRTStationWithGPS, didFind: Station)
+    }
 
-protocol NotifyWhenNearMRTStationWithGPSEvent {}
+    protocol NotifyWhenNearMRTStationWithGPSEvent {}
 
-enum NotifyWhenNearMRTStationWithGPSStartEvent: NotifyWhenNearMRTStationWithGPSEvent { case IS_STARTING, NOT_AUTHORIZED }
+    enum NotifyWhenNearMRTStationWithGPSStartEvent: NotifyWhenNearMRTStationWithGPSEvent { case IS_STARTING, NOT_AUTHORIZED }
 
-enum NotifyWhenNearMRTStationWithGPSStopEvent: NotifyWhenNearMRTStationWithGPSEvent { case IS_STOPPING }
-```
+    enum NotifyWhenNearMRTStationWithGPSStopEvent: NotifyWhenNearMRTStationWithGPSEvent { case IS_STOPPING }
+    ```
 
-2. a function should return an actionable result i.e. `Bool` or `enum`.
+* a function should return an actionable result i.e. `Bool` or `enum`.
 
-3. If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
+* If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
 
-Notification.swift
-```swift
-protocol Notification {
-    /// please show alert in view if return false
-    func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void)
-    
-    func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: @escaping (Bool) -> Void)
-    func reset() -> NotificationResetEvent
-}
+    Notification.swift
+    ```swift
+    protocol Notification {
+        /// please show alert in view if return false
+        func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void)
+        
+        func push(title: String, subtitle: String, sound: UNNotificationSound?, completionHandler: @escaping (Bool) -> Void)
+        func reset() -> NotificationResetEvent
+    }
 
-protocol NotificationEvent {}
+    protocol NotificationEvent {}
 
-enum NotificationPushEvent: NotificationEvent { case IS_PUSHING, NOT_AUTHORIZED }
+    enum NotificationPushEvent: NotificationEvent { case IS_PUSHING, NOT_AUTHORIZED }
 
-enum NotificationResetEvent: NotificationEvent { case IS_RESETTING }
-```
+    enum NotificationResetEvent: NotificationEvent { case IS_RESETTING }
+    ```
 
-4. a function should have documentation comments if the behavior is peculiar i.e. `the finder stop after finding any station once`. 
+* a function should have documentation comments if the behavior is peculiar i.e. `the finder stop after finding any station once`. 
 
-NotifyWhenNearMRTStationWithBluetooth.swift
-```swift
-protocol NotifyWhenNearMRTStationWithBluetooth {
-    var delegate: NotifyWhenNearMRTStationWithBluetoothDelegate? { get set }
-    
-    func start() -> NotifyWhenNearMRTStationWithBluetoothStartEvent
-    func stop() -> NotifyWhenNearMRTStationWithBluetoothStopEvent
-}
+    NotifyWhenNearMRTStationWithBluetooth.swift
+    ```swift
+    protocol NotifyWhenNearMRTStationWithBluetooth {
+        var delegate: NotifyWhenNearMRTStationWithBluetoothDelegate? { get set }
+        
+        func start() -> NotifyWhenNearMRTStationWithBluetoothStartEvent
+        func stop() -> NotifyWhenNearMRTStationWithBluetoothStopEvent
+    }
 
-protocol NotifyWhenNearMRTStationWithBluetoothDelegate {
-    // will update once per station
-    func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind: Station)
-}
+    protocol NotifyWhenNearMRTStationWithBluetoothDelegate {
+        // will update once per station
+        func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind: Station)
+    }
 
-protocol NotifyWhenNearMRTStationWithBluetoothEvent {}
+    protocol NotifyWhenNearMRTStationWithBluetoothEvent {}
 
-enum NotifyWhenNearMRTStationWithBluetoothStartEvent: NotifyWhenNearMRTStationWithBluetoothEvent { case IS_STARTING, NOT_AUTHORIZED }
+    enum NotifyWhenNearMRTStationWithBluetoothStartEvent: NotifyWhenNearMRTStationWithBluetoothEvent { case IS_STARTING, NOT_AUTHORIZED }
 
-enum NotifyWhenNearMRTStationWithBluetoothStopEvent: NotifyWhenNearMRTStationWhenInBackgroundEvent { case IS_STOPPING }
-```
+    enum NotifyWhenNearMRTStationWithBluetoothStopEvent: NotifyWhenNearMRTStationWhenInBackgroundEvent { case IS_STOPPING }
+    ```
 
-5. a function should use delegate pattern if the behavior is peculiar to return actionable result i.e. `.FINDER_GRACEFULLY_STOP` event.
+* a function should use delegate pattern if the behavior is peculiar to return actionable result i.e. `.FINDER_GRACEFULLY_STOP` event.
 
-NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift
-```swift
-protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
-    var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate? { get set }
-    
-    /// will stop when found specific MRT station
-    func start(arrival: Station) -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent
-    /// for abrupt stop.
-    func stop() -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent
-}
+    NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift
+    ```swift
+    protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
+        var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate? { get set }
+        
+        /// will stop when found specific MRT station
+        func start(arrival: Station) -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent
+        /// for abrupt stop.
+        func stop() -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent
+    }
 
-enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent { case FOUND, ARRIVED }
+    enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent { case FOUND, ARRIVED }
 
-protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate {
-    func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent)
-}
+    protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate {
+        func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent)
+    }
 
-protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent {}
+    protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent {}
 
-enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent: NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent { case IS_STARTING, NOT_AUTHORIZED }
+    enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent: NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent { case IS_STARTING, NOT_AUTHORIZED }
 
-enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent: NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent { case IS_STOPPING }
-```
+    enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent: NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent { case IS_STOPPING }
+    ```
 
 # Use Case Oriented Programming
 
-Use Case Oriented Programming enables you to focus on 1 specific business logic (i.e. `NotifyWhenNearMRTStationWithGPS.swift` and `NotifyWhenNearMRTStationWithBluetooth.swift`). Then, you can write a business logic to do "if Bluetooth is not available, use GPS" in a dedicated use case `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
+Use Case Oriented Programming enables you to focus on 1 specific business logic, i.e:
+* `NotifyWhenNearMRTStationWithGPS.swift`
+* `NotifyWhenNearMRTStationWithBluetooth.swift`
 
-Protocol implementation's coding style guide:
-1. `init` function should have default value.
-2. if `init` use static variable as default value, the implementation should have `deinit` closure.
-3. the static variable should live in a final class Manager. By doing so, when you want to change the implementation logic, you can replace the shared variable's value.
+Then, you can write a business logic to do:
+* if Bluetooth is not available, use GPS. `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
 
-NotificationManager.swift
-```swift
-final class NotificationManager {
-    static var shared: Notification! {
-        get {
-            if sharedClosure == nil {
-                sharedClosure = NotificationImpl.shared
+**Protocol implementation's coding style guide:**
+* `init` function should have default value.
+* if `init` use static variable as default value, the implementation should have `deinit` closure.
+* the static variable should live in a final class Manager. 
+
+    By doing so, when you want to change the implementation logic, you can replace the shared variable's value.
+
+    NotificationManager.swift
+    ```swift
+    final class NotificationManager {
+        static var shared: Notification! {
+            get {
+                if sharedClosure == nil {
+                    sharedClosure = NotificationImpl.shared
+                }
+                
+                return sharedClosure
             }
-            
-            return sharedClosure
-        }
-        set {
-            if newValue == nil {
-                NotificationImpl.shared = nil
+            set {
+                if newValue == nil {
+                    NotificationImpl.shared = nil
+                }
+                
+                sharedClosure = newValue
             }
-            
-            sharedClosure = newValue
+        }
+        
+        private static var sharedClosure: Notification!
+    }
+    ```
+
+    since Notification should not have more than 2 instance, you should private the constructor.
+
+    NotificationImpl.swift
+    ```swift
+    final class NotificationImpl: Notification {
+        fileprivate init() {}
+        
+        func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
+        
+        func push(title: String, subtitle: String, sound: UNNotificationSound? = nil, completionHandler: @escaping (Bool) -> Void) {
+        }
+        
+        func reset() -> NotificationResetEvent {
+            return .IS_RESETTING
         }
     }
-    
-    private static var sharedClosure: Notification!
-}
-```
 
-since Notification should not have more than 2 instance, you should private the constructor.
-
-NotificationImpl.swift
-```swift
-final class NotificationImpl: Notification {
-    fileprivate init() {}
-    
-    func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
-    
-    func push(title: String, subtitle: String, sound: UNNotificationSound? = nil, completionHandler: @escaping (Bool) -> Void) {
-    }
-    
-    func reset() -> NotificationResetEvent {
-        return .IS_RESETTING
-    }
-}
-
-extension NotificationImpl {
-    static var shared: Notification! {
-        get {
-            if sharedClosure == nil {
-                sharedClosure = NotificationImpl()
+    extension NotificationImpl {
+        static var shared: Notification! {
+            get {
+                if sharedClosure == nil {
+                    sharedClosure = NotificationImpl()
+                }
+                
+                return sharedClosure
             }
+            set {
+                sharedClosure = newValue
+            }
+        }
+        
+        private static var sharedClosure: Notification!
+    }
+    ```
+
+    NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift
+    ```swift
+    final class NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
+        var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate?
+        
+        private var notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
+        private var notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS
+        
+        private var currentStation: Station?
+        
+        private var arrival: Station?
+        
+        init(
+            notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
+            notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl()
+        ) {
+            self.notifyWhenNearMRTStationWithBluetooth = notifyWhenNearMRTStationWithBluetooth
+            self.notifyWhenNearMRTStationWithGPS = notifyWhenNearMRTStationWithGPS
             
-            return sharedClosure
+            self.notifyWhenNearMRTStationWithBluetooth.delegate = self
+            self.notifyWhenNearMRTStationWithGPS.delegate = self
         }
-        set {
-            sharedClosure = newValue
+        
+        func start(arrival: Station) -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent {
+            self.arrival = arrival
+            return .IS_STARTING
+        }
+        
+        func stop() -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent {
+            return .IS_STOPPING
         }
     }
-    
-    private static var sharedClosure: Notification!
-}
-```
 
-NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift
-```swift
-final class NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
-    var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate?
-    
-    private var notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
-    private var notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS
-    
-    private var currentStation: Station?
-    
-    private var arrival: Station?
-    
-    init(
-        notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
-        notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl()
-    ) {
-        self.notifyWhenNearMRTStationWithBluetooth = notifyWhenNearMRTStationWithBluetooth
-        self.notifyWhenNearMRTStationWithGPS = notifyWhenNearMRTStationWithGPS
-        
-        self.notifyWhenNearMRTStationWithBluetooth.delegate = self
-        self.notifyWhenNearMRTStationWithGPS.delegate = self
+    extension NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationWithBluetoothDelegate {
+        func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind station: Station) {
+            if currentStation == station { return }
+            
+            currentStation = station
+            
+            if arrival == station { _ = stop() }
+            
+            delegate?.notifyManager(self, didFind: station, didEvent: arrival == station ? .ARRIVED : .FOUND)
+        }
     }
-    
-    func start(arrival: Station) -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent {
-        self.arrival = arrival
-        return .IS_STARTING
-    }
-    
-    func stop() -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent {
-        return .IS_STOPPING
-    }
-}
 
-extension NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationWithBluetoothDelegate {
-    func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind station: Station) {
-        if currentStation == station { return }
-        
-        currentStation = station
-        
-        if arrival == station { _ = stop() }
-        
-        delegate?.notifyManager(self, didFind: station, didEvent: arrival == station ? .ARRIVED : .FOUND)
+    extension NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationWithGPSDelegate {
+        func notifyManager(_ manager: NotifyWhenNearMRTStationWithGPS, didFind station: Station) {
+            if currentStation == station { return }
+            
+            currentStation = station
+            
+            if arrival == station { _ = stop() }
+            
+            delegate?.notifyManager(self, didFind: station, didEvent: arrival == station ? .ARRIVED : .FOUND)
+        }
     }
-}
-
-extension NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationWithGPSDelegate {
-    func notifyManager(_ manager: NotifyWhenNearMRTStationWithGPS, didFind station: Station) {
-        if currentStation == station { return }
-        
-        currentStation = station
-        
-        if arrival == station { _ = stop() }
-        
-        delegate?.notifyManager(self, didFind: station, didEvent: arrival == station ? .ARRIVED : .FOUND)
-    }
-}
-```
+    ```
 
 # Clean Architecture Programming
 
 1. Code is split into 3 layers: the Presentation layer, the Domain layer and the Data layer.
+
 2. The Presentation layer splitted into 3 layers: the Components layer, the ViewModel layer and the Pages layer.
-```
-The Components layer is used by the Pages layer.
-The ViewModel layer is used by the Pages layer. The purpose is to provide data to the Pages layer.
-The Pages layer should be as simple as it can.
-```
 
-a. The Pages layer
+    The Components layer is used by the Pages layer.
 
-DepartureArrivalPage.swift
-```swift
-struct DepartureArrivalPage: View {
-    @StateObject private var viewModel: DepartureArrivalV2ViewModel
-    
-    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            DepartureArrivalV2View(viewModel: viewModel)
-            Spacer()
-        }
-        .padding(.horizontal, 32)
-    }
-}
-```
+    The ViewModel layer is used by the Pages layer. The purpose is to provide data to the Pages layer.
 
-b. The ViewModels layer
+    The Pages layer should be as simple as it can.
 
-DepartureArrivalV2ViewModel.swift
-```swift
-final class DepartureArrivalV2ViewModel: ObservableObject {
-    @Published var departure: Station
-    @Published var arrival: Station?
-    
-    @Published var departureSelected: Bool
-    var arrivalSelected: Bool {
-        get {
-            return !departureSelected
-        }
-        set {
-            departureSelected = !newValue
-        }
-    }
-    
-    init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station? = nil, departureSelected: Bool = false) {
-        self.departure = departure
-        self.arrival = arrival
-        self.departureSelected = departureSelected
-    }
-    
-    func updateDepartureArrival(value: Station) {
-        switch departureSelected {
-        case true:
-            // swap
-            if arrival == value {
-                arrival = departure
+    * The Pages layer
+
+        DepartureArrivalPage.swift
+        ```swift
+        struct DepartureArrivalPage: View {
+            @StateObject private var viewModel: DepartureArrivalV2ViewModel
+            
+            init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+                self._viewModel = StateObject(wrappedValue: viewModel)
             }
             
-            departure = value
-        case false:
-            // swap
-            if departure == value {
-                if let arrival {
-                    departure = arrival
+            var body: some View {
+                VStack(spacing: 0) {
+                    DepartureArrivalV2View(viewModel: viewModel)
+                    Spacer()
+                }
+                .padding(.horizontal, 32)
+            }
+        }
+        ```
+
+    * The ViewModels layer
+
+        DepartureArrivalV2ViewModel.swift
+        ```swift
+        final class DepartureArrivalV2ViewModel: ObservableObject {
+            @Published var departure: Station
+            @Published var arrival: Station?
+            
+            @Published var departureSelected: Bool
+            var arrivalSelected: Bool {
+                get {
+                    return !departureSelected
+                }
+                set {
+                    departureSelected = !newValue
                 }
             }
             
-            arrival = value
-        }
-    }
-}
-```
-
-c. The Components layer
-
-DepartureArrivalV2View.swift
-```swift
-struct DepartureArrivalV2View: View {
-    @ObservedObject private var viewModel: DepartureArrivalV2ViewModel
-    
-    init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
-        self._viewModel = ObservedObject(wrappedValue: viewModel)
-    }
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            HStack(spacing: 0) {
-                DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
-                Spacer()
-                    .frame(width: 24, height: 24)
-                    .padding(.leading, 16)
+            init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station? = nil, departureSelected: Bool = false) {
+                self.departure = departure
+                self.arrival = arrival
+                self.departureSelected = departureSelected
             }
-            HStack(spacing: 0) {
-                ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
-                PlusCircleView()
-                    .padding(.leading, 16)
-            }
-        }
-    }
-}
-```
-
-use `+` to indicate the use of the extension keyword. In this case, a subcomponent of a component.
-
-Important: Do not complicate things with the `if else` logic. i.e. `DepartureArrivalV2View+DepartureV2View.swift` and `DepartureArrivalV2View+ArrivalV2View.swift` have similar View, but diverge at some point.
-
-DepartureArrivalView+DepartureV2View.swift
-```swift
-extension DepartureArrivalV2View {
-    struct DepartureV2View: View {
-        @Binding var value: Station
-        @Binding var selected: Bool
-        
-        var body: some View {
-            Button {
-                selected = true
-            } label: {
-                HStack(spacing: 0) {
-                    CircleView()
-                    Text("\(value.name) Station")
-                        .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
-                        .font(.body)
-                        .fontWeight(selected ? .bold : .regular)
-                    Spacer()
+            
+            func updateDepartureArrival(value: Station) {
+                switch departureSelected {
+                case true:
+                    // swap
+                    if arrival == value {
+                        arrival = departure
+                    }
+                    
+                    departure = value
+                case false:
+                    // swap
+                    if departure == value {
+                        if let arrival {
+                            departure = arrival
+                        }
+                    }
+                    
+                    arrival = value
                 }
-                .padding(8)
-                .background(selected ? Color("departureArrival_background_selectedv2") : nil)
-                .cornerRadius(4)
             }
         }
-    }
-    
-    struct CircleView: View {
-        var body: some View {
-            Image(systemName: "circle")
-                .resizable()
-                .frame(width: 16, height: 16)
-                .foregroundColor(Color("icon_circle"))
-                .padding(.trailing, 8)
-        }
-    }
-}
-```
+        ```
 
-DepartureArrivalV2View+ArrivalV2View.swift
-```swift
-extension DepartureArrivalV2View {
-    struct ArrivalV2View: View {
-        @Binding var value: Station?
-        @Binding var selected: Bool
-        
-        var body: some View {
-            Button {
-                selected = true
-            } label: {
-                HStack(spacing: 0) {
-                    LocationFillView()
-                    Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
-                        .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
-                        .font(.body)
-                        .fontWeight(selected ? .bold : .regular)
-                    Spacer()
+    * The Components layer
+
+        DepartureArrivalV2View.swift
+        ```swift
+        struct DepartureArrivalV2View: View {
+            @ObservedObject private var viewModel: DepartureArrivalV2ViewModel
+            
+            init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
+                self._viewModel = ObservedObject(wrappedValue: viewModel)
+            }
+            
+            var body: some View {
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
+                        DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                        Spacer()
+                            .frame(width: 24, height: 24)
+                            .padding(.leading, 16)
+                    }
+                    HStack(spacing: 0) {
+                        ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                        PlusCircleView()
+                            .padding(.leading, 16)
+                    }
                 }
-                .padding(8)
-                .background(selected ? Color("departureArrival_background_selectedv2") : nil)
-                .cornerRadius(4)
+            }
+        }
+        ```
+
+        Important: use `+` to indicate the use of the extension keyword. In this case, a subcomponent of a component.
+
+        Important: Do not complicate things with the `if else` logic, i.e.:
+        * `DepartureArrivalV2View+DepartureV2View.swift`
+        * `DepartureArrivalV2View+ArrivalV2View.swift` 
+        
+        Both views are similar, but diverge at some point.
+
+        DepartureArrivalView+DepartureV2View.swift
+        ```swift
+        extension DepartureArrivalV2View {
+            struct DepartureV2View: View {
+                @Binding var value: Station
+                @Binding var selected: Bool
+                
+                var body: some View {
+                    Button {
+                        selected = true
+                    } label: {
+                        HStack(spacing: 0) {
+                            CircleView()
+                            Text("\(value.name) Station")
+                                .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
+                                .font(.body)
+                                .fontWeight(selected ? .bold : .regular)
+                            Spacer()
+                        }
+                        .padding(8)
+                        .background(selected ? Color("departureArrival_background_selectedv2") : nil)
+                        .cornerRadius(4)
+                    }
+                }
+            }
+            
+            struct CircleView: View {
+                var body: some View {
+                    Image(systemName: "circle")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                        .foregroundColor(Color("icon_circle"))
+                        .padding(.trailing, 8)
+                }
+            }
+        }
+        ```
+
+        DepartureArrivalV2View+ArrivalV2View.swift
+        ```swift
+        extension DepartureArrivalV2View {
+            struct ArrivalV2View: View {
+                @Binding var value: Station?
+                @Binding var selected: Bool
+                
+                var body: some View {
+                    Button {
+                        selected = true
+                    } label: {
+                        HStack(spacing: 0) {
+                            LocationFillView()
+                            Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
+                                .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
+                                .font(.body)
+                                .fontWeight(selected ? .bold : .regular)
+                            Spacer()
+                        }
+                        .padding(8)
+                        .background(selected ? Color("departureArrival_background_selectedv2") : nil)
+                        .cornerRadius(4)
+                    }
+
+                }
             }
 
+            struct LocationFillView: View {
+                var body: some View {
+                    Image(systemName: "location.fill")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                        .foregroundColor(Color("icon_location fill"))
+                        .padding(.trailing, 8)
+                }
+            }
         }
-    }
+        ```
 
-    struct LocationFillView: View {
-        var body: some View {
-            Image(systemName: "location.fill")
-                .resizable()
-                .frame(width: 16, height: 16)
-                .foregroundColor(Color("icon_location fill"))
-                .padding(.trailing, 8)
-        }
-    }
-}
-```
+3. The Domain layer splitted into 3 layers: the Entities layer, the Repositories layer the UseCases layer.
 
-4. The Domain layer splitted into 3 layers: the Entities layer, the Repositories layer the UseCases layer.
-```
-The Entities layer is used by the Components and the ViewModel layer. i.e. `struct Station {}`
-The UseCases layer is used by the ViewModel layer.
-The Repositories layer is used by the UseCases layer and the DataSource layer. The purpose it to convert Data layer's model to Domain layer's entity.
-```
+    The Entities layer is used by the Components and the ViewModel layer. i.e. `struct Station {}`
 
-5. The Data layer splitted into 2 layers: the Models layer and the DataSource layer.
-```
-The Models layer is used by the Repositories layer and the DataSource layer. The purpose is to define what is expected result from the DataSource layer. i.e. a API response.
-The DataSource layer is used by the Repositories layer. The purpose it to get data from somewhere. i.e. from local storage or from an API.
-```
+    The UseCases layer is used by the ViewModel layer.
 
-Important: the Repositories layer and the Data layer is optional if the data can be hard coded, then hard code it.
+    The Repositories layer is used by the UseCases layer and the DataSource layer. The purpose it to convert Data layer's model to Domain layer's entity.
+
+4. The Data layer splitted into 2 layers: the Models layer and the DataSource layer.
+
+    The Models layer is used by the Repositories layer and the DataSource layer. The purpose is to define what is expected result from the DataSource layer. i.e. a API response.
+
+    The DataSource layer is used by the Repositories layer. The purpose it to get data from somewhere. i.e. from local storage or from an API.
+
+    Important: the Repositories layer and the Data layer is optional if the data can be hard coded, then hard code it.
