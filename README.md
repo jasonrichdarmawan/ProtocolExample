@@ -69,6 +69,12 @@ For example, a project have 4 user stories.
             * white/0 = #FFFFFF
             * black/0 = #000000
 
+    * Tokenized colors uses the primitive colors. 
+
+        Do not use the Color hex directly. 
+
+        Tokenized colors have Light and Dark Mode.
+
         **Tokenized Color**
 
         * clickableButtonBackground
@@ -86,12 +92,6 @@ For example, a project have 4 user stories.
         * focusedButtonStroke
             * Any = black/0
             * Dark = black/0
-
-    * Tokenized colors uses the primitive colors. 
-
-        Do not use the Color hex directly. 
-
-        Tokenized colors have Light and Dark Mode.
 
     * It is advisable to use [Apple's Typography](https://developer.apple.com/design/human-interface-guidelines/typography) and [Apple's Color](https://developer.apple.com/design/human-interface-guidelines/color).
 
