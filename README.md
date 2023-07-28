@@ -468,7 +468,7 @@ For example, a project have 4 user stories.
         ```
 
         DepartureArrivalV2ViewModel.swift
-        ```
+        ```swift
         final class DepartureArrivalV2ViewModel: DepartureArrivalViewModelImpl {
             override func updateDepartureArrival(value: Station) -> Bool {
                 switch departureSelected {
@@ -484,7 +484,7 @@ For example, a project have 4 user stories.
         ```
 
         DepartureArrivalV2View.swift
-        ```
+        ```swift
         struct DepartureArrivalV2View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
             @ObservedObject private var viewModel: ViewModel
             
