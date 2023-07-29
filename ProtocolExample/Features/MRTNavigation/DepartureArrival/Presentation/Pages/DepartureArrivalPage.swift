@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject private var departureArrivalPageViewModel: DepartureArrivalPageViewModel
     
     @StateObject private var departureArrivalViewModel: DepartureArrivalVM
@@ -35,9 +37,10 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(32)
         .background(.blue)
-        // TODO: use custom sheet
-        // sheet prevent swipe back gesture
-        .sheet(isPresented: $departureArrivalPageViewModel.isPresented) {
+        .sheet(
+            isPresented: $departureArrivalPageViewModel.presentSheet,
+            onDismiss: { _ = departureArrivalPageViewModel.sheetDidDismiss(dismiss) }
+        ) {
             VStack(spacing: 32) {
                 DepartureArrivalV1View(viewModel: departureArrivalViewModel, selectedDetent: $departureArrivalPageViewModel.selection)
 
@@ -48,7 +51,7 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
                     Spacer()
 
                     Button {
-                        departureArrivalPageViewModel.isPresented = false
+                        departureArrivalPageViewModel.presentNavigationDestination = true
                     } label: {
                         Text("Start")
                             .padding(.vertical, 8)
@@ -65,17 +68,16 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
             .padding(.top, 32)
             .padding(.horizontal, 32)
             .presentationDetents([.header, .large], selection: $departureArrivalPageViewModel.selection)
-            .interactiveDismissDisabled(true)
-            .presentationDragIndicator(.hidden)
             .presentationBackgroundInteraction(.enabled)
         }
         .navigationDestination(
-            isPresented: $departureArrivalPageViewModel.presentCommutingView,
+            isPresented: $departureArrivalPageViewModel.presentNavigationDestination,
             destination: {
                 NavigationLazyView {
                     Text("CommutingView")
                 }
                 .navigationBarBackButtonHidden(true)
+                .onDisappear { _ = departureArrivalPageViewModel.navigationDestinationDidDisappear()}
             }
         )
     }
