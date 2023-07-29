@@ -217,6 +217,7 @@
 		960A59092A6ED691000BE611 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9691D44D2A6D77E900EE843C /* Assets.xcassets */,
 				960A59122A6ED706000BE611 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -540,12 +541,8 @@
 		9691D43D2A6D77E800EE843C = {
 			isa = PBXGroup;
 			children = (
-				96050ED02A73C4B00011DE7E /* Arrival-iteration2.svg */,
-				96050ED12A73C4B00011DE7E /* Departure-iteration2.svg */,
-				96050ECE2A73BD6F0011DE7E /* Arrival.svg */,
-				96050ECF2A73BD6F0011DE7E /* Departure.svg */,
+				96F0F29D2A75AB3F00675133 /* assets */,
 				960A59062A6EA9FD000BE611 /* README.md */,
-				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
 				9691D4482A6D77E800EE843C /* ProtocolExample */,
 				9691D4472A6D77E800EE843C /* Products */,
 			);
@@ -566,7 +563,6 @@
 				960A86FA2A6D8B2E006874E5 /* Core */,
 				9691D4572A6D77EE00EE843C /* Features */,
 				9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */,
-				9691D44D2A6D77E900EE843C /* Assets.xcassets */,
 				9691D44F2A6D77E900EE843C /* Preview Content */,
 			);
 			path = ProtocolExample;
@@ -654,6 +650,18 @@
 				96AACDFB2A6FEE6800534E72 /* DepartureArrivalPage.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		96F0F29D2A75AB3F00675133 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
+				96050ED02A73C4B00011DE7E /* Arrival-iteration2.svg */,
+				96050ED12A73C4B00011DE7E /* Departure-iteration2.svg */,
+				96050ECE2A73BD6F0011DE7E /* Arrival.svg */,
+				96050ECF2A73BD6F0011DE7E /* Departure.svg */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
