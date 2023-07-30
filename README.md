@@ -981,13 +981,13 @@ Then, you can write a business logic to do:
 
 ## Navigation shenanigans
 
-1. Carefully hide navigation bar back button.
+1. Careful in hiding the navigation bar back button.
 
    When you hide navigation bar back button, it is STILL expected that you can pop view controller by swiping from the left to right, isn't it?
 
    It is achievable but it's hacky.
 
-3. Do not immediately present a sheet after navigating to a new page.
+2. Do not immediately present a sheet after navigating to a new page.
 
    When you dismiss a sheet, it is expected to pop the view controller, isn't it?
 
@@ -1010,6 +1010,22 @@ Then, you can write a business logic to do:
 2. Do not use `View.navigationDestination(for:destination)`.
 
    When you navigate, the ViewModel will call init twice and call deinit once.
+   
+3. Careful in designing user experience.
+
+   - It is normal to swipe from left to right to go back to the previous page, isn't it?
+   
+      The method ignore `UINavigationController.interactivePopGestureRecognizer.delegate = nil`. 
+   
+      Therefore, user unable to swipe to go back to the previous page.
+   
+      Important: only `View.navigationDestination(isPresented:destination)` that init and deinit ViewModel once.
+   
+   - It is normal to pop to root, isn't it?
+   
+      We can change the `isPresented` value of a parent view. However, the ViewModel will not deinit.
+   
+   Therefore, either use UIKit Navigation or sacrifice user experience.
 
 ## UIKit sheanigans
 

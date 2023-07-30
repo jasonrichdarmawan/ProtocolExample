@@ -567,6 +567,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		96611E2B2A771EA8004B5984 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		9691D43D2A6D77E800EE843C = {
 			isa = PBXGroup;
 			children = (
@@ -588,10 +596,10 @@
 		9691D4482A6D77E800EE843C /* ProtocolExample */ = {
 			isa = PBXGroup;
 			children = (
+				96611E2B2A771EA8004B5984 /* App */,
 				960A59092A6ED691000BE611 /* Resources */,
 				960A86FA2A6D8B2E006874E5 /* Core */,
 				9691D4572A6D77EE00EE843C /* Features */,
-				9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */,
 				9691D44F2A6D77E900EE843C /* Preview Content */,
 			);
 			path = ProtocolExample;

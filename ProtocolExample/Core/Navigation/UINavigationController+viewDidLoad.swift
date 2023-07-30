@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-extension UINavigationController {
-    /// allow to .navigationBarBackButtonHidden(true) without losing swipe back gesture.
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-        interactivePopGestureRecognizer?.delegate = nil
-    }
-}
+//extension UINavigationController {
+//    /// allow to .navigationBarBackButtonHidden(true) without losing swipe back gesture.
+//    /// known issue: navigationDestination(isPresented:destination) is imminue to this hack.
+//    override open func viewDidLoad() {
+//        super.viewDidLoad()
+//        interactivePopGestureRecognizer?.delegate = nil
+//    }
+//}

@@ -79,10 +79,10 @@ struct DepartureArrivalPage: View {
                 NavigationLazyView {
                     CommutingPage()
                 }
-                .navigationBarBackButtonHidden(true)
                 .onDisappear { _ = pageVM.navigationDestinationDidDisappear()}
             }
         )
+        .onAppear { pageVM.presentSheet = true }
     }
 }
 
