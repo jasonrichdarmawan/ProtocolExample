@@ -72,7 +72,6 @@ struct DepartureArrivalPage: View {
             .padding(.horizontal, 32)
             .presentationDetents([.header])
             .presentationBackgroundInteraction(.enabled(upThrough: .header))
-            .presentationDragIndicator(.visible)
         }
         .navigationDestination(
             isPresented: $pageVM.presentNavigationDestination,

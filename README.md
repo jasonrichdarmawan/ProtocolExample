@@ -999,7 +999,11 @@ Then, you can write a business logic to do:
 
 ## SwiftUI shenanigans
 
-1. Do not use `View.sheet(isPresented:onDismiss:content)` and `View.presentationDetents(_ detents:)` / `View.presentationDetents(_ detents:selection)` with more than 1 detents.
+1. Do not use `View.sheet(isPresented:onDismiss:content)` with:
+
+    1. `View.presentationDetents(_ detents:)` / `View.presentationDetents(_ detents:selection)` with more than 1 detents.
+    
+    2. `View.presentationDragIndicator(_ visibility:)`
 
    When you close the sheet / leave the root view, the ViewModel will not deinit.
 
