@@ -45,7 +45,7 @@ struct DepartureArrivalPage: View {
             onDismiss: { _ = pageVM.sheetDidDismiss(dismiss) }
         ) {
             VStack(spacing: 32) {
-                DepartureArrivalV1View(selectVM: selectVM)
+                DepartureArrivalV1View(selectVM: selectVM, selectedDetent: $pageVM.selectedDetent)
 
                 switch pageVM.selectedDetent {
                 case .header:
@@ -63,15 +63,16 @@ struct DepartureArrivalPage: View {
                     .buttonStyle(.borderedProminent)
                     .disabled(selectVM.isDepartureArrivalNotNil() ? false : true)
                 case .large:
-                    SelectMRTStationView(value: selectVM.currentSelected)
+                    SelectMRTStationView(value: selectVM.currentSelected, selectedDetent: $pageVM.selectedDetent)
                 default:
                     EmptyView()
                 }
             }
             .padding(.top, 32)
             .padding(.horizontal, 32)
-            .presentationDetents([.large])
-            .presentationBackgroundInteraction(.enabled)
+            .presentationDetents([.header])
+            .presentationBackgroundInteraction(.enabled(upThrough: .header))
+            .presentationDragIndicator(.visible)
         }
         .navigationDestination(
             isPresented: $pageVM.presentNavigationDestination,

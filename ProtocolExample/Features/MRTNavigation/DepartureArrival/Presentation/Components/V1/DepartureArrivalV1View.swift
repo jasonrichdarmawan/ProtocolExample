@@ -9,9 +9,14 @@ import SwiftUI
 
 struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
     @ObservedObject var selectVM: SelectVM
+    @Binding var selectedDetent: PresentationDetent
     
-    init(selectVM: SelectVM = DepartureArrivalV1ViewModel()) {
+    init(
+        selectVM: SelectVM = DepartureArrivalV1ViewModel(),
+        selectedDetent: Binding<PresentationDetent> = .constant(.header)
+    ) {
         self.selectVM = selectVM
+        self._selectedDetent = selectedDetent
     }
     
     var body: some View {
@@ -22,7 +27,7 @@ struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 16)
                 
-                DepartureOrArrivalButtonView(value: $selectVM.departure, selected: $selectVM.departureSelected)
+                DepartureOrArrivalButtonView(value: $selectVM.departure, selected: $selectVM.departureSelected, selectedDetent: $selectedDetent)
             }
             
             GridRow {
@@ -41,7 +46,7 @@ struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 16)
                 
-                DepartureOrArrivalButtonView(value: $selectVM.arrival, selected: $selectVM.arrivalSelected)
+                DepartureOrArrivalButtonView(value: $selectVM.arrival, selected: $selectVM.arrivalSelected, selectedDetent: $selectedDetent)
             }
         }
     }

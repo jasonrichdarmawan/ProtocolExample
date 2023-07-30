@@ -1018,6 +1018,8 @@ Then, you can write a business logic to do:
 - [ ] Use UIKit Navigation
    - [ ] Create ViewControllable pattern
       - [ ] Navigate to another page.
+      - [ ] Pop view controller when sheet is dismissed.
+      - [ ] Dismiss sheet before navigating to another page.
    - [ ] Create Coordinator pattern
       - [ ] Coordinator used as delegate by a controller.
       - [ ] Coordinator update ViewModel's value.
