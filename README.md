@@ -1040,6 +1040,7 @@ Then, you can write a business logic to do:
       - [ ] Navigate to another page.
       - [ ] Pop view controller when sheet is dismissed.
       - [ ] Dismiss sheet before navigating to another page.
+      - [ ] Pop to root view controoler.
    - [ ] Create Coordinator pattern
       - [ ] Coordinator used as delegate by a controller.
       - [ ] Coordinator update ViewModel's value.
