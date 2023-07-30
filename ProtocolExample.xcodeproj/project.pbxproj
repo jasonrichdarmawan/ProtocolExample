@@ -29,7 +29,6 @@
 		960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59142A6EDCE2000BE611 /* ScheduleView.swift */; };
 		960A59202A6FA82B000BE611 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A591F2A6FA82B000BE611 /* Line.swift */; };
 		960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59212A6FD7CB000BE611 /* DepartureArrivalV2View.swift */; };
-		960A86FD2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */; };
 		960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */; };
 		960A87042A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */; };
 		960A87072A6D8E88006874E5 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87062A6D8E88006874E5 /* Station.swift */; };
@@ -101,7 +100,6 @@
 		960A59142A6EDCE2000BE611 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		960A591F2A6FA82B000BE611 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		960A59212A6FD7CB000BE611 /* DepartureArrivalV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV2View.swift; sourceTree = "<group>"; };
-		960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+SelectedButtonStyle.swift"; sourceTree = "<group>"; };
 		960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWhenInBackground.swift; sourceTree = "<group>"; };
 		960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWithBluetooth.swift; sourceTree = "<group>"; };
 		960A87062A6D8E88006874E5 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				960A591E2A6FA823000BE611 /* Components */,
-				96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -245,8 +242,10 @@
 		960A86FA2A6D8B2E006874E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				960A551E2A7157A100F8E9FC /* UserSettings */,
+				960A55172A71468100F8E9FC /* PlayStopVibrationAudioInSmartphone */,
 				96AACDF72A6FEDC200534E72 /* Navigation */,
+				96611DF42A76BF7E004B5984 /* Sheet */,
+				960A551E2A7157A100F8E9FC /* UserSettings */,
 				960A591D2A6FA81F000BE611 /* Presentation */,
 				960A871A2A6D9676006874E5 /* BeaconFinder */,
 				960A871F2A6D972D006874E5 /* BeaconBroadcaster */,
@@ -262,7 +261,6 @@
 		960A86FB2A6D8B32006874E5 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				960A86FC2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift */,
 				96050EB92A72B28B0011DE7E /* Either.swift */,
 				96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */,
 			);
@@ -294,66 +292,22 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		960A87052A6D8E81006874E5 /* MRT */ = {
-			isa = PBXGroup;
-			children = (
-				960A87062A6D8E88006874E5 /* Station.swift */,
-				96050ED42A73E2900011DE7E /* Platform.swift */,
-				960A87452A6D9F7A006874E5 /* Train.swift */,
-				96050ED62A73E2A10011DE7E /* Schedule.swift */,
-				960A59072A6ED155000BE611 /* MRT.swift */,
-			);
-			path = MRT;
-			sourceTree = "<group>";
-		};
 		960A870A2A6D90D4006874E5 /* NotifyWhenNearMRTStationWithBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				960A870B2A6D90E2006874E5 /* Domain */,
-			);
-			path = NotifyWhenNearMRTStationWithBluetooth;
-			sourceTree = "<group>";
-		};
-		960A870B2A6D90E2006874E5 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				960A870C2A6D90E6006874E5 /* UseCases */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		960A870C2A6D90E6006874E5 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
 				960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */,
 				960A87332A6D9DB6006874E5 /* NotifyWhenNearMRTStationWithBluetoothImpl.swift */,
 			);
-			path = UseCases;
+			path = NotifyWhenNearMRTStationWithBluetooth;
 			sourceTree = "<group>";
 		};
 		960A870D2A6D90EF006874E5 /* NotifyWhenNearMRTStationWithGPS */ = {
 			isa = PBXGroup;
 			children = (
-				960A870E2A6D90FE006874E5 /* Domain */,
-			);
-			path = NotifyWhenNearMRTStationWithGPS;
-			sourceTree = "<group>";
-		};
-		960A870E2A6D90FE006874E5 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				960A870F2A6D9102006874E5 /* UseCases */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		960A870F2A6D9102006874E5 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
 				960A87082A6D8F0A006874E5 /* NotifyWhenNearMRTStationWithGPS.swift */,
 				960A87302A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift */,
 			);
-			path = UseCases;
+			path = NotifyWhenNearMRTStationWithGPS;
 			sourceTree = "<group>";
 		};
 		960A87102A6D912B006874E5 /* NotifyWhenNearMRTStationOnce */ = {
@@ -505,10 +459,7 @@
 		960A874B2A6DA133006874E5 /* MRTNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				960A55172A71468100F8E9FC /* PlayStopVibrationAudioInSmartphone */,
-				960A870D2A6D90EF006874E5 /* NotifyWhenNearMRTStationWithGPS */,
-				960A870A2A6D90D4006874E5 /* NotifyWhenNearMRTStationWithBluetooth */,
-				960A87052A6D8E81006874E5 /* MRT */,
+				96611DF52A76BF99004B5984 /* Domain */,
 			);
 			path = MRTNavigation;
 			sourceTree = "<group>";
@@ -536,6 +487,44 @@
 				960A874D2A6DA677006874E5 /* Components */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		96611DF42A76BF7E004B5984 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		96611DF52A76BF99004B5984 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				96611DF72A76BFA8004B5984 /* Entities */,
+				96611DF62A76BF9D004B5984 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		96611DF62A76BF9D004B5984 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				960A870D2A6D90EF006874E5 /* NotifyWhenNearMRTStationWithGPS */,
+				960A870A2A6D90D4006874E5 /* NotifyWhenNearMRTStationWithBluetooth */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		96611DF72A76BFA8004B5984 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				960A87062A6D8E88006874E5 /* Station.swift */,
+				96050ED42A73E2900011DE7E /* Platform.swift */,
+				960A87452A6D9F7A006874E5 /* Train.swift */,
+				96050ED62A73E2A10011DE7E /* Schedule.swift */,
+				960A59072A6ED155000BE611 /* MRT.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		9691D43D2A6D77E800EE843C = {
@@ -738,7 +727,6 @@
 			files = (
 				960A87042A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift in Sources */,
 				960A871C2A6D967E006874E5 /* BeaconFinder.swift in Sources */,
-				960A86FD2A6D8B4A006874E5 /* Button+SelectedButtonStyle.swift in Sources */,
 				960A87382A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift in Sources */,
 				9691D45C2A6D781200EE843C /* DepartureArrivalV1View.swift in Sources */,
 				960A87252A6D9959006874E5 /* Notification.swift in Sources */,
