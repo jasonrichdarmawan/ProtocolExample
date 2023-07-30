@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-struct DepartureArrivalV1View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
-    @ObservedObject var viewModel: ViewModel
-    @Binding var selectedDetent: PresentationDetent
+struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
+    @ObservedObject var selectVM: SelectVM
     
-    init(viewModel: ViewModel = DepartureArrivalV1ViewModel(), selectedDetent: Binding<PresentationDetent> = .constant(.header)) {
-        self.viewModel = viewModel
-        self._selectedDetent = selectedDetent
+    init(selectVM: SelectVM = DepartureArrivalV1ViewModel()) {
+        self.selectVM = selectVM
     }
     
     var body: some View {
@@ -24,7 +22,7 @@ struct DepartureArrivalV1View<ViewModel>: View where ViewModel: DepartureArrival
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 16)
                 
-                DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected, selectedDetent: $selectedDetent)
+                DepartureOrArrivalButtonView(value: $selectVM.departure, selected: $selectVM.departureSelected)
             }
             
             GridRow {
@@ -43,7 +41,7 @@ struct DepartureArrivalV1View<ViewModel>: View where ViewModel: DepartureArrival
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 16)
                 
-                DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected, selectedDetent: $selectedDetent)
+                DepartureOrArrivalButtonView(value: $selectVM.arrival, selected: $selectVM.arrivalSelected)
             }
         }
     }
@@ -51,20 +49,20 @@ struct DepartureArrivalV1View<ViewModel>: View where ViewModel: DepartureArrival
 
 #if DEBUG
 private struct DepartureArrivalViewExample<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
-    @StateObject private var departureArrivalViewModel: DepartureArrivalVM
+    @StateObject private var selectVM: DepartureArrivalVM
     
-    init(departureArrivalViewModel: DepartureArrivalVM = DepartureArrivalV1ViewModel()) {
-        self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)
+    init(selectVM: DepartureArrivalVM = DepartureArrivalV1ViewModel()) {
+        self._selectVM = StateObject(wrappedValue: selectVM)
     }
     
     var body: some View {
         VStack(spacing: 32) {
-            DepartureArrivalV1View(viewModel: departureArrivalViewModel)
+            DepartureArrivalV1View(selectVM: selectVM)
             
             VStack(spacing: 20) {
                 Button {
                     withAnimation {
-                        _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                        _ = selectVM.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
                     }
                 } label: {
                     Text("\(MRT.LebakBulusGrab.station.name) Station")
@@ -75,7 +73,7 @@ private struct DepartureArrivalViewExample<DepartureArrivalVM>: View where Depar
                 
                 Button {
                     withAnimation {
-                        _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                        _ = selectVM.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
                     }
                 } label: {
                     Text("\(MRT.FatmawatiIndomaret.station.name) Station")
@@ -86,7 +84,7 @@ private struct DepartureArrivalViewExample<DepartureArrivalVM>: View where Depar
                 
                 Button {
                     withAnimation {
-                        _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                        _ = selectVM.updateDepartureArrival(value: MRT.CipeteRaya.station)
                     }
                 } label: {
                     Text("\(MRT.CipeteRaya.station.name) Station")

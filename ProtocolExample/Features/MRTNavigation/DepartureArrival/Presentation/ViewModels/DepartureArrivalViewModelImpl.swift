@@ -44,6 +44,15 @@ class DepartureArrivalViewModelImpl: DepartureArrivalViewModel {
         self.departure = departure
         self.arrival = arrival
         self.departureSelected = departureSelected
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     func updateDepartureArrival(value: Station) -> Bool {

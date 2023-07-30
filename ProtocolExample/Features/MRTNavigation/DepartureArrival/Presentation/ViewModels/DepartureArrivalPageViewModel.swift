@@ -37,11 +37,20 @@ final class DepartureArrivalPageViewModel: ObservableObject {
         }
     }
     
-    @Published var selection: PresentationDetent
+    @Published var selectedDetent: PresentationDetent
     
     init(state: DepartureArrivalPageState = .PRESENT_SHEET, selectedDetent: PresentationDetent = .header) {
         self.state = state
-        self.selection = selectedDetent
+        self.selectedDetent = selectedDetent
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     func sheetDidDismiss(_ dismiss: DismissAction) -> Bool {

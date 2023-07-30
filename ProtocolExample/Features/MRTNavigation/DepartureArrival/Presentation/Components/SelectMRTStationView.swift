@@ -9,11 +9,9 @@ import SwiftUI
 
 struct SelectMRTStationView: View {
     @Binding var value: Station?
-    @Binding var selectedDetent: PresentationDetent
     
-    init(value: Binding<Station?> = .constant(nil), selectedDetent: Binding<PresentationDetent> = .constant(.header)) {
+    init(value: Binding<Station?> = .constant(nil)) {
         self._value = value
-        self._selectedDetent = selectedDetent
     }
     
     var body: some View {
@@ -23,7 +21,6 @@ struct SelectMRTStationView: View {
                     Button {
                         withAnimation {
                             value = station
-                            selectedDetent = .header
                         }
                     } label: {
                         Circle()
@@ -42,27 +39,27 @@ struct SelectMRTStationView: View {
 
 #if DEBUG
 private struct SelectMRTStationViewExample<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
-    @ObservedObject var viewModel: DepartureArrivalVM
+    @ObservedObject var alarmVM: DepartureArrivalVM
     
-    init(viewModel: DepartureArrivalVM = DepartureArrivalV1ViewModel()) {
-        self.viewModel = viewModel
+    init(alarmVM: DepartureArrivalVM = DepartureArrivalV1ViewModel()) {
+        self.alarmVM = alarmVM
     }
     
     var body: some View {
         VStack {
             Button {
-                viewModel.departureSelected = true
+                alarmVM.departureSelected = true
             } label: {
-                Text((viewModel.departure != nil) ? "\(viewModel.departure?.name ?? "") Station" : "Where to?")
+                Text((alarmVM.departure != nil) ? "\(alarmVM.departure?.name ?? "") Station" : "Where to?")
             }
             
             Button {
-                viewModel.arrivalSelected = true
+                alarmVM.arrivalSelected = true
             } label: {
-                Text((viewModel.arrival != nil) ? "\(viewModel.arrival?.name ?? "") Station" : "Where to?")
+                Text((alarmVM.arrival != nil) ? "\(alarmVM.arrival?.name ?? "") Station" : "Where to?")
             }
             
-            SelectMRTStationView(value: viewModel.currentSelected)
+            SelectMRTStationView(value: alarmVM.currentSelected)
         }
     }
 }

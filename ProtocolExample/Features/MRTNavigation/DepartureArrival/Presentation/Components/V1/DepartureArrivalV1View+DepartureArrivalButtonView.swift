@@ -11,13 +11,16 @@ extension DepartureArrivalV1View {
     struct DepartureOrArrivalButtonView: View {
         @Binding var value: Station?
         @Binding var selected: Bool
-        @Binding var selectedDetent: PresentationDetent
+        
+        init(value: Binding<Station?> = .constant(nil), selected: Binding<Bool> = .constant(true)) {
+            self._value = value
+            self._selected = selected
+        }
         
         var body: some View {
             Button {
                 withAnimation {
                     selected = true
-                    selectedDetent = .large
                 }
             } label: {
                 Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")

@@ -7,22 +7,25 @@
 
 import SwiftUI
 
-struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
+struct DepartureArrivalPage: View {
     @Environment(\.dismiss) var dismiss
     
-    @StateObject private var departureArrivalPageViewModel: DepartureArrivalPageViewModel
+    @StateObject private var pageVM: DepartureArrivalPageViewModel
     
-    @StateObject private var departureArrivalViewModel: DepartureArrivalVM
-    @StateObject private var nextScheduleEstimatedTimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel
+    @StateObject private var selectVM: DepartureArrivalViewModelImpl
+    @StateObject private var scheduleVM: NextScheduleEstimatedTimeArrivalViewModel
 
     init(
-        departureArrivalPageViewModel: DepartureArrivalPageViewModel = DepartureArrivalPageViewModel(),
-        departureArrivalViewModel: DepartureArrivalVM = DepartureArrivalV1ViewModel(),
-        nextScheduleEstimatedtimeArrivalViewModel: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()
+        pageVM: DepartureArrivalPageViewModel = DepartureArrivalPageViewModel(),
+        selectVM: DepartureArrivalViewModelImpl = DepartureArrivalV1ViewModel(),
+        scheduleVM: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()
     ) {
-        self._departureArrivalPageViewModel = StateObject(wrappedValue: departureArrivalPageViewModel)
-        self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)
-        self._nextScheduleEstimatedTimeArrivalViewModel = StateObject(wrappedValue: nextScheduleEstimatedtimeArrivalViewModel)
+        self._pageVM = StateObject(wrappedValue: pageVM)
+        self._selectVM = StateObject(wrappedValue: selectVM)
+        self._scheduleVM = StateObject(wrappedValue: scheduleVM)
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     var body: some View {
@@ -38,46 +41,46 @@ struct DepartureArrivalPage<DepartureArrivalVM>: View where DepartureArrivalVM: 
         .padding(32)
         .background(.blue)
         .sheet(
-            isPresented: $departureArrivalPageViewModel.presentSheet,
-            onDismiss: { _ = departureArrivalPageViewModel.sheetDidDismiss(dismiss) }
+            isPresented: $pageVM.presentSheet,
+            onDismiss: { _ = pageVM.sheetDidDismiss(dismiss) }
         ) {
             VStack(spacing: 32) {
-                DepartureArrivalV1View(viewModel: departureArrivalViewModel, selectedDetent: $departureArrivalPageViewModel.selection)
+                DepartureArrivalV1View(selectVM: selectVM)
 
-                switch departureArrivalPageViewModel.selection {
+                switch pageVM.selectedDetent {
                 case .header:
-                    NextScheduleEstimatedTimeArrivalView(viewModel: nextScheduleEstimatedTimeArrivalViewModel)
+                    NextScheduleEstimatedTimeArrivalView(scheduleVM: scheduleVM)
 
                     Spacer()
 
                     Button {
-                        departureArrivalPageViewModel.presentNavigationDestination = true
+                        pageVM.presentNavigationDestination = true
                     } label: {
                         Text("Start")
                             .padding(.vertical, 8)
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
-                    .disabled(departureArrivalViewModel.isDepartureArrivalNotNil() ? false : true)
+                    .disabled(selectVM.isDepartureArrivalNotNil() ? false : true)
                 case .large:
-                    SelectMRTStationView(value: departureArrivalViewModel.currentSelected, selectedDetent: $departureArrivalPageViewModel.selection)
+                    SelectMRTStationView(value: selectVM.currentSelected)
                 default:
                     EmptyView()
                 }
             }
             .padding(.top, 32)
             .padding(.horizontal, 32)
-            .presentationDetents([.header, .large], selection: $departureArrivalPageViewModel.selection)
+            .presentationDetents([.large])
             .presentationBackgroundInteraction(.enabled)
         }
         .navigationDestination(
-            isPresented: $departureArrivalPageViewModel.presentNavigationDestination,
+            isPresented: $pageVM.presentNavigationDestination,
             destination: {
                 NavigationLazyView {
-                    Text("CommutingView")
+                    CommutingPage()
                 }
                 .navigationBarBackButtonHidden(true)
-                .onDisappear { _ = departureArrivalPageViewModel.navigationDestinationDidDisappear()}
+                .onDisappear { _ = pageVM.navigationDestinationDidDisappear()}
             }
         )
     }

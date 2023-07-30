@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-struct DepartureArrivalV2View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
-    @ObservedObject private var viewModel: ViewModel
+struct DepartureArrivalV2View<ViewModel: DepartureArrivalViewModel>: View {
+    @ObservedObject private var selectVM: ViewModel
     
-    init(viewModel: ViewModel = DepartureArrivalV2ViewModel()) {
-        self._viewModel = ObservedObject(wrappedValue: viewModel)
+    init(selectVM: ViewModel = DepartureArrivalV2ViewModel()) {
+        self._selectVM = ObservedObject(wrappedValue: selectVM)
     }
     
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                DepartureV2View(value: $selectVM.departure, selected: $selectVM.departureSelected)
                 Spacer()
                     .frame(width: 24, height: 24)
                     .padding(.leading, 16)
             }
             HStack(spacing: 0) {
-                ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                ArrivalV2View(value: $selectVM.arrival, selected: $selectVM.arrivalSelected)
                 PlusCircleView()
                     .padding(.leading, 16)
             }
@@ -32,34 +32,34 @@ struct DepartureArrivalV2View<ViewModel>: View where ViewModel: DepartureArrival
 }
 
 #if DEBUG
-private struct DepartureArrivalV2ViewExample<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
-    @StateObject private var departureArrivalViewModel: ViewModel
+private struct DepartureArrivalV2ViewExample<ViewModel: DepartureArrivalViewModel>: View {
+    @StateObject private var selectVM: ViewModel
     
-    init(departureArrivalViewModel: ViewModel = DepartureArrivalV2ViewModel()) {
-        self._departureArrivalViewModel = StateObject(wrappedValue: departureArrivalViewModel)
+    init(selectVM: ViewModel = DepartureArrivalV2ViewModel()) {
+        self._selectVM = StateObject(wrappedValue: selectVM)
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            DepartureArrivalV2View(viewModel: departureArrivalViewModel)
+            DepartureArrivalV2View(selectVM: selectVM)
             
             VStack(alignment: .leading, spacing: 0) {
                 Button("\(MRT.LebakBulusGrab.station.name) Station") {
-                    _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                    _ = selectVM.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical, 16)
                 
                 Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
-                    _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                    _ = selectVM.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)
                 .padding(.vertical, 16)
                 
                 Button("\(MRT.CipeteRaya.station.name) Station") {
-                    _ = departureArrivalViewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                    _ = selectVM.updateDepartureArrival(value: MRT.CipeteRaya.station)
                 }
                 .font(.title2)
                 .buttonStyle(.borderedProminent)

@@ -23,7 +23,7 @@
 		960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551F2A7157B000F8E9FC /* IsMutedMode.swift */; };
 		960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */; };
 		960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */; };
-		960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */; };
+		960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift */; };
 		960A59082A6ED155000BE611 /* MRT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59072A6ED155000BE611 /* MRT.swift */; };
 		960A59102A6ED706000BE611 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960A59122A6ED706000BE611 /* Localizable.strings */; };
 		960A59152A6EDCE2000BE611 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59142A6EDCE2000BE611 /* ScheduleView.swift */; };
@@ -57,6 +57,9 @@
 		960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A874E2A6DA67E006874E5 /* AlarmView.swift */; };
 		960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87552A6E4D89006874E5 /* ChevronView.swift */; };
 		96234BB32A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96234BB22A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift */; };
+		96611E222A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift */; };
+		96611E272A770C81004B5984 /* CommutingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E262A770C81004B5984 /* CommutingPage.swift */; };
+		96611E2A2A770C8F004B5984 /* CommutingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E292A770C8F004B5984 /* CommutingPageViewModel.swift */; };
 		9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */; };
 		9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D44D2A6D77E900EE843C /* Assets.xcassets */; };
 		9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D4502A6D77E900EE843C /* Preview Assets.xcassets */; };
@@ -93,7 +96,7 @@
 		960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedModeImpl.swift; sourceTree = "<group>"; };
 		960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MRT Jakarta Navigation Use Cases.drawio.png"; sourceTree = "<group>"; };
-		960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrival.swift; sourceTree = "<group>"; };
+		960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrivalView.swift; sourceTree = "<group>"; };
 		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		960A59072A6ED155000BE611 /* MRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRT.swift; sourceTree = "<group>"; };
 		960A59132A6ED731000BE611 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -128,6 +131,9 @@
 		960A874E2A6DA67E006874E5 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		960A87552A6E4D89006874E5 /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
 		96234BB22A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+viewDidLoad.swift"; sourceTree = "<group>"; };
+		96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrivalViewModel.swift; sourceTree = "<group>"; };
+		96611E262A770C81004B5984 /* CommutingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPage.swift; sourceTree = "<group>"; };
+		96611E292A770C8F004B5984 /* CommutingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPageViewModel.swift; sourceTree = "<group>"; };
 		9691D4462A6D77E800EE843C /* ProtocolExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtocolExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExampleApp.swift; sourceTree = "<group>"; };
 		9691D44D2A6D77E900EE843C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -446,6 +452,7 @@
 		960A874A2A6DA129006874E5 /* MRTNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				96611E232A770C71004B5984 /* Commuting */,
 				960A874C2A6DA673006874E5 /* Alarm */,
 				960A87402A6D9EFE006874E5 /* MRTTrainSchedule */,
 				960A87152A6D93F5006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce */,
@@ -527,6 +534,39 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		96611E232A770C71004B5984 /* Commuting */ = {
+			isa = PBXGroup;
+			children = (
+				96611E242A770C76004B5984 /* Presentation */,
+			);
+			path = Commuting;
+			sourceTree = "<group>";
+		};
+		96611E242A770C76004B5984 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				96611E282A770C85004B5984 /* ViewModels */,
+				96611E252A770C7A004B5984 /* Page */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		96611E252A770C7A004B5984 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				96611E262A770C81004B5984 /* CommutingPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		96611E282A770C85004B5984 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				96611E292A770C8F004B5984 /* CommutingPageViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		9691D43D2A6D77E800EE843C = {
 			isa = PBXGroup;
 			children = (
@@ -586,7 +626,7 @@
 			children = (
 				96AACDF62A6FECEF00534E72 /* V1 */,
 				96AACDF52A6FECE800534E72 /* V2 */,
-				960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift */,
+				960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift */,
 				96050ED22A73E12D0011DE7E /* SelectMRTStationView.swift */,
 			);
 			path = Components;
@@ -600,6 +640,7 @@
 				96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */,
 				96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */,
 				96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */,
+				96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -730,6 +771,7 @@
 				960A87382A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift in Sources */,
 				9691D45C2A6D781200EE843C /* DepartureArrivalV1View.swift in Sources */,
 				960A87252A6D9959006874E5 /* Notification.swift in Sources */,
+				96611E272A770C81004B5984 /* CommutingPage.swift in Sources */,
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
 				960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */,
@@ -743,6 +785,7 @@
 				96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */,
 				960A87342A6D9DB6006874E5 /* NotifyWhenNearMRTStationWithBluetoothImpl.swift in Sources */,
 				96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */,
+				96611E222A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift in Sources */,
 				960A87092A6D8F0A006874E5 /* NotifyWhenNearMRTStationWithGPS.swift in Sources */,
 				96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */,
 				960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */,
@@ -750,12 +793,13 @@
 				960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */,
 				96234BB32A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift in Sources */,
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
+				96611E2A2A770C8F004B5984 /* CommutingPageViewModel.swift in Sources */,
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
 				960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */,
-				960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrival.swift in Sources */,
+				960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift in Sources */,
 				960A873D2A6D9E97006874E5 /* Alarm.swift in Sources */,
 				960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,

@@ -28,5 +28,14 @@ final class AlarmViewModel: ObservableObject {
         self.playStopVibrationAudioInSmartphone = playStopVibrationAudioInSmartphone
         
         self.value = isMutedMode.get()
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
 }

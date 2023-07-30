@@ -19,7 +19,6 @@ struct ProtocolExampleApp: App {
                         NavigationLazyView {
                             AlarmView()
                         }
-                        .navigationBarBackButtonHidden(true)
                     })
                     NavigationLink("DepartureArrivalPage", destination: {
                         NavigationLazyView {

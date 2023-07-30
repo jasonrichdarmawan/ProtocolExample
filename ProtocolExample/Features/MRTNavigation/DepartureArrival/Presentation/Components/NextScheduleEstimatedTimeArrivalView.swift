@@ -7,21 +7,11 @@
 
 import SwiftUI
 
-final class NextScheduleEstimatedTimeArrivalViewModel: ObservableObject {
-    @Published var nearestSchedule: String?
-    @Published var estimatedTimeArrival: String?
-    
-    init(nearestSchedule: String? = nil, estimatedTimeArrival: String? = nil) {
-        self.nearestSchedule = nearestSchedule
-        self.estimatedTimeArrival = estimatedTimeArrival
-    }
-}
-
 struct NextScheduleEstimatedTimeArrivalView: View {
-    @ObservedObject var viewModel: NextScheduleEstimatedTimeArrivalViewModel
+    @ObservedObject var scheduleVM: NextScheduleEstimatedTimeArrivalViewModel
     
-    init(viewModel: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()) {
-        self.viewModel = viewModel
+    init(scheduleVM: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()) {
+        self.scheduleVM = scheduleVM
     }
     
     var body: some View {
@@ -31,7 +21,7 @@ struct NextScheduleEstimatedTimeArrivalView: View {
                     .foregroundColor(Color("schedule_text"))
                     .font(.caption)
                     .multilineTextAlignment(.center)
-                Text((viewModel.nearestSchedule != nil) ? "\(viewModel.nearestSchedule!)" : "-")
+                Text((scheduleVM.nearestSchedule != nil) ? "\(scheduleVM.nearestSchedule!)" : "-")
                     .foregroundColor(Color("schedule_text"))
                     .font(.headline)
             }
@@ -47,7 +37,7 @@ struct NextScheduleEstimatedTimeArrivalView: View {
                     .foregroundColor(Color("schedule_text"))
                     .font(.caption)
                     .multilineTextAlignment(.center)
-                Text((viewModel.estimatedTimeArrival != nil) ? "\(viewModel.estimatedTimeArrival!)" : "-")
+                Text((scheduleVM.estimatedTimeArrival != nil) ? "\(scheduleVM.estimatedTimeArrival!)" : "-")
                     .foregroundColor(Color("schedule_text"))
                     .font(.headline)
             }
@@ -63,7 +53,7 @@ struct NextScheduleEstimatedTimeArrivalView: View {
 #if DEBUG
 struct NextScheduleEstimatedTimeArrivalView_Previews: PreviewProvider {
     static var previews: some View {
-        NextScheduleEstimatedTimeArrivalView(viewModel: NextScheduleEstimatedTimeArrivalViewModel(nearestSchedule: "10:00", estimatedTimeArrival: "12:00"))
+        NextScheduleEstimatedTimeArrivalView(scheduleVM: NextScheduleEstimatedTimeArrivalViewModel(nearestSchedule: "10:00", estimatedTimeArrival: "12:00"))
             .environment(\.locale, .init(identifier: "id-ID"))
     }
 }

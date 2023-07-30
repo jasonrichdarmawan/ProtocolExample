@@ -9,33 +9,28 @@ import SwiftUI
 
 /// will play alarm for 1 second
 struct AlarmView: View {
-    @ObservedObject private var viewModel: AlarmViewModel
+    @ObservedObject private var alarmVM: AlarmViewModel
     
-    init(viewModel: AlarmViewModel = AlarmViewModel()) {
-        self.viewModel = viewModel
+    init(alarVM: AlarmViewModel = AlarmViewModel()) {
+        self.alarmVM = alarVM
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     var body: some View {
         Button {
-            viewModel.value.toggle()
+            alarmVM.value.toggle()
         } label: {
-            Image(viewModel.value ? "SoundOff" : "SoundOn")
+            Image(alarmVM.value ? "SoundOff" : "SoundOn")
         }
     }
 }
 
 #if DEBUG
-private struct AlarmViewExample: View {
-    @State private var isSoundOn = true
-    
-    var body: some View {
-        AlarmView()
-    }
-}
-
-struct AlarmViewExample_Previews: PreviewProvider {
+struct AlarmView_Previews: PreviewProvider {
     static var previews: some View {
-        AlarmViewExample()
+        AlarmView()
     }
 }
 #endif

@@ -5,6 +5,8 @@
 3. [Protocol Orineted Programming](#protocol-oriented-programming)
 4. [Use Case Oriented Programming](#use-case-oriented-programming)
 5. [Clean Architecture](#clean-architecture-programming)
+6. [Shenanigans](#shenanigans)
+7. [To Do](#to-do)
 
 # Component Oriented Design
 
@@ -974,3 +976,48 @@ Then, you can write a business logic to do:
     The DataSource layer is used by the Repositories layer. The purpose it to get data from somewhere. i.e. from local storage or from an API.
 
     Important: the Repositories layer and the Data layer is optional if the data can be hard coded, then hard code it.
+
+# Shenanigans
+
+## Navigation shenanigans
+
+1. Carefully hide navigation bar back button.
+
+   When you hide navigation bar back button, it is STILL expected that you can pop view controller by swiping from the left to right, isn't it?
+
+   It is achievable but it's hacky.
+
+3. Do not immediately present a sheet after navigating to a new page.
+
+   When you dismiss a sheet, it is expected to pop the view controller, isn't it?
+
+   It is achievable but it's hacky.
+
+   When you on a sheet, it is expected that you can pop view controller by swiping from the left to right, isn't it?
+
+   No idea how to do that.
+
+## SwiftUI shenanigans
+
+1. Do not use `View.sheet(isPresented:onDismiss:content)` and `View.presentationDetents(_ detents:)` / `View.presentationDetents(_ detents:selection)` with more than 1 detents.
+
+   When you close the sheet / leave the root view, the ViewModel will not deinit.
+
+2. Do not use `View.navigationDestination(for:destination)`.
+
+   When you navigate, the ViewModel will call init twice and call deinit once.
+
+## UIKit sheanigans
+
+1. Do not use UIKit Navigation to present SwiftUI View as a sheet.
+
+   When you change `@State` / `@Binding` / `@Published` value that affect the SwiftUI View that is presented as a sheet, the animation is from the left instead of dissolve.
+
+# To Do
+
+- [ ] Use UIKit Navigation
+   - [ ] Create ViewControllable pattern
+      - [ ] Navigate to another page.
+   - [ ] Create Coordinator pattern
+      - [ ] Coordinator used as delegate by a controller.
+      - [ ] Coordinator update ViewModel's value.
