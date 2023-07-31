@@ -1117,17 +1117,17 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
 1. Careful in hiding the navigation bar back button.
 
-   When you hide navigation bar back button, it is STILL expected that you can pop view controller by swiping from the left to right, isn't it?
+   When you hide navigation bar back button, it is STILL expected that you can go back to the previous page by swiping from the left to right, isn't it?
 
    It is achievable but it's hacky.
 
 2. Do not immediately present a sheet after navigating to a new page.
 
-   When you dismiss a sheet, it is expected to pop the view controller, isn't it?
+   When you dismiss a sheet, it is expected to go back to the previous page, isn't it?
 
    It is achievable but it's hacky.
 
-   When you on a sheet, it is expected that you can pop view controller by swiping from the left to right, isn't it?
+   When you on a sheet, it is expected that you can go back to the previous page by swiping from the left to right, isn't it?
 
    No idea how to do that.
 
@@ -1145,17 +1145,17 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
    When you navigate, the ViewModel will call init twice and call deinit once.
    
-3. Careful in designing user experience.
+3. Careful in designing the user experience with SwiftUI Navigation `View.navigationDestination(isPresented:destination)`
 
    - It is normal to swipe from left to right to go back to the previous page, isn't it?
    
       The method ignore `UINavigationController.interactivePopGestureRecognizer.delegate = nil`. 
    
-      Therefore, user unable to swipe to go back to the previous page.
+      Therefore, user will be unable to swipe to go back to the previous page if you hide the navigation bar back button.
    
-      Important: only `View.navigationDestination(isPresented:destination)` that init and deinit ViewModel once.
+      Important: only use `View.navigationDestination(isPresented:destination)`, this method only init and deinit ViewModel once.
    
-   - It is normal to pop to root, isn't it?
+   - It is normal that user can go back to home page, isn't it?
    
       We can change the `isPresented` value of a parent view. However, the ViewModel will not deinit.
    
