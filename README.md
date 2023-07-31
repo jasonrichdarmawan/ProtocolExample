@@ -151,11 +151,11 @@ For example, a project have 4 user stories.
 
     Departure's component
 
-    ![Departure](Departure.svg)
+    ![Departure](assets/Departure.svg)
 
     Arrival's component
 
-    ![Arrival](Arrival.svg)
+    ![Arrival](assets/Arrival.svg)
 
 6. Software Engineer creates the component's code.
 
@@ -327,19 +327,19 @@ For example, a project have 4 user stories.
 
     Departure Iteration 1
 
-    ![Departure Iteration 1](Departure.svg)
+    ![Departure Iteration 1](assets/Departure.svg)
 
     Departure Iteration 2
 
-    ![Departure Iteration 2](Departure-iteration2.svg)
+    ![Departure Iteration 2](assets/Departure-iteration2.svg)
 
     Arrival Iteration 1
 
-    ![Arrival Iteration 1](Arrival.svg)
+    ![Arrival Iteration 1](assets/Arrival.svg)
 
     Arrival Iteration 2
 
-    ![Arrival Iteration 2](Arrival-iteration2.svg)
+    ![Arrival Iteration 2](assets/Arrival-iteration2.svg)
 
 9. Software Engineer creates component's iteration.
 
@@ -538,7 +538,7 @@ Software Engineer creates protocol for every use cases of the 1st user story.
 
 * BeaconBroadcaster (to simulate)
 
-![MRT Jakarta Navigation Use Cases](MRT%20Jakarta%20Navigation%20Use%20Cases.drawio.png)
+![MRT Jakarta Navigation Use Cases](assets/MRT%20Jakarta%20Navigation%20Use%20Cases.drawio.png)
 
 **Use Case protocol's coding style guide:**
 * use delegate pattern if you wish to return a result asynchronously.
