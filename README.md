@@ -680,10 +680,10 @@ Engineer creates protocol for every use cases of the 1st user story.
     ```
     </details>
 
-* a function should have documentation comments if the behavior is peculiar. 
+* a function should have documentation comments if have unique behavior. 
 
     <details>
-    <summary>For example, the finder stop after finding any station once.</summary>
+    <summary>For example, the notifier will update once per station.</summary>
     
     NotifyWhenNearMRTStationWithBluetooth.swift
     ```swift
@@ -707,10 +707,10 @@ Engineer creates protocol for every use cases of the 1st user story.
     ```
     </details>
 
-* a function should use delegate pattern if the behavior is peculiar to return actionable result.
+* a function should use delegate pattern if have unique behavior.
 
     <details>
-    <summary>For example, `.FINDER_GRACEFULLY_STOP` event</summary>
+    <summary>For example, the notifier will stop when found specific MRT stationevent</summary>
     
     NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift
     ```swift
