@@ -14,38 +14,48 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
 1. Component to select departure and arrival station.
 2. Component to give info about the next train schedule and estimated of time arrival to the destination.
 
-For example, a project have 4 user stories.
+<details>
+<summary>For example, a project have 4 user stories.</summary>
 
 **User Stories**
 * User gets vibration and/or sound notification when arrive at their destination.
 * User gets vibration and/or sound notification when the user near any station when in initial mode (Have not started navigation) and app in background mode.
 * User gets vibration and/or sound notification when a train arrive in the departure station when in commuting mode (Have started navigation).
 * User gets vibration and/or sound notification when the user arrive in a transit station when in commuting mode.
+</details>
 
 **Workflow**
 
 1. Project Manager do vertical development by slicing the 1st user story into 3 use cases.
 
-    * User Story:
-        * User gets vibration and/or sound notification when arrive at their destination.
+    <details>
+    <summary>For example, 1 user story into 3 use cases</summary>
+
+    * User Story: User gets vibration and/or sound notification when arrive at their destination.
 
     * Use Cases:
         * User able to start navigation by selecting departure station and destination (High priority).
         * Notify user when arrived in destination when app in background mode (High priority).
         * Notify user when arrived in destination when app in foreground mode (High priority).
+     
+    </summary>
 
-2. UI/UX Designer creates the LoFi by defining `what user can do` and `what user can see` in a Page.
+2. UI/UX Designer creates the LoFi by defining `what user can do` and `what user can see` in a specific Page.
 
     **LoFi Principles:**
     * Only use the Shape and the Text tools in Figma.
     * Use button hierarchy (primary, secondary, tertiary).
     * No local variables, no local styles, no components.
+  
+    <details>
+    <summary>For example, what user can see and what user can do</summary>
 
     What user can see:
     * Departure station and destination.
 
     What user can do:
     * Change the departure station and destination by clicking the buttton.
+    </details>
 
 3. UI/UX Designer creates the design style guide.
 
@@ -54,7 +64,8 @@ For example, a project have 4 user stories.
 
         Do not use the primitive colors directly.
 
-        **Primitives Color**
+        <details>
+        <summary>For example, Primitives Color</summary>
 
         * red
             * red/0 = #FF000000
@@ -74,6 +85,7 @@ For example, a project have 4 user stories.
         * white
             * white/0 = #FFFFFF
             * black/0 = #000000
+        </details>
 
     * Tokenized colors uses the primitive colors. 
 
@@ -81,7 +93,8 @@ For example, a project have 4 user stories.
 
         Tokenized colors have Light and Dark Mode.
 
-        **Tokenized Color**
+        <details>
+        <summary>For example, Tokenized Color</summary>
 
         * clickableButtonBackground
             * Any = blue/0
@@ -98,10 +111,12 @@ For example, a project have 4 user stories.
         * focusedButtonStroke
             * Any = black/0
             * Dark = black/0
+        </details>
 
     * It is advisable to use [Apple's Typography](https://developer.apple.com/design/human-interface-guidelines/typography) and [Apple's Color](https://developer.apple.com/design/human-interface-guidelines/color).
 
-    **Why use tokenized color?**
+    <details>
+    <summary>Why use tokenized color?</summary>
 
     * Imagine you prefer to use `Hex color` directly.
 
@@ -132,9 +147,13 @@ For example, a project have 4 user stories.
         Now, imagine you want to change every #000000 to slightly brighter black Hex color #000011. 
 
         You will have to change each tokenized color, 3 times.
+      </details>
 
-4. Software Engineer register the tokenized colors
+4. Software Engineer register the tokenized colors.
 
+   <details>
+      <summary>Tokenized colors</summary>
+      
     * clickableButtonBackground
         * Any = #0000FF
         * Dark = #0000FF
@@ -150,8 +169,12 @@ For example, a project have 4 user stories.
     * focusedButtonStroke
         * Any = #000000
         * Dark = #000000
+    </details>
 
 5. UI/UX Designer creates the HiFi component for the departure and arrival button using components.
+
+    <details>
+    <summary>For example, departure & arrival components</summary>
 
     Departure's component
 
@@ -160,6 +183,7 @@ For example, a project have 4 user stories.
     Arrival's component
 
     ![Arrival](assets/Arrival.svg)
+    </details>
 
 6. Software Engineer creates the component's code.
 
@@ -167,7 +191,9 @@ For example, a project have 4 user stories.
 
     * Use `@Binding` / `@ObservedObject`
 
-        DepartureArrivalView.swift
+        <details>
+        <summary>DepartureArrivalView.swift</summary>
+           
         ```swift
         struct DepartureArrivalView: View {
             @ObservedObject private var viewModel: DepartureArrivalViewModel
@@ -184,8 +210,11 @@ For example, a project have 4 user stories.
             }
         }
         ```
+        </details>
 
-        DepartureArrivalView+DepartureArrivalButtonView.swift
+        <details>
+        <summary>DepartureArrivalView+DepartureArrivalButtonView.swift</summary>
+           
         ```swift
         extension DepartureArrivalView {
             struct DepartureOrArrivalButtonView: View {
@@ -206,10 +235,13 @@ For example, a project have 4 user stories.
             }
         }
         ```
+        </details>
 
     * The purpose of a preview is to show how to use the component in a screen.
 
-        The example to show how to use the component
+        <details>
+        <summary>The example to show how to use the component</summary>
+           
         ```swift
         private struct DepartureArrivalViewExample: View {
             @StateObject private var viewModel: DepartureArrivalViewModel
@@ -249,10 +281,7 @@ For example, a project have 4 user stories.
                 }
             }
         }
-        ```
-        
-        The preview
-        ```swift
+
         struct DepartureArrivalViewExample_Previews: PreviewProvider {
             static var previews: some View {
                 DepartureArrivalViewExample()
@@ -260,24 +289,31 @@ For example, a project have 4 user stories.
             }
         }
         ```
+        </details>
 
     * Use ViewModel if you have more than 1 variable to observe.
 
-        Important: 1 ViewModel per responsibility i.e. a View used 2 ViewModels:
+        Important: 1 ViewModel per responsibility.
+
+        <details>
+        <summary>i.e. a View used 2 ViewModels</summary>
 
         * a ViewModel to handle the departure, arrival variables.
         * a ViewModel to handle the nearest schedule at departure and estimated time arrival at destination variables.
+        </details>
     
     * In a ViewModel, use guard clause to handle unique use case. 
     
         Important: Add the explanation on top of that guard clause pattern.
 
-        Use case:
+        <details>
+        <summary> For example, a unique use case</summary>
+        
         ```
         arrival value: Lebak Bulus Grab Station
         use case: user want to go from Lebak Bulus Grab Station
         ```
-
+        
         DepartureArrivalViewModel.swift
         ```swift
         final class DepartureArrivalViewModel: ObservableObject {
@@ -326,9 +362,13 @@ For example, a project have 4 user stories.
             }
         }
         ```
+        </details>
 
-8. UI/UX Designer creates component's iteration.
+7. UI/UX Designer creates component's iteration.
 
+    <details>
+    <summary>For example, departure and arrival components' iterations</summary>
+       
     Departure Iteration 1
 
     ![Departure Iteration 1](assets/Departure.svg)
@@ -344,6 +384,7 @@ For example, a project have 4 user stories.
     Arrival Iteration 2
 
     ![Arrival Iteration 2](assets/Arrival-iteration2.svg)
+    </details>
 
 9. Software Engineer creates component's iteration.
 
@@ -354,7 +395,9 @@ For example, a project have 4 user stories.
     
         Then, use protocol oriented programming.
 
-        DepartureArrivalViewModel.swift
+        <details>
+        <summary>DepartureArrivalViewModel.swift</summary>
+           
         ```swift
         protocol DepartureArrivalViewModel: ObservableObject {
             var departure: Station? { get set }
@@ -366,8 +409,11 @@ For example, a project have 4 user stories.
             func isDepartureArrivalNotNil() -> Bool
         }
         ```
+        </details>
 
-        DepartureArrivalViewModelImpl.swift
+        <details>
+        <summary>DepartureArrivalViewModelImpl.swift</summary>
+           
         ```swift
         class DepartureArrivalViewModelImpl: DepartureArrivalViewModel {
             @Published var departure: Station?
@@ -424,12 +470,16 @@ For example, a project have 4 user stories.
             }
         }
         ```
+        </details>
 
+        <details>
+        <summary>Iteration 1: DepartureArrivalV1ViewModel.swift & DepartureArrivalV1View.swift</summary>
+           
         DepartureArrivalV1ViewModel.swift
         ```swift
         final class DepartureArrivalV1ViewModel: DepartureArrivalViewModelImpl {}
         ```
-
+        
         DepartureArrivalV1View.swift
         ```swift
         struct DepartureArrivalV1View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
@@ -472,8 +522,12 @@ For example, a project have 4 user stories.
             }
         }
         ```
+        </details>
 
-        DepartureArrivalV2ViewModel.swift
+        <details>
+        <summary>Iteration 2: DepartureArrivalV2ViewModel.swif and DepartureArrivalV2View.swift</summary>
+      
+        DepartureArrivalV2ViewModel.swif
         ```swift
         final class DepartureArrivalV2ViewModel: DepartureArrivalViewModelImpl {
             override func updateDepartureArrival(value: Station) -> Bool {
@@ -488,7 +542,7 @@ For example, a project have 4 user stories.
             }
         }
         ```
-
+        
         DepartureArrivalV2View.swift
         ```swift
         struct DepartureArrivalV2View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
@@ -515,6 +569,7 @@ For example, a project have 4 user stories.
             }
         }
         ```
+        </details>
 
 # Protocol Oriented Programming
 
@@ -529,7 +584,8 @@ Notice that Engineer B do not need to wait for Engineer A to finish his work.
 
 Important: Engineer A and B have to agree on the protocol (the expected result) before starting to code.
 
-For example, based on the 1st user story:
+<details>
+<summary>For example, based on the 1st user story:</summary>
 
 Engineer creates protocol for every use cases of the 1st user story.
 
@@ -556,11 +612,14 @@ Engineer creates protocol for every use cases of the 1st user story.
 * BeaconBroadcaster (to simulate)
 
 ![MRT Jakarta Navigation Use Cases](assets/MRT%20Jakarta%20Navigation%20Use%20Cases.drawio.png)
+</details>
 
 **Use Case protocol's coding style guide:**
 * use delegate pattern if you wish to return a result asynchronously.
 
-    NotifyWhenNearMRTStationWithGPS.swift
+    <details>
+    <summary>NotifyWhenNearMRTStationWithGPS.swift</summary>
+    
     ```swift
     protocol NotifyWhenNearMRTStationWithGPS {
         var delegate: NotifyWhenNearMRTStationWithGPSDelegate? { get set }
@@ -580,12 +639,15 @@ Engineer creates protocol for every use cases of the 1st user story.
 
     enum NotifyWhenNearMRTStationWithGPSStopEvent: NotifyWhenNearMRTStationWithGPSEvent { case IS_STOPPING }
     ```
+    </details>
 
 * a function should return an actionable result i.e. `Bool` or `enum`.
 
 * If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
 
-    Notification.swift
+    <details>
+    <summary>Notification.swift</summary>
+       
     ```swift
     protocol Notification {
         /// please show alert in view if return false
@@ -601,10 +663,13 @@ Engineer creates protocol for every use cases of the 1st user story.
 
     enum NotificationResetEvent: NotificationEvent { case IS_RESETTING }
     ```
+    </details>
 
 * a function should have documentation comments if the behavior is peculiar i.e. `the finder stop after finding any station once`. 
 
-    NotifyWhenNearMRTStationWithBluetooth.swift
+    <details>
+    <summary>NotifyWhenNearMRTStationWithBluetooth.swift</summary>
+       
     ```swift
     protocol NotifyWhenNearMRTStationWithBluetooth {
         var delegate: NotifyWhenNearMRTStationWithBluetoothDelegate? { get set }
@@ -624,10 +689,12 @@ Engineer creates protocol for every use cases of the 1st user story.
 
     enum NotifyWhenNearMRTStationWithBluetoothStopEvent: NotifyWhenNearMRTStationWhenInBackgroundEvent { case IS_STOPPING }
     ```
+    </details>
 
 * a function should use delegate pattern if the behavior is peculiar to return actionable result i.e. `.FINDER_GRACEFULLY_STOP` event.
 
-    NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift
+    <details>
+    <summary>NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift</summary>
     ```swift
     protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
         var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate? { get set }
@@ -650,6 +717,7 @@ Engineer creates protocol for every use cases of the 1st user story.
 
     enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent: NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent { case IS_STOPPING }
     ```
+    </details>
 
 # Use Case Oriented Programming
 
@@ -667,7 +735,9 @@ Then, you can write a business logic to do:
 
     By doing so, when you want to change the implementation logic, you can replace the shared variable's value.
 
-    NotificationManager.swift
+    <details>
+    <summary>NotificationManager.swift</summary>
+       
     ```swift
     final class NotificationManager {
         static var shared: Notification! {
@@ -690,10 +760,13 @@ Then, you can write a business logic to do:
         private static var sharedClosure: Notification!
     }
     ```
+    </details>
 
     since Notification should not have more than 2 instance, you should private the constructor.
 
-    NotificationImpl.swift
+    <details>
+    <summary>NotificationImpl.swift</summary>
+       
     ```swift
     final class NotificationImpl: Notification {
         fileprivate init() {}
@@ -725,8 +798,11 @@ Then, you can write a business logic to do:
         private static var sharedClosure: Notification!
     }
     ```
+    </details>
 
-    NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift
+    <details>
+    <summary>NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift</summary>
+       
     ```swift
     final class NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
         var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate?
@@ -783,6 +859,7 @@ Then, you can write a business logic to do:
         }
     }
     ```
+    </details>
 
 # Clean Architecture Programming
 
@@ -800,7 +877,9 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
     * The Pages layer
 
-        DepartureArrivalPage.swift
+        <details>
+        <summary>DepartureArrivalPage.swift</summary>
+           
         ```swift
         struct DepartureArrivalPage: View {
             @StateObject private var viewModel: DepartureArrivalV2ViewModel
@@ -818,10 +897,13 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             }
         }
         ```
+        </details>
 
     * The ViewModels layer
 
-        DepartureArrivalV2ViewModel.swift
+        <details>
+        <summary>DepartureArrivalV2ViewModel.swift</summary>
+           
         ```swift
         final class DepartureArrivalV2ViewModel: ObservableObject {
             @Published var departure: Station
@@ -865,10 +947,13 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             }
         }
         ```
+        </details>
 
     * The Components layer
 
-        DepartureArrivalV2View.swift
+        <details>
+        <summary>DepartureArrivalV2View.swift</summary>
+           
         ```swift
         struct DepartureArrivalV2View: View {
             @ObservedObject private var viewModel: DepartureArrivalV2ViewModel
@@ -894,6 +979,7 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             }
         }
         ```
+        </details>
 
         Important: use `+` to indicate the use of the extension keyword. In this case, a subcomponent of a component.
 
@@ -903,7 +989,9 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
         
         Both views are similar, but diverge at some point.
 
-        DepartureArrivalView+DepartureV2View.swift
+        <details>
+        <summary>DepartureArrivalView+DepartureV2View.swift</summary>
+        
         ```swift
         extension DepartureArrivalV2View {
             struct DepartureV2View: View {
@@ -940,8 +1028,11 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             }
         }
         ```
+        </details>
 
-        DepartureArrivalV2View+ArrivalV2View.swift
+        <details>
+        <summary>DepartureArrivalV2View+ArrivalV2View.swift</summary>
+           
         ```swift
         extension DepartureArrivalV2View {
             struct ArrivalV2View: View {
@@ -979,6 +1070,7 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             }
         }
         ```
+        </details>
 
 3. The Domain layer splitted into 3 layers: the Entities layer, the Repositories layer the UseCases layer.
 
