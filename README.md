@@ -658,7 +658,7 @@ Engineer creates protocol for every use cases of the 1st user story.
 
 * a function should return an actionable result i.e. `Bool` or `enum`.
 
-* If function can't return a result, use completion pattern i.e. `func start(completionHandler: @escaping (Bool) -> Void)`
+* If function can't return a result, use completion pattern
 
     <details>
     <summary>Notification.swift</summary>
@@ -680,11 +680,12 @@ Engineer creates protocol for every use cases of the 1st user story.
     ```
     </details>
 
-* a function should have documentation comments if the behavior is peculiar i.e. `the finder stop after finding any station once`. 
+* a function should have documentation comments if the behavior is peculiar. 
 
     <details>
-    <summary>NotifyWhenNearMRTStationWithBluetooth.swift</summary>
-       
+    <summary>For example, the finder stop after finding any station once.</summary>
+    
+    NotifyWhenNearMRTStationWithBluetooth.swift
     ```swift
     protocol NotifyWhenNearMRTStationWithBluetooth {
         var delegate: NotifyWhenNearMRTStationWithBluetoothDelegate? { get set }
@@ -706,10 +707,12 @@ Engineer creates protocol for every use cases of the 1st user story.
     ```
     </details>
 
-* a function should use delegate pattern if the behavior is peculiar to return actionable result i.e. `.FINDER_GRACEFULLY_STOP` event.
+* a function should use delegate pattern if the behavior is peculiar to return actionable result.
 
     <details>
-    <summary>NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift</summary>
+    <summary>For example, `.FINDER_GRACEFULLY_STOP` event</summary>
+    
+    NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift
     ```swift
     protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
         var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate? { get set }
@@ -736,12 +739,16 @@ Engineer creates protocol for every use cases of the 1st user story.
 
 # Use Case Oriented Programming
 
-Use Case Oriented Programming enables you to focus on 1 specific business logic, i.e:
-* `NotifyWhenNearMRTStationWithGPS.swift`
-* `NotifyWhenNearMRTStationWithBluetooth.swift`
+Use Case Oriented Programming enables you to focus on 1 specific business logic.
 
-Then, you can write a business logic to do:
-* if Bluetooth is not available, use GPS. `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
+<details>
+<summary>For example, if Bluetooth is not available, use GPS use case.</summary>
+
+Engineer A creates the business logic to notify when near MRT Station with GPS in `NotifyWhenNearMRTStationWithGPS.swift`.
+Engineer B creates the business logic to notify when near MRT Station with Bluetooth in `NotifyWhenNearMRTStationWithBluetooth.swift`.
+
+Then, you can write another use case to do `if Bluetooth is not available, use GPS` in `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
+</details>
 
 **Protocol implementation's coding style guide:**
 * `init` function should have default value.
