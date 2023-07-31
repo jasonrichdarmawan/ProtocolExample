@@ -10,6 +10,10 @@
 
 # Component Oriented Design
 
+Component Oriented Design enables you to focus on 1 specific user activity (what user can do, what user can see) and component iteration, i.e.
+1. Component to select departure and arrival station.
+2. Component to give info about the next train schedule and estimated of time arrival to the destination.
+
 For example, a project have 4 user stories.
 
 **User Stories**
@@ -514,7 +518,20 @@ For example, a project have 4 user stories.
 
 # Protocol Oriented Programming
 
-Software Engineer creates protocol for every use cases of the 1st user story.
+Protocol Oriented Programming enables you to integrate others' work without actually need to wait (for the work to be finished) or to know how it works, i.e.:
+* Engineer A creates `protocol NotifyWhenNearMRTStationWithGPS` with 2 methods.
+    * `func start()` to start the notifier.
+    * `func stop()` to stop the notifier.
+    * `var delegate: NotifyWhenNearMRTStationWithGPSDelegate?` which will be called everytime the notifier detect nearby MRT station.
+* Engineer B build the View that call func `start()`, `stop()` and create a ViewModel that conform to `protocol NotifyWhenNearMRTStationWithGPSDelegate`.
+
+Notice that Engineer B do not need to wait for Engineer A to finish his work.
+
+Important: Engineer A and B have to agree on the protocol (the expected result) before starting to code.
+
+For example, based on the 1st user story:
+
+Engineer creates protocol for every use cases of the 1st user story.
 
 * NotifyWhenNearMRTStationAndSpecificMRTStationOnce, requires:
     * NotifyWhenNearMRTStationWithGPS
@@ -768,6 +785,8 @@ Then, you can write a business logic to do:
     ```
 
 # Clean Architecture Programming
+
+Clean Architecture Programming enables you to focus on 1 specific activity in a file.
 
 1. Code is split into 3 layers: the Presentation layer, the Domain layer and the Data layer.
 
