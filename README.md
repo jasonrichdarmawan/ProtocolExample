@@ -726,7 +726,9 @@ Engineer creates protocol for every use cases of the 1st user story.
     enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent { case FOUND, ARRIVED }
 
     protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate {
-        func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent)
+        func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station)
+        
+        func notifierWillStop(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce)
     }
 
     protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent {}
