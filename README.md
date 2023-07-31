@@ -745,6 +745,7 @@ Use Case Oriented Programming enables you to focus on 1 specific business logic.
 <summary>For example, if Bluetooth is not available, use GPS use case.</summary>
 
 Engineer A creates the business logic to notify when near MRT Station with GPS in `NotifyWhenNearMRTStationWithGPS.swift`.
+
 Engineer B creates the business logic to notify when near MRT Station with Bluetooth in `NotifyWhenNearMRTStationWithBluetooth.swift`.
 
 Then, you can write another use case to do `if Bluetooth is not available, use GPS` in `NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift`
