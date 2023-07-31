@@ -1,7 +1,7 @@
 # Goal
 
 For UI/UX Designer:
-1. Do component iteration and not Screen iteration.
+1. Do component variant iteration and not Screen iteration. Make sure LoFi is well defined.
 2. Consider every variants of a component.
 3. Use Tokenized color and not Primitive color or Hex color.
 4. Consider how user navigate from Screen A to Screen B.
