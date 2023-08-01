@@ -10,7 +10,7 @@ For Software Engineer:
 1. Consider how others use your code. Every function should have actionable result.
 2. 1 file per Component and not 1 file per Screen. 1 file should only do/provide a specific thing.
 3. Guarantee your work to be bug free. Others expect your code to work in order for their code to work properly.
-4. Follow the SOLID principle.
+4. Follow the SOLID principle. Make sure dependency can be injected from outside / constructor i.e. from `init`.
 5. Violate the DRY principle if necessary.
 
 # Contents
