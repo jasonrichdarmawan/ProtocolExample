@@ -200,6 +200,7 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
     ![Arrival's component](assets/Arrival.svg)
     
     DepartureArrival's component Iteration 1
+    
     ![DepartureArrival's component](assets/DepartureArrivalComponent.svg)
     </details>
 
@@ -373,7 +374,7 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
         Important: 1 ViewModel per responsibility.
 
         <details>
-        <summary>i.e. a View used 2 ViewModels</summary>
+        <summary>For example, a View used 2 ViewModels</summary>
 
         * a ViewModel to handle the departure, arrival variables.
         * a ViewModel to handle the nearest schedule at departure and estimated time arrival at destination variables.
@@ -384,7 +385,7 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
         Important: Add the explanation on top of that guard clause pattern.
 
         <details>
-        <summary> For example, a unique use case</summary>
+        <summary>For example, a unique use case</summary>
         
         ```
         arrival value: Lebak Bulus Grab Station
