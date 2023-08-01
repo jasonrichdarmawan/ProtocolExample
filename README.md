@@ -992,6 +992,8 @@ Then, you can write another use case to do `if Bluetooth is not available, use G
 
 Clean Architecture Programming enables you to focus on 1 specific activity in a file.
 
+![Clean Architecture Programming](assets/MRT%20Jakarta%20Navigation%20Use%20Cases-Clean%20Architecture%20Programming.drawio.png)
+
 1. Code is split into 3 layers: the Presentation layer, the Domain layer and the Data layer.
 
 2. The Presentation layer splitted into 3 layers: the Components layer, the ViewModel layer and the Pages layer.
