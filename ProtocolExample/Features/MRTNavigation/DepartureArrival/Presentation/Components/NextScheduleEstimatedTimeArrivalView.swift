@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct NextScheduleEstimatedTimeArrivalView: View {
-    @ObservedObject var scheduleVM: NextScheduleEstimatedTimeArrivalViewModel
+struct NextScheduleEstimatedTimeArrivalView<ScheduleVM: NextScheduleEstimatedtimeArrivalViewModel>: View {
+    @ObservedObject var scheduleVM: ScheduleVM
     
-    init(scheduleVM: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()) {
+    init(scheduleVM: ScheduleVM = NextScheduleEstimatedTimeArrivalViewModelImpl()) {
         self.scheduleVM = scheduleVM
     }
     
@@ -53,7 +53,7 @@ struct NextScheduleEstimatedTimeArrivalView: View {
 #if DEBUG
 struct NextScheduleEstimatedTimeArrivalView_Previews: PreviewProvider {
     static var previews: some View {
-        NextScheduleEstimatedTimeArrivalView(scheduleVM: NextScheduleEstimatedTimeArrivalViewModel(nearestSchedule: "10:00", estimatedTimeArrival: "12:00"))
+        NextScheduleEstimatedTimeArrivalView(scheduleVM: NextScheduleEstimatedTimeArrivalViewModelImpl(nearestSchedule: "10:00", estimatedTimeArrival: "12:00"))
             .environment(\.locale, .init(identifier: "id-ID"))
     }
 }

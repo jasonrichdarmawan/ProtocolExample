@@ -191,13 +191,16 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
     <details>
     <summary>For example, departure & arrival components</summary>
 
-    Departure's component
+    Departure's component Iteration 1
 
-    ![Departure](assets/Departure.svg)
+    ![Departure's component](assets/Departure.svg)
 
-    Arrival's component
+    Arrival's component Iteration 1
 
-    ![Arrival](assets/Arrival.svg)
+    ![Arrival's component](assets/Arrival.svg)
+    
+    DepartureArrival's component Iteration 1
+    ![DepartureArrival's component](assets/DepartureArrivalComponent.svg)
     </details>
 
 6. Software Engineer creates the component's code.
@@ -207,20 +210,50 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
     * Use `@Binding` / `@ObservedObject`
 
         <details>
-        <summary>DepartureArrivalView.swift</summary>
+        <summary>DepartureArrivalV1View.swift</summary>
            
         ```swift
-        struct DepartureArrivalView: View {
-            @ObservedObject private var viewModel: DepartureArrivalViewModel
+        struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
+            @ObservedObject var selectVM: SelectVM
+            @Binding var selectedDetent: PresentationDetent
             
-            init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
-                self.viewModel = viewModel
+            init(
+                selectVM: SelectVM = DepartureArrivalV1ViewModel(),
+                selectedDetent: Binding<PresentationDetent> = .constant(.header)
+            ) {
+                self.selectVM = selectVM
+                self._selectedDetent = selectedDetent
             }
             
             var body: some View {
-                Group {
-                    DepartureOrArrivalButtonView(value: $viewModel.departure, selected: $viewModel.departureSelected)
-                    DepartureOrArrivalButtonView(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+                    GridRow {
+                        Circle()
+                            .stroke(.blue, lineWidth: 4)
+                            .frame(width: 16, height: 16)
+                            .padding(.trailing, 16)
+                        
+                        DepartureOrArrivalButtonView(value: $selectVM.departure, selected: $selectVM.departureSelected, selectedDetent: $selectedDetent)
+                    }
+                    
+                    GridRow {
+                        Line()
+                            .stroke(style: StrokeStyle(lineWidth: 2, dash: [8,8]))
+                            .foregroundColor(Color("departureArrival_line"))
+                            .frame(width: 1, height: 24)
+                            .padding(.trailing, 16)
+                        
+                        
+                    }
+                    
+                    GridRow {
+                        Circle()
+                            .stroke(.blue, lineWidth: 4)
+                            .frame(width: 16, height: 16)
+                            .padding(.trailing, 16)
+                        
+                        DepartureOrArrivalButtonView(value: $selectVM.arrival, selected: $selectVM.arrivalSelected, selectedDetent: $selectedDetent)
+                    }
                 }
             }
         }
@@ -228,24 +261,37 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
         </details>
 
         <details>
-        <summary>DepartureArrivalView+DepartureArrivalButtonView.swift</summary>
+        <summary>DepartureArrivalV1View+DepartureArrivalButtonView.swift</summary>
            
         ```swift
-        extension DepartureArrivalView {
+        extension DepartureArrivalV1View {
             struct DepartureOrArrivalButtonView: View {
-                @Binding var value: Station
+                @Binding var value: Station?
                 @Binding var selected: Bool
+                @Binding var selectedDetent: PresentationDetent
+                
+                init(
+                    value: Binding<Station?> = .constant(nil),
+                    selected: Binding<Bool> = .constant(true),
+                    selectedDetent: Binding<PresentationDetent> = .constant(.header)
+                ) {
+                    self._value = value
+                    self._selected = selected
+                    self._selectedDetent = selectedDetent
+                }
                 
                 var body: some View {
                     Button {
-                        selected = true
+                        withAnimation {
+                            selected = true
+                            selectedDetent = .large
+                        }
                     } label: {
-                        Text("\(value.name) Station")
+                        Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.title2)
+                            .font(.headline)
                     }
-                    .selectedButtonStyle(selected)
-                    .padding(16)
+                    .buttonStyle(selected ? Either.left(.bordered) : .right(.borderedProminent))
                 }
             }
         }
@@ -258,42 +304,57 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
         <summary>The example to show how to use the component</summary>
            
         ```swift
-        private struct DepartureArrivalViewExample: View {
-            @StateObject private var viewModel: DepartureArrivalViewModel
+        #if DEBUG
+        private struct DepartureArrivalViewExample<SelectVM: DepartureArrivalViewModel>: View {
+            @StateObject private var selectVM: SelectVM
             
-            init(viewModel: DepartureArrivalViewModel = DepartureArrivalViewModel()) {
-                self._viewModel = StateObject(wrappedValue: viewModel)
+            init(selectVM: SelectVM = DepartureArrivalV1ViewModel()) {
+                self._selectVM = StateObject(wrappedValue: selectVM)
             }
             
             var body: some View {
-                VStack(spacing: 0) {
-                    DepartureArrivalView(viewModel: viewModel)
+                VStack(spacing: 32) {
+                    DepartureArrivalV1View(selectVM: selectVM)
                     
-                    VStack(alignment: .leading, spacing: 0) {
-                        Button("\(MRT.LebakBulusGrab.station.name) Station") {
-                            viewModel.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                    VStack(spacing: 20) {
+                        Button {
+                            withAnimation {
+                                _ = selectVM.updateDepartureArrival(value: MRT.LebakBulusGrab.station)
+                            }
+                        } label: {
+                            Text("\(MRT.LebakBulusGrab.station.name) Station")
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .font(.title2)
+                        .font(.headline)
                         .buttonStyle(.borderedProminent)
-                        .padding(.vertical, 16)
                         
-                        Button("\(MRT.FatmawatiIndomaret.station.name) Station") {
-                            viewModel.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                        Button {
+                            withAnimation {
+                                _ = selectVM.updateDepartureArrival(value: MRT.FatmawatiIndomaret.station)
+                            }
+                        } label: {
+                            Text("\(MRT.FatmawatiIndomaret.station.name) Station")
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .font(.title2)
+                        .font(.headline)
                         .buttonStyle(.borderedProminent)
-                        .padding(.vertical, 16)
                         
-                        Button("\(MRT.CipeteRaya.station.name) Station") {
-                            viewModel.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                        Button {
+                            withAnimation {
+                                _ = selectVM.updateDepartureArrival(value: MRT.CipeteRaya.station)
+                            }
+                        } label: {
+                            Text("\(MRT.CipeteRaya.station.name) Station")
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .font(.title2)
+                        .font(.headline)
                         .buttonStyle(.borderedProminent)
-                        .padding(.vertical, 16)
                     }
                     
                     Spacer()
                 }
+                .padding(.top, 32)
+                .padding(.horizontal, 32)
             }
         }
 
@@ -303,6 +364,7 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
                     .environment(\.locale, .init(identifier: "id-ID"))
             }
         }
+        #endif
         ```
         </details>
 
@@ -329,11 +391,11 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
         use case: user want to go from Lebak Bulus Grab Station
         ```
         
-        DepartureArrivalViewModel.swift
+        DepartureArrivalViewModelImpl.swift
         ```swift
-        final class DepartureArrivalViewModel: ObservableObject {
-            @Published var departure: Station
-            @Published var arrival: Station
+        class DepartureArrivalViewModelImpl: DepartureArrivalViewModel {
+            @Published var departure: Station?
+            @Published var arrival: Station?
             
             @Published var departureSelected: Bool
             var arrivalSelected: Bool {
@@ -345,13 +407,41 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
                 }
             }
             
-            init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station = MRT.DukuhAtasBNI.station, departureSelected: Bool = false) {
+            var currentSelected: Binding<Station?> {
+                get {
+                    return Binding<Station?>(
+                        get: {
+                            if self.departureSelected {
+                                return self.departure
+                            } else {
+                                return self.arrival
+                            }
+                        },
+                        set: { newValue in
+                            guard let newValue else { return }
+                            
+                            _ = self.updateDepartureArrival(value: newValue)
+                        }
+                    )
+                }
+            }
+            
+            init(departure: Station? = MRT.LebakBulusGrab.station, arrival: Station? = nil, departureSelected: Bool = false) {
                 self.departure = departure
                 self.arrival = arrival
                 self.departureSelected = departureSelected
+        #if DEBUG
+                print("\(type(of: self)) \(#function)")
+        #endif
             }
             
-            func updateDepartureArrival(value: Station) {
+            deinit {
+        #if DEBUG
+                print("\(type(of: self)) \(#function)")
+        #endif
+            }
+            
+            func updateDepartureArrival(value: Station) -> Bool {
                 switch departureSelected {
                 case true:
                     // arrival value: Lebak Bulus Grab Station
@@ -359,7 +449,7 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
                     if arrival == value {
                         departure = value
                         arrival = nil
-                        return
+                        return true
                     }
                     
                     departure = value
@@ -369,11 +459,20 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
                     if departure == value {
                         departure = nil
                         arrival = value
-                        return
+                        return true
                     }
                     
                     arrival = value
                 }
+                
+                return true
+            }
+            
+            func isDepartureArrivalNotNil() -> Bool {
+                if departure == nil { return false }
+                if arrival == nil { return false }
+                
+                return true
             }
         }
         ```
@@ -560,23 +659,23 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
         
         DepartureArrivalV2View.swift
         ```swift
-        struct DepartureArrivalV2View<ViewModel>: View where ViewModel: DepartureArrivalViewModel {
-            @ObservedObject private var viewModel: ViewModel
+        struct DepartureArrivalV2View<SelectVM: DepartureArrivalViewModel>: View {
+            @ObservedObject private var selectVM: SelectVM
             
-            init(viewModel: ViewModel = DepartureArrivalV2ViewModel()) {
-                self._viewModel = ObservedObject(wrappedValue: viewModel)
+            init(selectVM: SelectVM = DepartureArrivalV2ViewModel()) {
+                self._selectVM = ObservedObject(wrappedValue: selectVM)
             }
             
             var body: some View {
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
-                        DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
+                        DepartureV2View(value: $selectVM.departure, selected: $selectVM.departureSelected)
                         Spacer()
                             .frame(width: 24, height: 24)
                             .padding(.leading, 16)
                     }
                     HStack(spacing: 0) {
-                        ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
+                        ArrivalV2View(value: $selectVM.arrival, selected: $selectVM.arrivalSelected)
                         PlusCircleView()
                             .padding(.leading, 16)
                     }
@@ -723,12 +822,14 @@ Engineer creates protocol for every use cases of the 1st user story.
         func stop() -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent
     }
 
-    enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent { case FOUND, ARRIVED }
+    enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent {
+        case FOUND
+        // will stop when arrived
+        case ARRIVED
+    }
 
     protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate {
-        func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station)
-        
-        func notifierWillStop(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce)
+        func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent)
     }
 
     protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent {}
@@ -1109,7 +1210,7 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
     The Models layer is used by the Repositories layer and the DataSource layer. The purpose is to define what is expected result from the DataSource layer. i.e. a API response.
 
-    The DataSource layer is used by the Repositories layer. The purpose it to get data from somewhere. i.e. from local storage or from an API.
+    The DataSource layer is used by the Repositories layer. The purpose is to get data from somewhere. i.e. from local storage or from an API.
 
     Important: the Repositories layer and the Data layer is optional if the data can be hard coded, then hard code it.
 

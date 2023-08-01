@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CommutingPage: View {
-    @StateObject private var pageVM: CommutingPageViewModel
+struct CommutingPage<CommutingVM: CommutingPageViewModel>: View {
+    @StateObject private var commutingVM: CommutingVM
     
-    init(pageVM: CommutingPageViewModel = CommutingPageViewModel()) {
-        self._pageVM = StateObject(wrappedValue: pageVM)
+    init(commutingVM: CommutingVM = CommutingPageViewModelImpl()) {
+        self._commutingVM = StateObject(wrappedValue: commutingVM)
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif

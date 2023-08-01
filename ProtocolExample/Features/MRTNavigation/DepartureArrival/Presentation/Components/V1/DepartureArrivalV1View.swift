@@ -53,10 +53,10 @@ struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
 }
 
 #if DEBUG
-private struct DepartureArrivalViewExample<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
-    @StateObject private var selectVM: DepartureArrivalVM
+private struct DepartureArrivalViewExample<SelectVM: DepartureArrivalViewModel>: View {
+    @StateObject private var selectVM: SelectVM
     
-    init(selectVM: DepartureArrivalVM = DepartureArrivalV1ViewModel()) {
+    init(selectVM: SelectVM = DepartureArrivalV1ViewModel()) {
         self._selectVM = StateObject(wrappedValue: selectVM)
     }
     

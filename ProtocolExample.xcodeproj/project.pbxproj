@@ -11,7 +11,7 @@
 		96050EBC2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */; };
 		96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */; };
 		96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */; };
-		96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */; };
+		96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModelImpl.swift */; };
 		96050ECD2A7384090011DE7E /* PresentationDetent+header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */; };
 		96050ED32A73E12D0011DE7E /* SelectMRTStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ED22A73E12D0011DE7E /* SelectMRTStationView.swift */; };
 		96050ED52A73E2900011DE7E /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96050ED42A73E2900011DE7E /* Platform.swift */; };
@@ -22,7 +22,7 @@
 		960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551C2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift */; };
 		960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A551F2A7157B000F8E9FC /* IsMutedMode.swift */; };
 		960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */; };
-		960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */; };
+		960A55272A716A1E00F8E9FC /* AlarmViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A55262A716A1E00F8E9FC /* AlarmViewModelImpl.swift */; };
 		960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift */; };
 		960A59082A6ED155000BE611 /* MRT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A59072A6ED155000BE611 /* MRT.swift */; };
 		960A59102A6ED706000BE611 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960A59122A6ED706000BE611 /* Localizable.strings */; };
@@ -57,9 +57,9 @@
 		960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A874E2A6DA67E006874E5 /* AlarmView.swift */; };
 		960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87552A6E4D89006874E5 /* ChevronView.swift */; };
 		96234BB32A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96234BB22A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift */; };
-		96611E222A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift */; };
+		96611E222A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModelImpl.swift */; };
 		96611E272A770C81004B5984 /* CommutingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E262A770C81004B5984 /* CommutingPage.swift */; };
-		96611E2A2A770C8F004B5984 /* CommutingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E292A770C8F004B5984 /* CommutingPageViewModel.swift */; };
+		96611E2A2A770C8F004B5984 /* CommutingPageViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96611E292A770C8F004B5984 /* CommutingPageViewModelImpl.swift */; };
 		9691D44A2A6D77E800EE843C /* ProtocolExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */; };
 		9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D44D2A6D77E900EE843C /* Assets.xcassets */; };
 		9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D4502A6D77E900EE843C /* Preview Assets.xcassets */; };
@@ -72,6 +72,9 @@
 		96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF32A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift */; };
 		96AACDF92A6FEDC900534E72 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDF82A6FEDC900534E72 /* NavigationLazyView.swift */; };
 		96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDFB2A6FEE6800534E72 /* DepartureArrivalPage.swift */; };
+		96E2472D2A78E67000664689 /* CommutingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E2472C2A78E67000664689 /* CommutingPageViewModel.swift */; };
+		96E2472F2A78E7AF00664689 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */; };
+		96E247312A790D4400664689 /* DepartureArrivalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E247302A790D4400664689 /* DepartureArrivalPageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +82,7 @@
 		96050EBB2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Either+PrimitiveButtonStyle.swift"; sourceTree = "<group>"; };
 		96050EBD2A72BD300011DE7E /* DepartureArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModel.swift; sourceTree = "<group>"; };
 		96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalViewModelImpl.swift; sourceTree = "<group>"; };
-		96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageViewModel.swift; sourceTree = "<group>"; };
+		96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageViewModelImpl.swift; sourceTree = "<group>"; };
 		96050ECC2A7384090011DE7E /* PresentationDetent+header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentationDetent+header.swift"; sourceTree = "<group>"; };
 		96050ECE2A73BD6F0011DE7E /* Arrival.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Arrival.svg; sourceTree = "<group>"; };
 		96050ECF2A73BD6F0011DE7E /* Departure.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Departure.svg; sourceTree = "<group>"; };
@@ -94,7 +97,7 @@
 		960A551C2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphoneImpl.swift; sourceTree = "<group>"; };
 		960A551F2A7157B000F8E9FC /* IsMutedMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedMode.swift; sourceTree = "<group>"; };
 		960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedModeImpl.swift; sourceTree = "<group>"; };
-		960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		960A55262A716A1E00F8E9FC /* AlarmViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModelImpl.swift; sourceTree = "<group>"; };
 		960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MRT Jakarta Navigation Use Cases.drawio.png"; sourceTree = "<group>"; };
 		960A552D2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrivalView.swift; sourceTree = "<group>"; };
 		960A59062A6EA9FD000BE611 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
@@ -131,9 +134,9 @@
 		960A874E2A6DA67E006874E5 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		960A87552A6E4D89006874E5 /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
 		96234BB22A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+viewDidLoad.swift"; sourceTree = "<group>"; };
-		96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrivalViewModel.swift; sourceTree = "<group>"; };
+		96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextScheduleEstimatedTimeArrivalViewModelImpl.swift; sourceTree = "<group>"; };
 		96611E262A770C81004B5984 /* CommutingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPage.swift; sourceTree = "<group>"; };
-		96611E292A770C8F004B5984 /* CommutingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPageViewModel.swift; sourceTree = "<group>"; };
+		96611E292A770C8F004B5984 /* CommutingPageViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPageViewModelImpl.swift; sourceTree = "<group>"; };
 		9691D4462A6D77E800EE843C /* ProtocolExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtocolExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9691D4492A6D77E800EE843C /* ProtocolExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExampleApp.swift; sourceTree = "<group>"; };
 		9691D44D2A6D77E900EE843C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +150,10 @@
 		96AACDF32A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV1View+DepartureArrivalButtonView.swift"; sourceTree = "<group>"; };
 		96AACDF82A6FEDC900534E72 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		96AACDFB2A6FEE6800534E72 /* DepartureArrivalPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPage.swift; sourceTree = "<group>"; };
+		96E2472C2A78E67000664689 /* CommutingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPageViewModel.swift; sourceTree = "<group>"; };
+		96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		96E247302A790D4400664689 /* DepartureArrivalPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageViewModel.swift; sourceTree = "<group>"; };
+		96E247322A790F5400664689 /* DepartureArrivalComponent.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = DepartureArrivalComponent.svg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +220,8 @@
 		960A55252A716A1600F8E9FC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				960A55262A716A1E00F8E9FC /* AlarmViewModel.swift */,
+				960A55262A716A1E00F8E9FC /* AlarmViewModelImpl.swift */,
+				96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -562,7 +570,8 @@
 		96611E282A770C85004B5984 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				96611E292A770C8F004B5984 /* CommutingPageViewModel.swift */,
+				96E2472C2A78E67000664689 /* CommutingPageViewModel.swift */,
+				96611E292A770C8F004B5984 /* CommutingPageViewModelImpl.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -647,8 +656,9 @@
 				96050EBF2A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift */,
 				96AACDF12A6FEA3E00534E72 /* DepartureArrivalV1ViewModel.swift */,
 				96AACDEF2A6FE9D600534E72 /* DepartureArrivalV2ViewModel.swift */,
-				96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModel.swift */,
-				96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift */,
+				96E247302A790D4400664689 /* DepartureArrivalPageViewModel.swift */,
+				96050EC92A7383D40011DE7E /* DepartureArrivalPageViewModelImpl.swift */,
+				96611E212A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModelImpl.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -693,6 +703,7 @@
 		96F0F29D2A75AB3F00675133 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				96E247322A790F5400664689 /* DepartureArrivalComponent.svg */,
 				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
 				96050ED02A73C4B00011DE7E /* Arrival-iteration2.svg */,
 				96050ED12A73C4B00011DE7E /* Departure-iteration2.svg */,
@@ -782,9 +793,9 @@
 				96611E272A770C81004B5984 /* CommutingPage.swift in Sources */,
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
-				960A55272A716A1E00F8E9FC /* AlarmViewModel.swift in Sources */,
+				960A55272A716A1E00F8E9FC /* AlarmViewModelImpl.swift in Sources */,
 				96050ED72A73E2A10011DE7E /* Schedule.swift in Sources */,
-				96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModel.swift in Sources */,
+				96050ECA2A7383D40011DE7E /* DepartureArrivalPageViewModelImpl.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
 				96050ECD2A7384090011DE7E /* PresentationDetent+header.swift in Sources */,
 				96050EBA2A72B28B0011DE7E /* Either.swift in Sources */,
@@ -793,7 +804,7 @@
 				96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */,
 				960A87342A6D9DB6006874E5 /* NotifyWhenNearMRTStationWithBluetoothImpl.swift in Sources */,
 				96050EC02A72BD490011DE7E /* DepartureArrivalViewModelImpl.swift in Sources */,
-				96611E222A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModel.swift in Sources */,
+				96611E222A7709A9004B5984 /* NextScheduleEstimatedTimeArrivalViewModelImpl.swift in Sources */,
 				960A87092A6D8F0A006874E5 /* NotifyWhenNearMRTStationWithGPS.swift in Sources */,
 				96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */,
 				960A87442A6D9F2A006874E5 /* MRTTrainSchedule.swift in Sources */,
@@ -801,11 +812,12 @@
 				960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */,
 				96234BB32A740A7A00DDECCF /* UINavigationController+viewDidLoad.swift in Sources */,
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
-				96611E2A2A770C8F004B5984 /* CommutingPageViewModel.swift in Sources */,
+				96611E2A2A770C8F004B5984 /* CommutingPageViewModelImpl.swift in Sources */,
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
+				96E2472D2A78E67000664689 /* CommutingPageViewModel.swift in Sources */,
 				960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */,
 				960A552E2A726D4600F8E9FC /* NextScheduleEstimatedTimeArrivalView.swift in Sources */,
 				960A873D2A6D9E97006874E5 /* Alarm.swift in Sources */,
@@ -813,6 +825,7 @@
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
 				960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */,
 				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
+				96E2472F2A78E7AF00664689 /* AlarmViewModel.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
 				96050ED52A73E2900011DE7E /* Platform.swift in Sources */,
 				960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */,
@@ -826,6 +839,7 @@
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
 				960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */,
 				960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */,
+				96E247312A790D4400664689 /* DepartureArrivalPageViewModel.swift in Sources */,
 				960A87222A6D9838006874E5 /* LocationFinder.swift in Sources */,
 				960A873F2A6D9EB5006874E5 /* AlarmImpl.swift in Sources */,
 				960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */,

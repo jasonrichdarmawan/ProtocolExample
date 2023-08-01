@@ -16,12 +16,14 @@ protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
     func stop() -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStopEvent
 }
 
-enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent { case FOUND, ARRIVED }
+enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent {
+    case FOUND
+    // will stop when arrived
+    case ARRIVED
+}
 
 protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate {
-    func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station)
-    
-    func notifierWillStop(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce)
+    func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent)
 }
 
 protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceEvent {}

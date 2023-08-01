@@ -2,7 +2,7 @@
 //  DepartureArrivalPageViewModel.swift
 //  ProtocolExample
 //
-//  Created by Jason Rich Darmawan Onggo Putra on 28/07/23.
+//  Created by Jason Rich Darmawan Onggo Putra on 01/08/23.
 //
 
 import SwiftUI
@@ -14,63 +14,14 @@ enum DepartureArrivalPageState {
     case DISMISS
 }
 
-final class DepartureArrivalPageViewModel: ObservableObject {
-    @Published var state: DepartureArrivalPageState
-    var presentSheet: Bool {
-        get {
-            state == .PRESENT_SHEET
-        }
-        set {
-            if newValue {
-                state = .PRESENT_SHEET
-            }
-        }
-    }
-    var presentNavigationDestination: Bool {
-        get {
-            state == .PRESENT_NAVIGATION_DESTINATION
-        }
-        set {
-            if newValue {
-                state = .PRESENT_NAVIGATION_DESTINATION
-            }
-        }
-    }
+protocol DepartureArrivalPageViewModel: ObservableObject {
+    var state: DepartureArrivalPageState { get }
+    var isSheetPresented: Bool { get set }
+    var isNavigationDestinationPresented: Bool { get set }
     
-    @Published var selectedDetent: PresentationDetent
+    var selectedDetent: PresentationDetent { get set }
     
-    init(state: DepartureArrivalPageState = .PRESENT_SHEET, selectedDetent: PresentationDetent = .header) {
-        self.state = state
-        self.selectedDetent = selectedDetent
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
-    }
+    func sheetDidDismiss(_ dismiss: DismissAction) -> Bool
     
-    deinit {
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
-    }
-    
-    func sheetDidDismiss(_ dismiss: DismissAction) -> Bool {
-        switch state {
-        case .PRESENT_SHEET:
-            state = .DISMISS
-            dismiss()
-        default: break
-        }
-        
-        return true
-    }
-    
-    func navigationDestinationDidDisappear() -> Bool {
-        switch state {
-        case .PRESENT_NAVIGATION_DESTINATION:
-            state = .PRESENT_SHEET
-        default: break
-        }
-        
-        return true
-    }
+    func navigationDestinationDidDisappear() -> Bool
 }

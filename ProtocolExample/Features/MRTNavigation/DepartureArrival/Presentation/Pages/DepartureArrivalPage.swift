@@ -7,18 +7,21 @@
 
 import SwiftUI
 
-struct DepartureArrivalPage: View {
+struct DepartureArrivalPage<
+    PageVM: DepartureArrivalPageViewModel,
+    SelectVM: DepartureArrivalViewModel,
+    ScheduleVM: NextScheduleEstimatedtimeArrivalViewModel
+>: View {
     @Environment(\.dismiss) var dismiss
     
-    @StateObject private var pageVM: DepartureArrivalPageViewModel
-    
-    @StateObject private var selectVM: DepartureArrivalViewModelImpl
-    @StateObject private var scheduleVM: NextScheduleEstimatedTimeArrivalViewModel
+    @StateObject private var pageVM: PageVM
+    @StateObject private var selectVM: SelectVM
+    @StateObject private var scheduleVM: ScheduleVM
 
     init(
-        pageVM: DepartureArrivalPageViewModel = DepartureArrivalPageViewModel(),
-        selectVM: DepartureArrivalViewModelImpl = DepartureArrivalV1ViewModel(),
-        scheduleVM: NextScheduleEstimatedTimeArrivalViewModel = NextScheduleEstimatedTimeArrivalViewModel()
+        pageVM: PageVM = DepartureArrivalPageViewModelImpl(),
+        selectVM: SelectVM = DepartureArrivalV1ViewModel(),
+        scheduleVM: ScheduleVM = NextScheduleEstimatedTimeArrivalViewModelImpl()
     ) {
         self._pageVM = StateObject(wrappedValue: pageVM)
         self._selectVM = StateObject(wrappedValue: selectVM)
@@ -41,7 +44,7 @@ struct DepartureArrivalPage: View {
         .padding(32)
         .background(.blue)
         .sheet(
-            isPresented: $pageVM.presentSheet,
+            isPresented: $pageVM.isSheetPresented,
             onDismiss: { _ = pageVM.sheetDidDismiss(dismiss) }
         ) {
             VStack(spacing: 32) {
@@ -54,7 +57,7 @@ struct DepartureArrivalPage: View {
                     Spacer()
 
                     Button {
-                        pageVM.presentNavigationDestination = true
+                        pageVM.isNavigationDestinationPresented = true
                     } label: {
                         Text("Start")
                             .padding(.vertical, 8)
@@ -74,7 +77,7 @@ struct DepartureArrivalPage: View {
             .presentationBackgroundInteraction(.enabled(upThrough: .header))
         }
         .navigationDestination(
-            isPresented: $pageVM.presentNavigationDestination,
+            isPresented: $pageVM.isNavigationDestinationPresented,
             destination: {
                 NavigationLazyView {
                     CommutingPage()
@@ -82,7 +85,7 @@ struct DepartureArrivalPage: View {
                 .onDisappear { _ = pageVM.navigationDestinationDidDisappear()}
             }
         )
-        .onAppear { pageVM.presentSheet = true }
+        .onAppear { pageVM.isSheetPresented = true }
     }
 }
 

@@ -41,28 +41,28 @@ struct SelectMRTStationView: View {
 }
 
 #if DEBUG
-private struct SelectMRTStationViewExample<DepartureArrivalVM>: View where DepartureArrivalVM: DepartureArrivalViewModel {
-    @ObservedObject var alarmVM: DepartureArrivalVM
+private struct SelectMRTStationViewExample<SelectVM: DepartureArrivalViewModel>: View {
+    @ObservedObject var selectVM: SelectVM
     
-    init(alarmVM: DepartureArrivalVM = DepartureArrivalV1ViewModel()) {
-        self.alarmVM = alarmVM
+    init(selectVM: SelectVM = DepartureArrivalV1ViewModel()) {
+        self.selectVM = selectVM
     }
     
     var body: some View {
         VStack {
             Button {
-                alarmVM.departureSelected = true
+                selectVM.departureSelected = true
             } label: {
-                Text((alarmVM.departure != nil) ? "\(alarmVM.departure?.name ?? "") Station" : "Where to?")
+                Text((selectVM.departure != nil) ? "\(selectVM.departure?.name ?? "") Station" : "Where to?")
             }
             
             Button {
-                alarmVM.arrivalSelected = true
+                selectVM.arrivalSelected = true
             } label: {
-                Text((alarmVM.arrival != nil) ? "\(alarmVM.arrival?.name ?? "") Station" : "Where to?")
+                Text((selectVM.arrival != nil) ? "\(selectVM.arrival?.name ?? "") Station" : "Where to?")
             }
             
-            SelectMRTStationView(value: alarmVM.currentSelected)
+            SelectMRTStationView(value: selectVM.currentSelected)
         }
     }
 }

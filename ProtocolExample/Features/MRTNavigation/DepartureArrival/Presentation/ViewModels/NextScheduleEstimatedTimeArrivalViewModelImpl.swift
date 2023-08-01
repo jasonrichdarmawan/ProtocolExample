@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class NextScheduleEstimatedTimeArrivalViewModel: ObservableObject {
+protocol NextScheduleEstimatedtimeArrivalViewModel: ObservableObject {
+    var nearestSchedule: String? { get set }
+    var estimatedTimeArrival: String? { get set }
+}
+
+class NextScheduleEstimatedTimeArrivalViewModelImpl: NextScheduleEstimatedtimeArrivalViewModel {
     @Published var nearestSchedule: String?
     @Published var estimatedTimeArrival: String?
     
