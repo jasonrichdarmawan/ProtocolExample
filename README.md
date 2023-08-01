@@ -992,7 +992,7 @@ Then, you can write another use case to do `if Bluetooth is not available, use G
 
 Clean Architecture Programming enables you to focus on 1 specific activity in a file.
 
-![Clean Architecture Programming](assets/MRT%20Jakarta%20Navigation%20Use%20Cases-Clean%20Architecture%20Programming.drawio.png)
+![Clean Architecture Programming](assets/MRT%20Jakarta%20Navigation%20Use%20Cases-Clean%20Architecture%20Programming.drawio.svg)
 
 1. Code is split into 3 layers: the Presentation layer, the Domain layer and the Data layer.
 
@@ -1112,15 +1112,12 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
         Important: use `+` to indicate the use of the extension keyword. In this case, a subcomponent of a component.
 
-        Important: Do not complicate things with the `if else` logic, i.e.:
-        * `DepartureArrivalV2View+DepartureV2View.swift`
-        * `DepartureArrivalV2View+ArrivalV2View.swift` 
-        
-        Both views are similar, but diverge at some point.
+        Important: Do not complicate things with the `if else` logic.
 
         <details>
-        <summary>DepartureArrivalView+DepartureV2View.swift</summary>
+        <summary>For example, both views are similar, but diverge at some point.</summary>
         
+        DepartureArrivalV2View+DepartureV2View.swift
         ```swift
         extension DepartureArrivalV2View {
             struct DepartureV2View: View {
@@ -1157,11 +1154,8 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             }
         }
         ```
-        </details>
-
-        <details>
-        <summary>DepartureArrivalV2View+ArrivalV2View.swift</summary>
-           
+        
+        DepartureArrivalV2View+ArrivalV2View.swift
         ```swift
         extension DepartureArrivalV2View {
             struct ArrivalV2View: View {
