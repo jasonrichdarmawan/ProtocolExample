@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CommutingPage<CommutingVM: CommutingPageViewModel>: View {
-    @StateObject private var commutingVM: CommutingVM
+struct CommutingPage<CommutingVM: CommutingPageViewModel>: ViewControllable {
+    @ObservedObject private var commutingVM: CommutingVM
     
     init(commutingVM: CommutingVM = CommutingPageViewModelImpl()) {
-        self._commutingVM = StateObject(wrappedValue: commutingVM)
+        self.commutingVM = commutingVM
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -21,5 +21,9 @@ struct CommutingPage<CommutingVM: CommutingPageViewModel>: View {
         VStack {
             Text("CommutingPage")
         }
+    }
+    
+    func viewWillAppear(_ viewController: UIViewController) {
+        viewController.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

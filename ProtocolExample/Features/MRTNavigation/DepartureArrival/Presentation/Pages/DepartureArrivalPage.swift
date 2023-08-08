@@ -7,28 +7,13 @@
 
 import SwiftUI
 
-struct DepartureArrivalPage<
-    PageVM: DepartureArrivalPageViewModel,
-    SelectVM: DepartureArrivalViewModel,
-    ScheduleVM: NextScheduleEstimatedtimeArrivalViewModel
->: View {
-    @Environment(\.dismiss) var dismiss
-    
-    @StateObject private var pageVM: PageVM
-    @StateObject private var selectVM: SelectVM
-    @StateObject private var scheduleVM: ScheduleVM
+struct DepartureArrivalPage: ViewControllable {
+    private var coordinator: Coordinator
 
     init(
-        pageVM: PageVM = DepartureArrivalPageViewModelImpl(),
-        selectVM: SelectVM = DepartureArrivalV1ViewModel(),
-        scheduleVM: ScheduleVM = NextScheduleEstimatedTimeArrivalViewModelImpl()
+        coordinator: Coordinator
     ) {
-        self._pageVM = StateObject(wrappedValue: pageVM)
-        self._selectVM = StateObject(wrappedValue: selectVM)
-        self._scheduleVM = StateObject(wrappedValue: scheduleVM)
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
+        self.coordinator = coordinator
     }
     
     var body: some View {
@@ -43,49 +28,12 @@ struct DepartureArrivalPage<
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(32)
         .background(.blue)
-        .sheet(
-            isPresented: $pageVM.isSheetPresented,
-            onDismiss: { _ = pageVM.sheetDidDismiss(dismiss) }
-        ) {
-            VStack(spacing: 32) {
-                DepartureArrivalV1View(selectVM: selectVM, selectedDetent: $pageVM.selectedDetent)
-
-                switch pageVM.selectedDetent {
-                case .header:
-                    NextScheduleEstimatedTimeArrivalView(scheduleVM: scheduleVM)
-
-                    Spacer()
-
-                    Button {
-                        pageVM.isNavigationDestinationPresented = true
-                    } label: {
-                        Text("Start")
-                            .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(selectVM.isDepartureArrivalNotNil() ? false : true)
-                case .large:
-                    SelectMRTStationView(value: selectVM.currentSelected, selectedDetent: $pageVM.selectedDetent)
-                default:
-                    EmptyView()
-                }
-            }
-            .padding(.top, 32)
-            .padding(.horizontal, 32)
-            .presentationDetents([.header])
-            .presentationBackgroundInteraction(.enabled(upThrough: .header))
-        }
-        .navigationDestination(
-            isPresented: $pageVM.isNavigationDestinationPresented,
-            destination: {
-                NavigationLazyView {
-                    CommutingPage()
-                }
-                .onDisappear { _ = pageVM.navigationDestinationDidDisappear()}
-            }
-        )
-        .onAppear { pageVM.isSheetPresented = true }
+    }
+    
+    func viewWillAppear(_ viewController: UIViewController) {
+        viewController.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        _ = coordinator.showRoute(MRTNavigationRoute.DepartureArrivalSheet)
     }
 }
 
@@ -93,7 +41,7 @@ struct DepartureArrivalPage<
 struct DepartureArrivalPage_Preview: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            DepartureArrivalPage()
+            DepartureArrivalPage(coordinator: MRTNavigationCoordinator(navigationController: NavigationController()))
                 .environment(\.locale, .init(identifier: "id-ID"))
         }
     }

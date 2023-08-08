@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SelectMRTStationView: View {
     @Binding var value: Station?
-    @Binding var selectedDetent: PresentationDetent
+    @Binding var isPresented: Bool
     
-    init(value: Binding<Station?> = .constant(nil), selectedDetent: Binding<PresentationDetent> = .constant(.header)) {
+    init(value: Binding<Station?> = .constant(nil), isPresented: Binding<Bool> = .constant(false)) {
         self._value = value
-        self._selectedDetent = selectedDetent
+        self._isPresented = isPresented
     }
     
     var body: some View {
@@ -23,7 +23,7 @@ struct SelectMRTStationView: View {
                     Button {
                         withAnimation {
                             value = station
-                            selectedDetent = .header
+                            isPresented = false
                         }
                     } label: {
                         Circle()
@@ -44,7 +44,7 @@ struct SelectMRTStationView: View {
 private struct SelectMRTStationViewExample<SelectVM: DepartureArrivalViewModel>: View {
     @ObservedObject var selectVM: SelectVM
     
-    init(selectVM: SelectVM = DepartureArrivalV1ViewModel()) {
+    init(selectVM: SelectVM = DepartureArrivalViewModelImpl()) {
         self.selectVM = selectVM
     }
     

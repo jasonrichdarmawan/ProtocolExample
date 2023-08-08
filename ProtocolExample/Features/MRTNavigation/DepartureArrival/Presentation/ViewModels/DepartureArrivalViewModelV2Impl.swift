@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class DepartureArrivalV2ViewModel: DepartureArrivalViewModelImpl {
+final class DepartureArrivalViewModelV2Impl: DepartureArrivalViewModelImpl {
     override func updateDepartureArrival(value: Station) -> Bool {
         switch departureSelected {
         case true:

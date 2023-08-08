@@ -10,7 +10,7 @@ import SwiftUI
 struct DepartureArrivalV2View<SelectVM: DepartureArrivalViewModel>: View {
     @ObservedObject private var selectVM: SelectVM
     
-    init(selectVM: SelectVM = DepartureArrivalV2ViewModel()) {
+    init(selectVM: SelectVM = DepartureArrivalViewModelV2Impl()) {
         self._selectVM = ObservedObject(wrappedValue: selectVM)
     }
     
@@ -35,7 +35,7 @@ struct DepartureArrivalV2View<SelectVM: DepartureArrivalViewModel>: View {
 private struct DepartureArrivalV2ViewExample<SelectVM: DepartureArrivalViewModel>: View {
     @StateObject private var selectVM: SelectVM
     
-    init(selectVM: SelectVM = DepartureArrivalV2ViewModel()) {
+    init(selectVM: SelectVM = DepartureArrivalViewModelV2Impl()) {
         self._selectVM = StateObject(wrappedValue: selectVM)
     }
     

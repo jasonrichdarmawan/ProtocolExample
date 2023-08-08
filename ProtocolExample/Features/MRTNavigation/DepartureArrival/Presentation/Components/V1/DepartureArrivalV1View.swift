@@ -9,14 +9,14 @@ import SwiftUI
 
 struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
     @ObservedObject var selectVM: SelectVM
-    @Binding var selectedDetent: PresentationDetent
+    @Binding var isSelectMRTStationPresented: Bool
     
     init(
-        selectVM: SelectVM = DepartureArrivalV1ViewModel(),
-        selectedDetent: Binding<PresentationDetent> = .constant(.header)
+        selectVM: SelectVM = DepartureArrivalViewModelImpl(),
+        isSelectMRTStationPresented: Binding<Bool> = .constant(false)
     ) {
         self.selectVM = selectVM
-        self._selectedDetent = selectedDetent
+        self._isSelectMRTStationPresented = isSelectMRTStationPresented
     }
     
     var body: some View {
@@ -27,7 +27,7 @@ struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 16)
                 
-                DepartureOrArrivalButtonView(value: $selectVM.departure, selected: $selectVM.departureSelected, selectedDetent: $selectedDetent)
+                DepartureOrArrivalButtonView(value: $selectVM.departure, selected: $selectVM.departureSelected, isSelectMRTStationPresented: $isSelectMRTStationPresented)
             }
             
             GridRow {
@@ -46,7 +46,7 @@ struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 16)
                 
-                DepartureOrArrivalButtonView(value: $selectVM.arrival, selected: $selectVM.arrivalSelected, selectedDetent: $selectedDetent)
+                DepartureOrArrivalButtonView(value: $selectVM.arrival, selected: $selectVM.arrivalSelected, isSelectMRTStationPresented: $isSelectMRTStationPresented)
             }
         }
     }
@@ -56,7 +56,7 @@ struct DepartureArrivalV1View<SelectVM: DepartureArrivalViewModel>: View {
 private struct DepartureArrivalViewExample<SelectVM: DepartureArrivalViewModel>: View {
     @StateObject private var selectVM: SelectVM
     
-    init(selectVM: SelectVM = DepartureArrivalV1ViewModel()) {
+    init(selectVM: SelectVM = DepartureArrivalViewModelImpl()) {
         self._selectVM = StateObject(wrappedValue: selectVM)
     }
     
