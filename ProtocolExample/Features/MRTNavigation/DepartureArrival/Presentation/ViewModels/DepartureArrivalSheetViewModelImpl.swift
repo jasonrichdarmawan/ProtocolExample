@@ -13,7 +13,17 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     var selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent
     var selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier
     
-    @Published var isPresented: Bool
+    @Published var isPresented: Bool {
+        didSet {
+            if let coordinator = coordinator as? MRTNavigationCoordinator {
+                if isPresented {
+                    coordinator.updateDepartureArrivalSheetSelectedDetentIdentifier(.large)
+                } else {
+                    coordinator.updateDepartureArrivalSheetSelectedDetentIdentifier(selectMRTStationNotPresentedDetentIdentifier)
+                }
+            }
+        }
+    }
     
     init(
         coordinator: Coordinator,

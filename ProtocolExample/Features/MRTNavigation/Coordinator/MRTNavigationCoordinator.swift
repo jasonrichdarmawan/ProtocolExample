@@ -112,4 +112,12 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
             return true
         }
     }
+    
+    func updateDepartureArrivalSheetSelectedDetentIdentifier(_ selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier?) {
+        if let sheetController = departureArrivalSheetVC?.sheetPresentationController {
+            sheetController.animateChanges {
+                sheetController.selectedDetentIdentifier = selectedDetentIdentifier
+            }
+        }
+    }
 }
