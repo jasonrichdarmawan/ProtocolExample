@@ -10,7 +10,7 @@ import SwiftUI
 final class MRTNavigationCoordinator: NSObject, Coordinator {
     typealias SheetVM = DepartureArrivalSheetViewModelImpl
     typealias SelectVM = DepartureArrivalViewModelImpl
-    typealias ScheduleVM = ScheduleViewModelImpl
+    typealias ScheduleVM = DepartureArrivalScheduleViewModelImpl
     typealias CommutingVM = CommutingPageViewModelImpl
     
     private let id: UUID
@@ -21,8 +21,6 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
     private weak var sheetVM: SheetVM?
     private weak var selectVM: SelectVM?
     private weak var scheduleVM: ScheduleVM?
-    private var customIdentifier: UISheetPresentationController.Detent.Identifier?
-    private weak var custom: UISheetPresentationController.Detent?
     
     private weak var departureArrivalSheetVC: UIViewController?
     

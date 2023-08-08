@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-protocol DepartureArrivalSheetViewModel: NSObjectProtocol, ObservableObject, UISheetPresentationControllerDelegate {
+protocol DepartureArrivalSheetViewModel: ObservableObject {
     var selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent { get }
     var selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier { get }
     
-    var isSelectMRTStationPresented: Bool { get set }
+    var isPresented: Bool { get set }
 }

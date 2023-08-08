@@ -10,7 +10,7 @@ import SwiftUI
 struct DepartureArrivalSheet<
     SheetVM: DepartureArrivalSheetViewModel,
     SelectVM: DepartureArrivalViewModel,
-    ScheduleVM: ScheduleViewModel
+    ScheduleVM: DepartureArrivalScheduleViewModel
 >: ViewControllable {
     private var coordinator: Coordinator
     
@@ -22,7 +22,7 @@ struct DepartureArrivalSheet<
         coordinator: Coordinator,
         sheetVM: SheetVM,
         selectVM: SelectVM = DepartureArrivalViewModelImpl(),
-        scheduleVM: ScheduleVM = ScheduleViewModelImpl()
+        scheduleVM: ScheduleVM = DepartureArrivalScheduleViewModelImpl()
     ) {
         self.coordinator = coordinator
         self.sheetVM = sheetVM
@@ -32,10 +32,10 @@ struct DepartureArrivalSheet<
     
     var body: some View {
         VStack(spacing: 32) {
-            DepartureArrivalV1View(selectVM: selectVM, isSelectMRTStationPresented: $sheetVM.isSelectMRTStationPresented)
+            DepartureArrivalV1View(selectVM: selectVM, isSelectMRTStationPresented: $sheetVM.isPresented)
             
-            if !sheetVM.isSelectMRTStationPresented {
-                ScheduleView(scheduleVM: scheduleVM)
+            if !sheetVM.isPresented {
+                DepartureArrivalScheduleView(scheduleVM: scheduleVM)
                 
                 Spacer()
 
@@ -49,7 +49,7 @@ struct DepartureArrivalSheet<
                 .buttonStyle(.borderedProminent)
                 .disabled(selectVM.isDepartureArrivalNotNil() ? false : true)
             } else {
-                SelectMRTStationView(value: selectVM.currentSelected, isPresented: $sheetVM.isSelectMRTStationPresented)
+                SelectMRTStationView(value: selectVM.currentSelected, isPresented: $sheetVM.isPresented)
             }
         }
         .padding(.top, 32)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ScheduleViewModel: ObservableObject {
+protocol DepartureArrivalScheduleViewModel: ObservableObject {
     var nearestSchedule: String? { get set }
     var estimatedTimeArrival: String? { get set }
 }

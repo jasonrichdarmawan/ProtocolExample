@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ScheduleViewModelImpl: ScheduleViewModel {
+class DepartureArrivalScheduleViewModelImpl: DepartureArrivalScheduleViewModel {
     @Published var nearestSchedule: String?
     @Published var estimatedTimeArrival: String?
     

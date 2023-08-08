@@ -13,18 +13,18 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     var selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent
     var selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier
     
-    @Published var isSelectMRTStationPresented: Bool
+    @Published var isPresented: Bool
     
     init(
         coordinator: Coordinator,
         selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent = .custom(identifier: .init("topPadding105"), resolver: { context in context.maximumDetentValue - 105 }),
         selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier = .init("topPadding105"),
-        isSelectedMRTStationPresented: Bool = false
+        isPresented: Bool = false
     ) {
         self.coordinator = coordinator
         self.selectMRTStationNotPresentedDetent = selectMRTStationNotPresentedDetent
         self.selectMRTStationNotPresentedDetentIdentifier = selectMRTStationNotPresentedDetentIdentifier
-        self.isSelectMRTStationPresented = isSelectedMRTStationPresented
+        self.isPresented = isPresented
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -37,18 +37,18 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     }
 }
 
-extension DepartureArrivalSheetViewModelImpl {
+extension DepartureArrivalSheetViewModelImpl: UISheetPresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         _ = coordinator.popRoute(animated: true)
     }
     
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
         if sheetPresentationController.selectedDetentIdentifier == .large {
-            isSelectMRTStationPresented = true
+            isPresented = true
         }
         
         if sheetPresentationController.selectedDetentIdentifier == selectMRTStationNotPresentedDetentIdentifier {
-            isSelectMRTStationPresented = false
+            isPresented = false
         }
     }
 }
