@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommutingPage<CommutingVM: CommutingPageViewModel>: ViewControllable {
-    @ObservedObject private var commutingVM: CommutingVM
+    @ObservedObject var commutingVM: CommutingVM
     
     init(commutingVM: CommutingVM = CommutingPageViewModelImpl()) {
         self.commutingVM = commutingVM

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Coordinator {
+protocol Coordinator: AnyObject {
     func showRoute(_ route: NavigationRoute) -> Bool
     func canPopToRoute(_ route: NavigationRoute) -> Bool
     func popToRoute(_ route: NavigationRoute) -> Bool

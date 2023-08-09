@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DepartureArrivalV2View<SelectVM: DepartureArrivalViewModel>: View {
-    @ObservedObject private var selectVM: SelectVM
+    @ObservedObject var selectVM: SelectVM
     
     init(selectVM: SelectVM = DepartureArrivalViewModelV2Impl()) {
         self._selectVM = ObservedObject(wrappedValue: selectVM)

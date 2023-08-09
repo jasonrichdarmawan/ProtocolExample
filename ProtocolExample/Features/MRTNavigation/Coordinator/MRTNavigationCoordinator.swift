@@ -8,24 +8,19 @@
 import SwiftUI
 
 final class MRTNavigationCoordinator: NSObject, Coordinator {
-    typealias SheetVM = DepartureArrivalSheetViewModelImpl
-    typealias SelectVM = DepartureArrivalViewModelImpl
-    typealias ScheduleVM = DepartureArrivalScheduleViewModelImpl
-    typealias CommutingVM = CommutingPageViewModelImpl
-    
     private let id: UUID
     
     private unowned var navigationController: UINavigationController
     
     private weak var departureArrivalPageVC: UIViewController?
-    private weak var sheetVM: SheetVM?
-    private weak var selectVM: SelectVM?
-    private weak var scheduleVM: ScheduleVM?
+    private weak var sheetVM: (any DepartureArrivalSheetViewModel)?
+    private weak var selectVM: (any DepartureArrivalViewModel)?
+    private weak var scheduleVM: (any DepartureArrivalScheduleViewModel)?
     
     private weak var departureArrivalSheetVC: UIViewController?
     
     private weak var commutingPageVC: UIViewController?
-    private weak var commutingVM: CommutingVM?
+    private weak var commutingVM: (any CommutingPageViewModel)?
     
     init(
         id: UUID = UUID(),
@@ -70,13 +65,13 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
         case .DepartureArrivalSheet:
             guard departureArrivalSheetVC == nil else { return false }
             
-            let sheetVM = SheetVM(coordinator: self)
+            let sheetVM = DepartureArrivalSheetViewModelImpl(coordinator: self)
             self.sheetVM = sheetVM
             
-            let selectVM = SelectVM()
+            let selectVM = DepartureArrivalViewModelImpl()
             self.selectVM = selectVM
             
-            let scheduleVM = ScheduleVM()
+            let scheduleVM = DepartureArrivalScheduleViewModelImpl()
             self.scheduleVM = scheduleVM
             
             let view = DepartureArrivalSheet(coordinator: self, sheetVM: sheetVM, selectVM: selectVM, scheduleVM: scheduleVM)

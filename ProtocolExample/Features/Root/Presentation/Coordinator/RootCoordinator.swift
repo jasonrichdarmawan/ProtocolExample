@@ -15,9 +15,9 @@ final class RootCoordinator: Coordinator {
     private weak var rootVC: UIViewController?
     
     private weak var alarmVC: UIViewController?
-    private weak var alarmVM: AlarmViewModelImpl?
+    private weak var alarmVM: (any AlarmViewModel)?
 
-    private weak var mrtNavigationC: MRTNavigationCoordinator?
+    private weak var mrtNavigationC: Coordinator?
     
     init(
         id: UUID = UUID(),
