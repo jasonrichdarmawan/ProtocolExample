@@ -45,6 +45,10 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
         print("\(type(of: self)) \(#function)")
 #endif
     }
+    
+    func nextPage() -> Bool {
+        return coordinator.showRoute(MRTNavigationRoute.CommutingPage)
+    }
 }
 
 extension DepartureArrivalSheetViewModelImpl: UISheetPresentationControllerDelegate {

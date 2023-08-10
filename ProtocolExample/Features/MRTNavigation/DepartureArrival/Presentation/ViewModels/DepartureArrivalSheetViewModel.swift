@@ -12,4 +12,6 @@ protocol DepartureArrivalSheetViewModel: ObservableObject {
     var selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier { get }
     
     var isPresented: Bool { get set }
+    
+    func nextPage() -> Bool
 }

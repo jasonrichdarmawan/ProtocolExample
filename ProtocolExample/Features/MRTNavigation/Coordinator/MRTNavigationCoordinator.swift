@@ -13,11 +13,12 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
     private unowned var navigationController: UINavigationController
     
     private weak var departureArrivalPageVC: UIViewController?
+    private weak var pageVM: (any DepartureArrivalPageViewModel)?
+    
+    private weak var departureArrivalSheetVC: UIViewController?
     private weak var sheetVM: (any DepartureArrivalSheetViewModel)?
     private weak var selectVM: (any DepartureArrivalViewModel)?
     private weak var scheduleVM: (any DepartureArrivalScheduleViewModel)?
-    
-    private weak var departureArrivalSheetVC: UIViewController?
     
     private weak var commutingPageVC: UIViewController?
     private weak var commutingVM: (any CommutingPageViewModel)?
@@ -56,7 +57,10 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
         case .DepartureArrivalPage:
             guard departureArrivalPageVC == nil else { return false }
             
-            let view = DepartureArrivalPage(coordinator: self)
+            let pageVM = DepartureArrivalPageViewModelImpl(coordinator: self)
+            self.pageVM = pageVM
+            
+            let view = DepartureArrivalPage(pageVM: pageVM)
             let viewController = HostingController(rootView: view)
             
             navigationController.pushViewController(viewController, animated: true)
@@ -74,7 +78,7 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
             let scheduleVM = DepartureArrivalScheduleViewModelImpl()
             self.scheduleVM = scheduleVM
             
-            let view = DepartureArrivalSheet(coordinator: self, sheetVM: sheetVM, selectVM: selectVM, scheduleVM: scheduleVM)
+            let view = DepartureArrivalSheet(sheetVM: sheetVM, selectVM: selectVM, scheduleVM: scheduleVM)
             let viewController = HostingController(rootView: view)
             departureArrivalSheetVC = viewController
             

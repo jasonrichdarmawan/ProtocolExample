@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct DepartureArrivalPage: ViewControllable {
-    private var coordinator: Coordinator
+struct DepartureArrivalPage<PageVM: DepartureArrivalPageViewModel>: ViewControllable {
+    @ObservedObject var pageVM: PageVM
 
     init(
-        coordinator: Coordinator
+        pageVM: PageVM
     ) {
-        self.coordinator = coordinator
+        self.pageVM = pageVM
     }
     
     var body: some View {
@@ -33,7 +33,7 @@ struct DepartureArrivalPage: ViewControllable {
     func viewWillAppear(_ viewController: UIViewController) {
         viewController.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        _ = coordinator.showRoute(MRTNavigationRoute.DepartureArrivalSheet)
+        _ = pageVM.nextPage()
     }
 }
 
@@ -41,7 +41,13 @@ struct DepartureArrivalPage: ViewControllable {
 struct DepartureArrivalPage_Preview: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            DepartureArrivalPage(coordinator: MRTNavigationCoordinator(navigationController: NavigationController()))
+            DepartureArrivalPage(
+                pageVM: DepartureArrivalPageViewModelImpl(
+                    coordinator: MRTNavigationCoordinator(
+                        navigationController: NavigationController()
+                    )
+                )
+            )
                 .environment(\.locale, .init(identifier: "id-ID"))
         }
     }

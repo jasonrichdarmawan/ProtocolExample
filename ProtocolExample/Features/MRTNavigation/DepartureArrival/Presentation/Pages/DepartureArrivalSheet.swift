@@ -12,19 +12,15 @@ struct DepartureArrivalSheet<
     SelectVM: DepartureArrivalViewModel,
     ScheduleVM: DepartureArrivalScheduleViewModel
 >: ViewControllable {
-    private var coordinator: Coordinator
-    
     @ObservedObject var sheetVM: SheetVM
     @ObservedObject var selectVM: SelectVM
     @ObservedObject var scheduleVM: ScheduleVM
     
     init(
-        coordinator: Coordinator,
         sheetVM: SheetVM,
         selectVM: SelectVM = DepartureArrivalViewModelImpl(),
         scheduleVM: ScheduleVM = DepartureArrivalScheduleViewModelImpl()
     ) {
-        self.coordinator = coordinator
         self.sheetVM = sheetVM
         self.selectVM = selectVM
         self.scheduleVM = scheduleVM
@@ -40,7 +36,7 @@ struct DepartureArrivalSheet<
                 Spacer()
 
                 Button {
-                    _ = coordinator.showRoute(MRTNavigationRoute.CommutingPage)
+                    _ = sheetVM.nextPage()
                 } label: {
                     Text("Start")
                         .padding(.vertical, 8)
