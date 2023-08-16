@@ -82,7 +82,6 @@
 		96BB00FB2A82B1CB00073134 /* DepartureArrivalScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB00FA2A82B1CB00073134 /* DepartureArrivalScheduleViewModel.swift */; };
 		96C7BAB82A84C43700D0CFE0 /* DepartureArrivalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7BAB72A84C43700D0CFE0 /* DepartureArrivalPageViewModel.swift */; };
 		96C7BABA2A84C45700D0CFE0 /* DepartureArrivalPageViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7BAB92A84C45700D0CFE0 /* DepartureArrivalPageViewModelImpl.swift */; };
-		96C7BABC2A84C65D00D0CFE0 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96C7BABB2A84C65D00D0CFE0 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */; };
 		96E2472D2A78E67000664689 /* CommutingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E2472C2A78E67000664689 /* CommutingPageViewModel.swift */; };
 		96E2472F2A78E7AF00664689 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */; };
 		96E247312A790D4400664689 /* DepartureArrivalSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E247302A790D4400664689 /* DepartureArrivalSheetViewModel.swift */; };
@@ -172,11 +171,11 @@
 		96BB00FA2A82B1CB00073134 /* DepartureArrivalScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalScheduleViewModel.swift; sourceTree = "<group>"; };
 		96C7BAB72A84C43700D0CFE0 /* DepartureArrivalPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageViewModel.swift; sourceTree = "<group>"; };
 		96C7BAB92A84C45700D0CFE0 /* DepartureArrivalPageViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageViewModelImpl.swift; sourceTree = "<group>"; };
-		96C7BABB2A84C65D00D0CFE0 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg"; sourceTree = "<group>"; };
 		96E2472C2A78E67000664689 /* CommutingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPageViewModel.swift; sourceTree = "<group>"; };
 		96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		96E247302A790D4400664689 /* DepartureArrivalSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalSheetViewModel.swift; sourceTree = "<group>"; };
 		96E247322A790F5400664689 /* DepartureArrivalComponent.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = DepartureArrivalComponent.svg; sourceTree = "<group>"; };
+		96F1BDAD2A8CB106002C7708 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -777,7 +776,7 @@
 		96F0F29D2A75AB3F00675133 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				96C7BABB2A84C65D00D0CFE0 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */,
+				96F1BDAD2A8CB106002C7708 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */,
 				96E247322A790F5400664689 /* DepartureArrivalComponent.svg */,
 				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
 				96050ED02A73C4B00011DE7E /* Arrival-iteration2.svg */,
@@ -850,7 +849,6 @@
 				9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */,
 				960A59102A6ED706000BE611 /* Localizable.strings in Resources */,
 				9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */,
-				96C7BABC2A84C65D00D0CFE0 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
