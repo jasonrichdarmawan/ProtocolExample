@@ -994,9 +994,11 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
 ![Clean Architecture Programming](assets/MRT%20Jakarta%20Navigation%20Use%20Cases-Clean%20Architecture%20Programming.drawio.svg)
 
-1. Code is split into 3 layers: the Presentation layer, the Domain layer and the Data layer.
+1. Code is split into 5 layers: the Coordinator layer, the Presentation layer, the Domain layer, the Data layer and the Core layer.
 
-2. The Presentation layer splitted into 3 layers: the Components layer, the ViewModel layer and the Pages layer.
+2. The Coordinator layer is used to 1) store variables such as ViewController and ViewModel 2) navigate between pages.
+
+3. The Presentation layer splitted into 3 layers: the Components layer, the ViewModel layer and the Pages layer.
 
     The Components layer is used by the Pages layer.
 
@@ -1195,7 +1197,7 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
         ```
         </details>
 
-3. The Domain layer splitted into 3 layers: the Entities layer, the Repositories layer the UseCases layer.
+4. The Domain layer splitted into 3 layers: the Entities layer, the Repositories layer the UseCases layer.
 
     The Entities layer is used by the Components and the ViewModel layer. i.e. `struct Station {}`
 
@@ -1203,13 +1205,15 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
     The Repositories layer is used by the UseCases layer and the DataSource layer. The purpose it to convert Data layer's model to Domain layer's entity.
 
-4. The Data layer splitted into 2 layers: the Models layer and the DataSource layer.
+5. The Data layer splitted into 2 layers: the Models layer and the DataSource layer.
 
     The Models layer is used by the Repositories layer and the DataSource layer. The purpose is to define what is expected result from the DataSource layer. i.e. a API response.
 
     The DataSource layer is used by the Repositories layer. The purpose is to get data from somewhere. i.e. from local storage or from an API.
 
     Important: the Repositories layer and the Data layer is optional if the data can be hard coded, then hard code it.
+
+6. The Core layer is used by the UseCases layer.
 
 # Shenanigans
 
@@ -1269,12 +1273,12 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
 # To Do
 
-- [ ] Use UIKit Navigation
-   - [ ] Create ViewControllable pattern
-      - [ ] Navigate to another page.
-      - [ ] Pop view controller when sheet is dismissed.
-      - [ ] Dismiss sheet before navigating to another page.
-      - [ ] Pop to root view controoler.
-   - [ ] Create Coordinator pattern
-      - [ ] Coordinator used as delegate by a controller.
-      - [ ] Coordinator update ViewModel's value.
+- [x] Use UIKit Navigation
+   - [x] Create ViewControllable pattern
+      - [x] Navigate to another page.
+      - [x] Pop view controller when sheet is dismissed.
+      - [x] Dismiss sheet before navigating to another page.
+      - [x] Pop to root view controoler.
+   - [x] Create Coordinator pattern
+      - [x] Coordinator used as delegate by a controller.
+      - [x] Coordinator update ViewModel's value.
