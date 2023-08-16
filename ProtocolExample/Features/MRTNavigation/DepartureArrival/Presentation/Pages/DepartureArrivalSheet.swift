@@ -28,6 +28,11 @@ struct DepartureArrivalSheet<
     
     var body: some View {
         VStack(spacing: 32) {
+            Capsule()
+                .fill(Color.secondary)
+                .frame(width: 32, height: 3)
+                .padding(.top, 8)
+            
             DepartureArrivalV1View(selectVM: selectVM, isSelectMRTStationPresented: $sheetVM.isPresented)
             
             ZStack {
@@ -52,7 +57,7 @@ struct DepartureArrivalSheet<
                     .opacity(sheetVM.isPresented ? 1 : 0)
             }
         }
-        .padding(.top, 32)
+//        .padding(.top, 32)
         .padding(.horizontal, 32)
     }
 }
