@@ -30,22 +30,26 @@ struct DepartureArrivalSheet<
         VStack(spacing: 32) {
             DepartureArrivalV1View(selectVM: selectVM, isSelectMRTStationPresented: $sheetVM.isPresented)
             
-            if !sheetVM.isPresented {
-                DepartureArrivalScheduleView(scheduleVM: scheduleVM)
-                
-                Spacer()
+            ZStack {
+                VStack {
+                    DepartureArrivalScheduleView(scheduleVM: scheduleVM)
+                    
+                    Spacer()
 
-                Button {
-                    _ = sheetVM.nextPage()
-                } label: {
-                    Text("Start")
-                        .padding(.vertical, 8)
-                        .frame(maxWidth: .infinity)
+                    Button {
+                        _ = sheetVM.nextPage()
+                    } label: {
+                        Text("Start")
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(selectVM.isDepartureArrivalNotNil() ? false : true)
                 }
-                .buttonStyle(.borderedProminent)
-                .disabled(selectVM.isDepartureArrivalNotNil() ? false : true)
-            } else {
+                .opacity(sheetVM.isPresented ? 0 : 1)
+                
                 SelectMRTStationView(value: selectVM.currentSelected, isPresented: $sheetVM.isPresented)
+                    .opacity(sheetVM.isPresented ? 1 : 0)
             }
         }
         .padding(.top, 32)
