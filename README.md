@@ -1231,7 +1231,7 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
    It is achievable but it's hacky.
 
-   When you on a sheet, it is expected that you can go back to the previous page by swiping from the left to right, isn't it?
+   Also, because you navigate to a new page, although the page immediately present a sheet, it is STILL expected that you can go back to the previous page by swiping from the left to right, isn't it?
 
    No idea how to do that.
 
