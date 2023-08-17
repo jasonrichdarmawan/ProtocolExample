@@ -1264,6 +1264,48 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
       We can change the `isPresented` value of a parent view. However, the ViewModel will not deinit.
    
    Therefore, either use UIKit Navigation or sacrifice user experience.
+   
+4. Careful in using `if else` statement in the `var body: some View`.
+
+    A SwiftUI's view is short-lived.  
+    
+    In this case, any view in a `if else` statement will be created and destroyed immediately when the conditional value changes. 
+    
+    This is an issue because now SwiftUI assume that any view in the `if` and `else` clause to be a distinct view.
+
+    Therefore, it will affect the animation logic in unexpected ways.
+
+    <details>
+    <summary>Bug due to the if else statement and the solution example</summary>
+   
+    BadExample.swift
+    ```swift
+    VStack {
+        if dog.isGood {
+            PawView(tint: .green)
+            Spacer()
+        } else {
+            Spacer()
+            PawView(tint: .red)
+        }
+    }
+    ```
+    
+    GoodExample.swift
+    ```swift
+    VStack {
+        PawView(tint: dog.isGood ? .green : .red)
+            .frame(
+                maxHeight: .infinity,
+                alignment: dog.isGood ? .top : .bottom)
+    }
+    ```
+    </details>
+    
+    Reference:
+    1. [SwiftUI's View Identity](https://youtu.be/zQxAgQCwoQQ?t=111)
+    2. [SwiftUI's Structural Identity](https://youtu.be/zQxAgQCwoQQ?t=647)
+    3. [SwiftUI's Lifetime](https://youtu.be/zQxAgQCwoQQ?t=1284)
 
 ## UIKit sheanigans
 
