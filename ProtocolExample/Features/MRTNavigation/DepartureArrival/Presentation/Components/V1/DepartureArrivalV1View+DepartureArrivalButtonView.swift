@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+extension Color {
+    static let label = Color(UIColor.label)
+    static let systemBackground = Color(UIColor.systemBackground)
+}
+
 extension DepartureArrivalV1View {
     struct DepartureOrArrivalButtonView: View {
         @Binding var value: Station?
@@ -35,6 +40,10 @@ extension DepartureArrivalV1View {
                     .font(.headline)
             }
             .buttonStyle(selected ? Either.left(.bordered) : .right(.borderedProminent))
+            .overlay(RoundedRectangle(cornerRadius: 4)
+                .stroke(selected && isSelectMRTStationPresented ? Color.label : Color.systemBackground,
+                        lineWidth: 2)
+            )
         }
     }
 }

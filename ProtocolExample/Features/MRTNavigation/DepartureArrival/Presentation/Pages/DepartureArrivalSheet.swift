@@ -53,7 +53,12 @@ struct DepartureArrivalSheet<
                 }
                 .opacity(sheetVM.isPresented ? 0 : 1)
                 
-                SelectMRTStationView(value: selectVM.currentSelected, isPresented: $sheetVM.isPresented)
+                SelectMRTStationView(
+                    value: selectVM.currentSelected,
+                    currentDepartureValue: $selectVM.departure,
+                    currentArrivalValue: $selectVM.arrival,
+                    isPresented: $sheetVM.isPresented
+                )
                     .opacity(sheetVM.isPresented ? 1 : 0)
             }
         }

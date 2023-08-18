@@ -9,10 +9,19 @@ import SwiftUI
 
 struct SelectMRTStationView: View {
     @Binding var value: Station?
+    @Binding var currentDepartureValue: Station?
+    @Binding var currentArrivalValue: Station?
     @Binding var isPresented: Bool
     
-    init(value: Binding<Station?> = .constant(nil), isPresented: Binding<Bool> = .constant(false)) {
+    init(
+        value: Binding<Station?> = .constant(nil),
+        currentDepartureValue: Binding<Station?> = .constant(nil),
+        currentArrivalValue: Binding<Station?> = .constant(nil),
+        isPresented: Binding<Bool> = .constant(false)
+    ) {
         self._value = value
+        self._currentArrivalValue = currentArrivalValue
+        self._currentDepartureValue = currentDepartureValue
         self._isPresented = isPresented
     }
     
@@ -28,7 +37,7 @@ struct SelectMRTStationView: View {
                     } label: {
                         Circle()
                             .frame(width: 8, height: 8)
-                            .foregroundColor(Color("departureArrival_button_active"))
+                            .foregroundColor(station == value ? Color("departureArrival_button_active") : Color("departureArrival_button_inactive"))
                         Text("\(station.name) Station")
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text(station.acronym)
@@ -44,7 +53,7 @@ struct SelectMRTStationView: View {
 private struct SelectMRTStationViewExample<SelectVM: DepartureArrivalViewModel>: View {
     @ObservedObject var selectVM: SelectVM
     
-    init(selectVM: SelectVM = DepartureArrivalViewModelImpl()) {
+    init(selectVM: SelectVM = DepartureArrivalViewModelImpl(arrival: MRT.CipeteRaya.station)) {
         self.selectVM = selectVM
     }
     
@@ -62,7 +71,11 @@ private struct SelectMRTStationViewExample<SelectVM: DepartureArrivalViewModel>:
                 Text((selectVM.arrival != nil) ? "\(selectVM.arrival?.name ?? "") Station" : "Where to?")
             }
             
-            SelectMRTStationView(value: selectVM.currentSelected)
+            SelectMRTStationView(
+                value: selectVM.currentSelected,
+                currentDepartureValue: $selectVM.departure,
+                currentArrivalValue: $selectVM.arrival
+            )
         }
     }
 }
