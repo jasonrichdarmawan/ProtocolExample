@@ -15,12 +15,10 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     
     @Published var isPresented: Bool {
         didSet {
-            if let coordinator = coordinator as? MRTNavigationCoordinator {
-                if isPresented {
-                    coordinator.updateDepartureArrivalSheetSelectedDetentIdentifier(.large)
-                } else {
-                    coordinator.updateDepartureArrivalSheetSelectedDetentIdentifier(selectMRTStationNotPresentedDetentIdentifier)
-                }
+            if isPresented {
+                updateDepartureArrivalSheetSelectedDetentIdentifier(.large)
+            } else {
+                updateDepartureArrivalSheetSelectedDetentIdentifier(selectMRTStationNotPresentedDetentIdentifier)
             }
         }
     }
@@ -48,6 +46,15 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     
     func nextPage() -> Bool {
         return coordinator.showRoute(MRTNavigationRoute.CommutingPage)
+    }
+    
+    private func updateDepartureArrivalSheetSelectedDetentIdentifier(_ selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier?) {
+        if let coordinator = coordinator as? MRTNavigationCoordinator,
+           let sheetController = coordinator.departureArrivalSheetVC?.sheetPresentationController {
+            sheetController.animateChanges {
+                sheetController.selectedDetentIdentifier = selectedDetentIdentifier
+            }
+        }
     }
 }
 

@@ -15,7 +15,7 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
     private weak var departureArrivalPageVC: UIViewController?
     private weak var pageVM: (any DepartureArrivalPageViewModel)?
     
-    private weak var departureArrivalSheetVC: UIViewController?
+    private(set) weak var departureArrivalSheetVC: UIViewController?
     private weak var sheetVM: (any DepartureArrivalSheetViewModel)?
     private weak var selectVM: (any DepartureArrivalViewModel)?
     private weak var scheduleVM: (any DepartureArrivalScheduleViewModel)?
@@ -109,14 +109,6 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
             navigationController.pushViewController(viewController, animated: true)
             
             return true
-        }
-    }
-    
-    func updateDepartureArrivalSheetSelectedDetentIdentifier(_ selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier?) {
-        if let sheetController = departureArrivalSheetVC?.sheetPresentationController {
-            sheetController.animateChanges {
-                sheetController.selectedDetentIdentifier = selectedDetentIdentifier
-            }
         }
     }
 }

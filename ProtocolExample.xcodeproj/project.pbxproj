@@ -733,6 +733,7 @@
 		96BB00E92A82781400073134 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				96BB00ED2A82784600073134 /* Coordinator */,
 				96BB00EC2A82784200073134 /* Presentation */,
 			);
 			path = Root;
@@ -741,7 +742,6 @@
 		96BB00EC2A82784200073134 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				96BB00ED2A82784600073134 /* Coordinator */,
 				96BB00EE2A82785100073134 /* Pages */,
 			);
 			path = Presentation;

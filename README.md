@@ -998,6 +998,136 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
 2. The Coordinator layer is used to 1) store variables such as ViewController and ViewModel 2) navigate between pages.
 
+    * The Coordinator layer
+    
+        <details>
+        <summary>RootRoute.swift</summary>
+
+        ```swift
+        enum RootRoute: NavigationRoute {
+            case Root
+            case Alarm
+            case DepartureArrivalPage
+        }
+        ```
+        </details>
+
+        <details>
+        <summary>RootCoordinator.swift</summary>
+
+        ```swift
+        final class RootCoordinator: Coordinator {
+            private let id: UUID
+            
+            private unowned let navigationController: UINavigationController
+            
+            private weak var rootVC: UIViewController?
+            
+            private weak var alarmVC: UIViewController?
+            private weak var alarmVM: (any AlarmViewModel)?
+
+            private weak var mrtNavigationC: Coordinator?
+            
+            init(
+                id: UUID = UUID(),
+                navigationController: UINavigationController = NavigationController()
+            ) {
+                self.id = id
+                self.navigationController = navigationController
+        #if DEBUG
+                print("\(type(of: self)) \(#function) \(id.uuidString)")
+        #endif
+            }
+            
+            deinit {
+        #if DEBUG
+                print("\(type(of: self)) \(#function) \(id.uuidString)")
+        #endif
+            }
+            
+            func showRoute(_ route: NavigationRoute) -> Bool {
+                if let route = route as? RootRoute {
+                    return showRootRoute(route)
+                }
+                return false
+            }
+            
+            private func showRootRoute(_ route: RootRoute) -> Bool {
+                switch route {
+                case .Root:
+                    guard rootVC == nil else { return false }
+                    
+                    let view = RootView(coordinator: self)
+                    let viewController = HostingController(rootView: view)
+                    rootVC = viewController
+                    
+                    navigationController.pushViewController(viewController, animated: true)
+                    
+                    return true
+                case .Alarm:
+                    guard alarmVC == nil else { return false }
+                    
+                    let viewModel = AlarmViewModelImpl()
+                    alarmVM = viewModel
+                    
+                    let view = AlarmView(alarVM: viewModel)
+                    let viewController = HostingController(rootView: view)
+                    alarmVC = viewController
+                    
+                    navigationController.pushViewController(viewController, animated: true)
+                    
+                    return true
+                case .DepartureArrivalPage:
+                    guard mrtNavigationC == nil else { return false }
+                    let coordinator = MRTNavigationCoordinator(navigationController: navigationController)
+                    mrtNavigationC = coordinator
+                    return coordinator.showRoute(MRTNavigationRoute.DepartureArrivalPage)
+                }
+            }
+        }
+        ```
+        </details>
+
+    * The Pages layer
+
+        <details>
+        <summary>RootView.swift</summary>
+
+        ```swift
+        struct RootView: ViewControllable {
+            private var coordinator: Coordinator
+            
+            init(
+                coordinator: Coordinator = RootCoordinator()
+            ) {
+                self.coordinator = coordinator
+            }
+            
+            var body: some View {
+                List {
+                    Button {
+                        _ = coordinator.showRoute(RootRoute.Alarm)
+                    } label: {
+                        Text("Alarm Component")
+                    }
+                    
+                    Button {
+                        _ = coordinator.showRoute(RootRoute.DepartureArrivalPage)
+                    } label: {
+                        Text("Select Departure and Arrival Page")
+                    }
+                }
+            }
+        }
+
+        extension RootView {
+            func viewWillAppear(_ viewController: UIViewController) {
+                viewController.navigationController?.setNavigationBarHidden(true, animated: false)
+            }
+        }
+        ```
+        </details>
+
 3. The Presentation layer splitted into 3 layers: the Components layer, the ViewModel layer and the Pages layer.
 
     The Components layer is used by the Pages layer.
@@ -1312,15 +1442,3 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 1. Do not use UIKit Navigation to present SwiftUI View as a sheet.
 
    When you change `@State` / `@Binding` / `@Published` value that affect the SwiftUI View that is presented as a sheet, the animation is from the left instead of dissolve.
-
-# To Do
-
-- [x] Use UIKit Navigation
-   - [x] Create ViewControllable pattern
-      - [x] Navigate to another page.
-      - [x] Pop view controller when sheet is dismissed.
-      - [x] Dismiss sheet before navigating to another page.
-      - [x] Pop to root view controoler.
-   - [x] Create Coordinator pattern
-      - [x] Coordinator used as delegate by a controller.
-      - [x] Coordinator update ViewModel's value.

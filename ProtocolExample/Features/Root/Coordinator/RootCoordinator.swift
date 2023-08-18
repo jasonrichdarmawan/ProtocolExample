@@ -38,12 +38,12 @@ final class RootCoordinator: Coordinator {
     
     func showRoute(_ route: NavigationRoute) -> Bool {
         if let route = route as? RootRoute {
-            return pushRootRoute(route)
+            return showRootRoute(route)
         }
         return false
     }
     
-    private func pushRootRoute(_ route: RootRoute) -> Bool {
+    private func showRootRoute(_ route: RootRoute) -> Bool {
         switch route {
         case .Root:
             guard rootVC == nil else { return false }
