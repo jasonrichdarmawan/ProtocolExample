@@ -51,30 +51,30 @@ struct SelectMRTStationView: View {
 
 #if DEBUG
 private struct SelectMRTStationViewExample<SelectVM: DepartureArrivalViewModel>: View {
-    @ObservedObject var selectVM: SelectVM
+    @ObservedObject var departureArrivalSelectVM: SelectVM
     
-    init(selectVM: SelectVM = DepartureArrivalViewModelImpl(arrival: MRT.CipeteRaya.station)) {
-        self.selectVM = selectVM
+    init(departureArrivalSelectVM: SelectVM = DepartureArrivalViewModelImpl(arrival: MRT.CipeteRaya.station)) {
+        self.departureArrivalSelectVM = departureArrivalSelectVM
     }
     
     var body: some View {
         VStack {
             Button {
-                selectVM.departureSelected = true
+                departureArrivalSelectVM.departureSelected = true
             } label: {
-                Text((selectVM.departure != nil) ? "\(selectVM.departure?.name ?? "") Station" : "Where to?")
+                Text((departureArrivalSelectVM.departure != nil) ? "\(departureArrivalSelectVM.departure?.name ?? "") Station" : "Where to?")
             }
             
             Button {
-                selectVM.arrivalSelected = true
+                departureArrivalSelectVM.arrivalSelected = true
             } label: {
-                Text((selectVM.arrival != nil) ? "\(selectVM.arrival?.name ?? "") Station" : "Where to?")
+                Text((departureArrivalSelectVM.arrival != nil) ? "\(departureArrivalSelectVM.arrival?.name ?? "") Station" : "Where to?")
             }
             
             SelectMRTStationView(
-                value: selectVM.currentSelected,
-                currentDepartureValue: $selectVM.departure,
-                currentArrivalValue: $selectVM.arrival
+                value: departureArrivalSelectVM.currentSelected,
+                currentDepartureValue: $departureArrivalSelectVM.departure,
+                currentArrivalValue: $departureArrivalSelectVM.arrival
             )
         }
     }

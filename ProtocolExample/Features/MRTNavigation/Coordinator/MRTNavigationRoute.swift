@@ -11,4 +11,5 @@ enum MRTNavigationRoute: NavigationRoute {
     case DepartureArrivalPage
     case DepartureArrivalSheet
     case CommutingPage
+    case CommutingSheet
 }

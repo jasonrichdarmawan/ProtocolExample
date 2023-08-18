@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol CommutingPageViewModel: ObservableObject {}
+protocol CommutingPageViewModel: ObservableObject {
+    func nextPage() -> Bool
+}

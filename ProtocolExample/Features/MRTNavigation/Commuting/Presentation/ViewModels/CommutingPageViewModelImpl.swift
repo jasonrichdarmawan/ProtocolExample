@@ -8,7 +8,10 @@
 import Foundation
 
 class CommutingPageViewModelImpl: CommutingPageViewModel {
-    init() {
+    private var coordinator: Coordinator
+    
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -18,5 +21,9 @@ class CommutingPageViewModelImpl: CommutingPageViewModel {
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
+    }
+    
+    func nextPage() -> Bool {
+        return coordinator.showRoute(MRTNavigationRoute.CommutingSheet)
     }
 }

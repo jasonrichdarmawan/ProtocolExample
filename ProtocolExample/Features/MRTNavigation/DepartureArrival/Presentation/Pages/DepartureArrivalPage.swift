@@ -25,12 +25,11 @@ struct DepartureArrivalPage<PageVM: DepartureArrivalPageViewModel>: ViewControll
             
             Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(32)
         .background(.blue)
     }
     
-    func viewWillAppear(_ viewController: UIViewController) {
+    func viewDidAppear(_ viewController: UIViewController) {
         viewController.navigationController?.setNavigationBarHidden(true, animated: false)
         
         _ = pageVM.nextPage()

@@ -66,6 +66,7 @@
 		9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D4502A6D77E900EE843C /* Preview Assets.xcassets */; };
 		9691D45C2A6D781200EE843C /* DepartureArrivalV1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D45B2A6D781200EE843C /* DepartureArrivalV1View.swift */; };
 		96A646A12A8FB66000642698 /* Color+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A646A02A8FB66000642698 /* Color+UIColor.swift */; };
+		96A646BD2A8FC10F00642698 /* CommutingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A646BC2A8FC10F00642698 /* CommutingSheet.swift */; };
 		96AACDE92A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */; };
 		96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */; };
 		96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */; };
@@ -86,6 +87,8 @@
 		96E2472D2A78E67000664689 /* CommutingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E2472C2A78E67000664689 /* CommutingPageViewModel.swift */; };
 		96E2472F2A78E7AF00664689 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */; };
 		96E247312A790D4400664689 /* DepartureArrivalSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E247302A790D4400664689 /* DepartureArrivalSheetViewModel.swift */; };
+		96F2AAD52A8FC7FC0058BB0C /* CommutingSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */; };
+		96F2AAD72A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +159,7 @@
 		9691D4502A6D77E900EE843C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9691D45B2A6D781200EE843C /* DepartureArrivalV1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV1View.swift; sourceTree = "<group>"; };
 		96A646A02A8FB66000642698 /* Color+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+UIColor.swift"; sourceTree = "<group>"; };
+		96A646BC2A8FC10F00642698 /* CommutingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheet.swift; sourceTree = "<group>"; };
 		96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+DepartureV2View.swift"; sourceTree = "<group>"; };
 		96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+ArrivalV2View.swift"; sourceTree = "<group>"; };
 		96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+PlusCircleView.swift"; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 		96E247302A790D4400664689 /* DepartureArrivalSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalSheetViewModel.swift; sourceTree = "<group>"; };
 		96E247322A790F5400664689 /* DepartureArrivalComponent.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = DepartureArrivalComponent.svg; sourceTree = "<group>"; };
 		96F1BDB02A8DCB54002C7708 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg"; sourceTree = "<group>"; };
+		96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModel.swift; sourceTree = "<group>"; };
+		96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModelImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -580,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				96611E262A770C81004B5984 /* CommutingPage.swift */,
+				96A646BC2A8FC10F00642698 /* CommutingSheet.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -589,6 +596,8 @@
 			children = (
 				96E2472C2A78E67000664689 /* CommutingPageViewModel.swift */,
 				96611E292A770C8F004B5984 /* CommutingPageViewModelImpl.swift */,
+				96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */,
+				96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -879,8 +888,10 @@
 				960A87252A6D9959006874E5 /* Notification.swift in Sources */,
 				96611E272A770C81004B5984 /* CommutingPage.swift in Sources */,
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
+				96F2AAD72A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift in Sources */,
 				9655E94C2A7AECE000DFB581 /* SceneDelegate.swift in Sources */,
 				96BB00F12A827CEB00073134 /* MRTNavigationRoute.swift in Sources */,
+				96A646BD2A8FC10F00642698 /* CommutingSheet.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
 				960A55272A716A1E00F8E9FC /* AlarmViewModelImpl.swift in Sources */,
 				96050ED72A73E2A10011DE7E /* Schedule.swift in Sources */,
@@ -907,6 +918,7 @@
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
 				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
+				96F2AAD52A8FC7FC0058BB0C /* CommutingSheetViewModel.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
 				96E2472D2A78E67000664689 /* CommutingPageViewModel.swift in Sources */,
 				9655E9572A7AF1E800DFB581 /* HostingController.swift in Sources */,
