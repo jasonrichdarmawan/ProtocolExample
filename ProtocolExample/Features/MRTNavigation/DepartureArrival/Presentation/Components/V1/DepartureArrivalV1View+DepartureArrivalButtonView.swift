@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-extension Color {
-    static let label = Color(UIColor.label)
-    static let systemBackground = Color(UIColor.systemBackground)
-}
-
 extension DepartureArrivalV1View {
     struct DepartureOrArrivalButtonView: View {
         @Binding var value: Station?
