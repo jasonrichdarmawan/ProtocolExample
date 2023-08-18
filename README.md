@@ -1342,10 +1342,11 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
     Therefore, it will affect the animation logic in unexpected ways.
 
-    <details>
-    <summary>Bug due to the if else statement and the solution example</summary>
+    For example, bad and good example for transitioning a view from Y0 to Y1.
    
-    BadExample.swift
+    <details>
+    <summary>BadExample.swift</summary>
+
     ```swift
     VStack {
         if dog.isGood {
@@ -1357,8 +1358,11 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
         }
     }
     ```
+    </details>
     
-    GoodExample.swift
+    <details>
+    <summary>GoodExample.swift</summary>
+
     ```swift
     VStack {
         PawView(tint: dog.isGood ? .green : .red)
