@@ -998,6 +998,77 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
 2. The Coordinator layer is used to 1) store variables such as ViewController and ViewModel 2) navigate between pages.
 
+    * The Core layer
+
+        <details>
+        <summary>NavigationRoute.swift</summary>
+
+        ```swift
+        protocol NavigationRoute {}
+        ```
+        </details>
+
+        <details>
+        <summary>Coordinator.swift</summary>
+
+        ```swift
+        protocol Coordinator: AnyObject {
+            func showRoute(_ route: NavigationRoute) -> Bool
+            func canPopToRoute(_ route: NavigationRoute) -> Bool
+            func popToRoute(_ route: NavigationRoute) -> Bool
+            func popRoute(animated: Bool) -> Bool
+            func popToRootViewController(_ route: NavigationRoute) -> Bool
+        }
+
+        extension Coordinator {
+            func showRoute(_ route: NavigationRoute) -> Bool { return false }
+            func canPopToRoute(_ route: NavigationRoute) -> Bool { return false }
+            func popToRoute(_ route: NavigationRoute) -> Bool { return false }
+            func popRoute(animated: Bool) -> Bool { return false }
+            func popToRootViewController(_ route: NavigationRoute) -> Bool { return false }
+        }
+        ```
+        </details>
+
+        <details>
+        <summary>HostingController.swift</summary>
+        
+        ```swift
+        final class HostingController<ContentView>: UIHostingController<ContentView> where ContentView: ViewControllable {
+            private let id: UUID
+            
+            init(id: UUID = UUID(), rootView: ContentView) {
+                self.id = id
+                super.init(rootView: rootView)
+        #if DEBUG
+                print("\(type(of: self)) \(#function) \(id.uuidString)")
+        #endif
+            }
+            
+            @MainActor required dynamic init?(coder aDecoder: NSCoder) {
+                self.id = UUID()
+                super.init(coder: aDecoder)
+            }
+            
+            deinit {
+        #if DEBUG
+                print("\(type(of: self)) \(#function) \(id.uuidString)")
+        #endif
+            }
+            
+            override func viewWillAppear(_ animated: Bool) {
+                super.viewWillAppear(animated)
+                rootView.viewWillAppear(self)
+            }
+            
+            override func viewDidAppear(_ animated: Bool) {
+                super.viewDidAppear(animated)
+                rootView.viewDidAppear(self)
+            }
+        }
+        ```
+        </details>
+
     * The Coordinator layer
     
         <details>
@@ -1030,7 +1101,7 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             
             init(
                 id: UUID = UUID(),
-                navigationController: UINavigationController = NavigationController()
+                navigationController: UINavigationController
             ) {
                 self.id = id
                 self.navigationController = navigationController
@@ -1088,46 +1159,6 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
         ```
         </details>
 
-    * The Pages layer
-
-        <details>
-        <summary>RootView.swift</summary>
-
-        ```swift
-        struct RootView: ViewControllable {
-            private var coordinator: Coordinator
-            
-            init(
-                coordinator: Coordinator = RootCoordinator()
-            ) {
-                self.coordinator = coordinator
-            }
-            
-            var body: some View {
-                List {
-                    Button {
-                        _ = coordinator.showRoute(RootRoute.Alarm)
-                    } label: {
-                        Text("Alarm Component")
-                    }
-                    
-                    Button {
-                        _ = coordinator.showRoute(RootRoute.DepartureArrivalPage)
-                    } label: {
-                        Text("Select Departure and Arrival Page")
-                    }
-                }
-            }
-        }
-
-        extension RootView {
-            func viewWillAppear(_ viewController: UIViewController) {
-                viewController.navigationController?.setNavigationBarHidden(true, animated: false)
-            }
-        }
-        ```
-        </details>
-
 3. The Presentation layer splitted into 3 layers: the Components layer, the ViewModel layer and the Pages layer.
 
     The Components layer is used by the Pages layer.
@@ -1136,192 +1167,98 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
     The Pages layer should be as simple as it can.
 
-    * The Pages layer
+    * The Core layer
 
         <details>
-        <summary>DepartureArrivalPage.swift</summary>
-           
+        <summary>ViewControllable.swift</summary>
+
         ```swift
-        struct DepartureArrivalPage: View {
-            @StateObject private var viewModel: DepartureArrivalV2ViewModel
-            
-            init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
-                self._viewModel = StateObject(wrappedValue: viewModel)
-            }
-            
-            var body: some View {
-                VStack(spacing: 0) {
-                    DepartureArrivalV2View(viewModel: viewModel)
-                    Spacer()
-                }
-                .padding(.horizontal, 32)
-            }
+        protocol ViewControllable: View {
+            func viewWillAppear(_ viewController: UIViewController)
+            func viewDidAppear(_ viewController: UIViewController)
+        }
+
+        extension ViewControllable {
+            func viewWillAppear(_ viewController: UIViewController) {}
+            func viewDidAppear(_ viewController: UIViewController) {}
         }
         ```
         </details>
 
     * The ViewModels layer
 
+        You should start with protocol because UI/UX Designer may create component iteration with different business logic.
+
         <details>
-        <summary>DepartureArrivalV2ViewModel.swift</summary>
-           
+        <summary>DepartureArrivalPageViewModel.swift</summary>
+
         ```swift
-        final class DepartureArrivalV2ViewModel: ObservableObject {
-            @Published var departure: Station
-            @Published var arrival: Station?
+        protocol DepartureArrivalPageViewModel: ObservableObject {
+            func nextPage() -> Bool
+        }
+        ```
+        </details>
+
+        <details>
+        <summary>DepartureArrivalPageViewModelImpl.swift</summary>
+
+        ```swift
+        final class DepartureArrivalPageViewModelImpl: DepartureArrivalPageViewModel {
+            private var coordinator: Coordinator
             
-            @Published var departureSelected: Bool
-            var arrivalSelected: Bool {
-                get {
-                    return !departureSelected
-                }
-                set {
-                    departureSelected = !newValue
-                }
+            init(coordinator: Coordinator) {
+                self.coordinator = coordinator
+        #if DEBUG
+                print("\(type(of: self)) \(#function)")
+        #endif
             }
             
-            init(departure: Station = MRT.LebakBulusGrab.station, arrival: Station? = nil, departureSelected: Bool = false) {
-                self.departure = departure
-                self.arrival = arrival
-                self.departureSelected = departureSelected
+            deinit {
+        #if DEBUG
+                print("\(type(of: self)) \(#function)")
+        #endif
             }
             
-            func updateDepartureArrival(value: Station) {
-                switch departureSelected {
-                case true:
-                    // swap
-                    if arrival == value {
-                        arrival = departure
-                    }
-                    
-                    departure = value
-                case false:
-                    // swap
-                    if departure == value {
-                        if let arrival {
-                            departure = arrival
-                        }
-                    }
-                    
-                    arrival = value
-                }
+            func nextPage() -> Bool {
+                coordinator.showRoute(MRTNavigationRoute.DepartureArrivalSheet)
             }
         }
         ```
         </details>
 
-    * The Components layer
+    * The Pages layer
 
         <details>
-        <summary>DepartureArrivalV2View.swift</summary>
+        <summary>DepartureArrivalPage.swift</summary>
            
         ```swift
-        struct DepartureArrivalV2View: View {
-            @ObservedObject private var viewModel: DepartureArrivalV2ViewModel
-            
-            init(viewModel: DepartureArrivalV2ViewModel = DepartureArrivalV2ViewModel()) {
-                self._viewModel = ObservedObject(wrappedValue: viewModel)
+        struct DepartureArrivalPage<PageVM: DepartureArrivalPageViewModel>: ViewControllable {
+            @ObservedObject var pageVM: PageVM
+
+            init(
+                pageVM: PageVM
+            ) {
+                self.pageVM = pageVM
             }
             
             var body: some View {
                 VStack(spacing: 0) {
-                    HStack(spacing: 0) {
-                        DepartureV2View(value: $viewModel.departure, selected: $viewModel.departureSelected)
-                        Spacer()
-                            .frame(width: 24, height: 24)
-                            .padding(.leading, 16)
-                    }
-                    HStack(spacing: 0) {
-                        ArrivalV2View(value: $viewModel.arrival, selected: $viewModel.arrivalSelected)
-                        PlusCircleView()
-                            .padding(.leading, 16)
-                    }
+                    Text("Where to go today?")
+                        .font(.largeTitle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color("departureArrival_text_active"))
+                    
+                    Spacer()
                 }
-            }
-        }
-        ```
-        </details>
-
-        Important: use `+` to indicate the use of the extension keyword. In this case, a subcomponent of a component.
-
-        Important: Do not complicate things with the `if else` logic.
-
-        <details>
-        <summary>For example, both views are similar, but diverge at some point.</summary>
-        
-        DepartureArrivalV2View+DepartureV2View.swift
-        ```swift
-        extension DepartureArrivalV2View {
-            struct DepartureV2View: View {
-                @Binding var value: Station
-                @Binding var selected: Bool
-                
-                var body: some View {
-                    Button {
-                        selected = true
-                    } label: {
-                        HStack(spacing: 0) {
-                            CircleView()
-                            Text("\(value.name) Station")
-                                .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
-                                .font(.body)
-                                .fontWeight(selected ? .bold : .regular)
-                            Spacer()
-                        }
-                        .padding(8)
-                        .background(selected ? Color("departureArrival_background_selectedv2") : nil)
-                        .cornerRadius(4)
-                    }
-                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(32)
+                .background(.blue)
             }
             
-            struct CircleView: View {
-                var body: some View {
-                    Image(systemName: "circle")
-                        .resizable()
-                        .frame(width: 16, height: 16)
-                        .foregroundColor(Color("icon_circle"))
-                        .padding(.trailing, 8)
-                }
-            }
-        }
-        ```
-        
-        DepartureArrivalV2View+ArrivalV2View.swift
-        ```swift
-        extension DepartureArrivalV2View {
-            struct ArrivalV2View: View {
-                @Binding var value: Station?
-                @Binding var selected: Bool
+            func viewWillAppear(_ viewController: UIViewController) {
+                viewController.navigationController?.setNavigationBarHidden(true, animated: false)
                 
-                var body: some View {
-                    Button {
-                        selected = true
-                    } label: {
-                        HStack(spacing: 0) {
-                            LocationFillView()
-                            Text((value != nil) ? "\(value?.name ?? "") Station" : "Where to?")
-                                .foregroundColor(selected ? Color("departureArrival_text_selectedv2") : Color("departureArrival_text_activev2"))
-                                .font(.body)
-                                .fontWeight(selected ? .bold : .regular)
-                            Spacer()
-                        }
-                        .padding(8)
-                        .background(selected ? Color("departureArrival_background_selectedv2") : nil)
-                        .cornerRadius(4)
-                    }
-
-                }
-            }
-
-            struct LocationFillView: View {
-                var body: some View {
-                    Image(systemName: "location.fill")
-                        .resizable()
-                        .frame(width: 16, height: 16)
-                        .foregroundColor(Color("icon_location fill"))
-                        .padding(.trailing, 8)
-                }
+                _ = pageVM.nextPage()
             }
         }
         ```

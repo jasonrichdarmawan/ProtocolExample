@@ -39,7 +39,7 @@ struct RootView: ViewControllable {
     private var coordinator: Coordinator
     
     init(
-        coordinator: Coordinator = RootCoordinator()
+        coordinator: Coordinator
     ) {
         self.coordinator = coordinator
     }

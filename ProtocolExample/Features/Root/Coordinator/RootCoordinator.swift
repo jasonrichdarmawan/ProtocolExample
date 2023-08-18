@@ -21,7 +21,7 @@ final class RootCoordinator: Coordinator {
     
     init(
         id: UUID = UUID(),
-        navigationController: UINavigationController = NavigationController()
+        navigationController: UINavigationController
     ) {
         self.id = id
         self.navigationController = navigationController
