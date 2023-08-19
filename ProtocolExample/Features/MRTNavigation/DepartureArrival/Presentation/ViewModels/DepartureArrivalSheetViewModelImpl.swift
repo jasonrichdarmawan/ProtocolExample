@@ -45,6 +45,7 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     }
     
     func nextPage() -> Bool {
+        guard coordinator.dismiss(animated: true) else { return false }
         return coordinator.showRoute(MRTNavigationRoute.CommutingPage)
     }
     
@@ -60,7 +61,7 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
 
 extension DepartureArrivalSheetViewModelImpl: UISheetPresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        _ = coordinator.popRoute(animated: true)
+        _ = coordinator.popViewController(animated: true)
     }
     
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {

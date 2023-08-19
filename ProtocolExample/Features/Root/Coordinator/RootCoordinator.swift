@@ -10,7 +10,7 @@ import SwiftUI
 final class RootCoordinator: Coordinator {
     private let id: UUID
     
-    private unowned let navigationController: UINavigationController
+    internal unowned let navigationController: UINavigationController
     
     private weak var rootVC: UIViewController?
     
@@ -45,34 +45,52 @@ final class RootCoordinator: Coordinator {
     
     private func showRootRoute(_ route: RootRoute) -> Bool {
         switch route {
-        case .Root:
-            guard rootVC == nil else { return false }
-            
-            let view = RootView(coordinator: self)
-            let viewController = HostingController(rootView: view)
-            rootVC = viewController
-            
-            navigationController.pushViewController(viewController, animated: true)
-            
-            return true
-        case .Alarm:
-            guard alarmVC == nil else { return false }
-            
-            let viewModel = AlarmViewModelImpl()
-            alarmVM = viewModel
-            
-            let view = AlarmView(alarVM: viewModel)
-            let viewController = HostingController(rootView: view)
-            alarmVC = viewController
-            
-            navigationController.pushViewController(viewController, animated: true)
-            
-            return true
-        case .DepartureArrivalPage:
-            guard mrtNavigationC == nil else { return false }
-            let coordinator = MRTNavigationCoordinator(navigationController: navigationController)
-            mrtNavigationC = coordinator
-            return coordinator.showRoute(MRTNavigationRoute.DepartureArrivalPage)
+        case .Root: return pushRoot()
+        case .Alarm: return pushAlarm()
+        case .DepartureArrivalPage: return pushDepartureArrivalPage()
         }
+    }
+}
+
+// MARK: Root
+extension RootCoordinator {
+    private func pushRoot() -> Bool {
+        guard rootVC == nil else { return false }
+        
+        let view = RootView(coordinator: self)
+        let viewController = HostingController(rootView: view)
+        rootVC = viewController
+        
+        navigationController.pushViewController(viewController, animated: true)
+        
+        return true
+    }
+}
+
+// MARK: Alarm
+extension RootCoordinator {
+    private func pushAlarm() -> Bool {
+        guard alarmVC == nil else { return false }
+        
+        let viewModel = AlarmViewModelImpl()
+        alarmVM = viewModel
+        
+        let view = AlarmView(alarVM: viewModel)
+        let viewController = HostingController(rootView: view)
+        alarmVC = viewController
+        
+        navigationController.pushViewController(viewController, animated: true)
+        
+        return true
+    }
+}
+
+// MARK: DepartureArrival
+extension RootCoordinator {
+    private func pushDepartureArrivalPage() -> Bool {
+        guard mrtNavigationC == nil else { return false }
+        let coordinator = MRTNavigationCoordinator(navigationController: navigationController)
+        mrtNavigationC = coordinator
+        return coordinator.showRoute(MRTNavigationRoute.DepartureArrivalPage)
     }
 }
