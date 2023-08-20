@@ -26,9 +26,7 @@ struct CommutingSheet<SheetVM: CommutingSheetViewModel>: ViewControllable {
                     Grid(alignment: .leadingFirstTextBaseline, horizontalSpacing: 16, verticalSpacing: 4) {
                         createCurrentStationRow()
                         
-                        createDottedLineRow()
-                        
-                        createRemainingStationRow()
+                        createRemainingStationRow(hideDetail: sheetVM.hideDetail)
                         
                         createDottedLineRow()
                         
@@ -43,23 +41,55 @@ struct CommutingSheet<SheetVM: CommutingSheetViewModel>: ViewControllable {
     }
 }
 
+// MARK: Component
 extension CommutingSheet {
+    private func createCircleBlue() -> some View {
+        Circle()
+            .strokeBorder(.blue, lineWidth: 4)
+            .frame(width: 20, height: 20)
+            .frame(maxWidth: 20, maxHeight: .infinity)
+    }
+    
+    private func createCircleGray() -> some View {
+        Circle()
+            .foregroundColor(.gray)
+            .frame(width: 16, height: 16)
+            .frame(maxWidth: 20, maxHeight: .infinity)
+    }
+    
+    private func createTime(_ key: LocalizedStringKey) -> some View {
+        Text(key).font(.body)
+    }
+    
+    private func createInfoBody(_ key: LocalizedStringKey) -> some View {
+        Text(key)
+            .font(.body)
+    }
+    
+    private func createInfoLargeTitle(_ key: LocalizedStringKey) -> some View {
+        Text(key)
+            .font(.largeTitle)
+            .fixedSize(horizontal: true, vertical: false)
+    }
+}
+
+// MARK: Row
+extension CommutingSheet {
+    private func createInfoRow(_ key: LocalizedStringKey) -> some View {
+        GridRow(alignment: .center) {
+            Text("").gridCellUnsizedAxes([.horizontal, .vertical])
+            Text("").gridCellUnsizedAxes([.horizontal, .vertical])
+            createInfoBody(key)
+        }
+    }
+    
     private func createCurrentStationRow() -> some View {
         Group {
+            createInfoRow("Current Station")
             GridRow(alignment: .center) {
-                Text("").gridCellUnsizedAxes([.horizontal, .vertical])
-                Text("").gridCellUnsizedAxes([.horizontal, .vertical])
-                Text("Current Station")
-            }
-            GridRow(alignment: .center) {
-                Text("10:00").font(.body)
-                Circle()
-                    .strokeBorder(.blue, lineWidth: 4)
-                    .frame(width: 20, height: 20)
-                    .frame(maxWidth: 20)
-                Text("Lebak Bulus")
-                    .font(.largeTitle)
-                    .fixedSize(horizontal: true, vertical: false)
+                createTime("10:00")
+                createCircleBlue()
+                createInfoLargeTitle("Lebak Bulus")
             }
         }
     }
@@ -76,34 +106,69 @@ extension CommutingSheet {
         }
     }
     
-    private func createRemainingStationRow() -> some View {
-        GridRow(alignment: .center) {
-            Text("").gridCellUnsizedAxes([.horizontal, .vertical])
-            Circle()
-                .foregroundColor(.gray)
-                .frame(width: 16, height: 16)
-                .frame(maxWidth: 20, maxHeight: 22)
-            Text("5 station").font(.body)
+    private func createRemainingStationRow(hideDetail: Bool) -> some View {
+        Group {
+            if hideDetail {
+                createDottedLineRow()
+                
+                GridRow(alignment: .center) {
+                    Text("").gridCellUnsizedAxes([.horizontal, .vertical])
+                    createCircleGray()
+                    createInfoBody("5 station")
+                }
+            } else {
+                // TODO: dynamic view
+                createDottedLineRow()
+                
+                GridRow(alignment: .center) {
+                    createTime("10:05")
+                    createCircleGray()
+                    createInfoBody("Fatmawati")
+                }
+                
+                createDottedLineRow()
+                
+                GridRow(alignment: .center) {
+                    createTime("10:15")
+                    createCircleGray()
+                    createInfoBody("Cipete Raya")
+                }
+                
+                createDottedLineRow()
+                
+                GridRow(alignment: .center) {
+                    createTime("10:25")
+                    createCircleGray()
+                    createInfoBody("Haji Nawi")
+                }
+                
+                createDottedLineRow()
+                
+                GridRow(alignment: .center) {
+                    createTime("10:30")
+                    createCircleGray()
+                    createInfoBody("Blok A")
+                }
+                
+                createDottedLineRow()
+                
+                GridRow(alignment: .center) {
+                    createTime("10:35")
+                    createCircleGray()
+                    createInfoBody("Blok M")
+                }
+            }
         }
     }
     
     private func createDestinationStationRow() -> some View {
         Group {
             GridRow(alignment: .center) {
-                Text("10:45").font(.body)
-                Circle()
-                    .strokeBorder(.blue, lineWidth: 4)
-                    .frame(width: 20, height: 20)
-                    .frame(maxWidth: 20)
-                Text("Istora Mandiri")
-                    .font(.largeTitle)
-                    .fixedSize(horizontal: true, vertical: false)
+                createTime("10:45")
+                createCircleBlue()
+                createInfoLargeTitle("Istora Mandiri")
             }
-            GridRow(alignment: .center) {
-                Text("").gridCellUnsizedAxes([.horizontal, .vertical])
-                Text("").gridCellUnsizedAxes([.horizontal, .vertical])
-                Text("Destination Station")
-            }
+            createInfoRow("Destination Station")
         }
     }
 }
