@@ -576,6 +576,7 @@
 		96611E242A770C76004B5984 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				96F2AAE42A90B3D50058BB0C /* Components */,
 				96611E282A770C85004B5984 /* ViewModels */,
 				96611E252A770C7A004B5984 /* Page */,
 			);
@@ -805,6 +806,13 @@
 				96050ECF2A73BD6F0011DE7E /* Departure.svg */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		96F2AAE42A90B3D50058BB0C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// will play alarm for 1 second
-struct AlarmView<AlarmVM: AlarmViewModel>: ViewControllable {
+struct AlarmView<AlarmVM: AlarmViewModel>: View {
     @ObservedObject private var alarmVM: AlarmVM
     
     init(
@@ -23,12 +23,6 @@ struct AlarmView<AlarmVM: AlarmViewModel>: ViewControllable {
         } label: {
             Image(alarmVM.isMutedMode ? "SoundOff" : "SoundOn")
         }
-    }
-}
-
-extension AlarmView {
-    func viewWillAppear(_ viewController: UIViewController) {
-        viewController.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 

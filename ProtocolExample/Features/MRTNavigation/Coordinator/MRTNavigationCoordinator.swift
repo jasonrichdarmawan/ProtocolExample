@@ -23,7 +23,7 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
     private weak var commutingPageVC: UIViewController?
     private weak var commutingPageVM: (any CommutingPageViewModel)?
     
-    private weak var commutingSheetVC: UIViewController?
+    private(set) weak var commutingSheetVC: UIViewController?
     private weak var commutingSheetVM: (any CommutingSheetViewModel)?
     
     init(
@@ -103,10 +103,6 @@ extension MRTNavigationCoordinator {
         
         navigationController.present(viewController, animated: true)
         
-        guard let navigationController = navigationController as? NavigationController else { return false }
-        
-        navigationController.willPopHandler = { navigationController.dismiss(animated: true) }
-        
         return true
     }
 }
@@ -130,14 +126,11 @@ extension MRTNavigationCoordinator {
     private func presentCommutingSheet() -> Bool {
         guard commutingSheetVC == nil else { return false }
         
-        let viewModel = CommutingSheetViewModelImpl()
+        let viewModel = CommutingSheetViewModelImpl(coordinator: self)
         commutingSheetVM = viewModel
         
         let view = CommutingSheet(sheetVM: viewModel)
         let viewController = HostingController(rootView: view)
-        
-        // disable interactive swipe to dismiss the view controller
-        viewController.isModalInPresentation = true
         
         commutingSheetVC = viewController
         

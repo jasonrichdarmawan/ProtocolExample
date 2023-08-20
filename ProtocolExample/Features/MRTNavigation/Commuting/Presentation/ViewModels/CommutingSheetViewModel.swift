@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CommutingSheetViewModel: ObservableObject {
-    
+    var hideDetail: Bool { get set }
 }

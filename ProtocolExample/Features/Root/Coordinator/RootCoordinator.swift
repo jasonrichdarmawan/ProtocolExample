@@ -42,7 +42,9 @@ final class RootCoordinator: Coordinator {
         }
         return false
     }
-    
+}
+
+extension RootCoordinator {
     private func showRootRoute(_ route: RootRoute) -> Bool {
         switch route {
         case .Root: return pushRoot()
@@ -76,10 +78,11 @@ extension RootCoordinator {
         alarmVM = viewModel
         
         let view = AlarmView(alarVM: viewModel)
-        let viewController = HostingController(rootView: view)
+        let viewController = UIHostingController(rootView: view)
         alarmVC = viewController
         
         navigationController.pushViewController(viewController, animated: true)
+        navigationController.setNavigationBarHidden(false, animated: true)
         
         return true
     }

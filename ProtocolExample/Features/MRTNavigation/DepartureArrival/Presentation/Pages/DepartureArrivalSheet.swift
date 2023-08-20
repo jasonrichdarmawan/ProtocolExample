@@ -59,7 +59,7 @@ struct DepartureArrivalSheet<
                     currentArrivalValue: $selectVM.arrival,
                     isPresented: $sheetVM.isPresented
                 )
-                    .opacity(sheetVM.isPresented ? 1 : 0)
+                .opacity(sheetVM.isPresented ? 1 : 0)
             }
         }
         .padding(.horizontal, 32)
