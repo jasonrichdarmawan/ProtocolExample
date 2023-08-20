@@ -732,6 +732,8 @@ Engineer creates protocol for every use cases of the 1st user story.
 **Use Case protocol's coding style guide:**
 * use delegate pattern if you wish to return a result asynchronously.
 
+    ![Delegate Pattern](assets/MRT%20Jakarta%20Navigation%20Use%20Cases-Delegate%20Pattern.drawio.svg)
+
     <details>
     <summary>NotifyWhenNearMRTStationWithGPS.swift</summary>
     
