@@ -16,20 +16,22 @@
 For UI/UX Designer:
 1. Do component variant iteration and not screen iteration. Make sure LoFi is well defined.
 2. Consider every variants of a component.
-3. Use tokenized color and not Primitive color or Hex color.
+3. Use tokenized color and not primitive color or hex color.
 4. Consider how user navigate from screen A to screen B.
 
 For Software Engineer:
 1. Consider how others use your code. Every function should have actionable result.
 2. 1 file per component and not 1 file per screen. 1 file should only do/provide a specific thing.
-3. 1 file per component if the component use the Domain layer.
+3. 1 file per component if the component use the domain layer.
 4. Guarantee your work to be bug free. Others expect your code to work in order for their code to work properly.
 5. Follow the SOLID principle. Make sure dependency can be injected from outside / constructor i.e. from `init`.
 6. Violate the DRY principle if necessary.
 
 # Component Oriented Design
 
-Component Oriented Design enables you to focus on 1 specific user activity (what user can do, what user can see) and component iteration, i.e.
+Component Oriented Design enables you to focus on 1 specific user activity (what user can do, what user can see) and the component iteration.
+
+Example of a component:
 1. Component to select departure and arrival station.
 2. Component to give info about the next train schedule and estimated of time arrival to the destination.
 
@@ -69,11 +71,9 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
     <details>
     <summary>For example, what user can see and what user can do</summary>
 
-    What user can see:
-    * Departure station and destination.
+    What user can see: Departure station and destination.
 
-    What user can do:
-    * Change the departure station and destination by clicking the buttton.
+    What user can do: Change the departure station and destination by clicking the buttton.
     </details>
 
 3. UI/UX Designer creates the design style guide.
@@ -108,7 +108,7 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
 
     * Tokenized colors uses the primitive colors. 
 
-        Do not use the Color hex directly. 
+        Do not use the color hex directly. 
 
         Tokenized colors have Light and Dark Mode.
 
@@ -157,7 +157,7 @@ Component Oriented Design enables you to focus on 1 specific user activity (what
 
         Now, imagine you want to change the primary button's background color. You will have to change the primary button's background color in each component, 2 times.
 
-        Now, imagine if you use Tokenized color, `primary_button_background`. You only need to change the Tokenized color. Also, you only have 1 primary button component.
+        Now, imagine if you use Tokenized color, `primary_button_background`. Now, you only need to change the Tokenized color. Also, you will only have 1 primary button component.
 
     * Imagine you prefer to use `Tokenized color to Hex color` directly and not to Primitive color.
 
