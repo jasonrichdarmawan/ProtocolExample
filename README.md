@@ -1,27 +1,31 @@
-# Goal
-
-For UI/UX Designer:
-1. Do component variant iteration and not Screen iteration. Make sure LoFi is well defined.
-2. Consider every variants of a component.
-3. Use Tokenized color and not Primitive color or Hex color.
-4. Consider how user navigate from Screen A to Screen B.
-
-For Software Engineer:
-1. Consider how others use your code. Every function should have actionable result.
-2. 1 file per Component and not 1 file per Screen. 1 file should only do/provide a specific thing.
-3. Guarantee your work to be bug free. Others expect your code to work in order for their code to work properly.
-4. Follow the SOLID principle. Make sure dependency can be injected from outside / constructor i.e. from `init`.
-5. Violate the DRY principle if necessary.
-
 # Contents
 
 1. [Component Oriented Design](#component-oriented-design)
-2. [LoFi, HiFi, Prototype in Figma](https://www.figma.com/file/YYsNa16jRdHbOHHMoPREeP/MRT-Jakarta-Navigation?type=design&node-id=0%3A1&mode=design&t=mVYUCc8HBF6CJfJz-1)
-3. [Protocol Orineted Programming](#protocol-oriented-programming)
-4. [Use Case Oriented Programming](#use-case-oriented-programming)
-5. [Clean Architecture](#clean-architecture-programming)
-6. [Shenanigans](#shenanigans)
-7. [To Do](#to-do)
+2. [Protocol Orineted Programming](#protocol-oriented-programming)
+3. [Use Case Oriented Programming](#use-case-oriented-programming)
+4. [Clean Architecture](#clean-architecture-programming)
+5. [Shenanigans](#shenanigans)
+6. [To Do](#to-do)
+
+# Design
+
+[LoFi, HiFi, Prototype in Figma](https://www.figma.com/file/YYsNa16jRdHbOHHMoPREeP/MRT-Jakarta-Navigation?type=design&node-id=0%3A1&mode=design&t=mVYUCc8HBF6CJfJz-1)
+
+# Goal
+
+For UI/UX Designer:
+1. Do component variant iteration and not screen iteration. Make sure LoFi is well defined.
+2. Consider every variants of a component.
+3. Use tokenized color and not Primitive color or Hex color.
+4. Consider how user navigate from screen A to screen B.
+
+For Software Engineer:
+1. Consider how others use your code. Every function should have actionable result.
+2. 1 file per component and not 1 file per screen. 1 file should only do/provide a specific thing.
+3. 1 file per component if the component use the Domain layer.
+4. Guarantee your work to be bug free. Others expect your code to work in order for their code to work properly.
+5. Follow the SOLID principle. Make sure dependency can be injected from outside / constructor i.e. from `init`.
+6. Violate the DRY principle if necessary.
 
 # Component Oriented Design
 
