@@ -90,6 +90,10 @@
 		96F2AAD52A8FC7FC0058BB0C /* CommutingSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */; };
 		96F2AAD72A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */; };
 		96F2AAEE2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F2AAED2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg */; };
+		96F2AAF42A9333DD0058BB0C /* GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAF32A9333DD0058BB0C /* GIFImage.swift */; };
+		96F2AAF62A9334340058BB0C /* UIGIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAF52A9334340058BB0C /* UIGIFImage.swift */; };
+		96F2AAF82A93351D0058BB0C /* UIImage+GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAF72A93351D0058BB0C /* UIImage+GIFImage.swift */; };
+		96F2AAFA2A9337FF0058BB0C /* Train.gif in Resources */ = {isa = PBXBuildFile; fileRef = 96F2AAF92A9337FF0058BB0C /* Train.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +190,10 @@
 		96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModel.swift; sourceTree = "<group>"; };
 		96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModelImpl.swift; sourceTree = "<group>"; };
 		96F2AAED2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg"; sourceTree = "<group>"; };
+		96F2AAF32A9333DD0058BB0C /* GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFImage.swift; sourceTree = "<group>"; };
+		96F2AAF52A9334340058BB0C /* UIGIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGIFImage.swift; sourceTree = "<group>"; };
+		96F2AAF72A93351D0058BB0C /* UIImage+GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIFImage.swift"; sourceTree = "<group>"; };
+		96F2AAF92A9337FF0058BB0C /* Train.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Train.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +269,7 @@
 		960A59092A6ED691000BE611 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				96F2AAEF2A9333360058BB0C /* assets */,
 				9691D44D2A6D77E900EE843C /* Assets.xcassets */,
 				960A59122A6ED706000BE611 /* Localizable.strings */,
 			);
@@ -288,6 +297,7 @@
 		960A86FA2A6D8B2E006874E5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				96F2AAF22A9333D50058BB0C /* GIFImage */,
 				96A6469F2A8FB65900642698 /* Color */,
 				960A591D2A6FA81F000BE611 /* Presentation */,
 				96AACDF72A6FEDC200534E72 /* Navigation */,
@@ -818,6 +828,24 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		96F2AAEF2A9333360058BB0C /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				96F2AAF92A9337FF0058BB0C /* Train.gif */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		96F2AAF22A9333D50058BB0C /* GIFImage */ = {
+			isa = PBXGroup;
+			children = (
+				96F2AAF32A9333DD0058BB0C /* GIFImage.swift */,
+				96F2AAF52A9334340058BB0C /* UIGIFImage.swift */,
+				96F2AAF72A93351D0058BB0C /* UIImage+GIFImage.swift */,
+			);
+			path = GIFImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -879,6 +907,7 @@
 			files = (
 				9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */,
 				96F2AAEE2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg in Resources */,
+				96F2AAFA2A9337FF0058BB0C /* Train.gif in Resources */,
 				960A59102A6ED706000BE611 /* Localizable.strings in Resources */,
 				9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */,
 			);
@@ -941,6 +970,8 @@
 				960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
 				960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */,
+				96F2AAF42A9333DD0058BB0C /* GIFImage.swift in Sources */,
+				96F2AAF62A9334340058BB0C /* UIGIFImage.swift in Sources */,
 				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
 				96E2472F2A78E7AF00664689 /* AlarmViewModel.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
@@ -959,6 +990,7 @@
 				96E247312A790D4400664689 /* DepartureArrivalSheetViewModel.swift in Sources */,
 				960A87222A6D9838006874E5 /* LocationFinder.swift in Sources */,
 				96BB00E62A82770800073134 /* Coordinator.swift in Sources */,
+				96F2AAF82A93351D0058BB0C /* UIImage+GIFImage.swift in Sources */,
 				960A873F2A6D9EB5006874E5 /* AlarmImpl.swift in Sources */,
 				96BB00E12A8275A600073134 /* NavigationController.swift in Sources */,
 				96BB00FB2A82B1CB00073134 /* DepartureArrivalScheduleViewModel.swift in Sources */,

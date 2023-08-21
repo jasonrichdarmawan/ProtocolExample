@@ -27,6 +27,11 @@ struct CommutingPage<PageVM: CommutingPageViewModel>: ViewControllable {
                 AlarmView()
             }
             
+            GIFImage(name: "Train")
+                .frame(width: 227, height: 153)
+                .padding(.top, 32)
+                .padding(.horizontal, 80)
+            
             Spacer()
         }
         .padding(32)

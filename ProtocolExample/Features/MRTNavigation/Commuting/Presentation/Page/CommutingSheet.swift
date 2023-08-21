@@ -186,6 +186,7 @@ struct CommutingSheet_Previews: PreviewProvider {
             CommutingSheet(sheetVM: CommutingSheetViewModelImpl(
                 coordinator: MRTNavigationCoordinator(navigationController: UINavigationController())))
                 .presentationDetents([.medium, .large])
+                .presentationBackgroundInteraction(.enabled)
         }
         .environment(\.locale, .init(identifier: "id-ID"))
     }
