@@ -25,8 +25,8 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     
     init(
         coordinator: Coordinator,
-        selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent = .custom(identifier: .init("topPadding105"), resolver: { context in context.maximumDetentValue - 105 }),
-        selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier = .init("topPadding105"),
+        selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent = .custom(identifier: .init("selectMRTStationNotPresentedDetent"), resolver: { context in 616 }),
+        selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier = .init("selectMRTStationNotPresentedDetent"),
         isPresented: Bool = false
     ) {
         self.coordinator = coordinator

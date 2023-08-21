@@ -11,6 +11,9 @@ import UIKit
 final class CommutingSheetViewModelImpl: NSObject, CommutingSheetViewModel {
     var coordinator: Coordinator
     
+    var hideDetailDetent: UISheetPresentationController.Detent
+    var hideDetailDetentIdentifier: UISheetPresentationController.Detent.Identifier
+    
     @Published var hideDetail: Bool {
         didSet {
             if let coordinator = coordinator as? MRTNavigationCoordinator {
@@ -18,7 +21,7 @@ final class CommutingSheetViewModelImpl: NSObject, CommutingSheetViewModel {
                 
                 sheetController.animateChanges {
                     if hideDetail {
-                        sheetController.selectedDetentIdentifier = .medium
+                        sheetController.selectedDetentIdentifier = hideDetailDetentIdentifier
                     } else {
                         sheetController.selectedDetentIdentifier = .large
                     }
@@ -27,8 +30,16 @@ final class CommutingSheetViewModelImpl: NSObject, CommutingSheetViewModel {
         }
     }
     
-    init(coordinator: Coordinator, hideDetail: Bool = true) {
+    init(
+        coordinator: Coordinator, hideDetail: Bool = true,
+        hideDetailDetent: UISheetPresentationController.Detent = .custom(
+            identifier: .init("hideDetailDetent"),
+            resolver: { context in 390 }),
+        hideDetailDetentIdentifier: UISheetPresentationController.Detent.Identifier = .init("hideDetailDetent")
+    ) {
         self.coordinator = coordinator
+        self.hideDetailDetent = hideDetailDetent
+        self.hideDetailDetentIdentifier = hideDetailDetentIdentifier
         self.hideDetail = hideDetail
     }
 }
@@ -43,7 +54,7 @@ extension CommutingSheetViewModelImpl: UISheetPresentationControllerDelegate {
             hideDetail = false
         }
         
-        if sheetPresentationController.selectedDetentIdentifier == .medium {
+        if sheetPresentationController.selectedDetentIdentifier == hideDetailDetentIdentifier {
             hideDetail = true
         }
     }

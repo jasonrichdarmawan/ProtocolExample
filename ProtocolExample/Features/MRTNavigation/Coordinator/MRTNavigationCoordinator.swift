@@ -136,8 +136,8 @@ extension MRTNavigationCoordinator {
         
         guard let sheetController = viewController.sheetPresentationController else { return false }
         
-        sheetController.detents = [.medium(), .large()]
-        sheetController.largestUndimmedDetentIdentifier = .medium
+        sheetController.detents = [viewModel.hideDetailDetent, .large()]
+        sheetController.largestUndimmedDetentIdentifier = viewModel.hideDetailDetentIdentifier
         
         sheetController.delegate = viewModel
         

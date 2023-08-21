@@ -36,6 +36,15 @@ struct CommutingSheet<SheetVM: CommutingSheetViewModel>: ViewControllable {
                     ChevronView(isUp: $sheetVM.hideDetail)
                 }
             }
+            
+            Button {
+                
+            } label: {
+                Text("Cancel")
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
         }
         .padding(.horizontal, 32)
     }
@@ -185,7 +194,7 @@ struct CommutingSheet_Previews: PreviewProvider {
         .sheet(isPresented: .constant(true)) {
             CommutingSheet(sheetVM: CommutingSheetViewModelImpl(
                 coordinator: MRTNavigationCoordinator(navigationController: UINavigationController())))
-                .presentationDetents([.medium, .large])
+                .presentationDetents([.height(390), .large])
                 .presentationBackgroundInteraction(.enabled)
         }
         .environment(\.locale, .init(identifier: "id-ID"))
