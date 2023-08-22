@@ -25,6 +25,7 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
     
     private(set) weak var commutingSheetVC: UIViewController?
     private weak var commutingSheetVM: (any CommutingSheetViewModel)?
+    private weak var commutingDetailVM: (any CommutingDetailViewModel)?
     
     init(
         id: UUID = UUID(),
@@ -92,6 +93,10 @@ extension MRTNavigationCoordinator {
         
         let view = DepartureArrivalSheet(sheetVM: sheetVM, selectVM: selectVM, scheduleVM: scheduleVM)
         let viewController = HostingController(rootView: view)
+        
+        // prevents the interactive dismissal of the view controller while it is onscreen.
+//        viewController.isModalInPresentation = true
+        
         departureArrivalSheetVC = viewController
         
         guard let sheetController = viewController.sheetPresentationController else { return false }
@@ -126,20 +131,22 @@ extension MRTNavigationCoordinator {
     private func presentCommutingSheet() -> Bool {
         guard commutingSheetVC == nil else { return false }
         
-        let viewModel = CommutingSheetViewModelImpl(coordinator: self)
-        commutingSheetVM = viewModel
+        let sheetVM = CommutingSheetViewModelImpl(coordinator: self)
+        commutingSheetVM = sheetVM
         
-        let view = CommutingSheet(sheetVM: viewModel)
+        let detailVM = CommutingDetailViewModelImpl(coordinator: self)
+        commutingDetailVM = detailVM
+        
+        let view = CommutingSheet(sheetVM: sheetVM, detailVM: detailVM)
         let viewController = HostingController(rootView: view)
-        
         commutingSheetVC = viewController
         
         guard let sheetController = viewController.sheetPresentationController else { return false }
         
-        sheetController.detents = [viewModel.hideDetailDetent, .large()]
-        sheetController.largestUndimmedDetentIdentifier = viewModel.hideDetailDetentIdentifier
+        sheetController.detents = [detailVM.hideDetailDetent, .large()]
+        sheetController.largestUndimmedDetentIdentifier = detailVM.hideDetailDetentIdentifier
         
-        sheetController.delegate = viewModel
+//        sheetController.delegate = sheetVM
         
         navigationController.present(viewController, animated: true)
         

@@ -66,7 +66,7 @@
 		9691D4512A6D77E900EE843C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9691D4502A6D77E900EE843C /* Preview Assets.xcassets */; };
 		9691D45C2A6D781200EE843C /* DepartureArrivalV1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691D45B2A6D781200EE843C /* DepartureArrivalV1View.swift */; };
 		96A646A12A8FB66000642698 /* Color+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A646A02A8FB66000642698 /* Color+UIColor.swift */; };
-		96A646BD2A8FC10F00642698 /* CommutingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A646BC2A8FC10F00642698 /* CommutingSheet.swift */; };
+		96A646BD2A8FC10F00642698 /* DetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A646BC2A8FC10F00642698 /* DetailSheet.swift */; };
 		96AACDE92A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */; };
 		96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */; };
 		96AACDED2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */; };
@@ -94,6 +94,11 @@
 		96F2AAF62A9334340058BB0C /* UIGIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAF52A9334340058BB0C /* UIGIFImage.swift */; };
 		96F2AAF82A93351D0058BB0C /* UIImage+GIFImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAF72A93351D0058BB0C /* UIImage+GIFImage.swift */; };
 		96F2AAFA2A9337FF0058BB0C /* Train.gif in Resources */ = {isa = PBXBuildFile; fileRef = 96F2AAF92A9337FF0058BB0C /* Train.gif */; };
+		96F2AAFE2A9474160058BB0C /* ArrivedAtDestinationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AAFD2A9474160058BB0C /* ArrivedAtDestinationSheet.swift */; };
+		96F2AB002A9475A70058BB0C /* ArrivedAtDestination.gif in Resources */ = {isa = PBXBuildFile; fileRef = 96F2AAFF2A9475A70058BB0C /* ArrivedAtDestination.gif */; };
+		96F2AB062A947C3E0058BB0C /* CommutingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB052A947C3E0058BB0C /* CommutingSheet.swift */; };
+		96F2AB082A94910C0058BB0C /* CommutingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB072A94910C0058BB0C /* CommutingDetailViewModel.swift */; };
+		96F2AB0A2A94913D0058BB0C /* CommutingDetailViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB092A94913D0058BB0C /* CommutingDetailViewModelImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,7 +169,7 @@
 		9691D4502A6D77E900EE843C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9691D45B2A6D781200EE843C /* DepartureArrivalV1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalV1View.swift; sourceTree = "<group>"; };
 		96A646A02A8FB66000642698 /* Color+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+UIColor.swift"; sourceTree = "<group>"; };
-		96A646BC2A8FC10F00642698 /* CommutingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheet.swift; sourceTree = "<group>"; };
+		96A646BC2A8FC10F00642698 /* DetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheet.swift; sourceTree = "<group>"; };
 		96AACDE82A6FE8CD00534E72 /* DepartureArrivalV2View+DepartureV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+DepartureV2View.swift"; sourceTree = "<group>"; };
 		96AACDEA2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+ArrivalV2View.swift"; sourceTree = "<group>"; };
 		96AACDEC2A6FE90000534E72 /* DepartureArrivalV2View+PlusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartureArrivalV2View+PlusCircleView.swift"; sourceTree = "<group>"; };
@@ -194,6 +199,11 @@
 		96F2AAF52A9334340058BB0C /* UIGIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGIFImage.swift; sourceTree = "<group>"; };
 		96F2AAF72A93351D0058BB0C /* UIImage+GIFImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIFImage.swift"; sourceTree = "<group>"; };
 		96F2AAF92A9337FF0058BB0C /* Train.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Train.gif; sourceTree = "<group>"; };
+		96F2AAFD2A9474160058BB0C /* ArrivedAtDestinationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivedAtDestinationSheet.swift; sourceTree = "<group>"; };
+		96F2AAFF2A9475A70058BB0C /* ArrivedAtDestination.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ArrivedAtDestination.gif; sourceTree = "<group>"; };
+		96F2AB052A947C3E0058BB0C /* CommutingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheet.swift; sourceTree = "<group>"; };
+		96F2AB072A94910C0058BB0C /* CommutingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingDetailViewModel.swift; sourceTree = "<group>"; };
+		96F2AB092A94913D0058BB0C /* CommutingDetailViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingDetailViewModelImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -599,7 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				96611E262A770C81004B5984 /* CommutingPage.swift */,
-				96A646BC2A8FC10F00642698 /* CommutingSheet.swift */,
+				96F2AB052A947C3E0058BB0C /* CommutingSheet.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -611,6 +621,8 @@
 				96611E292A770C8F004B5984 /* CommutingPageViewModelImpl.swift */,
 				96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */,
 				96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */,
+				96F2AB072A94910C0058BB0C /* CommutingDetailViewModel.swift */,
+				96F2AB092A94913D0058BB0C /* CommutingDetailViewModelImpl.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -824,6 +836,8 @@
 		96F2AAE42A90B3D50058BB0C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				96A646BC2A8FC10F00642698 /* DetailSheet.swift */,
+				96F2AAFD2A9474160058BB0C /* ArrivedAtDestinationSheet.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -832,6 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				96F2AAF92A9337FF0058BB0C /* Train.gif */,
+				96F2AAFF2A9475A70058BB0C /* ArrivedAtDestination.gif */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -910,6 +925,7 @@
 				96F2AAFA2A9337FF0058BB0C /* Train.gif in Resources */,
 				960A59102A6ED706000BE611 /* Localizable.strings in Resources */,
 				9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */,
+				96F2AB002A9475A70058BB0C /* ArrivedAtDestination.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,13 +948,14 @@
 				96F2AAD72A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift in Sources */,
 				9655E94C2A7AECE000DFB581 /* SceneDelegate.swift in Sources */,
 				96BB00F12A827CEB00073134 /* MRTNavigationRoute.swift in Sources */,
-				96A646BD2A8FC10F00642698 /* CommutingSheet.swift in Sources */,
+				96A646BD2A8FC10F00642698 /* DetailSheet.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
 				960A55272A716A1E00F8E9FC /* AlarmViewModelImpl.swift in Sources */,
 				96050ED72A73E2A10011DE7E /* Schedule.swift in Sources */,
 				96050ECA2A7383D40011DE7E /* DepartureArrivalSheetViewModelImpl.swift in Sources */,
 				9655E9532A7AF14100DFB581 /* ViewControllable.swift in Sources */,
 				960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */,
+				96F2AB0A2A94913D0058BB0C /* CommutingDetailViewModelImpl.swift in Sources */,
 				96050EBA2A72B28B0011DE7E /* Either.swift in Sources */,
 				96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */,
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalViewModelV2Impl.swift in Sources */,
@@ -955,9 +972,11 @@
 				96050ED32A73E12D0011DE7E /* SelectMRTStationView.swift in Sources */,
 				960A87362A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift in Sources */,
 				960A872F2A6D9CFB006874E5 /* BeaconFinderImpl.swift in Sources */,
+				96F2AAFE2A9474160058BB0C /* ArrivedAtDestinationSheet.swift in Sources */,
 				96611E2A2A770C8F004B5984 /* CommutingPageViewModelImpl.swift in Sources */,
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
+				96F2AB062A947C3E0058BB0C /* CommutingSheet.swift in Sources */,
 				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
 				96F2AAD52A8FC7FC0058BB0C /* CommutingSheetViewModel.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
@@ -984,6 +1003,7 @@
 				96BB00F32A827D3300073134 /* MRTNavigationCoordinator.swift in Sources */,
 				960A872D2A6D9CBC006874E5 /* BeaconBroadcasterImpl.swift in Sources */,
 				96BB00E82A82777500073134 /* NavigationRoute.swift in Sources */,
+				96F2AB082A94910C0058BB0C /* CommutingDetailViewModel.swift in Sources */,
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
 				960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */,
 				960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */,

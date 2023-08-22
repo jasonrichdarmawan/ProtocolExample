@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum CommutingSheetState {
+    case DetailSheet
+    case ArrivedAtDestinationSheet
+}
+
 protocol CommutingSheetViewModel: ObservableObject {
-    var hideDetail: Bool { get set }
+    var state: CommutingSheetState { get set }
+    
+    func cancel(animated: Bool) -> Bool
 }

@@ -20,10 +20,7 @@ struct CommutingPage<PageVM: CommutingPageViewModel>: ViewControllable {
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top, spacing: 16) {
-                Text("Waiting for the next train...")
-                    .font(.largeTitle)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
+                Spacer()
                 AlarmView()
             }
             
@@ -52,6 +49,6 @@ struct CommutingPage_Previews: PreviewProvider {
                 coordinator: MRTNavigationCoordinator(
                     navigationController: UINavigationController()))
         )
-            .environment(\.locale, .init(identifier: "id-ID"))
+        .environment(\.locale, .init(identifier: "id-ID"))
     }
 }
