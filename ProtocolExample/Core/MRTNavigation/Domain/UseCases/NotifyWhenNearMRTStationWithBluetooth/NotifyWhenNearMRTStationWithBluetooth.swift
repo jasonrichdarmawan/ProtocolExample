@@ -14,13 +14,15 @@ protocol NotifyWhenNearMRTStationWithBluetooth {
     func stop() -> NotifyWhenNearMRTStationWithBluetoothStopEvent
 }
 
-protocol NotifyWhenNearMRTStationWithBluetoothDelegate {
+protocol NotifyWhenNearMRTStationWithBluetoothDelegate: AnyObject {
     // will update once per station
     func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind: Station)
 }
 
 protocol NotifyWhenNearMRTStationWithBluetoothEvent {}
 
-enum NotifyWhenNearMRTStationWithBluetoothStartEvent: NotifyWhenNearMRTStationWithBluetoothEvent { case IS_STARTING, NOT_AUTHORIZED }
+enum NotifyWhenNearMRTStationWithBluetoothStartEvent: NotifyWhenNearMRTStationWithBluetoothEvent {
+    case IS_STARTING, NOT_AUTHORIZED, BAD_REQUEST
+}
 
 enum NotifyWhenNearMRTStationWithBluetoothStopEvent: NotifyWhenNearMRTStationWhenInBackgroundEvent { case IS_STOPPING }

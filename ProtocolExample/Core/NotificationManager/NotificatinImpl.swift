@@ -8,7 +8,17 @@
 import UserNotifications
 
 final class NotificationImpl: Notification {
-    fileprivate init() {}
+    fileprivate init() {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
     
     func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
     

@@ -21,6 +21,9 @@ final class HostingController<ContentView>: UIHostingController<ContentView> whe
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
         self.id = UUID()
         super.init(coder: aDecoder)
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     deinit {

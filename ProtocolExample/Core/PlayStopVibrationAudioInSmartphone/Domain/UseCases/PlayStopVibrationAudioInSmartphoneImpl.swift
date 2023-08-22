@@ -14,6 +14,15 @@ final class PlayStopVibrationAudioInSmartphoneImpl: PlayStopVibrationAudioInSmar
     init(alarm: Alarm = AlarmManager.shared, isMutedMode: IsMutedMode.Type = IsMutedModeImpl.self) {
         self.alarm = alarm
         self.isMutedMode = isMutedMode
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     func play() -> Bool {

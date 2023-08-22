@@ -8,31 +8,63 @@
 import Foundation
 
 final class NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationOnce {
-    var delegate: NotifyWhenNearMRTStationOnceDelegate?
+    weak var delegate: NotifyWhenNearMRTStationOnceDelegate?
     
-    private var notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
-    private var notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS
+    private var notifyWithBeacon: NotifyWhenNearMRTStationWithBluetooth
+    private var notifyWithGPS: NotifyWhenNearMRTStationWithGPS
     
     init(
-        notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
-        notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl()
+        notifyWithBeacon: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
+        notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl()
     ) {
-        self.notifyWhenNearMRTStationWithBluetooth = notifyWhenNearMRTStationWithBluetooth
-        self.notifyWhenNearMRTStationWithGPS = notifyWhenNearMRTStationWithGPS
+        self.notifyWithBeacon = notifyWithBeacon
+        self.notifyWithGPS = notifyWithGPS
         
-        self.notifyWhenNearMRTStationWithBluetooth.delegate = self
-        self.notifyWhenNearMRTStationWithGPS.delegate = self
+        self.notifyWithBeacon.delegate = self
+        self.notifyWithGPS.delegate = self
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     func start() -> NotifyWhenNearMRTStationOnceStartEvent {
-        DispatchQueue.global().async {
-            _ = self.stop()
+        let beaconResult = notifyWithBeacon.start()
+        
+        switch beaconResult {
+        case .BAD_REQUEST: return .NOT_AUTHORIZED
+        case .NOT_AUTHORIZED: return .NOT_AUTHORIZED
+        case .IS_STARTING: break
         }
+        
+        let gpsResult = notifyWithGPS.start()
+        
+        switch gpsResult {
+        case .NOT_AUTHORIZED: return .NOT_AUTHORIZED
+        case .IS_STARTING: break
+        }
+        
         return .IS_STARTING
     }
     
     func stop() -> NotifyWhenNearMRTStationOnceStopEvent {
-        delegate?.notifyManager(self, didEvent: .TIME_OUT)
+        let beaconResult = notifyWithBeacon.stop()
+        
+        switch beaconResult {
+        case .IS_STOPPING: break
+        }
+        
+        let gpsResult = notifyWithGPS.stop()
+        
+        switch gpsResult {
+        case .IS_STOPPING: break
+        }
+        
         return .IS_STOPPING
     }
 }
@@ -40,13 +72,13 @@ final class NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationOnce {
 extension NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationWithBluetoothDelegate {
     func notifyManager(_ manager: NotifyWhenNearMRTStationWithBluetooth, didFind station: Station) {
         _ = stop()
-        delegate?.notifyManager(self, didFind: station, didEvent: .FOUND)
+        delegate?.notifyManager(self, didFind: station)
     }
 }
 
 extension NotifyWhenNearMRTStationOnceImpl: NotifyWhenNearMRTStationWithGPSDelegate {
     func notifyManager(_ manager: NotifyWhenNearMRTStationWithGPS, didFind station: Station) {
         _ = stop()
-        delegate?.notifyManager(self, didFind: station, didEvent: .FOUND)
+        delegate?.notifyManager(self, didFind: station)
     }
 }

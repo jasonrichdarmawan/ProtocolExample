@@ -8,7 +8,17 @@
 import Foundation
 
 final class IsMutedModeImpl: IsMutedMode {
-    fileprivate init() {}
+    fileprivate init() {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
     
     static func get() -> Bool {
         return UserDefaults.standard.bool(forKey: "isMutedMode")

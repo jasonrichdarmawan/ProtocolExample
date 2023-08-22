@@ -18,8 +18,8 @@ protocol BeaconFinder {
     func stop() -> BeaconFinderStopEvent
 }
 
-protocol BeaconFinderDelegate {
-    func notifyManager(_ manager: BeaconFinder, didRange: [CLBeaconIdentityConstraint : [CLBeacon]])
+protocol BeaconFinderDelegate: AnyObject {
+    func notifyManager(_ manager: BeaconFinder, didRange beaconConstraints: [CLBeaconIdentityConstraint : [CLBeacon]])
 }
 
 protocol BeaconFinderEvent {}

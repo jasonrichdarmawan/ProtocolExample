@@ -8,24 +8,33 @@
 import Foundation
 
 final class NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
-    var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate?
+    weak var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate?
     
-    private var notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
-    private var notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS
+    private var notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
+    private var notifyWithGPS: NotifyWhenNearMRTStationWithGPS
     
     private var currentStation: Station?
     
     private var arrival: Station?
     
     init(
-        notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
-        notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl()
+        notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
+        notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl()
     ) {
-        self.notifyWhenNearMRTStationWithBluetooth = notifyWhenNearMRTStationWithBluetooth
-        self.notifyWhenNearMRTStationWithGPS = notifyWhenNearMRTStationWithGPS
+        self.notifyWithBluetooth = notifyWithBluetooth
+        self.notifyWithGPS = notifyWithGPS
         
-        self.notifyWhenNearMRTStationWithBluetooth.delegate = self
-        self.notifyWhenNearMRTStationWithGPS.delegate = self
+        self.notifyWithBluetooth.delegate = self
+        self.notifyWithGPS.delegate = self
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     func start(arrival: Station) -> NotifyWhenNearMRTStationAndSpecificMRTStationOnceStartEvent {

@@ -99,6 +99,9 @@
 		96F2AB062A947C3E0058BB0C /* CommutingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB052A947C3E0058BB0C /* CommutingSheet.swift */; };
 		96F2AB082A94910C0058BB0C /* CommutingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB072A94910C0058BB0C /* CommutingDetailViewModel.swift */; };
 		96F2AB0A2A94913D0058BB0C /* CommutingDetailViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB092A94913D0058BB0C /* CommutingDetailViewModelImpl.swift */; };
+		96F2AB0F2A94CAB80058BB0C /* LocationExamplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB0E2A94CAB80058BB0C /* LocationExamplePage.swift */; };
+		96F2AB122A94CBA30058BB0C /* LocationExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB112A94CBA30058BB0C /* LocationExampleViewModel.swift */; };
+		96F2AB142A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB132A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +207,9 @@
 		96F2AB052A947C3E0058BB0C /* CommutingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheet.swift; sourceTree = "<group>"; };
 		96F2AB072A94910C0058BB0C /* CommutingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingDetailViewModel.swift; sourceTree = "<group>"; };
 		96F2AB092A94913D0058BB0C /* CommutingDetailViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingDetailViewModelImpl.swift; sourceTree = "<group>"; };
+		96F2AB0E2A94CAB80058BB0C /* LocationExamplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExamplePage.swift; sourceTree = "<group>"; };
+		96F2AB112A94CBA30058BB0C /* LocationExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExampleViewModel.swift; sourceTree = "<group>"; };
+		96F2AB132A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExampleViewModelImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +518,7 @@
 		960A874A2A6DA129006874E5 /* MRTNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				96F2AB0B2A94CAA60058BB0C /* LocationExample */,
 				96BB00EF2A827CDF00073134 /* Coordinator */,
 				9691D4582A6D77F200EE843C /* DepartureArrival */,
 				96611E232A770C71004B5984 /* Commuting */,
@@ -861,6 +868,40 @@
 			path = GIFImage;
 			sourceTree = "<group>";
 		};
+		96F2AB0B2A94CAA60058BB0C /* LocationExample */ = {
+			isa = PBXGroup;
+			children = (
+				96F2AB0C2A94CAAC0058BB0C /* Presentation */,
+			);
+			path = LocationExample;
+			sourceTree = "<group>";
+		};
+		96F2AB0C2A94CAAC0058BB0C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				96F2AB102A94CB940058BB0C /* ViewModels */,
+				96F2AB0D2A94CAB00058BB0C /* Pages */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		96F2AB0D2A94CAB00058BB0C /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				96F2AB0E2A94CAB80058BB0C /* LocationExamplePage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		96F2AB102A94CB940058BB0C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				96F2AB112A94CBA30058BB0C /* LocationExampleViewModel.swift */,
+				96F2AB132A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -958,6 +999,7 @@
 				96F2AB0A2A94913D0058BB0C /* CommutingDetailViewModelImpl.swift in Sources */,
 				96050EBA2A72B28B0011DE7E /* Either.swift in Sources */,
 				96AACDFC2A6FEE6800534E72 /* DepartureArrivalPage.swift in Sources */,
+				96F2AB0F2A94CAB80058BB0C /* LocationExamplePage.swift in Sources */,
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalViewModelV2Impl.swift in Sources */,
 				96BB00F52A8282ED00073134 /* DepartureArrivalSheet.swift in Sources */,
 				96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */,
@@ -996,6 +1038,7 @@
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
 				96050ED52A73E2900011DE7E /* Platform.swift in Sources */,
 				960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */,
+				96F2AB142A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift in Sources */,
 				960A59202A6FA82B000BE611 /* Line.swift in Sources */,
 				960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */,
 				960A873A2A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift in Sources */,
@@ -1006,6 +1049,7 @@
 				96F2AB082A94910C0058BB0C /* CommutingDetailViewModel.swift in Sources */,
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
 				960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */,
+				96F2AB122A94CBA30058BB0C /* LocationExampleViewModel.swift in Sources */,
 				960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */,
 				96E247312A790D4400664689 /* DepartureArrivalSheetViewModel.swift in Sources */,
 				960A87222A6D9838006874E5 /* LocationFinder.swift in Sources */,
@@ -1167,6 +1211,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProtocolExample/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location must always be enabled to configure your device as a beacon finder.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location must be enabled to configure your device as a beacon finder.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1199,6 +1245,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProtocolExample/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location must always be enabled to configure your device as a beacon finder.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location must be enabled to configure your device as a beacon finder.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

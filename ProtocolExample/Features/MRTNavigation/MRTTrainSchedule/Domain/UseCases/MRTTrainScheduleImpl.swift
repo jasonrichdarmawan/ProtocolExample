@@ -8,6 +8,18 @@
 import Foundation
 
 final class MRTTrainScheduleImpl: MRTTrainSchedule {
+    init() {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
     func get(departure: Station, arrival: Station, departAt: Date = .now) -> [Platform : Schedule] {
         return [:]
     }

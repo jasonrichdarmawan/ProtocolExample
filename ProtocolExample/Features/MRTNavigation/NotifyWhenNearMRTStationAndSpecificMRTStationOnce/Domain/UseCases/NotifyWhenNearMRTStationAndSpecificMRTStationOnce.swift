@@ -22,7 +22,7 @@ enum NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent {
     case ARRIVED
 }
 
-protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate {
+protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate: AnyObject {
     func notifyManager(_ manager: NotifyWhenNearMRTStationAndSpecificMRTStationOnce, didFind station: Station, didEvent event: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegateEvent)
 }
 

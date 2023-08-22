@@ -10,6 +10,18 @@ import Foundation
 final class LocationFinderImpl: LocationFinder {
     var delegate: LocationFinderDelegate?
     
+    init() {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
     func isAuthorizedAlwaysOrRequestAuthorization() -> Bool {
         return true
     }

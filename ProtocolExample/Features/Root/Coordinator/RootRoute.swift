@@ -11,4 +11,5 @@ enum RootRoute: NavigationRoute {
     case Root
     case Alarm
     case DepartureArrivalPage
+    case Location
 }

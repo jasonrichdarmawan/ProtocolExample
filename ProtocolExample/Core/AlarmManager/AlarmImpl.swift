@@ -14,7 +14,17 @@ final class AlarmImpl: Alarm {
     
     private var backgroundTaskID: UIBackgroundTaskIdentifier?
     
-    fileprivate init() {}
+    fileprivate init() {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
     
     func playVibrationOnly() -> Bool {
         if AlarmManager.isPlaying { return false }

@@ -57,6 +57,12 @@ struct RootView: ViewControllable {
             } label: {
                 Text("Select Departure and Arrival Page")
             }
+            
+            Button {
+                _ = coordinator.showRoute(RootRoute.Location)
+            } label: {
+                Text("Location")
+            }
         }
     }
 }

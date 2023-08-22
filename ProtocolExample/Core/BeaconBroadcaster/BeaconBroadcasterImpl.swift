@@ -8,6 +8,18 @@
 import Foundation
 
 final class BeaconBroadcasterImpl: BeaconBroadcaster {
+    init() {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
     func isAuthorizedOrRequestAuthorization() -> Bool {
         return true
     }

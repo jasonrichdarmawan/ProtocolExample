@@ -19,6 +19,9 @@ final class RootCoordinator: Coordinator {
 
     private weak var mrtNavigationC: Coordinator?
     
+    private weak var notifyOnceUseCase: NotifyWhenNearMRTStationOnce?
+    private weak var locationVC: UIViewController?
+    
     init(
         id: UUID = UUID(),
         navigationController: UINavigationController
@@ -50,6 +53,7 @@ extension RootCoordinator {
         case .Root: return pushRoot()
         case .Alarm: return pushAlarm()
         case .DepartureArrivalPage: return pushDepartureArrivalPage()
+        case .Location: return pushLocation()
         }
     }
 }
@@ -95,5 +99,25 @@ extension RootCoordinator {
         let coordinator = MRTNavigationCoordinator(navigationController: navigationController)
         mrtNavigationC = coordinator
         return coordinator.showRoute(MRTNavigationRoute.DepartureArrivalPage)
+    }
+}
+
+extension RootCoordinator {
+    private func pushLocation() -> Bool {
+        guard locationVC == nil else { return false }
+        
+        let notifyOnceUseCase = NotifyWhenNearMRTStationOnceImpl()
+        self.notifyOnceUseCase = notifyOnceUseCase
+        
+        let locationVM = LocationExampleViewModelImpl(notifyOnceUseCase: notifyOnceUseCase)
+        
+        let view = LocationExamplePage(locationVM: locationVM)
+        let viewController = HostingController(rootView: view)
+        locationVC = viewController
+        
+        navigationController.pushViewController(viewController, animated: true)
+        navigationController.setNavigationBarHidden(false, animated: true)
+        
+        return true
     }
 }

@@ -10,23 +10,32 @@ import UIKit
 final class NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStationWhenInBackground {
     var delegate: NotifyWhenNearMRTStationWhenInBackgroundDelegate?
     
-    private var notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
-    private var notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS
+    private var notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
+    private var notifyWithGPS: NotifyWhenNearMRTStationWithGPS
     private var notificationManager: Notification
     
     private var currentStation: Station?
     
     init(
-        notifyWhenNearMRTStationWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
-        notifyWhenNearMRTStationWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl(),
+        notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
+        notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl(),
         notificationManager: Notification = NotificationManager.shared
     ) {
-        self.notifyWhenNearMRTStationWithBluetooth = notifyWhenNearMRTStationWithBluetooth
-        self.notifyWhenNearMRTStationWithGPS = notifyWhenNearMRTStationWithGPS
+        self.notifyWithBluetooth = notifyWithBluetooth
+        self.notifyWithGPS = notifyWithGPS
         self.notificationManager = notificationManager
         
-        self.notifyWhenNearMRTStationWithBluetooth.delegate = self
-        self.notifyWhenNearMRTStationWithGPS.delegate = self
+        self.notifyWithBluetooth.delegate = self
+        self.notifyWithGPS.delegate = self
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
     }
     
     func start() -> NotifyWhenNearMRTStationWhenInBackgroundStartEvent {

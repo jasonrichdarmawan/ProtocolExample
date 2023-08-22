@@ -8,7 +8,19 @@
 import Foundation
 
 final class NotifyWhenNearMRTStationWithGPSImpl: NotifyWhenNearMRTStationWithGPS {
-    var delegate: NotifyWhenNearMRTStationWithGPSDelegate?
+    weak var delegate: NotifyWhenNearMRTStationWithGPSDelegate?
+    
+    init() {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
     
     func start() -> NotifyWhenNearMRTStationWithGPSStartEvent {
         return .IS_STARTING
