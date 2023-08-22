@@ -20,13 +20,30 @@ final class IsMutedModeImpl: IsMutedMode {
 #endif
     }
     
-    static func get() -> Bool {
+    func get() -> Bool {
         return UserDefaults.standard.bool(forKey: "isMutedMode")
     }
     
-    static func set(value: Bool) -> Bool {
+    func set(value: Bool) -> Bool {
         UserDefaults.standard.set(value, forKey: "isMutedMode")
         
         return true
     }
+}
+
+extension IsMutedModeImpl {
+    static var shared: IsMutedMode! {
+        get {
+            var temp: IsMutedMode
+            
+            if sharedClosure == nil {
+                temp = IsMutedModeImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: IsMutedMode?
 }

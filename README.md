@@ -873,24 +873,20 @@ Then, you can write another use case to do `if Bluetooth is not available, use G
        
     ```swift
     final class NotificationManager {
-        static var shared: Notification! {
+        static weak var shared: Notification! {
             get {
+                var temp: Notification
+                
                 if sharedClosure == nil {
-                    sharedClosure = NotificationImpl.shared
+                    temp = NotificationImpl.shared
+                    sharedClosure = temp
                 }
                 
                 return sharedClosure
             }
-            set {
-                if newValue == nil {
-                    NotificationImpl.shared = nil
-                }
-                
-                sharedClosure = newValue
-            }
         }
         
-        private static var sharedClosure: Notification!
+        private static weak var sharedClosure: Notification?
     }
     ```
     </details>
@@ -902,7 +898,17 @@ Then, you can write another use case to do `if Bluetooth is not available, use G
        
     ```swift
     final class NotificationImpl: Notification {
-        fileprivate init() {}
+        fileprivate init() {
+    #if DEBUG
+            print("\(type(of: self)) \(#function)")
+    #endif
+        }
+        
+        deinit {
+    #if DEBUG
+            print("\(type(of: self)) \(#function)")
+    #endif
+        }
         
         func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void) {}
         
@@ -915,20 +921,20 @@ Then, you can write another use case to do `if Bluetooth is not available, use G
     }
 
     extension NotificationImpl {
-        static var shared: Notification! {
+        static weak var shared: Notification! {
             get {
+                var temp: Notification
+                
                 if sharedClosure == nil {
-                    sharedClosure = NotificationImpl()
+                    temp = NotificationImpl()
+                    sharedClosure = temp
                 }
                 
                 return sharedClosure
             }
-            set {
-                sharedClosure = newValue
-            }
         }
         
-        private static var sharedClosure: Notification!
+        private static weak var sharedClosure: Notification?
     }
     ```
     </details>

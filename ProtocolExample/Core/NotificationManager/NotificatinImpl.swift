@@ -31,18 +31,18 @@ final class NotificationImpl: Notification {
 }
 
 extension NotificationImpl {
-    static var shared: Notification! {
+    static weak var shared: Notification! {
         get {
+            var temp: Notification
+            
             if sharedClosure == nil {
-                sharedClosure = NotificationImpl()
+                temp = NotificationImpl()
+                sharedClosure = temp
             }
             
             return sharedClosure
         }
-        set {
-            sharedClosure = newValue
-        }
     }
     
-    private static var sharedClosure: Notification!
+    private static weak var sharedClosure: Notification?
 }

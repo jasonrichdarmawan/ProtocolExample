@@ -102,6 +102,7 @@
 		96F2AB0F2A94CAB80058BB0C /* LocationExamplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB0E2A94CAB80058BB0C /* LocationExamplePage.swift */; };
 		96F2AB122A94CBA30058BB0C /* LocationExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB112A94CBA30058BB0C /* LocationExampleViewModel.swift */; };
 		96F2AB142A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB132A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift */; };
+		96F2AB162A952C180058BB0C /* IsMutedModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2AB152A952C180058BB0C /* IsMutedModeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +211,7 @@
 		96F2AB0E2A94CAB80058BB0C /* LocationExamplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExamplePage.swift; sourceTree = "<group>"; };
 		96F2AB112A94CBA30058BB0C /* LocationExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExampleViewModel.swift; sourceTree = "<group>"; };
 		96F2AB132A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExampleViewModelImpl.swift; sourceTree = "<group>"; };
+		96F2AB152A952C180058BB0C /* IsMutedModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMutedModeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 			children = (
 				960A551F2A7157B000F8E9FC /* IsMutedMode.swift */,
 				960A55212A7157CF00F8E9FC /* IsMutedModeImpl.swift */,
+				96F2AB152A952C180058BB0C /* IsMutedModeManager.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 				96F2AB082A94910C0058BB0C /* CommutingDetailViewModel.swift in Sources */,
 				960A59082A6ED155000BE611 /* MRT.swift in Sources */,
 				960A871E2A6D972A006874E5 /* BeaconBroadcaster.swift in Sources */,
+				96F2AB162A952C180058BB0C /* IsMutedModeManager.swift in Sources */,
 				96F2AB122A94CBA30058BB0C /* LocationExampleViewModel.swift in Sources */,
 				960A55202A7157B000F8E9FC /* IsMutedMode.swift in Sources */,
 				96E247312A790D4400664689 /* DepartureArrivalSheetViewModel.swift in Sources */,

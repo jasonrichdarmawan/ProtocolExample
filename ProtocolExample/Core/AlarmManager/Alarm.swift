@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Alarm {
+protocol Alarm: AnyObject {
     /// will play vibration only continuosuly
     func playVibrationOnly() -> Bool
     

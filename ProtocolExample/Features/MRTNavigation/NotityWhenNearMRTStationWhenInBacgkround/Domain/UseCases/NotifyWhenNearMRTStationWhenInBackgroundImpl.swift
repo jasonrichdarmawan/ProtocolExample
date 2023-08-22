@@ -12,18 +12,18 @@ final class NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStati
     
     private var notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
     private var notifyWithGPS: NotifyWhenNearMRTStationWithGPS
-    private var notificationManager: Notification
+    private var notification: Notification
     
     private var currentStation: Station?
     
     init(
         notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
         notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl(),
-        notificationManager: Notification = NotificationManager.shared
+        notification: Notification = NotificationManager.shared
     ) {
         self.notifyWithBluetooth = notifyWithBluetooth
         self.notifyWithGPS = notifyWithGPS
-        self.notificationManager = notificationManager
+        self.notification = notification
         
         self.notifyWithBluetooth.delegate = self
         self.notifyWithGPS.delegate = self
@@ -56,7 +56,7 @@ extension NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStation
         switch UIApplication.shared.applicationState {
         case .active: break
         case .background, .inactive:
-            _ = notificationManager.push(title: "", subtitle: "", sound: nil, completionHandler: { _ in })
+            _ = notification.push(title: "", subtitle: "", sound: nil, completionHandler: { _ in })
             // TODO
             break
         @unknown default: break
@@ -73,7 +73,7 @@ extension NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStation
         switch UIApplication.shared.applicationState {
         case .active: break
         case .background, .inactive:
-            _ = notificationManager.push(title: "", subtitle: "", sound: nil, completionHandler: { _ in })
+            _ = notification.push(title: "", subtitle: "", sound: nil, completionHandler: { _ in })
             // TODO
             break
         @unknown default: break

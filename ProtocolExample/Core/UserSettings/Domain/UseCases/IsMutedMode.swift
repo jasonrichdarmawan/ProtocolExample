@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol IsMutedMode {
-    static func get() -> Bool
+protocol IsMutedMode: AnyObject {
+    func get() -> Bool
     /// if return true = success, if return false = failed
-    static func set(value: Bool) -> Bool
+    func set(value: Bool) -> Bool
 }

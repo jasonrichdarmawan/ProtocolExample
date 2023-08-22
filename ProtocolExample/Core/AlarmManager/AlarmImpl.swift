@@ -103,18 +103,18 @@ extension AlarmImpl {
 }
 
 extension AlarmImpl {
-    static var shared: AlarmImpl! {
+    static weak var shared: Alarm! {
         get {
+            var temp: Alarm
+            
             if sharedClosure == nil {
-                sharedClosure = AlarmImpl()
+                temp = AlarmImpl()
+                sharedClosure = temp
             }
             
             return sharedClosure
         }
-        set {
-            sharedClosure = newValue
-        }
     }
     
-    private static var sharedClosure: AlarmImpl!
+    private static weak var sharedClosure: Alarm?
 }

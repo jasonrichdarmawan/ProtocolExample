@@ -10,22 +10,18 @@ import Foundation
 final class AlarmManager {
     static var isPlaying = false
     
-    static var shared: Alarm! {
+    static weak var shared: Alarm! {
         get {
+            var temp: Alarm
+            
             if sharedClosure == nil {
-                sharedClosure = AlarmImpl.shared
+                temp = AlarmImpl.shared
+                sharedClosure = temp
             }
             
             return sharedClosure
         }
-        set {
-            if newValue == nil {
-                AlarmImpl.shared = nil
-            }
-            
-            sharedClosure = newValue
-        }
     }
     
-    private static var sharedClosure: Alarm!
+    private weak static var sharedClosure: Alarm?
 }

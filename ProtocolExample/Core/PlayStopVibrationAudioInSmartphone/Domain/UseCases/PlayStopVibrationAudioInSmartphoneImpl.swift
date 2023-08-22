@@ -9,9 +9,11 @@ import Foundation
 
 final class PlayStopVibrationAudioInSmartphoneImpl: PlayStopVibrationAudioInSmartphone {
     private var alarm: Alarm
-    private var isMutedMode: IsMutedMode.Type
+    private var isMutedMode: IsMutedMode
     
-    init(alarm: Alarm = AlarmManager.shared, isMutedMode: IsMutedMode.Type = IsMutedModeImpl.self) {
+    init(
+        alarm: Alarm = AlarmManager.shared,
+        isMutedMode: IsMutedMode = IsMutedModeManager.shared) {
         self.alarm = alarm
         self.isMutedMode = isMutedMode
 #if DEBUG

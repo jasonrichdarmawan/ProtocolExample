@@ -8,7 +8,7 @@
 import Foundation
 import UserNotifications
 
-protocol Notification {
+protocol Notification: AnyObject {
     /// please show alert in view if return false
     func isAuthorizedOrRequestAuthorization(completionHandler: @escaping (Bool) -> Void)
     

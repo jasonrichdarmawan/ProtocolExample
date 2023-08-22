@@ -8,22 +8,21 @@
 import Foundation
 
 final class NotificationManager {
-    static var shared: Notification! {
+    static weak var shared: Notification! {
         get {
+            var temp: Notification
+            
             if sharedClosure == nil {
-                sharedClosure = NotificationImpl.shared
+                temp = NotificationImpl.shared
+                sharedClosure = temp
             }
             
             return sharedClosure
         }
-        set {
-            if newValue == nil {
-                NotificationImpl.shared = nil
-            }
-            
-            sharedClosure = newValue
-        }
     }
     
-    private static var sharedClosure: Notification!
+    private static weak var sharedClosure: Notification?
 }
+
+
+
