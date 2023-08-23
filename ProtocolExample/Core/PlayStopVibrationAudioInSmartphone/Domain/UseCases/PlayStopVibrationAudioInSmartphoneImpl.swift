@@ -11,7 +11,7 @@ final class PlayStopVibrationAudioInSmartphoneImpl: PlayStopVibrationAudioInSmar
     private var alarm: Alarm
     private var isMutedMode: IsMutedMode
     
-    init(
+    fileprivate init(
         alarm: Alarm = AlarmManager.shared,
         isMutedMode: IsMutedMode = IsMutedModeManager.shared) {
         self.alarm = alarm
@@ -39,4 +39,21 @@ final class PlayStopVibrationAudioInSmartphoneImpl: PlayStopVibrationAudioInSmar
     func stop() -> Bool {
         return alarm.stop()
     }
+}
+
+extension PlayStopVibrationAudioInSmartphoneImpl {
+    static weak var shared: PlayStopVibrationAudioInSmartphone! {
+        get {
+            var temp: PlayStopVibrationAudioInSmartphone
+            
+            if sharedClosure == nil {
+                temp = PlayStopVibrationAudioInSmartphoneImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: PlayStopVibrationAudioInSmartphone?
 }

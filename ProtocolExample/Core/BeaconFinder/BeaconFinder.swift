@@ -7,7 +7,7 @@
 
 import CoreLocation
 
-protocol BeaconFinder {
+protocol BeaconFinder: AnyObject {
     var delegate: BeaconFinderDelegate? { get set }
     
     /// please show alert if return false

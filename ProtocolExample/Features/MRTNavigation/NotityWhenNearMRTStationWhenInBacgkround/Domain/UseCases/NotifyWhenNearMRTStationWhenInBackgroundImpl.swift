@@ -8,7 +8,7 @@
 import UIKit
 
 final class NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStationWhenInBackground {
-    var delegate: NotifyWhenNearMRTStationWhenInBackgroundDelegate?
+    weak var delegate: NotifyWhenNearMRTStationWhenInBackgroundDelegate?
     
     private var notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth
     private var notifyWithGPS: NotifyWhenNearMRTStationWithGPS
@@ -16,9 +16,9 @@ final class NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStati
     
     private var currentStation: Station?
     
-    init(
-        notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
-        notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl(),
+    fileprivate init(
+        notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothManager.shared,
+        notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSManager.shared,
         notification: Notification = NotificationManager.shared
     ) {
         self.notifyWithBluetooth = notifyWithBluetooth
@@ -79,4 +79,21 @@ extension NotifyWhenNearMRTStationWhenInBackgroundImpl: NotifyWhenNearMRTStation
         @unknown default: break
         }
     }
+}
+
+extension NotifyWhenNearMRTStationWhenInBackgroundImpl {
+    static weak var shared: NotifyWhenNearMRTStationWhenInBackground! {
+        get {
+            var temp: NotifyWhenNearMRTStationWhenInBackground
+            
+            if sharedClosure == nil {
+                temp = NotifyWhenNearMRTStationWhenInBackgroundImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: NotifyWhenNearMRTStationWhenInBackground?
 }

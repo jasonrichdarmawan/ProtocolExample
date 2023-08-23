@@ -10,7 +10,7 @@ import Foundation
 final class NotifyWhenNearMRTStationWithGPSImpl: NotifyWhenNearMRTStationWithGPS {
     weak var delegate: NotifyWhenNearMRTStationWithGPSDelegate?
     
-    init() {
+    fileprivate init() {
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -29,4 +29,21 @@ final class NotifyWhenNearMRTStationWithGPSImpl: NotifyWhenNearMRTStationWithGPS
     func stop() -> NotifyWhenNearMRTStationWithGPSStopEvent {
         return .IS_STOPPING
     }
+}
+
+extension NotifyWhenNearMRTStationWithGPSImpl {
+    static weak var shared: NotifyWhenNearMRTStationWithGPS! {
+        get {
+            var temp: NotifyWhenNearMRTStationWithGPS
+            
+            if sharedClosure == nil {
+                temp = NotifyWhenNearMRTStationWithGPSImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: NotifyWhenNearMRTStationWithGPS?
 }

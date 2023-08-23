@@ -54,6 +54,16 @@
 		960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */; };
 		960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A874E2A6DA67E006874E5 /* AlarmView.swift */; };
 		960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87552A6E4D89006874E5 /* ChevronView.swift */; };
+		9649AD532A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */; };
+		9649AD552A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */; };
+		9649AD572A96065400D01518 /* BeaconFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD562A96065400D01518 /* BeaconFinderManager.swift */; };
+		9649AD592A9607A600D01518 /* PlayStopVibrationAudioInSmartphoneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD582A9607A600D01518 /* PlayStopVibrationAudioInSmartphoneManager.swift */; };
+		9649AD5B2A96093E00D01518 /* NotifyWhenNearMRTStationWithBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD5A2A96093E00D01518 /* NotifyWhenNearMRTStationWithBluetoothManager.swift */; };
+		9649AD5D2A9609BB00D01518 /* NotifyWhenNearMRTStationWithGPSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD5C2A9609BB00D01518 /* NotifyWhenNearMRTStationWithGPSManager.swift */; };
+		9649AD5F2A960A9400D01518 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD5E2A960A9400D01518 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceManager.swift */; };
+		9649AD612A960B1900D01518 /* NotifyWhenNearMRTStationOnceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD602A960B1900D01518 /* NotifyWhenNearMRTStationOnceManager.swift */; };
+		9649AD632A960BDC00D01518 /* NotifyWhenNearMRTStationWhenInBackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD622A960BDC00D01518 /* NotifyWhenNearMRTStationWhenInBackgroundManager.swift */; };
+		9649AD652A960C7200D01518 /* MRTTrainScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD642A960C7200D01518 /* MRTTrainScheduleManager.swift */; };
 		9655E94A2A7AECC400DFB581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655E9492A7AECC400DFB581 /* AppDelegate.swift */; };
 		9655E94C2A7AECE000DFB581 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655E94B2A7AECE000DFB581 /* SceneDelegate.swift */; };
 		9655E94E2A7AECF400DFB581 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655E94D2A7AECF400DFB581 /* RootView.swift */; };
@@ -159,6 +169,16 @@
 		960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainScheduleImpl.swift; sourceTree = "<group>"; };
 		960A874E2A6DA67E006874E5 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		960A87552A6E4D89006874E5 /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
+		9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModel.swift; sourceTree = "<group>"; };
+		9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModelImpl.swift; sourceTree = "<group>"; };
+		9649AD562A96065400D01518 /* BeaconFinderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconFinderManager.swift; sourceTree = "<group>"; };
+		9649AD582A9607A600D01518 /* PlayStopVibrationAudioInSmartphoneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopVibrationAudioInSmartphoneManager.swift; sourceTree = "<group>"; };
+		9649AD5A2A96093E00D01518 /* NotifyWhenNearMRTStationWithBluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWithBluetoothManager.swift; sourceTree = "<group>"; };
+		9649AD5C2A9609BB00D01518 /* NotifyWhenNearMRTStationWithGPSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWithGPSManager.swift; sourceTree = "<group>"; };
+		9649AD5E2A960A9400D01518 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationAndSpecificMRTStationOnceManager.swift; sourceTree = "<group>"; };
+		9649AD602A960B1900D01518 /* NotifyWhenNearMRTStationOnceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationOnceManager.swift; sourceTree = "<group>"; };
+		9649AD622A960BDC00D01518 /* NotifyWhenNearMRTStationWhenInBackgroundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyWhenNearMRTStationWhenInBackgroundManager.swift; sourceTree = "<group>"; };
+		9649AD642A960C7200D01518 /* MRTTrainScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainScheduleManager.swift; sourceTree = "<group>"; };
 		9655E9492A7AECC400DFB581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9655E94B2A7AECE000DFB581 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9655E94D2A7AECF400DFB581 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -246,6 +266,7 @@
 			children = (
 				960A551A2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift */,
 				960A551C2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift */,
+				9649AD582A9607A600D01518 /* PlayStopVibrationAudioInSmartphoneManager.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -363,6 +384,7 @@
 			children = (
 				960A87012A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift */,
 				960A87392A6D9E1E006874E5 /* NotifyWhenNearMRTStationWhenInBackgroundImpl.swift */,
+				9649AD622A960BDC00D01518 /* NotifyWhenNearMRTStationWhenInBackgroundManager.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -372,6 +394,7 @@
 			children = (
 				960A87032A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift */,
 				960A87332A6D9DB6006874E5 /* NotifyWhenNearMRTStationWithBluetoothImpl.swift */,
+				9649AD5A2A96093E00D01518 /* NotifyWhenNearMRTStationWithBluetoothManager.swift */,
 			);
 			path = NotifyWhenNearMRTStationWithBluetooth;
 			sourceTree = "<group>";
@@ -381,6 +404,7 @@
 			children = (
 				960A87082A6D8F0A006874E5 /* NotifyWhenNearMRTStationWithGPS.swift */,
 				960A87302A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift */,
+				9649AD5C2A9609BB00D01518 /* NotifyWhenNearMRTStationWithGPSManager.swift */,
 			);
 			path = NotifyWhenNearMRTStationWithGPS;
 			sourceTree = "<group>";
@@ -406,6 +430,7 @@
 			children = (
 				960A87132A6D9147006874E5 /* NotifyWhenNearMRTStationOnce.swift */,
 				960A87372A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift */,
+				9649AD602A960B1900D01518 /* NotifyWhenNearMRTStationOnceManager.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -431,6 +456,7 @@
 			children = (
 				960A87182A6D9463006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce.swift */,
 				960A87352A6D9DEE006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl.swift */,
+				9649AD5E2A960A9400D01518 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceManager.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -440,6 +466,7 @@
 			children = (
 				960A871B2A6D967E006874E5 /* BeaconFinder.swift */,
 				960A872E2A6D9CFB006874E5 /* BeaconFinderImpl.swift */,
+				9649AD562A96065400D01518 /* BeaconFinderManager.swift */,
 			);
 			path = BeaconFinder;
 			sourceTree = "<group>";
@@ -504,6 +531,7 @@
 			children = (
 				960A87432A6D9F2A006874E5 /* MRTTrainSchedule.swift */,
 				960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */,
+				9649AD642A960C7200D01518 /* MRTTrainScheduleManager.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -733,6 +761,8 @@
 				96AACDEF2A6FE9D600534E72 /* DepartureArrivalViewModelV2Impl.swift */,
 				96BB00FA2A82B1CB00073134 /* DepartureArrivalScheduleViewModel.swift */,
 				96611E212A7709A9004B5984 /* DepartureArrivalScheduleViewModelImpl.swift */,
+				9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */,
+				9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -986,14 +1016,19 @@
 				960A871C2A6D967E006874E5 /* BeaconFinder.swift in Sources */,
 				960A87382A6D9E05006874E5 /* NotifyWhenNearMRTStationOnceImpl.swift in Sources */,
 				9691D45C2A6D781200EE843C /* DepartureArrivalV1View.swift in Sources */,
+				9649AD552A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift in Sources */,
 				960A87252A6D9959006874E5 /* Notification.swift in Sources */,
 				96611E272A770C81004B5984 /* CommutingPage.swift in Sources */,
+				9649AD5B2A96093E00D01518 /* NotifyWhenNearMRTStationWithBluetoothManager.swift in Sources */,
 				960A87022A6D8C3C006874E5 /* NotifyWhenNearMRTStationWhenInBackground.swift in Sources */,
 				96F2AAD72A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift in Sources */,
+				9649AD612A960B1900D01518 /* NotifyWhenNearMRTStationOnceManager.swift in Sources */,
 				9655E94C2A7AECE000DFB581 /* SceneDelegate.swift in Sources */,
 				96BB00F12A827CEB00073134 /* MRTNavigationRoute.swift in Sources */,
+				9649AD592A9607A600D01518 /* PlayStopVibrationAudioInSmartphoneManager.swift in Sources */,
 				96A646BD2A8FC10F00642698 /* DetailSheet.swift in Sources */,
 				960A87292A6D9C7A006874E5 /* NotificationImpl+Authorization.swift in Sources */,
+				9649AD532A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift in Sources */,
 				960A55272A716A1E00F8E9FC /* AlarmViewModelImpl.swift in Sources */,
 				96050ED72A73E2A10011DE7E /* Schedule.swift in Sources */,
 				96050ECA2A7383D40011DE7E /* DepartureArrivalSheetViewModelImpl.swift in Sources */,
@@ -1006,6 +1041,7 @@
 				96AACDF02A6FE9D600534E72 /* DepartureArrivalViewModelV2Impl.swift in Sources */,
 				96BB00F52A8282ED00073134 /* DepartureArrivalSheet.swift in Sources */,
 				96AACDEB2A6FE8E900534E72 /* DepartureArrivalV2View+ArrivalV2View.swift in Sources */,
+				9649AD572A96065400D01518 /* BeaconFinderManager.swift in Sources */,
 				96C7BABA2A84C45700D0CFE0 /* DepartureArrivalPageViewModelImpl.swift in Sources */,
 				960A87342A6D9DB6006874E5 /* NotifyWhenNearMRTStationWithBluetoothImpl.swift in Sources */,
 				9655E94E2A7AECF400DFB581 /* RootView.swift in Sources */,
@@ -1021,6 +1057,7 @@
 				96611E2A2A770C8F004B5984 /* CommutingPageViewModelImpl.swift in Sources */,
 				96AACDF42A6FEAFF00534E72 /* DepartureArrivalV1View+DepartureArrivalButtonView.swift in Sources */,
 				960A872B2A6D9CAE006874E5 /* LocationFinderImpl.swift in Sources */,
+				9649AD5D2A9609BB00D01518 /* NotifyWhenNearMRTStationWithGPSManager.swift in Sources */,
 				96F2AB062A947C3E0058BB0C /* CommutingSheet.swift in Sources */,
 				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
 				96F2AAD52A8FC7FC0058BB0C /* CommutingSheetViewModel.swift in Sources */,
@@ -1034,6 +1071,7 @@
 				960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
 				960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */,
+				9649AD5F2A960A9400D01518 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceManager.swift in Sources */,
 				96F2AAF42A9333DD0058BB0C /* GIFImage.swift in Sources */,
 				96F2AAF62A9334340058BB0C /* UIGIFImage.swift in Sources */,
 				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
@@ -1041,6 +1079,7 @@
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
 				96050ED52A73E2900011DE7E /* Platform.swift in Sources */,
 				960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */,
+				9649AD652A960C7200D01518 /* MRTTrainScheduleManager.swift in Sources */,
 				96F2AB142A94CBEB0058BB0C /* LocationExampleViewModelImpl.swift in Sources */,
 				960A59202A6FA82B000BE611 /* Line.swift in Sources */,
 				960A551B2A7146AF00F8E9FC /* PlayStopVibrationAudioInSmartphone.swift in Sources */,
@@ -1070,6 +1109,7 @@
 				96A646A12A8FB66000642698 /* Color+UIColor.swift in Sources */,
 				96050EBC2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift in Sources */,
 				960A87072A6D8E88006874E5 /* Station.swift in Sources */,
+				9649AD632A960BDC00D01518 /* NotifyWhenNearMRTStationWhenInBackgroundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

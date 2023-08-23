@@ -12,7 +12,7 @@ final class LocationExampleViewModelImpl: LocationExampleViewModel {
     
     private var notifyOnceUseCase: NotifyWhenNearMRTStationOnce
     
-    init(notifyOnceUseCase: NotifyWhenNearMRTStationOnce) {
+    init(notifyOnceUseCase: NotifyWhenNearMRTStationOnce = NotifyWhenNearMRTStationOnceManager.shared) {
         self.notifyOnceUseCase = notifyOnceUseCase
         self.notifyOnceUseCase.delegate = self
 #if DEBUG

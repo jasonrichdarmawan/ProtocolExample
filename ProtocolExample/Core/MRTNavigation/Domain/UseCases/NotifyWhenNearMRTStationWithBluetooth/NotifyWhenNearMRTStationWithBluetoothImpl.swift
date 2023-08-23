@@ -15,7 +15,7 @@ final class NotifyWhenNearMRTStationWithBluetoothImpl: NotifyWhenNearMRTStationW
     
     private var constraint: CLBeaconIdentityConstraint?
     
-    init(beaconFinder: BeaconFinder = BeaconFinderImpl()) {
+    fileprivate init(beaconFinder: BeaconFinder = BeaconFinderManager.shared) {
         self.beaconFinder = beaconFinder
         self.beaconFinder.delegate = self
 #if DEBUG
@@ -70,4 +70,21 @@ extension NotifyWhenNearMRTStationWithBluetoothImpl: BeaconFinderDelegate {
             }
         }
     }
+}
+
+extension NotifyWhenNearMRTStationWithBluetoothImpl {
+    static weak var shared: NotifyWhenNearMRTStationWithBluetooth! {
+        get {
+            var temp: NotifyWhenNearMRTStationWithBluetoothImpl
+            
+            if sharedClosure == nil {
+                temp = NotifyWhenNearMRTStationWithBluetoothImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: NotifyWhenNearMRTStationWithBluetooth?
 }

@@ -8,6 +8,8 @@
 import Foundation
 
 final class AlarmManager {
+    fileprivate init() {}
+    
     static var isPlaying = false
     
     static weak var shared: Alarm! {

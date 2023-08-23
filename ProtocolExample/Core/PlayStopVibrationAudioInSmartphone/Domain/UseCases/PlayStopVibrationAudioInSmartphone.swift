@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PlayStopVibrationAudioInSmartphone {
+protocol PlayStopVibrationAudioInSmartphone: AnyObject {
     /// will play only vibration if app in muted mode
     func play() -> Bool
     func stop() -> Bool

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce {
+protocol NotifyWhenNearMRTStationAndSpecificMRTStationOnce: AnyObject {
     var delegate: NotifyWhenNearMRTStationAndSpecificMRTStationOnceDelegate? { get set }
     
     /// will stop when found specific MRT station

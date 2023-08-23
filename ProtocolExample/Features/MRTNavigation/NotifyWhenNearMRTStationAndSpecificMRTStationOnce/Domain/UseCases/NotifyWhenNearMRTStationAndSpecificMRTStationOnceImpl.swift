@@ -17,9 +17,9 @@ final class NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNea
     
     private var arrival: Station?
     
-    init(
-        notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothImpl(),
-        notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSImpl()
+    fileprivate init(
+        notifyWithBluetooth: NotifyWhenNearMRTStationWithBluetooth = NotifyWhenNearMRTStationWithBluetoothManager.shared,
+        notifyWithGPS: NotifyWhenNearMRTStationWithGPS = NotifyWhenNearMRTStationWithGPSManager.shared
     ) {
         self.notifyWithBluetooth = notifyWithBluetooth
         self.notifyWithGPS = notifyWithGPS
@@ -69,4 +69,21 @@ extension NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl: NotifyWhenNearM
         
         delegate?.notifyManager(self, didFind: station, didEvent: arrival == station ? .ARRIVED : .FOUND)
     }
+}
+
+extension NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl {
+    static weak var shared: NotifyWhenNearMRTStationAndSpecificMRTStationOnce! {
+        get {
+            var temp: NotifyWhenNearMRTStationAndSpecificMRTStationOnce
+            
+            if sharedClosure == nil {
+                temp = NotifyWhenNearMRTStationAndSpecificMRTStationOnceImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: NotifyWhenNearMRTStationAndSpecificMRTStationOnce?
 }

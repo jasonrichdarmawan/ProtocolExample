@@ -13,7 +13,7 @@ final class BeaconFinderImpl: NSObject, BeaconFinder {
     private var locationManager: CLLocationManager
     private var beaconConstraints: [CLBeaconIdentityConstraint: [CLBeacon]]
     
-    init(
+    fileprivate init(
         locationManager: CLLocationManager = CLLocationManager(),
         beaconConstraints: [CLBeaconIdentityConstraint: [CLBeacon]] = .init()
     ) {
@@ -108,4 +108,21 @@ extension BeaconFinderImpl: CLLocationManagerDelegate {
         
         delegate?.notifyManager(self, didRange: beaconConstraints)
     }
+}
+
+extension BeaconFinderImpl {
+    static weak var shared: BeaconFinder! {
+        get {
+            var temp: BeaconFinder
+            
+            if sharedClosure == nil {
+                temp = BeaconFinderImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: BeaconFinder?
 }

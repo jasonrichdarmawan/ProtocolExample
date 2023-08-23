@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NotifyWhenNearMRTStationWithBluetooth {
+protocol NotifyWhenNearMRTStationWithBluetooth: AnyObject {
     var delegate: NotifyWhenNearMRTStationWithBluetoothDelegate? { get set }
     
     func start() -> NotifyWhenNearMRTStationWithBluetoothStartEvent

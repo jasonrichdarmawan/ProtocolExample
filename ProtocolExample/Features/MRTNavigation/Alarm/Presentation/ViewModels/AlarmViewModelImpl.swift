@@ -8,7 +8,7 @@
 import Foundation
 
 class AlarmViewModelImpl: AlarmViewModel {
-    private var isMutedModeUseCase: IsMutedMode
+    private let isMutedModeUseCase: IsMutedMode
     private let feedbackUseCase: PlayStopVibrationAudioInSmartphone
     
     @Published var isMutedMode: Bool {
@@ -16,15 +16,15 @@ class AlarmViewModelImpl: AlarmViewModel {
             let _ = isMutedModeUseCase.set(value: isMutedMode)
             
             let _ = feedbackUseCase.play()
-            DispatchQueue.global().asyncAfter(deadline: .now() + 1.0, execute: {
-                let _ = self.feedbackUseCase.stop()
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1.0, execute: { [weak self] in
+                let _ = self?.feedbackUseCase.stop()
             })
         }
     }
     
     init(
         isMutedModeUseCase: IsMutedMode = IsMutedModeManager.shared,
-        feedbackUseCase: PlayStopVibrationAudioInSmartphone = PlayStopVibrationAudioInSmartphoneImpl()
+        feedbackUseCase: PlayStopVibrationAudioInSmartphone = PlayStopVibrationAudioInSmartphoneManager.shared
     ) {
         self.isMutedModeUseCase = isMutedModeUseCase
         self.feedbackUseCase = feedbackUseCase

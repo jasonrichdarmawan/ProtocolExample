@@ -19,7 +19,6 @@ final class RootCoordinator: Coordinator {
 
     private weak var mrtNavigationC: Coordinator?
     
-    private weak var notifyOnceUseCase: NotifyWhenNearMRTStationOnce?
     private weak var locationVC: UIViewController?
     
     init(
@@ -106,10 +105,7 @@ extension RootCoordinator {
     private func pushLocation() -> Bool {
         guard locationVC == nil else { return false }
         
-        let notifyOnceUseCase = NotifyWhenNearMRTStationOnceImpl()
-        self.notifyOnceUseCase = notifyOnceUseCase
-        
-        let locationVM = LocationExampleViewModelImpl(notifyOnceUseCase: notifyOnceUseCase)
+        let locationVM = LocationExampleViewModelImpl()
         
         let view = LocationExamplePage(locationVM: locationVM)
         let viewController = HostingController(rootView: view)

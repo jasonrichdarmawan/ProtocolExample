@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MRTTrainSchedule {
+protocol MRTTrainSchedule: AnyObject {
     func get(departure: Station, arrival: Station, departAt: Date) -> [Platform: Schedule]
 }

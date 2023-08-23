@@ -8,7 +8,7 @@
 import Foundation
 
 final class MRTTrainScheduleImpl: MRTTrainSchedule {
-    init() {
+    fileprivate init() {
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -23,4 +23,21 @@ final class MRTTrainScheduleImpl: MRTTrainSchedule {
     func get(departure: Station, arrival: Station, departAt: Date = .now) -> [Platform : Schedule] {
         return [:]
     }
+}
+
+extension MRTTrainScheduleImpl {
+    static weak var shared: MRTTrainSchedule! {
+        get {
+            var temp: MRTTrainSchedule
+            
+            if sharedClosure == nil {
+                temp = MRTTrainScheduleImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: MRTTrainSchedule?
 }

@@ -1,5 +1,5 @@
 //
-//  IsMutedModeManager.swift
+//  MRTTrainScheduleManager.swift
 //  ProtocolExample
 //
 //  Created by Jason Rich Darmawan Onggo Putra on 23/08/23.
@@ -7,17 +7,15 @@
 
 import Foundation
 
-final class IsMutedModeManager {
+final class MRTTrainScheduleManager {
     fileprivate init() {}
     
-    static var isPlaying = false
-    
-    static var shared: IsMutedMode! {
+    static weak var shared: MRTTrainSchedule! {
         get {
-            var temp: IsMutedMode
+            var temp: MRTTrainSchedule
             
             if sharedClosure == nil {
-                temp = IsMutedModeImpl.shared
+                temp = MRTTrainScheduleImpl.shared
                 sharedClosure = temp
             }
             
@@ -25,5 +23,5 @@ final class IsMutedModeManager {
         }
     }
     
-    private weak static var sharedClosure: IsMutedMode?
+    static weak var sharedClosure: MRTTrainSchedule?
 }

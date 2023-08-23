@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NotifyWhenNearMRTStationWithGPS {
+protocol NotifyWhenNearMRTStationWithGPS: AnyObject {
     var delegate: NotifyWhenNearMRTStationWithGPSDelegate? { get set }
     
     func start() -> NotifyWhenNearMRTStationWithGPSStartEvent

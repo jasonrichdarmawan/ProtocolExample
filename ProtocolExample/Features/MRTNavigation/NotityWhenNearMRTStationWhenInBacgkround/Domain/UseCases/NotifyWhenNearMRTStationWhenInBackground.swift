@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NotifyWhenNearMRTStationWhenInBackground {
+protocol NotifyWhenNearMRTStationWhenInBackground: AnyObject {
     /// start finding when in background
     /// please handle applicationState in view, call stop() when enter foreground.
     func start() -> NotifyWhenNearMRTStationWhenInBackgroundStartEvent
@@ -16,7 +16,7 @@ protocol NotifyWhenNearMRTStationWhenInBackground {
 }
 
 
-protocol NotifyWhenNearMRTStationWhenInBackgroundDelegate {
+protocol NotifyWhenNearMRTStationWhenInBackgroundDelegate: AnyObject {
     func notifyManager(_ manager: NotifyWhenNearMRTStationWhenInBackground, didFind: Station)
 }
 

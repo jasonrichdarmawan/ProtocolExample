@@ -17,7 +17,7 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
     
     private(set) weak var departureArrivalSheetVC: UIViewController?
     private weak var departureArrivalSheetVM: (any DepartureArrivalSheetViewModel)?
-    private weak var departureArrivalSelectVM: (any DepartureArrivalViewModel)?
+    private(set) weak var departureArrivalSelectVM: (any DepartureArrivalViewModel)?
     private weak var departureArrivalScheduleVM: (any DepartureArrivalScheduleViewModel)?
     
     private weak var commutingPageVC: UIViewController?
@@ -110,6 +110,14 @@ extension MRTNavigationCoordinator {
         
         return true
     }
+    
+    func updateDeparture(newValue: Station) -> Bool {
+        guard let viewModel = departureArrivalSelectVM else { return false }
+        
+        viewModel.departure = newValue
+        
+        return true
+    }
 }
 
 // MARK: Commuting
@@ -145,8 +153,6 @@ extension MRTNavigationCoordinator {
         
         sheetController.detents = [detailVM.hideDetailDetent, .large()]
         sheetController.largestUndimmedDetentIdentifier = detailVM.hideDetailDetentIdentifier
-        
-//        sheetController.delegate = sheetVM
         
         navigationController.present(viewController, animated: true)
         

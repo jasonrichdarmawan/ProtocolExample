@@ -8,6 +8,8 @@
 import Foundation
 
 final class NotificationManager {
+    fileprivate init() {}
+    
     static weak var shared: Notification! {
         get {
             var temp: Notification

@@ -1,5 +1,5 @@
 //
-//  IsMutedModeManager.swift
+//  BeaconFinderManager.swift
 //  ProtocolExample
 //
 //  Created by Jason Rich Darmawan Onggo Putra on 23/08/23.
@@ -7,17 +7,15 @@
 
 import Foundation
 
-final class IsMutedModeManager {
+final class BeaconFinderManager {
     fileprivate init() {}
     
-    static var isPlaying = false
-    
-    static var shared: IsMutedMode! {
+    static weak var shared: BeaconFinder! {
         get {
-            var temp: IsMutedMode
+            var temp: BeaconFinder
             
             if sharedClosure == nil {
-                temp = IsMutedModeImpl.shared
+                temp = BeaconFinderImpl.shared
                 sharedClosure = temp
             }
             
@@ -25,5 +23,5 @@ final class IsMutedModeManager {
         }
     }
     
-    private weak static var sharedClosure: IsMutedMode?
+    private static weak var sharedClosure: BeaconFinder?
 }
