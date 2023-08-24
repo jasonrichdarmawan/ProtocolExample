@@ -10,7 +10,7 @@ import SwiftUI
 final class RootCoordinator: Coordinator {
     private let id: UUID
     
-    internal unowned let navigationController: UINavigationController
+    unowned let navigationController: UINavigationController
     
     private weak var rootVC: UIViewController?
     

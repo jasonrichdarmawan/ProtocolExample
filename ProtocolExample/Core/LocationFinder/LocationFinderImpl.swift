@@ -8,9 +8,9 @@
 import Foundation
 
 final class LocationFinderImpl: LocationFinder {
-    var delegate: LocationFinderDelegate?
+    weak var delegate: LocationFinderDelegate?
     
-    init() {
+    fileprivate init() {
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -33,4 +33,21 @@ final class LocationFinderImpl: LocationFinder {
     func stop() -> LocationFinderStopEvent {
         return .IS_STOPPING
     }
+}
+
+extension LocationFinderImpl {
+    static weak var shared: LocationFinder! {
+        get {
+            var temp: LocationFinder
+            
+            if sharedClosure == nil {
+                temp = LocationFinderImpl()
+                sharedClosure = temp
+            }
+            
+            return sharedClosure
+        }
+    }
+    
+    private static weak var sharedClosure: LocationFinder?
 }

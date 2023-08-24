@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-protocol LocationFinder {
+protocol LocationFinder: AnyObject {
     var delegate: LocationFinderDelegate? { get set }
     
     /// please show alert in view if return false
@@ -17,7 +17,7 @@ protocol LocationFinder {
     func stop() -> LocationFinderStopEvent
 }
 
-protocol LocationFinderDelegate {
+protocol LocationFinderDelegate: AnyObject {
     func notifyManager(_ manager: LocationFinder, didUpdateTo: CLLocation)
 }
 

@@ -61,6 +61,7 @@
 		962472F32A97DD7E00A6135E /* CommutingSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F22A97DD7E00A6135E /* CommutingSheetController.swift */; };
 		962472F62A97E24B00A6135E /* LocationExamplePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F52A97E24B00A6135E /* LocationExamplePageController.swift */; };
 		962472F82A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg in Resources */ = {isa = PBXBuildFile; fileRef = 962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */; };
+		962472FA2A97E91C00A6135E /* LocationFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F92A97E91C00A6135E /* LocationFinderManager.swift */; };
 		9649AD532A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */; };
 		9649AD552A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */; };
 		9649AD572A96065400D01518 /* BeaconFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD562A96065400D01518 /* BeaconFinderManager.swift */; };
@@ -183,6 +184,7 @@
 		962472F22A97DD7E00A6135E /* CommutingSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetController.swift; sourceTree = "<group>"; };
 		962472F52A97E24B00A6135E /* LocationExamplePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExamplePageController.swift; sourceTree = "<group>"; };
 		962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg"; sourceTree = "<group>"; };
+		962472F92A97E91C00A6135E /* LocationFinderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderManager.swift; sourceTree = "<group>"; };
 		9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModel.swift; sourceTree = "<group>"; };
 		9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModelImpl.swift; sourceTree = "<group>"; };
 		9649AD562A96065400D01518 /* BeaconFinderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconFinderManager.swift; sourceTree = "<group>"; };
@@ -422,14 +424,6 @@
 			path = NotifyWhenNearMRTStationWithGPS;
 			sourceTree = "<group>";
 		};
-		960A87102A6D912B006874E5 /* NotifyWhenNearMRTStationOnce */ = {
-			isa = PBXGroup;
-			children = (
-				960A87112A6D913A006874E5 /* Domain */,
-			);
-			path = NotifyWhenNearMRTStationOnce;
-			sourceTree = "<group>";
-		};
 		960A87112A6D913A006874E5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +492,7 @@
 			children = (
 				960A87212A6D9838006874E5 /* LocationFinder.swift */,
 				960A872A2A6D9CAE006874E5 /* LocationFinderImpl.swift */,
+				962472F92A97E91C00A6135E /* LocationFinderManager.swift */,
 			);
 			path = LocationFinder;
 			sourceTree = "<group>";
@@ -570,7 +565,6 @@
 				960A874C2A6DA673006874E5 /* Alarm */,
 				960A87402A6D9EFE006874E5 /* MRTTrainSchedule */,
 				960A87152A6D93F5006874E5 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnce */,
-				960A87102A6D912B006874E5 /* NotifyWhenNearMRTStationOnce */,
 				960A86FE2A6D8BF2006874E5 /* NotityWhenNearMRTStationWhenInBacgkround */,
 			);
 			path = MRTNavigation;
@@ -766,6 +760,7 @@
 		9691D4582A6D77F200EE843C /* DepartureArrival */ = {
 			isa = PBXGroup;
 			children = (
+				960A87112A6D913A006874E5 /* Domain */,
 				960A87492A6DA0BE006874E5 /* Presentation */,
 			);
 			path = DepartureArrival;
@@ -1160,6 +1155,7 @@
 				96050EBC2A72B2F70011DE7E /* Either+PrimitiveButtonStyle.swift in Sources */,
 				960A87072A6D8E88006874E5 /* Station.swift in Sources */,
 				9649AD632A960BDC00D01518 /* NotifyWhenNearMRTStationWhenInBackgroundManager.swift in Sources */,
+				962472FA2A97E91C00A6135E /* LocationFinderManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
