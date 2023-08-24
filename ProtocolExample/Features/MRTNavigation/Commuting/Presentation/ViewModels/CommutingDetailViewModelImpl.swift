@@ -8,45 +8,41 @@
 import UIKit
 
 final class CommutingDetailViewModelImpl: NSObject, CommutingDetailViewModel {
-    var coordinator: Coordinator
+    var controller: Controller?
     
     var hideDetailDetent: UISheetPresentationController.Detent
     var hideDetailDetentIdentifier: UISheetPresentationController.Detent.Identifier
     
     @Published var hideDetail: Bool {
         didSet {
-            if let coordinator = coordinator as? MRTNavigationCoordinator {
-                guard let sheetController = coordinator.commutingSheetVC?.sheetPresentationController else { return }
-                
-                sheetController.animateChanges {
-                    if hideDetail {
-                        sheetController.selectedDetentIdentifier = hideDetailDetentIdentifier
-                    } else {
-                        sheetController.selectedDetentIdentifier = .large
-                    }
+            guard let sheetController = controller?.viewController?.sheetPresentationController else { return }
+            
+            sheetController.animateChanges {
+                if hideDetail {
+                    sheetController.selectedDetentIdentifier = hideDetailDetentIdentifier
+                } else {
+                    sheetController.selectedDetentIdentifier = .large
                 }
             }
         }
     }
     
     init(
-        coordinator: Coordinator,
+        controller: Controller? = nil,
         hideDetailDetent: UISheetPresentationController.Detent = .custom(
             identifier: .init("hideDetailDetent"),
             resolver: { context in 390 }),
         hideDetailDetentIdentifier: UISheetPresentationController.Detent.Identifier = .init("hideDetailDetent"),
         hideDetail: Bool = true
     ) {
-        self.coordinator = coordinator
+        self.controller = controller
         self.hideDetailDetent = hideDetailDetent
         self.hideDetailDetentIdentifier = hideDetailDetentIdentifier
         self.hideDetail = hideDetail
     }
     
     func setAsDelegate() -> Bool {
-        guard let coordinator = coordinator as? MRTNavigationCoordinator else { return false }
-        
-        guard let sheetController = coordinator.commutingSheetVC?.sheetPresentationController else { return false }
+        guard let sheetController = controller?.viewController?.sheetPresentationController else { return false }
         
         sheetController.delegate = self
         
@@ -56,7 +52,7 @@ final class CommutingDetailViewModelImpl: NSObject, CommutingDetailViewModel {
 
 extension CommutingDetailViewModelImpl: UISheetPresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        _ = coordinator.popViewController(animated: true)
+        _ = controller?.coordinator?.navigationController.popViewController(animated: true)
     }
     
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {

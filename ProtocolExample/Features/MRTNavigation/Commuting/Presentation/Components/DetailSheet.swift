@@ -189,17 +189,16 @@ extension DetailSheet {
 
 #if DEBUG
 struct CommutingSheetExample: View {
-    var coordinator: Coordinator = MRTNavigationCoordinator(navigationController: UINavigationController())
+    @StateObject private var pageVM = CommutingPageViewModelImpl()
+    @StateObject private var sheetVM = CommutingSheetViewModelImpl()
+    @StateObject private var detailVM = CommutingDetailViewModelImpl()
     
     var body: some View {
         VStack {
-            CommutingPage(
-                pageVM: CommutingPageViewModelImpl(coordinator: coordinator))
+            CommutingPage(pageVM: pageVM)
         }
         .sheet(isPresented: .constant(true)) {
-            DetailSheet(
-                sheetVM: CommutingSheetViewModelImpl(coordinator: coordinator),
-                detailVM: CommutingDetailViewModelImpl(coordinator: coordinator))
+            DetailSheet(sheetVM: sheetVM, detailVM: detailVM)
             .presentationDetents([.height(390), .large])
             .presentationBackgroundInteraction(.enabled)
         }

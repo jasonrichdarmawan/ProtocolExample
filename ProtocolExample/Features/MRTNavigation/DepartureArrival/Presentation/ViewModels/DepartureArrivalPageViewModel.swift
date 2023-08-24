@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DepartureArrivalPageViewModel: ObservableObject {
-    func nextPage() -> Bool
+    func presentSheet() -> Bool
 }

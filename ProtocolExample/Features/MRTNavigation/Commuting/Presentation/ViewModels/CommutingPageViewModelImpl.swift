@@ -8,10 +8,10 @@
 import Foundation
 
 class CommutingPageViewModelImpl: CommutingPageViewModel {
-    private var coordinator: Coordinator
+    private var controller: Controller?
     
-    init(coordinator: Coordinator) {
-        self.coordinator = coordinator
+    init(controller: Controller? = nil) {
+        self.controller = controller
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -24,6 +24,7 @@ class CommutingPageViewModelImpl: CommutingPageViewModel {
     }
     
     func nextPage() -> Bool {
+        guard let coordinator = controller?.coordinator else { return false }
         return coordinator.showRoute(MRTNavigationRoute.CommutingSheet)
     }
 }

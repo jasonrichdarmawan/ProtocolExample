@@ -53,9 +53,7 @@ struct ArrivedAtDestinationSheet<SheetVM: CommutingSheetViewModel>: View {
 struct ArrivedAtDestinationSheet_Previews: PreviewProvider {
     static var previews: some View {
         ArrivedAtDestinationSheet(
-            sheetVM: CommutingSheetViewModelImpl(
-                coordinator: MRTNavigationCoordinator(
-                    navigationController: UINavigationController())))
+            sheetVM: CommutingSheetViewModelImpl())
     }
 }
 #endif

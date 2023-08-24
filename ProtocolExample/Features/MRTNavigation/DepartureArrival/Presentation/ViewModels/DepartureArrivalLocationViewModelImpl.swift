@@ -5,15 +5,15 @@
 //  Created by Jason Rich Darmawan Onggo Putra on 23/08/23.
 //
 
-import Foundation
+import UIKit
 
 final class DepartureArrivalLocationViewModelImpl: NSObject, DepartureArrivalLocationViewModel {
-    var coordinator: Coordinator
+    var controller: Controller
     
     var notifyOnceUseCase: NotifyWhenNearMRTStationOnce
     
-    init(coordinator: Coordinator, notifyOnceUseCase: NotifyWhenNearMRTStationOnce = NotifyWhenNearMRTStationOnceManager.shared) {
-        self.coordinator = coordinator
+    init(controller: Controller, notifyOnceUseCase: NotifyWhenNearMRTStationOnce = NotifyWhenNearMRTStationOnceManager.shared) {
+        self.controller = controller
         self.notifyOnceUseCase = notifyOnceUseCase
         
         super.init()
@@ -38,8 +38,8 @@ final class DepartureArrivalLocationViewModelImpl: NSObject, DepartureArrivalLoc
 
 extension DepartureArrivalLocationViewModelImpl: NotifyWhenNearMRTStationOnceDelegate {
     func notifyManager(_ manager: NotifyWhenNearMRTStationOnce, didFind station: Station) {
-        guard let coordinator = coordinator as? MRTNavigationCoordinator else { return }
+        guard let controller = controller as? DepartureArrivalSheetController else { return }
         
-        _ = coordinator.updateDeparture(newValue: station)
+        _ = controller.updateDeparture(newValue: station)
     }
 }

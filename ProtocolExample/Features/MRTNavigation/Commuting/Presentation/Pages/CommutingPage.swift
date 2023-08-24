@@ -46,8 +46,9 @@ struct CommutingPage_Previews: PreviewProvider {
     static var previews: some View {
         CommutingPage(
             pageVM: CommutingPageViewModelImpl(
-                coordinator: MRTNavigationCoordinator(
-                    navigationController: UINavigationController()))
+                controller: CommutingPageController(
+                    coordinator: MRTNavigationCoordinator(
+                        navigationController: UINavigationController())))
         )
         .environment(\.locale, .init(identifier: "id-ID"))
     }

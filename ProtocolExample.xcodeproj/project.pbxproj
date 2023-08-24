@@ -54,6 +54,13 @@
 		960A87482A6DA043006874E5 /* MRTTrainScheduleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */; };
 		960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A874E2A6DA67E006874E5 /* AlarmView.swift */; };
 		960A87562A6E4D89006874E5 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A87552A6E4D89006874E5 /* ChevronView.swift */; };
+		962472E92A97BA3500A6135E /* DepartureArrivalSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472E82A97BA3500A6135E /* DepartureArrivalSheetController.swift */; };
+		962472EC2A97D4BA00A6135E /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472EB2A97D4BA00A6135E /* Controller.swift */; };
+		962472EE2A97D82A00A6135E /* DepartureArrivalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472ED2A97D82A00A6135E /* DepartureArrivalPageController.swift */; };
+		962472F12A97DB6900A6135E /* CommutingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F02A97DB6900A6135E /* CommutingPageController.swift */; };
+		962472F32A97DD7E00A6135E /* CommutingSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F22A97DD7E00A6135E /* CommutingSheetController.swift */; };
+		962472F62A97E24B00A6135E /* LocationExamplePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F52A97E24B00A6135E /* LocationExamplePageController.swift */; };
+		962472F82A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg in Resources */ = {isa = PBXBuildFile; fileRef = 962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */; };
 		9649AD532A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */; };
 		9649AD552A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */; };
 		9649AD572A96065400D01518 /* BeaconFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD562A96065400D01518 /* BeaconFinderManager.swift */; };
@@ -169,6 +176,13 @@
 		960A87472A6DA043006874E5 /* MRTTrainScheduleImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRTTrainScheduleImpl.swift; sourceTree = "<group>"; };
 		960A874E2A6DA67E006874E5 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		960A87552A6E4D89006874E5 /* ChevronView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
+		962472E82A97BA3500A6135E /* DepartureArrivalSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalSheetController.swift; sourceTree = "<group>"; };
+		962472EB2A97D4BA00A6135E /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		962472ED2A97D82A00A6135E /* DepartureArrivalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalPageController.swift; sourceTree = "<group>"; };
+		962472F02A97DB6900A6135E /* CommutingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPageController.swift; sourceTree = "<group>"; };
+		962472F22A97DD7E00A6135E /* CommutingSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetController.swift; sourceTree = "<group>"; };
+		962472F52A97E24B00A6135E /* LocationExamplePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExamplePageController.swift; sourceTree = "<group>"; };
+		962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg"; sourceTree = "<group>"; };
 		9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModel.swift; sourceTree = "<group>"; };
 		9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModelImpl.swift; sourceTree = "<group>"; };
 		9649AD562A96065400D01518 /* BeaconFinderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconFinderManager.swift; sourceTree = "<group>"; };
@@ -215,7 +229,6 @@
 		96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		96E247302A790D4400664689 /* DepartureArrivalSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalSheetViewModel.swift; sourceTree = "<group>"; };
 		96E247322A790F5400664689 /* DepartureArrivalComponent.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = DepartureArrivalComponent.svg; sourceTree = "<group>"; };
-		96F1BDB02A8DCB54002C7708 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg"; sourceTree = "<group>"; };
 		96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModel.swift; sourceTree = "<group>"; };
 		96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModelImpl.swift; sourceTree = "<group>"; };
 		96F2AAED2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg"; sourceTree = "<group>"; };
@@ -539,8 +552,9 @@
 		960A87492A6DA0BE006874E5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				96AACDFA2A6FEE5300534E72 /* Pages */,
+				962472EA2A97CFBE00A6135E /* Controller */,
 				96AACDEE2A6FE9C300534E72 /* ViewModels */,
+				96AACDFA2A6FEE5300534E72 /* Pages */,
 				9691D45A2A6D780400EE843C /* Components */,
 			);
 			path = Presentation;
@@ -549,8 +563,8 @@
 		960A874A2A6DA129006874E5 /* MRTNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				96F2AB0B2A94CAA60058BB0C /* LocationExample */,
 				96BB00EF2A827CDF00073134 /* Coordinator */,
+				96F2AB0B2A94CAA60058BB0C /* LocationExample */,
 				9691D4582A6D77F200EE843C /* DepartureArrival */,
 				96611E232A770C71004B5984 /* Commuting */,
 				960A874C2A6DA673006874E5 /* Alarm */,
@@ -595,6 +609,32 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		962472EA2A97CFBE00A6135E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				962472ED2A97D82A00A6135E /* DepartureArrivalPageController.swift */,
+				962472E82A97BA3500A6135E /* DepartureArrivalSheetController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		962472EF2A97DB6100A6135E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				962472F02A97DB6900A6135E /* CommutingPageController.swift */,
+				962472F22A97DD7E00A6135E /* CommutingSheetController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		962472F42A97E24300A6135E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				962472F52A97E24B00A6135E /* LocationExamplePageController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		96611DF52A76BF99004B5984 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,20 +676,21 @@
 		96611E242A770C76004B5984 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				96F2AAE42A90B3D50058BB0C /* Components */,
+				962472EF2A97DB6100A6135E /* Controller */,
 				96611E282A770C85004B5984 /* ViewModels */,
-				96611E252A770C7A004B5984 /* Page */,
+				96F2AAE42A90B3D50058BB0C /* Components */,
+				96611E252A770C7A004B5984 /* Pages */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		96611E252A770C7A004B5984 /* Page */ = {
+		96611E252A770C7A004B5984 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				96611E262A770C81004B5984 /* CommutingPage.swift */,
 				96F2AB052A947C3E0058BB0C /* CommutingSheet.swift */,
 			);
-			path = Page;
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		96611E282A770C85004B5984 /* ViewModels */ = {
@@ -811,6 +852,7 @@
 			children = (
 				96BB00E72A82777500073134 /* NavigationRoute.swift */,
 				96BB00E52A82770800073134 /* Coordinator.swift */,
+				962472EB2A97D4BA00A6135E /* Controller.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -862,7 +904,7 @@
 			isa = PBXGroup;
 			children = (
 				96E247322A790F5400664689 /* DepartureArrivalComponent.svg */,
-				96F1BDB02A8DCB54002C7708 /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */,
+				962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */,
 				96F2AAED2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg */,
 				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
 				96050ED02A73C4B00011DE7E /* Arrival-iteration2.svg */,
@@ -912,6 +954,7 @@
 		96F2AB0C2A94CAAC0058BB0C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				962472F42A97E24300A6135E /* Controller */,
 				96F2AB102A94CB940058BB0C /* ViewModels */,
 				96F2AB0D2A94CAB00058BB0C /* Pages */,
 			);
@@ -1000,6 +1043,7 @@
 				960A59102A6ED706000BE611 /* Localizable.strings in Resources */,
 				9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */,
 				96F2AB002A9475A70058BB0C /* ArrivedAtDestination.gif in Resources */,
+				962472F82A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,6 +1055,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9655E94A2A7AECC400DFB581 /* AppDelegate.swift in Sources */,
+				962472EE2A97D82A00A6135E /* DepartureArrivalPageController.swift in Sources */,
 				960A87042A6D8E48006874E5 /* NotifyWhenNearMRTStationWithBluetooth.swift in Sources */,
 				96C7BAB82A84C43700D0CFE0 /* DepartureArrivalPageViewModel.swift in Sources */,
 				960A871C2A6D967E006874E5 /* BeaconFinder.swift in Sources */,
@@ -1062,20 +1107,25 @@
 				96050EBE2A72BD300011DE7E /* DepartureArrivalViewModel.swift in Sources */,
 				96F2AAD52A8FC7FC0058BB0C /* CommutingSheetViewModel.swift in Sources */,
 				960A87312A6D9D8B006874E5 /* NotifyWhenNearMRTStationWithGPSImpl.swift in Sources */,
+				962472F32A97DD7E00A6135E /* CommutingSheetController.swift in Sources */,
 				96E2472D2A78E67000664689 /* CommutingPageViewModel.swift in Sources */,
 				9655E9572A7AF1E800DFB581 /* HostingController.swift in Sources */,
 				960A55222A7157CF00F8E9FC /* IsMutedModeImpl.swift in Sources */,
 				96BB00EB2A82781F00073134 /* RootRoute.swift in Sources */,
 				960A552E2A726D4600F8E9FC /* DepartureArrivalScheduleView.swift in Sources */,
+				962472EC2A97D4BA00A6135E /* Controller.swift in Sources */,
 				960A873D2A6D9E97006874E5 /* Alarm.swift in Sources */,
 				960A551D2A7146DC00F8E9FC /* PlayStopVibrationAudioInSmartphoneImpl.swift in Sources */,
 				960A87462A6D9F7A006874E5 /* Train.swift in Sources */,
 				960A55132A70EF1F00F8E9FC /* AlarmManager.swift in Sources */,
 				9649AD5F2A960A9400D01518 /* NotifyWhenNearMRTStationAndSpecificMRTStationOnceManager.swift in Sources */,
 				96F2AAF42A9333DD0058BB0C /* GIFImage.swift in Sources */,
+				962472F62A97E24B00A6135E /* LocationExamplePageController.swift in Sources */,
 				96F2AAF62A9334340058BB0C /* UIGIFImage.swift in Sources */,
 				960A59222A6FD7CB000BE611 /* DepartureArrivalV2View.swift in Sources */,
 				96E2472F2A78E7AF00664689 /* AlarmViewModel.swift in Sources */,
+				962472F12A97DB6900A6135E /* CommutingPageController.swift in Sources */,
+				962472E92A97BA3500A6135E /* DepartureArrivalSheetController.swift in Sources */,
 				960A874F2A6DA67E006874E5 /* AlarmView.swift in Sources */,
 				96050ED52A73E2900011DE7E /* Platform.swift in Sources */,
 				960A55162A70EFA800F8E9FC /* NotificationManager.swift in Sources */,

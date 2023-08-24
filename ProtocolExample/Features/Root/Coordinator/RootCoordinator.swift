@@ -19,7 +19,7 @@ final class RootCoordinator: Coordinator {
 
     private weak var mrtNavigationC: Coordinator?
     
-    private weak var locationVC: UIViewController?
+    private weak var locationPageC: Controller?
     
     init(
         id: UUID = UUID(),
@@ -103,17 +103,11 @@ extension RootCoordinator {
 
 extension RootCoordinator {
     private func pushLocation() -> Bool {
-        guard locationVC == nil else { return false }
+        guard locationPageC == nil else { return false }
         
-        let locationVM = LocationExampleViewModelImpl()
+        let controller = LocationExamplePageController(coordinator: self)
+        locationPageC = controller
         
-        let view = LocationExamplePage(locationVM: locationVM)
-        let viewController = HostingController(rootView: view)
-        locationVC = viewController
-        
-        navigationController.pushViewController(viewController, animated: true)
-        navigationController.setNavigationBarHidden(false, animated: true)
-        
-        return true
+        return controller.loadView()
     }
 }

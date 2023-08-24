@@ -23,6 +23,7 @@ struct LocationExamplePage<LocationVM: LocationExampleViewModel>: ViewControllab
 
 extension LocationExamplePage {
     func viewWillAppear(_ viewController: UIViewController) {
+        viewController.navigationController?.setNavigationBarHidden(false, animated: true)
         _ = locationVM.start()
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 final class CommutingSheetViewModelImpl: CommutingSheetViewModel {
-    var coordinator: Coordinator
+    var controller: Controller?
     
     @Published var state: CommutingSheetState {
         willSet {
@@ -21,14 +21,15 @@ final class CommutingSheetViewModelImpl: CommutingSheetViewModel {
     }
     
     init(
-        coordinator: Coordinator,
+        controller: Controller? = nil,
         state: CommutingSheetState = .DetailSheet
     ) {
-        self.coordinator = coordinator
+        self.controller = controller
         self.state = .DetailSheet
     }
     
     func cancel(animated: Bool) -> Bool {
+        guard let coordinator = controller?.coordinator else { return false }
         guard coordinator.dismiss(animated: animated) else { return false }
         return coordinator.popViewController(animated: animated)
     }
@@ -36,9 +37,7 @@ final class CommutingSheetViewModelImpl: CommutingSheetViewModel {
 
 extension CommutingSheetViewModelImpl {
     private func presentDetailSheet() -> Bool {
-        guard let coordinator = coordinator as? MRTNavigationCoordinator else { return false }
-        
-        guard let sheetController = coordinator.commutingSheetVC?.sheetPresentationController else { return false }
+        guard let sheetController = controller?.viewController?.sheetPresentationController else { return false }
         
         sheetController.animateChanges {
             sheetController.selectedDetentIdentifier = .medium
@@ -48,9 +47,7 @@ extension CommutingSheetViewModelImpl {
     }
     
     private func presentArrivedAtDestinationSheet() -> Bool {
-        guard let coordinator = coordinator as? MRTNavigationCoordinator else { return false }
-        
-        guard let sheetController = coordinator.commutingSheetVC?.sheetPresentationController else { return false }
+        guard let sheetController = controller?.viewController?.sheetPresentationController else { return false }
         
         sheetController.animateChanges {
             sheetController.selectedDetentIdentifier = .large

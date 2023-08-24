@@ -8,7 +8,7 @@
 import SwiftUI
 
 class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewModel {
-    private var coordinator: Coordinator
+    private var controller: Controller
     
     var selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent
     var selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier
@@ -16,20 +16,20 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     @Published var isPresented: Bool {
         didSet {
             if isPresented {
-                updateDepartureArrivalSheetSelectedDetentIdentifier(.large)
+                updateSelectedDetentIdentifier(.large)
             } else {
-                updateDepartureArrivalSheetSelectedDetentIdentifier(selectMRTStationNotPresentedDetentIdentifier)
+                updateSelectedDetentIdentifier(selectMRTStationNotPresentedDetentIdentifier)
             }
         }
     }
     
     init(
-        coordinator: Coordinator,
+        controller: Controller,
         selectMRTStationNotPresentedDetent: UISheetPresentationController.Detent = .custom(identifier: .init("selectMRTStationNotPresentedDetent"), resolver: { context in 648 }),
         selectMRTStationNotPresentedDetentIdentifier: UISheetPresentationController.Detent.Identifier = .init("selectMRTStationNotPresentedDetent"),
         isPresented: Bool = false
     ) {
-        self.coordinator = coordinator
+        self.controller = controller
         self.selectMRTStationNotPresentedDetent = selectMRTStationNotPresentedDetent
         self.selectMRTStationNotPresentedDetentIdentifier = selectMRTStationNotPresentedDetentIdentifier
         self.isPresented = isPresented
@@ -45,13 +45,14 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
     }
     
     func nextPage() -> Bool {
+        guard let coordinator = controller.coordinator else { return false }
         guard coordinator.dismiss(animated: true) else { return false }
+        
         return coordinator.showRoute(MRTNavigationRoute.CommutingPage)
     }
     
-    private func updateDepartureArrivalSheetSelectedDetentIdentifier(_ selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier?) {
-        if let coordinator = coordinator as? MRTNavigationCoordinator,
-           let sheetController = coordinator.departureArrivalSheetVC?.sheetPresentationController {
+    private func updateSelectedDetentIdentifier(_ selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier?) {
+        if let sheetController = controller.viewController?.sheetPresentationController {
             sheetController.animateChanges {
                 sheetController.selectedDetentIdentifier = selectedDetentIdentifier
             }
@@ -61,7 +62,7 @@ class DepartureArrivalSheetViewModelImpl: NSObject, DepartureArrivalSheetViewMod
 
 extension DepartureArrivalSheetViewModelImpl: UISheetPresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        _ = coordinator.popViewController(animated: true)
+        _ = controller.coordinator?.navigationController.popViewController(animated: true)
     }
     
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {

@@ -32,7 +32,7 @@ struct DepartureArrivalPage<PageVM: DepartureArrivalPageViewModel>: ViewControll
     func viewDidAppear(_ viewController: UIViewController) {
         viewController.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        _ = pageVM.nextPage()
+        _ = pageVM.presentSheet()
     }
 }
 
@@ -42,8 +42,9 @@ struct DepartureArrivalPage_Preview: PreviewProvider {
         NavigationStack {
             DepartureArrivalPage(
                 pageVM: DepartureArrivalPageViewModelImpl(
-                    coordinator: MRTNavigationCoordinator(
-                        navigationController: NavigationController()
+                    controller: DepartureArrivalPageController(
+                        coordinator: MRTNavigationCoordinator(
+                            navigationController: UINavigationController())
                     )
                 )
             )

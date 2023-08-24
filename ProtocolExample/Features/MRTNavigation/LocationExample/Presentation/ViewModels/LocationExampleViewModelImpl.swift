@@ -8,11 +8,17 @@
 import Foundation
 
 final class LocationExampleViewModelImpl: LocationExampleViewModel {
+    var controller: Controller?
+    
     @Published var station: Station?
     
     private var notifyOnceUseCase: NotifyWhenNearMRTStationOnce
     
-    init(notifyOnceUseCase: NotifyWhenNearMRTStationOnce = NotifyWhenNearMRTStationOnceManager.shared) {
+    init(
+        controller: Controller? = nil,
+        notifyOnceUseCase: NotifyWhenNearMRTStationOnce = NotifyWhenNearMRTStationOnceManager.shared
+    ) {
+        self.controller = controller
         self.notifyOnceUseCase = notifyOnceUseCase
         self.notifyOnceUseCase.delegate = self
 #if DEBUG

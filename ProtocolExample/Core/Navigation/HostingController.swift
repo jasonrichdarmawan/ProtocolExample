@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class HostingController<ContentView>: UIHostingController<ContentView> where ContentView: ViewControllable {
+class HostingController<ContentView>: UIHostingController<ContentView> where ContentView: ViewControllable {
     private let id: UUID
     
     init(id: UUID = UUID(), rootView: ContentView) {

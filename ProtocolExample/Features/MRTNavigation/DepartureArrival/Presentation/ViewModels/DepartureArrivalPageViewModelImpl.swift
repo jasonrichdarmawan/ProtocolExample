@@ -8,10 +8,10 @@
 import Foundation
 
 final class DepartureArrivalPageViewModelImpl: DepartureArrivalPageViewModel {
-    private var coordinator: Coordinator
+    private var controller: Controller
     
-    init(coordinator: Coordinator) {
-        self.coordinator = coordinator
+    init(controller: Controller) {
+        self.controller = controller
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -23,7 +23,8 @@ final class DepartureArrivalPageViewModelImpl: DepartureArrivalPageViewModel {
 #endif
     }
     
-    func nextPage() -> Bool {
-        coordinator.showRoute(MRTNavigationRoute.DepartureArrivalSheet)
+    func presentSheet() -> Bool {
+        guard let coordinator = controller.coordinator else { return false }
+        return coordinator.showRoute(MRTNavigationRoute.DepartureArrivalSheet)
     }
 }
