@@ -10,20 +10,24 @@ import SwiftUI
 struct DepartureArrivalSheet<
     SheetVM: DepartureArrivalSheetViewModel,
     SelectVM: DepartureArrivalViewModel,
-    ScheduleVM: DepartureArrivalScheduleViewModel
+    ScheduleVM: DepartureArrivalScheduleViewModel,
+    LocationVM: DepartureArrivalLocationViewModel
 >: ViewControllable {
     @ObservedObject var sheetVM: SheetVM
     @ObservedObject var selectVM: SelectVM
     @ObservedObject var scheduleVM: ScheduleVM
+    @ObservedObject var locationVM: LocationVM
     
     init(
         sheetVM: SheetVM,
         selectVM: SelectVM = DepartureArrivalViewModelImpl(),
-        scheduleVM: ScheduleVM = DepartureArrivalScheduleViewModelImpl()
+        scheduleVM: ScheduleVM = DepartureArrivalScheduleViewModelImpl(),
+        locationVM: LocationVM
     ) {
         self.sheetVM = sheetVM
         self.selectVM = selectVM
         self.scheduleVM = scheduleVM
+        self.locationVM = locationVM
     }
     
     var body: some View {
@@ -63,5 +67,11 @@ struct DepartureArrivalSheet<
             }
         }
         .padding(.horizontal, 32)
+    }
+}
+
+extension DepartureArrivalSheet {
+    func viewWillAppear(_ viewController: UIViewController) {
+        _ = locationVM.start()
     }
 }

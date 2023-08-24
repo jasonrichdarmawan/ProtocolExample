@@ -19,6 +19,7 @@ final class MRTNavigationCoordinator: NSObject, Coordinator {
     private weak var departureArrivalSheetVM: (any DepartureArrivalSheetViewModel)?
     private(set) weak var departureArrivalSelectVM: (any DepartureArrivalViewModel)?
     private weak var departureArrivalScheduleVM: (any DepartureArrivalScheduleViewModel)?
+    private weak var departureLocationVM: (any DepartureArrivalLocationViewModel)?
     
     private weak var commutingPageVC: UIViewController?
     private weak var commutingPageVM: (any CommutingPageViewModel)?
@@ -91,7 +92,10 @@ extension MRTNavigationCoordinator {
         let scheduleVM = DepartureArrivalScheduleViewModelImpl()
         self.departureArrivalScheduleVM = scheduleVM
         
-        let view = DepartureArrivalSheet(sheetVM: sheetVM, selectVM: selectVM, scheduleVM: scheduleVM)
+        let locationVM = DepartureArrivalLocationViewModelImpl(coordinator: self)
+        self.departureLocationVM = locationVM
+        
+        let view = DepartureArrivalSheet(sheetVM: sheetVM, selectVM: selectVM, scheduleVM: scheduleVM, locationVM: locationVM)
         let viewController = HostingController(rootView: view)
         
         // prevents the interactive dismissal of the view controller while it is onscreen.

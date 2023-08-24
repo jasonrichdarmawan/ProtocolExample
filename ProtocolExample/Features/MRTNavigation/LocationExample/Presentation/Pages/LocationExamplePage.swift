@@ -19,7 +19,9 @@ struct LocationExamplePage<LocationVM: LocationExampleViewModel>: ViewControllab
             Text("\(locationVM.station?.name ?? "") Station")
         }
     }
-    
+}
+
+extension LocationExamplePage {
     func viewWillAppear(_ viewController: UIViewController) {
         _ = locationVM.start()
     }

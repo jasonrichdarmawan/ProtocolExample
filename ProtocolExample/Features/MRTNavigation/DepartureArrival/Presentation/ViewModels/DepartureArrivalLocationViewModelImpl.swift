@@ -12,7 +12,7 @@ final class DepartureArrivalLocationViewModelImpl: NSObject, DepartureArrivalLoc
     
     var notifyOnceUseCase: NotifyWhenNearMRTStationOnce
     
-    init(coordinator: Coordinator, notifyOnceUseCase: NotifyWhenNearMRTStationOnce) {
+    init(coordinator: Coordinator, notifyOnceUseCase: NotifyWhenNearMRTStationOnce = NotifyWhenNearMRTStationOnceManager.shared) {
         self.coordinator = coordinator
         self.notifyOnceUseCase = notifyOnceUseCase
         
