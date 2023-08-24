@@ -7,34 +7,6 @@
 
 import SwiftUI
 
-
-//protocol RootViewModel: ObservableObject {
-//    func navigateToAlarmComponent(_ viewController: UIViewController?) -> Bool
-//    func navigateToDepartureArrivalPage(_ viewController: UIViewController?) -> Bool
-//}
-
-//class RootViewModeImpll: RootViewModel {
-//    func navigateToAlarmComponent(_ viewController: UIViewController?) -> Bool {
-//        guard let navigationController = viewController?.navigationController else { return false }
-//
-//        let view = AlarmView()
-//
-//        navigationController.pushViewController(view.viewController, animated: true)
-//
-//        return true
-//    }
-//
-//    func navigateToDepartureArrivalPage(_ viewController: UIViewController?) -> Bool {
-//        guard let navigationController = viewController?.navigationController else { return false }
-//
-//        let view = DepartureArrivalPage()
-//
-//        navigationController.pushViewController(view.viewController, animated: true)
-//
-//        return true
-//    }
-//}
-
 struct RootView: ViewControllable {
     private var coordinator: Coordinator
     
