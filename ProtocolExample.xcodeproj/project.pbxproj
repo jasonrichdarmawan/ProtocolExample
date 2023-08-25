@@ -60,7 +60,6 @@
 		962472F12A97DB6900A6135E /* CommutingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F02A97DB6900A6135E /* CommutingPageController.swift */; };
 		962472F32A97DD7E00A6135E /* CommutingSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F22A97DD7E00A6135E /* CommutingSheetController.swift */; };
 		962472F62A97E24B00A6135E /* LocationExamplePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F52A97E24B00A6135E /* LocationExamplePageController.swift */; };
-		962472F82A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg in Resources */ = {isa = PBXBuildFile; fileRef = 962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */; };
 		962472FA2A97E91C00A6135E /* LocationFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962472F92A97E91C00A6135E /* LocationFinderManager.swift */; };
 		9649AD532A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */; };
 		9649AD552A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */; };
@@ -183,8 +182,8 @@
 		962472F02A97DB6900A6135E /* CommutingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingPageController.swift; sourceTree = "<group>"; };
 		962472F22A97DD7E00A6135E /* CommutingSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetController.swift; sourceTree = "<group>"; };
 		962472F52A97E24B00A6135E /* LocationExamplePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExamplePageController.swift; sourceTree = "<group>"; };
-		962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg"; sourceTree = "<group>"; };
 		962472F92A97E91C00A6135E /* LocationFinderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderManager.swift; sourceTree = "<group>"; };
+		962472FE2A985F7600A6135E /* MRT Jakarta Navigation Use Cases-Design Pattern.drawio.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Design Pattern.drawio.svg"; sourceTree = "<group>"; };
 		9649AD522A95E05E00D01518 /* DepartureArrivalLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModel.swift; sourceTree = "<group>"; };
 		9649AD542A95E0B500D01518 /* DepartureArrivalLocationViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalLocationViewModelImpl.swift; sourceTree = "<group>"; };
 		9649AD562A96065400D01518 /* BeaconFinderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconFinderManager.swift; sourceTree = "<group>"; };
@@ -334,7 +333,7 @@
 		960A591D2A6FA81F000BE611 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				96BB00E42A82770100073134 /* Coordinator */,
+				962472FF2A98602D00A6135E /* Controller */,
 				960A591E2A6FA823000BE611 /* Components */,
 			);
 			path = Presentation;
@@ -354,6 +353,7 @@
 			children = (
 				96F2AAF22A9333D50058BB0C /* GIFImage */,
 				96A6469F2A8FB65900642698 /* Color */,
+				96BB00E42A82770100073134 /* Coordinator */,
 				960A591D2A6FA81F000BE611 /* Presentation */,
 				96AACDF72A6FEDC200534E72 /* Navigation */,
 				960A55172A71468100F8E9FC /* PlayStopVibrationAudioInSmartphone */,
@@ -629,6 +629,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		962472FF2A98602D00A6135E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				962472EB2A97D4BA00A6135E /* Controller.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		96611DF52A76BF99004B5984 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,7 +855,6 @@
 			children = (
 				96BB00E72A82777500073134 /* NavigationRoute.swift */,
 				96BB00E52A82770800073134 /* Coordinator.swift */,
-				962472EB2A97D4BA00A6135E /* Controller.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -898,8 +905,8 @@
 		96F0F29D2A75AB3F00675133 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				962472FE2A985F7600A6135E /* MRT Jakarta Navigation Use Cases-Design Pattern.drawio.svg */,
 				96E247322A790F5400664689 /* DepartureArrivalComponent.svg */,
-				962472F72A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg */,
 				96F2AAED2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg */,
 				960A55282A724EBB00F8E9FC /* MRT Jakarta Navigation Use Cases.drawio.png */,
 				96050ED02A73C4B00011DE7E /* Arrival-iteration2.svg */,
@@ -1038,7 +1045,6 @@
 				960A59102A6ED706000BE611 /* Localizable.strings in Resources */,
 				9691D44E2A6D77E900EE843C /* Assets.xcassets in Resources */,
 				96F2AB002A9475A70058BB0C /* ArrivedAtDestination.gif in Resources */,
-				962472F82A97E83300A6135E /* MRT Jakarta Navigation Use Cases-Clean Architecture Programming.drawio.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

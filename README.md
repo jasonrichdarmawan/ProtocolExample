@@ -1004,11 +1004,11 @@ Then, you can write another use case to do `if Bluetooth is not available, use G
 
 Clean Architecture Programming enables you to focus on 1 specific activity in a file.
 
-![Clean Architecture Programming](assets/MRT%20Jakarta%20Navigation%20Use%20Cases-Clean%20Architecture%20Programming.drawio.svg)
+![Clean Architecture Programming](assets/MRT%20Jakarta%20Navigation%20Use%20Cases-Design%20Pattern.drawio.svg)
 
 1. Code is split into 5 layers: the Coordinator layer, the Presentation layer, the Domain layer, the Data layer and the Core layer.
 
-2. The Coordinator layer is used to 1) store variables such as ViewController and ViewModel 2) navigate between pages.
+2. The Coordinator layer is used to navigate between pages.
 
     * The Core layer
 
@@ -1082,34 +1082,35 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
         </details>
 
     * The Coordinator layer
-    
-        <details>
-        <summary>RootRoute.swift</summary>
 
+        <details>
+        <summary>MRTNavigationRoute.swift</summary>
         ```swift
-        enum RootRoute: NavigationRoute {
-            case Root
-            case Alarm
+        enum MRTNavigationRoute: NavigationRoute {
             case DepartureArrivalPage
+            case DepartureArrivalSheet
+            case CommutingPage
+            case CommutingSheet
         }
         ```
         </details>
 
         <details>
-        <summary>RootCoordinator.swift</summary>
+        <summary>MRTNavigationCooordinator.swift</summary>
 
         ```swift
-        final class RootCoordinator: Coordinator {
+        final class MRTNavigationCoordinator: NSObject, Coordinator {
             private let id: UUID
             
-            private unowned let navigationController: UINavigationController
+            unowned var navigationController: UINavigationController
             
-            private weak var rootVC: UIViewController?
+            private weak var departureArrivalPageC: Controller?
             
-            private weak var alarmVC: UIViewController?
-            private weak var alarmVM: (any AlarmViewModel)?
-
-            private weak var mrtNavigationC: Coordinator?
+            private weak var departureArrivalSheetC: Controller?
+            
+            private weak var commutingPageC: Controller?
+            
+            private weak var commutingSheetC: Controller?
             
             init(
                 id: UUID = UUID(),
@@ -1129,49 +1130,71 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
             }
             
             func showRoute(_ route: NavigationRoute) -> Bool {
-                if let route = route as? RootRoute {
-                    return showRootRoute(route)
+                if let route = route as? MRTNavigationRoute {
+                    return showMRTNavigationRoute(route)
                 }
                 return false
             }
-            
-            private func showRootRoute(_ route: RootRoute) -> Bool {
+        }
+
+        extension MRTNavigationCoordinator {
+            private func showMRTNavigationRoute(_ route: MRTNavigationRoute) -> Bool {
                 switch route {
-                case .Root:
-                    guard rootVC == nil else { return false }
-                    
-                    let view = RootView(coordinator: self)
-                    let viewController = HostingController(rootView: view)
-                    rootVC = viewController
-                    
-                    navigationController.pushViewController(viewController, animated: true)
-                    
-                    return true
-                case .Alarm:
-                    guard alarmVC == nil else { return false }
-                    
-                    let viewModel = AlarmViewModelImpl()
-                    alarmVM = viewModel
-                    
-                    let view = AlarmView(alarVM: viewModel)
-                    let viewController = HostingController(rootView: view)
-                    alarmVC = viewController
-                    
-                    navigationController.pushViewController(viewController, animated: true)
-                    
-                    return true
-                case .DepartureArrivalPage:
-                    guard mrtNavigationC == nil else { return false }
-                    let coordinator = MRTNavigationCoordinator(navigationController: navigationController)
-                    mrtNavigationC = coordinator
-                    return coordinator.showRoute(MRTNavigationRoute.DepartureArrivalPage)
+                case .DepartureArrivalPage: return pushDepartureArrivalPage()
+                case .DepartureArrivalSheet: return presentDepartureArrivalSheet()
+                case .CommutingPage: return pushCommutingPage()
+                case .CommutingSheet: return presentCommutingSheet()
                 }
+            }
+        }
+
+        // MARK: DepartureArrival
+        extension MRTNavigationCoordinator {
+            private func pushDepartureArrivalPage() -> Bool {
+                guard departureArrivalPageC == nil else { return false }
+                
+                let controller = DepartureArrivalPageController(coordinator: self)
+                departureArrivalPageC = controller
+                
+                return controller.loadView()
+            }
+            
+            private func presentDepartureArrivalSheet() -> Bool {
+                guard departureArrivalSheetC == nil else { return false }
+                
+                let controller = DepartureArrivalSheetController(coordinator: self)
+                departureArrivalSheetC = controller
+                
+                return controller.loadView()
+            }
+        }
+
+        // MARK: Commuting
+        extension MRTNavigationCoordinator {
+            private func pushCommutingPage() -> Bool {
+                guard commutingPageC == nil else { return false }
+                
+                let controller = CommutingPageController(coordinator: self)
+                commutingPageC = controller
+                
+                return controller.loadView()
+            }
+            
+            private func presentCommutingSheet() -> Bool {
+                guard commutingSheetC == nil else { return false }
+                
+                let controller = CommutingSheetController(coordinator: self)
+                commutingSheetC = controller
+                
+                return controller.loadView()
             }
         }
         ```
         </details>
 
 3. The Presentation layer splitted into 3 layers: the Components layer, the ViewModel layer and the Pages layer.
+
+    The Controller layer is to coordinate between ViewController and ViewModel.
 
     The Components layer is used by the Pages layer.
 
@@ -1180,6 +1203,19 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
     The Pages layer should be as simple as it can.
 
     * The Core layer
+
+        <details>
+        <summary>Controller.swift</summary>
+
+        ```swift
+        protocol Controller: AnyObject {
+            var coordinator: Coordinator? { get }
+            var viewController: UIViewController? { get }
+            
+            func loadView() -> Bool
+        }
+        ```
+        </details>
 
         <details>
         <summary>ViewControllable.swift</summary>
@@ -1197,6 +1233,124 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
         ```
         </details>
 
+    * The Controller layer
+
+        <details>
+        <summary>DepartureArrivalPageController.swift</summary>
+
+        ```swift
+        final class DepartureArrivalPageController: Controller {
+            private var id: UUID
+            
+            var coordinator: Coordinator?
+            weak var viewController: UIViewController?
+            
+            private weak var pageVM: (any DepartureArrivalPageViewModel)?
+            
+            init(id: UUID = UUID(), coordinator: Coordinator? = nil) {
+                self.id = id
+                self.coordinator = coordinator
+            }
+            
+            func loadView() -> Bool {
+                let pageVM = DepartureArrivalPageViewModelImpl(controller: self)
+                self.pageVM = pageVM
+                
+                let view = DepartureArrivalPage(pageVM: pageVM)
+                let viewController = HostingController(rootView: view)
+                self.viewController = viewController
+                
+                coordinator?.navigationController.pushViewController(viewController, animated: true)
+                return true
+            }
+        }
+        ```
+        </details>
+
+        <details>
+        <summary>DepartureArrivalSheetController.swift</summary>
+
+        ```swift
+        final class DepartureArrivalSheetController: Controller {
+            private var id: UUID
+            
+            var coordinator: Coordinator?
+            weak var viewController: UIViewController?
+            
+            private weak var sheetVM: (any DepartureArrivalSheetViewModel)?
+            private weak var selectVM: (any DepartureArrivalViewModel)?
+            private weak var scheduleVM: (any DepartureArrivalScheduleViewModel)?
+            private weak var locationVM: (any DepartureArrivalLocationViewModel)?
+            
+            init(id: UUID = UUID(), coordinator: Coordinator? = nil) {
+                self.id = id
+                self.coordinator = coordinator
+        #if DEBUG
+                print("\(type(of: self)) \(#function) \(id.uuidString)")
+        #endif
+            }
+            
+            deinit {
+        #if DEBUG
+                print("\(type(of: self)) \(#function) \(id.uuidString)")
+        #endif
+            }
+            
+            func loadView() -> Bool {
+                let sheetVM = DepartureArrivalSheetViewModelImpl(controller: self)
+                self.sheetVM = sheetVM
+                
+                let selectVM = DepartureArrivalViewModelImpl()
+                self.selectVM = selectVM
+                
+                let scheduleVM = DepartureArrivalScheduleViewModelImpl()
+                self.scheduleVM = scheduleVM
+                
+                let locationVM = DepartureArrivalLocationViewModelImpl(controller: self)
+                self.locationVM = locationVM
+                
+                let rootView = DepartureArrivalSheet(sheetVM: sheetVM, selectVM: selectVM, scheduleVM: scheduleVM, locationVM: locationVM)
+                let viewController = HostingController(rootView: rootView)
+                
+                guard let sheetController = viewController.sheetPresentationController else { return false }
+                
+                sheetController.detents = [sheetVM.selectMRTStationNotPresentedDetent, .large()]
+                sheetController.largestUndimmedDetentIdentifier = sheetVM.selectMRTStationNotPresentedDetentIdentifier
+                
+                sheetController.delegate = sheetVM
+                
+                guard let coordinator else { return false }
+                
+                coordinator.navigationController.present(viewController, animated: true)
+                
+                return true
+            }
+            
+            func nextPage() -> Bool {
+                guard let coordinator else { return false }
+                guard coordinator.dismiss(animated: true) else { return false }
+                return coordinator.showRoute(MRTNavigationRoute.CommutingPage)
+            }
+            
+            func updateDeparture(newValue: Station) -> Bool {
+                guard let viewModel = selectVM else { return false }
+                
+                viewModel.departure = newValue
+                
+                return true
+            }
+            
+            func updateSelectedDetentIdentifier(_ selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier?) {
+                if let sheetController = viewController?.sheetPresentationController {
+                    sheetController.animateChanges {
+                        sheetController.selectedDetentIdentifier = selectedDetentIdentifier
+                    }
+                }
+            }
+        }
+        ```
+        </details>
+
     * The ViewModels layer
 
         You should start with protocol because UI/UX Designer may create component iteration with different business logic.
@@ -1206,7 +1360,7 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
         ```swift
         protocol DepartureArrivalPageViewModel: ObservableObject {
-            func nextPage() -> Bool
+            func presentSheet() -> Bool
         }
         ```
         </details>
@@ -1216,10 +1370,10 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
         ```swift
         final class DepartureArrivalPageViewModelImpl: DepartureArrivalPageViewModel {
-            private var coordinator: Coordinator
+            private var controller: Controller
             
-            init(coordinator: Coordinator) {
-                self.coordinator = coordinator
+            init(controller: Controller) {
+                self.controller = controller
         #if DEBUG
                 print("\(type(of: self)) \(#function)")
         #endif
@@ -1231,8 +1385,9 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
         #endif
             }
             
-            func nextPage() -> Bool {
-                coordinator.showRoute(MRTNavigationRoute.DepartureArrivalSheet)
+            func presentSheet() -> Bool {
+                guard let coordinator = controller.coordinator else { return false }
+                return coordinator.showRoute(MRTNavigationRoute.DepartureArrivalSheet)
             }
         }
         ```
@@ -1262,15 +1417,14 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
                     
                     Spacer()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(32)
                 .background(.blue)
             }
             
-            func viewWillAppear(_ viewController: UIViewController) {
+            func viewDidAppear(_ viewController: UIViewController) {
                 viewController.navigationController?.setNavigationBarHidden(true, animated: false)
                 
-                _ = pageVM.nextPage()
+                _ = pageVM.presentSheet()
             }
         }
         ```
