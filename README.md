@@ -729,9 +729,9 @@ Engineer creates protocol for every use cases of the 1st user story.
     * BeaconFinder
 
 * BeaconBroadcaster (to simulate)
+</details>
 
 ![MRT Jakarta Navigation Use Cases](assets/MRT%20Jakarta%20Navigation%20Use%20Cases.drawio.png)
-</details>
 
 **Use Case protocol's coding style guide:**
 * use delegate pattern if you wish to return a result asynchronously.
