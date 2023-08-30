@@ -1546,6 +1546,6 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
 
 ## UIKit sheanigans
 
-1. Do not use UIKit Navigation to present SwiftUI View as a sheet.
-
-   When you change `@State` / `@Binding` / `@Published` value that affect the SwiftUI View that is presented as a sheet, the animation is from the left instead of dissolve.
+- [x] animation bug using SwiftUI View with UIKit Navigation.
+    
+    Solution: understand SwiftUI's Structural Identity.
