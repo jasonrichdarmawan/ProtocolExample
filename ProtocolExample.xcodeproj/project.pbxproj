@@ -230,6 +230,7 @@
 		96E2472E2A78E7AF00664689 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
 		96E247302A790D4400664689 /* DepartureArrivalSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureArrivalSheetViewModel.swift; sourceTree = "<group>"; };
 		96E247322A790F5400664689 /* DepartureArrivalComponent.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = DepartureArrivalComponent.svg; sourceTree = "<group>"; };
+		96ED2B322AA8645800072F50 /* ProtocolExample - iOS Foldering Structure.drawio.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ProtocolExample - iOS Foldering Structure.drawio.svg"; sourceTree = "<group>"; };
 		96F2AAD42A8FC7FC0058BB0C /* CommutingSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModel.swift; sourceTree = "<group>"; };
 		96F2AAD62A8FC80F0058BB0C /* CommutingSheetViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommutingSheetViewModelImpl.swift; sourceTree = "<group>"; };
 		96F2AAED2A922C7A0058BB0C /* MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "MRT Jakarta Navigation Use Cases-Delegate Pattern.drawio.svg"; sourceTree = "<group>"; };
@@ -913,6 +914,7 @@
 				96050ED12A73C4B00011DE7E /* Departure-iteration2.svg */,
 				96050ECE2A73BD6F0011DE7E /* Arrival.svg */,
 				96050ECF2A73BD6F0011DE7E /* Departure.svg */,
+				96ED2B322AA8645800072F50 /* ProtocolExample - iOS Foldering Structure.drawio.svg */,
 			);
 			path = assets;
 			sourceTree = "<group>";

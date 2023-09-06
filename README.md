@@ -4,8 +4,8 @@
 2. [Protocol Orineted Programming](#protocol-oriented-programming)
 3. [Use Case Oriented Programming](#use-case-oriented-programming)
 4. [Clean Architecture](#clean-architecture-programming)
-5. [Shenanigans](#shenanigans)
-6. [To Do](#to-do)
+5. [Clean Architecture - Folder Structure](#clean-architecture-programming---folder-structure)
+6. [Shenanigans](#shenanigans)
 
 # Design
 
@@ -1447,6 +1447,10 @@ Clean Architecture Programming enables you to focus on 1 specific activity in a 
     Important: the Repositories layer and the Data layer is optional if the data can be hard coded, then hard code it.
 
 6. The Core layer is used by the UseCases layer.
+
+## Clean Architecture Programming - Folder Structure
+
+![Clean Architecture Programming - Folder Structure](./assets/ProtocolExample%20-%20iOS%20Foldering%20Structure.drawio.svg)
 
 # Shenanigans
 
